@@ -54,19 +54,30 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
         }`}
       />
 
-      <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+      <div className={`border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow ${
+        event.completed
+          ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)]'
+          : 'bg-card border-border'
+      }`}>
         {/* Type badge */}
         <div className="flex items-center justify-between mb-3">
-          <span
-            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-white ${eventTypeColors[event.type]}`}
-          >
-            {eventTypeLabels[event.type]}
-            {event.recurring && (
-              <span className="ml-1.5 opacity-80">· Recurring</span>
+          <div className="flex items-center gap-2">
+            <span
+              className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-white ${eventTypeColors[event.type]}`}
+            >
+              {eventTypeLabels[event.type]}
+              {event.recurring && (
+                <span className="ml-1.5 opacity-80">· Recurring</span>
+              )}
+            </span>
+            {event.completed && (
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--event-workshop)/0.15)] text-[hsl(var(--event-workshop))]">
+                ✓ Completed
+              </span>
             )}
-          </span>
+          </div>
           <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            {event.timeframe}
+            {event.date || event.timeframe}
           </span>
         </div>
 
