@@ -13,6 +13,8 @@ export interface EventConcept {
   recurring?: boolean;
   dependsOn?: string; // id of prerequisite event
   interestCount: number;
+  completed?: boolean;
+  date?: string;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
