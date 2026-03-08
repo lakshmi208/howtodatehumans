@@ -25,6 +25,7 @@ export const eventTypeLabels: Record<EventType, string> = {
   'fireside': 'Fireside Chat',
   'coworking': 'Co-Working',
   'happy-hour': 'Happy Hour',
+  'kickoff': 'Kickoff',
 };
 
 export const eventTypeColors: Record<EventType, string> = {
