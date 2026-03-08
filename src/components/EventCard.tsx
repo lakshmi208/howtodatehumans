@@ -186,6 +186,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
             </motion.form>
           )}
         </div>
+        )}
       </div>
     </motion.div>
   );
