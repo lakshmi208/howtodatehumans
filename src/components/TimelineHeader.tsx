@@ -7,10 +7,12 @@ import {
   Flame,
   Laptop,
   Wine,
+  Rocket,
 } from 'lucide-react';
 import { EventType, eventTypeLabels } from '@/data/events';
 
 const typeIcons: Record<EventType, React.ReactNode> = {
+  'kickoff': <Rocket className="w-5 h-5" />,
   'talk': <Mic className="w-5 h-5" />,
   'workshop': <Wrench className="w-5 h-5" />,
   'event': <Calendar className="w-5 h-5" />,
@@ -18,6 +20,17 @@ const typeIcons: Record<EventType, React.ReactNode> = {
   'fireside': <Flame className="w-5 h-5" />,
   'coworking': <Laptop className="w-5 h-5" />,
   'happy-hour': <Wine className="w-5 h-5" />,
+};
+
+const typeColorClasses: Record<EventType, string> = {
+  'kickoff': 'text-[hsl(var(--event-kickoff))] bg-[hsl(var(--event-kickoff)/0.1)]',
+  'talk': 'text-[hsl(var(--event-talk))] bg-[hsl(var(--event-talk)/0.1)]',
+  'workshop': 'text-[hsl(var(--event-workshop))] bg-[hsl(var(--event-workshop)/0.1)]',
+  'event': 'text-[hsl(var(--event-event))] bg-[hsl(var(--event-event)/0.1)]',
+  'focus-group': 'text-[hsl(var(--event-focus-group))] bg-[hsl(var(--event-focus-group)/0.1)]',
+  'fireside': 'text-[hsl(var(--event-fireside))] bg-[hsl(var(--event-fireside)/0.1)]',
+  'coworking': 'text-[hsl(var(--event-coworking))] bg-[hsl(var(--event-coworking)/0.1)]',
+  'happy-hour': 'text-[hsl(var(--event-happy-hour))] bg-[hsl(var(--event-happy-hour)/0.1)]',
 };
 
 const typeColorClasses: Record<EventType, string> = {
