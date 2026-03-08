@@ -125,9 +125,10 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
         </button>
 
         {/* Interest + CTA */}
+        {!event.completed && (
         <div className="flex items-center justify-between border-t border-border pt-4">
           <div className="flex items-center gap-3">
-            {showInterest && (
+            {showInterest && !event.completed && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
