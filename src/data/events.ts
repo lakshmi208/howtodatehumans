@@ -1,4 +1,4 @@
-export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'coworking' | 'happy-hour';
+export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'coworking' | 'happy-hour' | 'kickoff';
 
 export interface EventConcept {
   id: string;
