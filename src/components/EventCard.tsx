@@ -38,7 +38,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       transition={{ duration: 0.5, delay: 0.1 }}
       className={`relative w-full md:w-[calc(50%-2rem)] ${
         side === 'left' ? 'md:mr-auto' : 'md:ml-auto'
-      }`}
+      } ${event.completed ? 'opacity-90' : ''}`}
     >
       {/* Connector dot on timeline */}
       <div
