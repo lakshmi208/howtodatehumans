@@ -1,4 +1,4 @@
-export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'coworking' | 'happy-hour';
+export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'coworking' | 'happy-hour' | 'kickoff';
 
 export interface EventConcept {
   id: string;
@@ -13,6 +13,8 @@ export interface EventConcept {
   recurring?: boolean;
   dependsOn?: string; // id of prerequisite event
   interestCount: number;
+  completed?: boolean;
+  date?: string;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
@@ -23,6 +25,7 @@ export const eventTypeLabels: Record<EventType, string> = {
   'fireside': 'Fireside Chat',
   'coworking': 'Co-Working',
   'happy-hour': 'Happy Hour',
+  'kickoff': 'Kickoff',
 };
 
 export const eventTypeColors: Record<EventType, string> = {
@@ -33,9 +36,24 @@ export const eventTypeColors: Record<EventType, string> = {
   'fireside': 'bg-[hsl(var(--event-fireside))]',
   'coworking': 'bg-[hsl(var(--event-coworking))]',
   'happy-hour': 'bg-[hsl(var(--event-happy-hour))]',
+  'kickoff': 'bg-[hsl(var(--event-kickoff))]',
 };
 
 export const events: EventConcept[] = [
+  {
+    id: 'kickoff-presentation',
+    title: 'The Kickoff: How to Date Humans',
+    type: 'kickoff',
+    tagline: 'Where it all began',
+    problem: 'Dating culture in Chicago — and everywhere — is broken, but nobody is doing anything about it.',
+    solution: 'A presentation that laid out the vision, the research, and the year-long plan to change dating culture in Chicago.',
+    description: 'On February 19th, 2026, the How to Date Humans project officially launched with a presentation that asked one question: what if we stopped accepting that dating has to feel this bad? This kickoff outlined the full year of labs, workshops, talks, and events ahead.',
+    timeframe: 'Feb 19, 2026',
+    month: 2,
+    date: 'February 19, 2026',
+    completed: true,
+    interestCount: 0,
+  },
   {
     id: 'humans-happy-hour',
     title: 'Humans Happy Hour',
