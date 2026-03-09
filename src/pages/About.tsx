@@ -93,21 +93,21 @@ const About = () => {
          <motion.div {...fadeUp} className="space-y-6">
            <h2 className="text-2xl md:text-3xl font-bold">Why this moment</h2>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             This is not a dating tips seminar. Not a speed dating event. Not an eye-gazing workshop or a guide to reading whether someone likes you. Those approaches treat dating as a series of techniques you can optimize. But the real problem is deeper: we've lost our ability to really dial into people. To listen. To notice. To sit with someone and let connection build slowly.
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              This is not a dating tips seminar. Not a speed dating event. Not an eye-gazing workshop or a guide to reading whether someone likes you. Those approaches treat dating as a series of techniques you can optimize. But the real problem is deeper: we've lost the ability to get a clear read on who someone actually is before we have to decide whether we're interested. That used to happen naturally. Now it doesn't.
+            </p>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             The work How to Date Humans tackles is multi-dimensional. It's not one problem — it's cultural (how we've been taught to think about dating), technical (how platforms have reshaped our choices), structural (the places where we used to meet no longer exist). Some of these factors are in our control. Some aren't. But if we don't understand the full picture, it's easy to blame each other instead of asking: what actually shifted?
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              The work How to Date Humans tackles is multi-dimensional. It's not one problem — it's cultural (how we've been taught to think about dating), technical (how platforms have reshaped our choices), structural (the places where we used to meet no longer exist). Some of these factors are in our control. Some aren't. But if we don't understand the full picture, we end up blaming each other — or ourselves — instead of asking: what actually shifted?
+            </p>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             We're at a critical point. More people are turning to AI for their relational and emotional needs. And that matters because romantic love — real human connection — is one of the core features of being human. It's not about putting relationships on a pedestal. It's about holding onto a world where we believe we <em>will</em> run into people. Where we can get to know them in a way that makes us feel really connected and valued. Where that kind of intimacy still seems possible.
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              We're at a critical point. More people are turning to AI for their relational and emotional needs. And that matters because romantic love — real human connection — is one of the core features of being human. It's not about putting relationships on a pedestal. It's about holding onto a world where we believe we <em>will</em> run into people and get to know them well enough that connection actually means something. Where the decision to pursue someone is based on who they are, not a 3-second swipe.
+            </p>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             This project is about making sure we don't give up on that world.
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              This project is about making sure that world doesn't disappear.
+            </p>
          </motion.div>
        </section>
 
