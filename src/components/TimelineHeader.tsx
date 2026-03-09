@@ -5,7 +5,6 @@ import {
   Calendar,
   Search,
   Flame,
-  Laptop,
   Wine,
   Rocket,
 } from 'lucide-react';
