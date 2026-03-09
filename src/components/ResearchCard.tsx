@@ -85,7 +85,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             variant="default"
           >
             <MessageCircle className="w-3.5 h-3.5" />
-            I wanna talk about my experience
+            I'll chat with you
           </Button>
           <Button
             size="sm"
