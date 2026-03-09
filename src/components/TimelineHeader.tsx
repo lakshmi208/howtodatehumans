@@ -51,8 +51,8 @@ const TimelineHeader = () => {
           How to Date Humans
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-          Dating culture is broken. We're fixing it — one lab, one workshop, one conversation at a time. 
-          This is our year-long roadmap.
+          Dating culture didn't break overnight — and it won't heal overnight either. 
+          This is a year-long effort to understand what happened, reclaim what we lost, and build what comes next.
         </p>
         <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-10">
           Each concept below is a piece of the puzzle. Show your interest to help us bring it to life 

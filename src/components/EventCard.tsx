@@ -60,6 +60,11 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                 ✓ Completed
               </span>
             )}
+            {event.singlesOnly && (
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--primary)/0.12)] text-[hsl(var(--primary))]">
+                Singles Only
+              </span>
+            )}
           </div>
           <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             {event.date || event.timeframe}
