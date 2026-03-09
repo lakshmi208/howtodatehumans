@@ -23,7 +23,7 @@ const ResearchSection = ({ showInterest }: ResearchSectionProps) => {
         </p>
       </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2">
         {researchAreas.map((area, index) => (
           <ResearchCard
             key={area.id}
