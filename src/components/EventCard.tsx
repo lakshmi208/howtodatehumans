@@ -72,16 +72,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold mb-1 leading-tight">
-          {event.title.split(':').map((part, i) => (
-            <span key={i}>
-              {part}
-              {i < event.title.split(':').length - 1 && (
-                <span className="text-[hsl(var(--orange-glow))]">:</span>
-              )}
-            </span>
-          ))}
-        </h3>
+        <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
         <p className="text-sm font-medium text-[hsl(var(--primary))] italic mb-3">
           {event.tagline}
         </p>
