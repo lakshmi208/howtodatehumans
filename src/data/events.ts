@@ -34,7 +34,6 @@ export const eventTypeColors: Record<EventType, string> = {
   'event': 'bg-[hsl(var(--event-event))]',
   'focus-group': 'bg-[hsl(var(--event-focus-group))]',
   'fireside': 'bg-[hsl(var(--event-fireside))]',
-  'coworking': 'bg-[hsl(var(--event-coworking))]',
   'happy-hour': 'bg-[hsl(var(--event-happy-hour))]',
   'kickoff': 'bg-[hsl(var(--event-kickoff))]',
 };
