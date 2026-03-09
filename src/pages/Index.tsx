@@ -57,69 +57,77 @@ const Index = () => {
         </motion.div>
       </div>
 
-      {/* Timeline */}
-      <div className="relative max-w-5xl mx-auto px-4 pb-20">
-        {/* Central timeline line */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-[hsl(var(--timeline-line))] -translate-x-1/2" />
+      {/* Horizontal Timeline */}
+      <div className="relative pb-20">
+        {/* Horizontal timeline line */}
+        <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
 
-        <div className="space-y-8 md:space-y-12">
-          {sortedEvents.map((event, index) => {
-            const showMonth = event.month !== lastMonth;
-            lastMonth = event.month;
-            const side = index % 2 === 0 ? 'left' : 'right';
-            const dependsOnEvent = event.dependsOn
-              ? events.find((e) => e.id === event.dependsOn)
-              : null;
+        <div className="overflow-x-auto scrollbar-thin pb-6">
+          <div className="flex gap-6 px-6 md:px-12 pt-14 min-w-max">
+            {sortedEvents.map((event, index) => {
+              const showMonth = event.month !== lastMonth;
+              lastMonth = event.month;
+              const dependsOnEvent = event.dependsOn
+                ? events.find((e) => e.id === event.dependsOn)
+                : null;
 
-            return (
-              <div key={event.id}>
-                {/* Month marker */}
-                {showMonth && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="flex justify-center mb-6"
-                  >
-                    <div className="relative z-10 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-1.5 rounded-full text-sm font-bold tracking-wider">
-                      {months[event.month - 1]} 2026
+              return (
+                <div key={event.id} className="flex-shrink-0 flex flex-col items-center">
+                  {/* Month marker above the timeline line */}
+                  {showMonth && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      className="absolute top-0"
+                    >
+                      <div className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-1 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">
+                        {months[event.month - 1]} 2026
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Dependency label */}
+                  {dependsOnEvent && (
+                    <div className="text-[10px] text-muted-foreground mb-1 italic whitespace-nowrap">
+                      ← Follows: {dependsOnEvent.title.slice(0, 25)}…
                     </div>
-                  </motion.div>
-                )}
+                  )}
 
-                {/* Dependency arrow */}
-                {dependsOnEvent && (
-                  <DependencyArrow
-                    fromTitle={dependsOnEvent.title}
-                    toTitle={event.title}
+                  <EventCard
+                    event={event}
+                    showInterest={showInterest}
+                    index={index}
+                    side="left"
                   />
-                )}
+                </div>
+              );
+            })}
 
-                <EventCard
-                  event={event}
-                  showInterest={showInterest}
-                  index={index}
-                  side={side}
-                />
-              </div>
-            );
-          })}
+            {/* Timeline end card */}
+            <div className="flex-shrink-0 flex items-start pt-2">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-card border-2 border-[hsl(var(--primary))] px-6 py-4 rounded-xl text-center w-72">
+                  <p className="text-lg font-bold mb-1">This is just the beginning.</p>
+                  <p className="text-sm text-muted-foreground">
+                    12 months. 7 formats. 1 goal: better human connection.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
 
-        {/* Timeline end */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mt-12"
-        >
-          <div className="bg-card border-2 border-[hsl(var(--primary))] px-8 py-4 rounded-xl text-center">
-            <p className="text-xl font-bold mb-1">This is just the beginning.</p>
-            <p className="text-sm text-muted-foreground">
-              12 months. 7 formats. 1 goal: better human connection.
-            </p>
-          </div>
-        </motion.div>
+        {/* Scroll hint */}
+        <div className="flex justify-center mt-4">
+          <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+            <span>←</span> Scroll to explore the full timeline <span>→</span>
+          </p>
+        </div>
       </div>
 
       <PartnerCTA />

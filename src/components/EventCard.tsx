@@ -32,27 +32,12 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: side === 'left' ? -40 : 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-      className={`relative w-full md:w-[calc(50%-2rem)] ${
-        side === 'left' ? 'md:mr-auto' : 'md:ml-auto'
-      } ${event.completed ? 'opacity-90' : ''}`}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
+      className={`relative w-80 flex-shrink-0 ${event.completed ? 'opacity-90' : ''}`}
     >
-      {/* Connector dot on timeline */}
-      <div
-        className={`hidden md:block absolute top-8 w-4 h-4 rounded-full border-[3px] border-[hsl(var(--primary))] bg-background z-10 ${
-          side === 'left' ? '-right-[2.5rem]' : '-left-[2.5rem]'
-        }`}
-      />
-
-      {/* Connector line to timeline */}
-      <div
-        className={`hidden md:block absolute top-[1.05rem] h-[3px] w-8 bg-[hsl(var(--timeline-line))] ${
-          side === 'left' ? '-right-8' : '-left-8'
-        }`}
-      />
 
       <div className={`border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow ${
         event.completed
