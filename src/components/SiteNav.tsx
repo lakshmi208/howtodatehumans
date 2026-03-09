@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import NavLink from '@/components/NavLink';
 
 const SiteNav = () => {
   const location = useLocation();
