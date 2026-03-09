@@ -5,7 +5,6 @@ import {
   Calendar,
   Search,
   Flame,
-  Laptop,
   Wine,
   Rocket,
 } from 'lucide-react';
@@ -18,7 +17,6 @@ const typeIcons: Record<EventType, React.ReactNode> = {
   'event': <Calendar className="w-5 h-5" />,
   'focus-group': <Search className="w-5 h-5" />,
   'fireside': <Flame className="w-5 h-5" />,
-  'coworking': <Laptop className="w-5 h-5" />,
   'happy-hour': <Wine className="w-5 h-5" />,
 };
 
@@ -29,7 +27,6 @@ const typeColorClasses: Record<EventType, string> = {
   'event': 'text-[hsl(var(--event-event))] bg-[hsl(var(--event-event)/0.1)]',
   'focus-group': 'text-[hsl(var(--event-focus-group))] bg-[hsl(var(--event-focus-group)/0.1)]',
   'fireside': 'text-[hsl(var(--event-fireside))] bg-[hsl(var(--event-fireside)/0.1)]',
-  'coworking': 'text-[hsl(var(--event-coworking))] bg-[hsl(var(--event-coworking)/0.1)]',
   'happy-hour': 'text-[hsl(var(--event-happy-hour))] bg-[hsl(var(--event-happy-hour)/0.1)]',
 };
 

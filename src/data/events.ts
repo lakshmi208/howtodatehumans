@@ -1,4 +1,4 @@
-export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'coworking' | 'happy-hour' | 'kickoff';
+export type EventType = 'talk' | 'workshop' | 'event' | 'focus-group' | 'fireside' | 'happy-hour' | 'kickoff';
 
 export interface EventConcept {
   id: string;
@@ -24,7 +24,6 @@ export const eventTypeLabels: Record<EventType, string> = {
   'event': 'Event',
   'focus-group': 'Focus Group',
   'fireside': 'Fireside Chat',
-  'coworking': 'Co-Working',
   'happy-hour': 'Happy Hour',
   'kickoff': 'Kickoff',
 };
@@ -35,7 +34,6 @@ export const eventTypeColors: Record<EventType, string> = {
   'event': 'bg-[hsl(var(--event-event))]',
   'focus-group': 'bg-[hsl(var(--event-focus-group))]',
   'fireside': 'bg-[hsl(var(--event-fireside))]',
-  'coworking': 'bg-[hsl(var(--event-coworking))]',
   'happy-hour': 'bg-[hsl(var(--event-happy-hour))]',
   'kickoff': 'bg-[hsl(var(--event-kickoff))]',
 };
@@ -121,7 +119,7 @@ export const events: EventConcept[] = [
   {
     id: 'singles-coworking',
     title: 'Side-by-Side: A Co-Working Session for Singles',
-    type: 'coworking',
+    type: 'event',
     tagline: 'Finish a project. Meet a human.',
     problem: 'Singles often feel they need to "put themselves out there" in high-pressure social settings. Meanwhile, they have projects they never finish.',
     solution: 'A 4-hour co-working session where singles work on personal projects side-by-side, with built-in breaks for organic conversation.',
@@ -129,6 +127,7 @@ export const events: EventConcept[] = [
     timeframe: 'Summer',
     month: 7,
     interestCount: 78,
+    singlesOnly: true,
   },
   {
     id: 'amazing-parent-night',
