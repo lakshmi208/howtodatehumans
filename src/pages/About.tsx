@@ -79,7 +79,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            The project unfolds in phases — starting with research and recalibration through salons, talks, and workshops that help people understand what shifted. Later phases introduce reimagined singles events — but the idea is that by then, participants have already started resetting how they think about connection.
+            The project unfolds in phases, starting with research and recalibration through salons, talks, and workshops that help people understand what shifted. Later phases introduce reimagined singles events, but the idea is that by then, participants have already started resetting how they think about connection.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
