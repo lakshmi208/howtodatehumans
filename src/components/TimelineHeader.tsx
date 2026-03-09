@@ -45,7 +45,7 @@ const TimelineHeader = () => {
           A One-Year Mission to Change Dating Culture in Chicago
         </p>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]">
-          How to Date Humans
+          How to Date <span className="text-[hsl(var(--primary))]">Humans</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
           Dating culture didn't break overnight — and it won't heal overnight either. 
