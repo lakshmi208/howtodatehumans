@@ -28,7 +28,6 @@ const typeColorClasses: Record<EventType, string> = {
   'event': 'text-[hsl(var(--event-event))] bg-[hsl(var(--event-event)/0.1)]',
   'focus-group': 'text-[hsl(var(--event-focus-group))] bg-[hsl(var(--event-focus-group)/0.1)]',
   'fireside': 'text-[hsl(var(--event-fireside))] bg-[hsl(var(--event-fireside)/0.1)]',
-  'coworking': 'text-[hsl(var(--event-coworking))] bg-[hsl(var(--event-coworking)/0.1)]',
   'happy-hour': 'text-[hsl(var(--event-happy-hour))] bg-[hsl(var(--event-happy-hour)/0.1)]',
 };
 
