@@ -162,21 +162,21 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">Why Chicago</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Dating executives used to joke that the apps "turned every city into New York": the pace, the paradox of choice, the disposability. And they weren't wrong. The swiping culture that was built for Manhattan's density got exported everywhere, flattening the way people meet in cities that never operated that way.
+            We rate cities on everything: public transit, jobs, weather, food, art, museums, nightlife. But what about the best city to <em>date</em>? What would that even look like? Because the cities with the best restaurants and the most interesting culture aren't always the best cities to meet someone. Density of people doesn't ensure proximity to connection.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Chicago resisted longer than most. This is a city of 77 neighborhoods where people still know their bartender, have a regular spot, and actually <em>live</em> where they live. Chicago's{' '}
-            <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span>. From Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been erased here the way they have on the coasts.
+            Chicago is a city of 77 neighborhoods where people still know their bartender, have a regular spot, and actually <em>live</em> where they live. Its{' '}
+            <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span>. From Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been erased here the way they have on the coasts. The raw ingredients for a great dating city are already here.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
             But the cracks are showing. In 2024, Chicago was{' '}
-            <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. The Chicago Sun-Times, WBEZ, and Northwestern's Medill school have all reported on the wave of swiping fatigue hitting the city, and the grassroots IRL meetups springing up in response. Chicagoans aren't just tired of apps. They're already looking for what comes next.
+            <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. The same app-driven behaviors — disposability, over-optimization, snap judgments on thin information — have colonized how people treat each other here too. The infrastructure for connection exists. The culture around it is what broke.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            That's what makes Chicago the right place. New York and LA <em>defined</em> modern dating culture. Chicago is where we can <em>redefine</em> it, because the neighborhood fabric, the community identity, and the stubborn Midwestern insistence on showing up for each other still exist here.
+            So what would make Chicago a great city for dating? Maybe a good start is getting a whole bunch of people — single and non-single alike — on the same page about what happened and driving a collective solution for how to move forward. Not a singles event. A city-wide recalibration.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed font-semibold text-[hsl(var(--primary))]">
