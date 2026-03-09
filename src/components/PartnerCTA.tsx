@@ -25,7 +25,12 @@ const PartnerCTA = () => {
           story or building something that touches it, we should talk.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="flex flex-col items-center gap-2 p-5 rounded-xl bg-card border border-border">
+            <MapPin className="w-6 h-6 text-[hsl(var(--primary))]" />
+            <h3 className="font-bold text-sm">Venues & Spaces</h3>
+            <p className="text-xs text-muted-foreground">You have a room where real things happen. We'll fill it with people who actually want to be there.</p>
+          </div>
           <div className="flex flex-col items-center gap-2 p-5 rounded-xl bg-card border border-border">
             <Building2 className="w-6 h-6 text-[hsl(var(--primary))]" />
             <h3 className="font-bold text-sm">Brands</h3>
