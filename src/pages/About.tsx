@@ -102,7 +102,7 @@ const About = () => {
             </p>
 
             <p className="text-base md:text-lg leading-relaxed">
-              We're at a critical point. More people are turning to AI for their relational and emotional needs. And that matters because romantic love — real human connection — is one of the core features of being human. It's not about putting relationships on a pedestal. It's about holding onto a world where we believe we <em>will</em> run into people and get to know them well enough that connection actually means something. Where the decision to pursue someone is based on who they are, not a 3-second swipe.
+              We're at a critical point. More people are turning to AI for their relational and emotional needs. And that matters because romantic love, real human connection, is one of the core features of being human. It's not about putting relationships on a pedestal. It's about holding onto a world where we believe we <em>will</em> run into people and get to know them well enough that connection actually means something. Where the decision to pursue someone is based on who they are, not a 3-second swipe.
             </p>
 
             <p className="text-base md:text-lg leading-relaxed">
