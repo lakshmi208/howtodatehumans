@@ -23,7 +23,7 @@ const About = () => {
             Why This. Why Now. Why Chicago.
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
-            Dating is the art of getting to know others — and we're losing it.
+            Dating is the art of getting to know others. And we're losing it.
           </h1>
           <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground">
             Not just on apps. In workplaces, neighborhoods, friendships. An entire system changed around us and nobody handed out a guide.
