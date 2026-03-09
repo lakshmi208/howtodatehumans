@@ -15,6 +15,7 @@ export interface EventConcept {
   interestCount: number;
   completed?: boolean;
   date?: string;
+  singlesOnly?: boolean;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
