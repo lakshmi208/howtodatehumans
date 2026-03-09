@@ -14,11 +14,11 @@ const SiteNav = () => {
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Wordmark matching Squarespace site */}
-        <Link to="/" className="flex items-baseline gap-0" style={{ fontFamily: "'Instrument Sans', sans-serif" }}>
-          <span className="text-[15px] font-medium uppercase tracking-tight">HOW</span>
-          <span className="text-[11px] font-normal lowercase mx-[2px]" style={{ fontFamily: "'Playfair Display', serif" }}>to</span>
-          <span className="text-[15px] font-medium uppercase tracking-tight">DATE</span>
-          <span className="text-[15px] font-medium uppercase italic text-[hsl(var(--primary))] ml-[4px] tracking-tight">HUMANS</span>
+        <Link to="/" className="flex items-baseline" style={{ fontFamily: "'Instrument Serif', serif", letterSpacing: '0.02em' }}>
+          <span className="text-lg">HOW</span>
+          <span className="text-sm italic mx-[1px]">to</span>
+          <span className="text-lg">DATE</span>
+          <span className="text-lg italic text-[hsl(var(--primary))] ml-1">HUMANS</span>
         </Link>
 
         {/* Nav links */}
