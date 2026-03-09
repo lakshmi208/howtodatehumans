@@ -36,9 +36,9 @@ const Index = () => {
           className="relative"
         >
           <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground mb-2">
-            <span>JAN 2026</span>
+            <span>FEB 2026</span>
             <span className="text-[hsl(var(--primary))]">One Year. One Mission.</span>
-            <span>DEC 2026</span>
+            <span>FEB 2027</span>
           </div>
           <div className="h-2 rounded-full bg-secondary overflow-hidden">
             <motion.div
