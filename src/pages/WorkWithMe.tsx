@@ -210,7 +210,7 @@ const WorkWithMe = () => {
             <div className="w-10 h-10 rounded-full bg-[hsl(var(--primary))] flex items-center justify-center">
               <Heart className="w-5 h-5 text-[hsl(var(--primary-foreground))]" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Dating coaching</h2>
+            <h2 className="text-2xl md:text-3xl font-bold">Midlife dating coaching</h2>
           </div>
 
           <p className="text-base md:text-lg leading-relaxed mb-2">
