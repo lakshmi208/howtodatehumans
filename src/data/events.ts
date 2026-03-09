@@ -126,7 +126,7 @@ export const events: EventConcept[] = [
     solution: 'A 4-hour co-working session where singles work on personal projects side-by-side, with built-in breaks for organic conversation.',
     description: 'Bring your laptop, your sketchbook, your business plan, your novel — whatever you\'ve been putting off. Work for focused 45-minute sprints with short social breaks. No forced icebreakers. Just humans being productive in the same room, with natural connection as a side effect.',
     timeframe: 'Summer',
-    month: 6,
+    month: 7,
     interestCount: 78,
   },
   {
