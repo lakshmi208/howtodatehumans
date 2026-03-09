@@ -130,18 +130,6 @@ export const events: EventConcept[] = [
     interestCount: 145,
   },
   {
-    id: 'divorced-dudes-focus',
-    title: 'Divorced Dudes: A Focus Group',
-    type: 'focus-group',
-    tagline: 'What men won\'t say out loud',
-    problem: 'Divorced men often suffer in silence, lacking spaces to honestly discuss what went wrong and how to approach relationships differently.',
-    solution: 'A moderated focus group creating a judgment-free zone for divorced men to share experiences and insights about love after marriage.',
-    description: 'This is research, community, and therapy rolled into one. We gather divorced men in a facilitated, confidential setting to understand their experiences — what they wish they\'d known, how they\'ve grown, and what they need from future relationships.',
-    timeframe: 'Summer',
-    month: 6,
-    interestCount: 56,
-  },
-  {
     id: 'gen-z-focus-group',
     title: 'Gen Z Dating: A Focus Group & Research Session',
     type: 'focus-group',
