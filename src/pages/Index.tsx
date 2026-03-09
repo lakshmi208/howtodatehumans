@@ -17,6 +17,14 @@ const months = [
 const Index = () => {
   const [showInterest, setShowInterest] = useState(false);
 
+  // Calculate timeline progress based on current date
+  const timelineStart = new Date(2026, 1, 1); // Feb 1, 2026
+  const timelineEnd = new Date(2027, 1, 28);  // Feb 28, 2027
+  const now = new Date();
+  const totalMs = timelineEnd.getTime() - timelineStart.getTime();
+  const elapsedMs = Math.max(0, Math.min(now.getTime() - timelineStart.getTime(), totalMs));
+  const progressPercent = `${Math.round((elapsedMs / totalMs) * 100)}%`;
+
   // Sort events by month
   const sortedEvents = [...events].sort((a, b) => a.month - b.month);
 
