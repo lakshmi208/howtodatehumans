@@ -135,10 +135,9 @@ export const events: EventConcept[] = [
     tagline: 'Hearing from the generation that grew up swiping',
     problem: 'Cross-generational misunderstanding about dating norms creates judgment instead of empathy.',
     solution: 'An intimate fireside chat where Gen Z voices share their dating realities with a mixed-age audience, building bridges of understanding.',
-    description: 'Following our focus group research, selected Gen Z participants share their stories and insights in a fireside chat format. This is about listening, not lecturing. Older generations will hear truths that challenge their assumptions.',
+    description: 'Following our research, selected Gen Z participants share their stories and insights in a fireside chat format. This is about listening, not lecturing. Older generations will hear truths that challenge their assumptions.',
     timeframe: 'Fall',
     month: 9,
-    dependsOn: 'gen-z-focus-group',
     interestCount: 83,
   },
   {

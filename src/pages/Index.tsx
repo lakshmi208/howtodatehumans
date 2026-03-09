@@ -131,6 +131,7 @@ const Index = () => {
         </div>
       </div>
 
+      <ResearchSection showInterest={showInterest} />
       <PartnerCTA />
       <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />
     </div>
