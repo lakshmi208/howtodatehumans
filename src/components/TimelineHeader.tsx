@@ -18,7 +18,6 @@ const typeIcons: Record<EventType, React.ReactNode> = {
   'event': <Calendar className="w-5 h-5" />,
   'focus-group': <Search className="w-5 h-5" />,
   'fireside': <Flame className="w-5 h-5" />,
-  'coworking': <Laptop className="w-5 h-5" />,
   'happy-hour': <Wine className="w-5 h-5" />,
 };
 
