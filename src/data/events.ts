@@ -24,7 +24,6 @@ export const eventTypeLabels: Record<EventType, string> = {
   'event': 'Event',
   'focus-group': 'Focus Group',
   'fireside': 'Fireside Chat',
-  'coworking': 'Co-Working',
   'happy-hour': 'Happy Hour',
   'kickoff': 'Kickoff',
 };
