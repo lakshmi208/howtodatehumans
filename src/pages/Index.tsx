@@ -57,10 +57,6 @@ const Index = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
             />
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
-            />
           </div>
           <div className="flex justify-between mt-1">
             {months.map((m) => (
