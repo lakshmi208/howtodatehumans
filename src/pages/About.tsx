@@ -176,7 +176,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            That's what makes Chicago the right place. New York and LA <em>defined</em> modern dating culture. Chicago is where we can <em>redefine</em> it — because the neighborhood fabric, the community identity, and the stubborn Midwestern insistence on showing up for each other still exist here.
+            That's what makes Chicago the right place. New York and LA <em>defined</em> modern dating culture. Chicago is where we can <em>redefine</em> it, because the neighborhood fabric, the community identity, and the stubborn Midwestern insistence on showing up for each other still exist here.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed font-semibold text-[hsl(var(--primary))]">
