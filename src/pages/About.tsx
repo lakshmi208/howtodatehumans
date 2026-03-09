@@ -83,7 +83,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            It's a multi-dimensional approach that tackles the problem from different angles: cultural, personal, structural. This is research, community, and live experimentation — connecting the dots for people on <em>how</em> we got here and building real tools and moments to find our way back.
+            It's a multi-dimensional approach that tackles the problem from different angles: cultural, personal, structural. This is research, community, and live experimentation, connecting the dots for people on <em>how</em> we got here and building real tools and moments to find our way back.
           </p>
         </motion.div>
       </section>
