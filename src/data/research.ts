@@ -12,33 +12,33 @@ export const researchAreas: ResearchArea[] = [
   {
     id: 'first-responder-research',
     title: 'First Responders & Dating',
-    tagline: 'The dating lives of those who protect us',
+    tagline: 'The people we trust most, trusting the least',
     description:
-      'First responders face unique relationship challenges — irregular schedules, emotional toll, trust barriers — yet rarely have space to discuss them. We want to understand how the demands of their work shape their romantic lives.',
+      'Everyone talks about the schedules. Nobody talks about what happens when your job trains you to read threat in every room and then you sit across from someone at dinner trying to be open. First responders are trained to protect. That instinct doesn\'t clock out.',
     whyItMatters:
-      'By listening to first responders, we can design events and resources that actually address what they need — not what we assume they need.',
+      'The skills that make someone great at their job can be the exact things that make dating harder. We want to understand that tradeoff from the people living it.',
     interestCount: 64,
     talkCount: 12,
   },
   {
     id: 'divorced-men-research',
     title: 'Divorced Men & Relationships',
-    tagline: "What men won't say out loud",
+    tagline: 'The debrief nobody offers',
     description:
-      'Divorced men often suffer in silence, lacking spaces to honestly discuss what went wrong and how to approach relationships differently. We want to understand their experiences — what they wish they\'d known, how they\'ve grown.',
+      'Women get the book club, the group chat, the therapist referral. Men get "you\'ll be fine" and a dating app download. Divorced men are sitting on some of the most honest, hard-won insights about relationships. Nobody\'s asking.',
     whyItMatters:
-      'Men rarely get asked about their emotional experience of divorce. This research helps us build programming that meets them where they are.',
+      'The men who\'ve been through it know things single men don\'t. That knowledge is going to waste because we don\'t build rooms where they can share it.',
     interestCount: 56,
     talkCount: 8,
   },
   {
     id: 'gen-z-research',
     title: 'Gen Z & Dating Culture',
-    tagline: 'Understanding the app-native generation',
+    tagline: 'Fluent in apps. Starving for context.',
     description:
-      "Gen Z has never known dating without apps, yet reports the highest levels of loneliness and dating dissatisfaction. We want to understand their unique challenges, hopes, and what authentic connection means to them.",
+      'Gen Z can build a profile, curate a persona, and swipe with precision. What they\'ve never had is the thing every previous generation took for granted: watching someone be themselves in a room before deciding if they\'re interested. They skipped the tutorial and went straight to the final exam.',
     whyItMatters:
-      "Gen Z didn't break dating — they inherited a broken system. Understanding their reality helps us build bridges across generations.",
+      'Gen Z didn\'t break dating. They\'re the first generation asked to do it without any of the original infrastructure. That\'s a design problem, not a character flaw.',
     interestCount: 71,
     talkCount: 15,
   },
