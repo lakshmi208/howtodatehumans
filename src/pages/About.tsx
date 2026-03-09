@@ -162,7 +162,7 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">Why Chicago</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Dating executives used to joke that the apps "turned every city into New York" — the pace, the paradox of choice, the disposability. And they weren't wrong. The swiping culture that was built for Manhattan's density got exported everywhere, flattening the way people meet in cities that never operated that way.
+            Dating executives used to joke that the apps "turned every city into New York": the pace, the paradox of choice, the disposability. And they weren't wrong. The swiping culture that was built for Manhattan's density got exported everywhere, flattening the way people meet in cities that never operated that way.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
