@@ -52,7 +52,11 @@ const Index = () => {
           <div className="h-2 rounded-full bg-secondary overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
-              whileInView={{ width: '20%' }}
+              whileInView={{ width: progressPercent }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
+            />
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
               className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
