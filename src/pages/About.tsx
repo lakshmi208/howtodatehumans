@@ -48,7 +48,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Dating culture is a cultural canary. It's where shifts in trust, risk tolerance, and human patience show up first — before they migrate into workplaces, friendships, and civic life. The loneliness epidemic, the disengagement crisis at work, the collapse of third places, the rise of AI companionship — these aren't separate problems. They share a root system, and dating is where the symptoms surfaced earliest.
+            Dating culture is a cultural canary. It's where shifts in trust, risk tolerance, and human patience show up first, before they migrate into workplaces, friendships, and civic life. The loneliness epidemic, the disengagement crisis at work, the collapse of third places, the rise of AI companionship: these aren't separate problems. They share a root system, and dating is where the symptoms surfaced earliest.
           </p>
         </motion.div>
       </section>
