@@ -191,7 +191,7 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">About Lakshmi</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            I've spent 15 years embedded in dating culture — researching, designing singles events, and tracking how human connection erodes. I co-hosted{' '}
+            I've spent 15 years embedded in dating culture: researching, designing singles events, and tracking how human connection erodes. I co-hosted{' '}
             <span className="font-semibold">Land of the Giants: Dating Games</span> for Vox Media, have been quoted multiple times in the{' '}
             <span className="font-semibold">New York Times</span>, and was profiled in{' '}
             <span className="font-semibold">Vanity Fair</span>. I've appeared on The Pivot Podcast, Offline with Jon Favreau, and The Prof G Pod with Scott Galloway.
