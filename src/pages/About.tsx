@@ -136,7 +136,7 @@ const About = () => {
            </p>
 
            <p className="text-base md:text-lg leading-relaxed">
-             Now <span className="font-semibold">90% of Gen Z report frustration</span> with dating apps. People are deleting them in record numbers. But here's the trap: you can delete Tinder, but you can't delete what Tinder did to the norms around how people treat each other. The apps made evaluating and discarding people on thin information frictionless and normalized — and that reshaped the culture for <em>everyone</em>, including people who never downloaded them. Even Hinge knows it: they launched a <span className="font-semibold">$1 million fund</span> for in-person events — tacitly admitting they broke something algorithms can't fix.
+             Now <span className="font-semibold">90% of Gen Z report frustration</span> with dating apps. People are deleting them in record numbers. But here's the trap: you can delete Tinder, but you can't delete what Tinder did to the norms around how people treat each other. The apps made evaluating and discarding people on thin information frictionless and normalized, and that reshaped the culture for <em>everyone</em>, including people who never downloaded them. Even Hinge knows it: they launched a <span className="font-semibold">$1 million fund</span> for in-person events, tacitly admitting they broke something algorithms can't fix.
            </p>
          </motion.div>
        </section>
