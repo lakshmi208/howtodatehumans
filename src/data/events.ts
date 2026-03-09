@@ -119,7 +119,7 @@ export const events: EventConcept[] = [
   {
     id: 'singles-coworking',
     title: 'Side-by-Side: A Co-Working Session for Singles',
-    type: 'coworking',
+    type: 'event',
     tagline: 'Finish a project. Meet a human.',
     problem: 'Singles often feel they need to "put themselves out there" in high-pressure social settings. Meanwhile, they have projects they never finish.',
     solution: 'A 4-hour co-working session where singles work on personal projects side-by-side, with built-in breaks for organic conversation.',
@@ -127,6 +127,7 @@ export const events: EventConcept[] = [
     timeframe: 'Summer',
     month: 7,
     interestCount: 78,
+    singlesOnly: true,
   },
   {
     id: 'amazing-parent-night',
