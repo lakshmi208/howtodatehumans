@@ -17,7 +17,7 @@ const PartnerCTA = () => {
           Wanna Help?
         </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          This takes all of us.
+          This isn't a campaign. It's a cultural bet.
         </h2>
         <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
           We need all sorts of human talents to build How to Date Humans.
