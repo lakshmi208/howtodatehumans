@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Megaphone, Building2, Mail, Mic } from 'lucide-react';
+import { Megaphone, MapPin, Building2, Mail, Mic } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const PartnerCTA = () => {
