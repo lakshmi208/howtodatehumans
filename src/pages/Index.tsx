@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import SiteNav from '@/components/SiteNav';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
 import DependencyArrow from '@/components/DependencyArrow';
