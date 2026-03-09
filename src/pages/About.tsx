@@ -226,6 +226,7 @@ const About = () => {
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A firefighter turning their shift into a story someone actually wants to hear over dinner.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from Gen Xers who dated before the internet decided who was available.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing a restaurant for connection potential over star ratings.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A midlife dater realizing they can't just copy/paste dating advice that's actually meant for 20-somethings.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People developing crushes again.</span></li>
           </ul>
 
