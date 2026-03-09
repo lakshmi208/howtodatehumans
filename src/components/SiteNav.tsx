@@ -22,6 +22,12 @@ const SiteNav = () => {
           >
             About
           </Link>
+          <Link
+            to="/lakshmi"
+            className={`text-sm font-medium transition-colors ${location.pathname === '/lakshmi' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+          >
+            Lakshmi
+          </Link>
         </div>
       </div>
     </nav>
