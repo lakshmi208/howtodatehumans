@@ -63,7 +63,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            The same patterns that made dating feel transactional — filtering people like products, confining relationships to rigid containers, replacing intuition with optimization — migrated into how we work, befriend, and connect. Most people feel it but can't articulate it: we've lost a set of skills that used to come naturally, and we lost them faster than anyone realizes.
+            The same patterns that made dating feel transactional (filtering people like products, confining relationships to rigid containers, replacing intuition with optimization) migrated into how we work, befriend, and connect. Most people feel it but can't articulate it: we've lost a set of skills that used to come naturally, and we lost them faster than anyone realizes.
           </p>
         </motion.div>
       </section>
