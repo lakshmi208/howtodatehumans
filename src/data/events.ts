@@ -81,18 +81,6 @@ export const events: EventConcept[] = [
     interestCount: 89,
   },
   {
-    id: 'first-responder-workshop',
-    title: 'First Responder Focus Group & Workshop',
-    type: 'workshop',
-    tagline: 'The dating lives of those who protect us',
-    problem: 'First responders face unique relationship challenges — irregular schedules, emotional toll, trust barriers — yet rarely have space to discuss them.',
-    solution: 'A dedicated workshop creating a safe space for Chicago-area first responders to explore their dating experiences and relationship patterns.',
-    description: 'A workshop and focus group specifically for Chicago-area first responders (police, fire, EMTs, nurses). We\'ll explore how the demands of their work shape their romantic lives and what support structures might help.',
-    timeframe: 'Spring',
-    month: 3,
-    interestCount: 64,
-  },
-  {
     id: 'first-responder-stories',
     title: 'First Responder Stories Night',
     type: 'event',
