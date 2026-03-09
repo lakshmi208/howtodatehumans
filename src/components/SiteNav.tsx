@@ -14,17 +14,17 @@ const SiteNav = () => {
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Wordmark matching Squarespace site */}
-        <Link to="/" className="flex items-baseline gap-0 tracking-tight text-lg">
-          <span className="font-black uppercase" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+        <Link to="/" className="flex items-baseline gap-0 tracking-tight text-base">
+          <span className="font-semibold uppercase text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             HOW
           </span>
-          <span className="font-light lowercase italic mx-[3px] text-base" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="font-normal lowercase italic mx-[2px] text-sm" style={{ fontFamily: "'Playfair Display', serif" }}>
             to
           </span>
-          <span className="font-black uppercase" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+          <span className="font-semibold uppercase text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             DATE
           </span>
-          <span className="font-black uppercase italic text-[hsl(var(--primary))] ml-[5px]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+          <span className="font-semibold uppercase italic text-[hsl(var(--primary))] ml-[3px] text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             HUMANS
           </span>
         </Link>
