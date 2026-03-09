@@ -172,7 +172,7 @@ const About = () => {
 
           <p className="text-base md:text-lg leading-relaxed">
             But the cracks are showing. In 2024, Chicago was{' '}
-            <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. The Chicago Sun-Times, WBEZ, and Northwestern's Medill school have all reported on the wave of swiping fatigue hitting the city — and the grassroots IRL meetups springing up in response. Chicagoans aren't just tired of apps. They're already looking for what comes next.
+            <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. The Chicago Sun-Times, WBEZ, and Northwestern's Medill school have all reported on the wave of swiping fatigue hitting the city, and the grassroots IRL meetups springing up in response. Chicagoans aren't just tired of apps. They're already looking for what comes next.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
