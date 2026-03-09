@@ -34,11 +34,11 @@ export const researchAreas: ResearchArea[] = [
   {
     id: 'gen-z-research',
     title: 'Gen Z & Dating Culture',
-    tagline: 'Fluent in apps. Starving for context.',
+    tagline: 'Understanding the app-native generation',
     description:
-      'Gen Z can build a profile, curate a persona, and swipe with precision. What they\'ve never had is the thing every previous generation took for granted: watching someone be themselves in a room before deciding if they\'re interested. They skipped the tutorial and went straight to the final exam.',
+      "Gen Z has never known dating without apps, yet reports the highest levels of loneliness and dating dissatisfaction. We want to understand their unique challenges, hopes, and what authentic connection means to them.",
     whyItMatters:
-      'Gen Z didn\'t break dating. They\'re the first generation asked to do it without any of the original infrastructure. That\'s a design problem, not a character flaw.',
+      "Gen Z didn't break dating — they inherited a broken system. Understanding their reality helps us build bridges across generations.",
     interestCount: 71,
     talkCount: 15,
   },
