@@ -22,9 +22,9 @@ const PartnerCTA = () => {
         <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
           We need all sorts of human talents to build How to Date Humans.
           Photographers, venue owners, storytellers, producers, people who
-          know how to make a room feel right. If you have a skill, a space,
-          or just a strong opinion about how people should be connecting,
-          drop us a line and tell us how you want to help.
+          know how to make a room feel right. If you believe that romantic
+          hope is worth preserving for as long as possible, drop us a line
+          and tell us how you want to help.
         </p>
 
         <Button size="lg" className="gap-2 text-base px-8">
