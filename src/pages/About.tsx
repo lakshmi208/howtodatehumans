@@ -148,7 +148,7 @@ const About = () => {
             February 19, 2026 · Chapter One
           </p>
           <p className="text-base md:text-lg leading-relaxed">
-            The room at The Hoxton's Working From_ told the story even before I started talking. Long-time marriages, couples who met on apps, singles, plenty of divorcees, people on what they called a "dating sabbatical," young people determined to never use a dating app — all in the same room. And that mix is exactly the point.
+            The room at The Hoxton's Working From_ told the story even before I started talking. Long-time marriages, couples who met on apps, singles, plenty of divorcees, people on what they called a "dating sabbatical," young people determined to never use a dating app. All in the same room. And that mix is exactly the point.
           </p>
           <p className="text-base md:text-lg leading-relaxed">
             It wasn't a singles event. It was a room full of people interested, concerned, and willing to help shift dating culture together instead of just pointing at the wreckage.
