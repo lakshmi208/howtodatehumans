@@ -132,7 +132,7 @@ const About = () => {
            <h2 className="text-2xl md:text-3xl font-bold">What the apps actually did</h2>
 
            <p className="text-base md:text-lg leading-relaxed">
-             The common critique — "paradox of choice," "numbers game" — is v1 thinking. What actually happened is deeper: the apps changed people's internal wiring. Early on, they were just a doorway — you matched, you met, and normal human dynamics took over. Then the apps <span className="font-semibold">stopped being the doorway and became the room</span>. Quick judgment, disposability, infinite optionality — those behaviors leaked out and colonized dating culture itself. That's not app behavior anymore. That's how people act on a Tuesday night at a bar.
+             The common critique ("paradox of choice," "numbers game") is v1 thinking. What actually happened is deeper: the apps changed people's internal wiring. Early on, they were just a doorway. You matched, you met, and normal human dynamics took over. Then the apps <span className="font-semibold">stopped being the doorway and became the room</span>. Quick judgment, disposability, infinite optionality: those behaviors leaked out and colonized dating culture itself. That's not app behavior anymore. That's how people act on a Tuesday night at a bar.
            </p>
 
            <p className="text-base md:text-lg leading-relaxed">
