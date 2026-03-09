@@ -87,10 +87,9 @@ export const events: EventConcept[] = [
     tagline: 'Real stories from real heroes',
     problem: 'The public rarely hears the human side of first responders\' lives, creating distance and misunderstanding in relationships.',
     solution: '10 first responders share their personal stories of love, loss, and connection on stage — creating empathy and breaking stereotypes.',
-    description: 'Following our workshop, 10 selected first responders take the stage to tell their stories. This is raw, honest, and powerful storytelling about what it means to love and be loved when your job puts you on the front lines every day.',
+    description: 'Following our research, 10 selected first responders take the stage to tell their stories. This is raw, honest, and powerful storytelling about what it means to love and be loved when your job puts you on the front lines every day.',
     timeframe: 'Late Spring',
     month: 5,
-    dependsOn: 'first-responder-workshop',
     interestCount: 112,
   },
   {
