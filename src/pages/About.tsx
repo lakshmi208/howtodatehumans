@@ -98,7 +98,7 @@ const About = () => {
             </p>
 
             <p className="text-base md:text-lg leading-relaxed">
-              The work How to Date Humans tackles is multi-dimensional. It's not one problem — it's cultural (how we've been taught to think about dating), technical (how platforms have reshaped our choices), structural (the places where we used to meet no longer exist). Some of these factors are in our control. Some aren't. But if we don't understand the full picture, we end up blaming each other — or ourselves — instead of asking: what actually shifted?
+              The work How to Date Humans tackles is multi-dimensional. It's not one problem. It's cultural (how we've been taught to think about dating), technical (how platforms have reshaped our choices), and structural (the places where we used to meet no longer exist). Some of these factors are in our control. Some aren't. But if we don't understand the full picture, we end up blaming each other, or ourselves, instead of asking: what actually shifted?
             </p>
 
             <p className="text-base md:text-lg leading-relaxed">
