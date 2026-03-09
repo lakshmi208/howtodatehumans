@@ -222,7 +222,7 @@ const About = () => {
           </p>
 
           <ul className="space-y-3 text-base md:text-lg leading-relaxed pl-1">
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple showing up to the Wingman Workshop because they realize they've been terrible at setting up their single friends.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple showing up because they don't know how to set up their single friend beyond saying "they're amazing." Now they have an actual framework for when the right opportunity presents itself.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A firefighter turning their shift into a story someone actually wants to hear over dinner.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from Gen Xers who dated before the internet decided who was available.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing a restaurant for connection potential over star ratings.</span></li>
