@@ -121,7 +121,7 @@ const About = () => {
            </p>
 
            <p className="text-base md:text-lg leading-relaxed">
-             How else you might know this is for you: you suspect the dating apps didn't just play a role — they've ruined more than they've created. And you're right. But not in the way most people think.
+             How else you might know this is for you: you suspect the dating apps didn't just play a role. They've ruined more than they've created. And you're right. But not in the way most people think.
            </p>
          </motion.div>
        </section>
