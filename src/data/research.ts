@@ -16,7 +16,7 @@ export const researchAreas: ResearchArea[] = [
     description:
       'Women get the book club, the group chat, the therapist referral. Men get "you\'ll be fine" and a dating app download. Divorced dudes are sitting on some of the most honest, hard-won insights about relationships. We can all learn something from this cohort.',
     whyItMatters:
-      'The men who\'ve been through it know things single men don\'t. There\'s real wisdom here we can all benefit from.',
+      'There\'s a lot of heat on this cohort — it\'s worth hearing what they have to say.',
     interestCount: 56,
     talkCount: 8,
   },
