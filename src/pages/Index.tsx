@@ -9,8 +9,8 @@ import AdminToggle from '@/components/AdminToggle';
 import { events } from '@/data/events';
 
 const months = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+  'Feb', 'Mar', 'Apr', 'May', 'Jun',
+  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb',
 ];
 
 const Index = () => {
