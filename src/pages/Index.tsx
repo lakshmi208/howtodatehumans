@@ -6,6 +6,7 @@ import EventCard from '@/components/EventCard';
 import DependencyArrow from '@/components/DependencyArrow';
 import PartnerCTA from '@/components/PartnerCTA';
 import AdminToggle from '@/components/AdminToggle';
+import ResearchSection from '@/components/ResearchSection';
 import { events } from '@/data/events';
 
 const months = [
@@ -130,6 +131,7 @@ const Index = () => {
         </div>
       </div>
 
+      <ResearchSection showInterest={showInterest} />
       <PartnerCTA />
       <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />
     </div>
