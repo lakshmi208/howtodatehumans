@@ -130,18 +130,6 @@ export const events: EventConcept[] = [
     interestCount: 145,
   },
   {
-    id: 'gen-z-focus-group',
-    title: 'Gen Z Dating: A Focus Group & Research Session',
-    type: 'focus-group',
-    tagline: 'Understanding the app-native generation',
-    problem: 'Gen Z has never known dating without apps, yet reports the highest levels of loneliness and dating dissatisfaction.',
-    solution: 'A structured research focus group to understand Gen Z\'s unique dating challenges, hopes, and what they wish older generations understood.',
-    description: 'Gen Z didn\'t break dating — they inherited a broken system. This focus group brings together 18-28 year olds to explore their relationship with dating apps, social media\'s impact on romance, and what authentic connection means to them.',
-    timeframe: 'Fall',
-    month: 8,
-    interestCount: 71,
-  },
-  {
     id: 'gen-z-fireside',
     title: 'Gen Z Dating: A Fireside Chat',
     type: 'fireside',
