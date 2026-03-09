@@ -59,7 +59,7 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">The turning point</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            There's a moment in the How to Date Humans presentation where I focus on 2010: that liminal space when smartphones were in our pockets but dating apps hadn't entered the fray yet. You can feel the room shift when people realize how recently everything changed — and how much has been lost in a short window.
+            There's a moment in the How to Date Humans presentation where I focus on 2010: that liminal space when smartphones were in our pockets but dating apps hadn't entered the fray yet. You can feel the room shift when people realize how recently everything changed, and how much has been lost in a short window.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
