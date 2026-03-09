@@ -25,7 +25,7 @@ export const researchAreas: ResearchArea[] = [
     title: 'Gen Z & Dating Culture',
     tagline: 'Understanding the app-native generation',
     description:
-      "Gen Z has never known dating without apps, yet reports dating dissatisfaction. We want to understand their unique challenges, hopes, and what authentic connection means to them.",
+      "Does this generation want to experience romance or something else? How is their journey and experience of what romance is—and what role it serves in the human experience—different from previous generations? Could they be the key to restoring it?",
     whyItMatters:
       "Gen Z didn't break dating — they inherited a broken system. Understanding their reality helps us build bridges across generations.",
     interestCount: 71,
