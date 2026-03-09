@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import NavLink from './NavLink';
 
 const SiteNav = () => {
   const location = useLocation();
@@ -11,12 +10,18 @@ const SiteNav = () => {
           How to Date Humans
         </Link>
         <div className="flex items-center gap-6">
-          <NavLink to="/" active={location.pathname === '/'}>
+          <Link
+            to="/"
+            className={`text-sm font-medium transition-colors ${location.pathname === '/' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+          >
             Timeline
-          </NavLink>
-          <NavLink to="/about" active={location.pathname === '/about'}>
+          </Link>
+          <Link
+            to="/about"
+            className={`text-sm font-medium transition-colors ${location.pathname === '/about' ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+          >
             About
-          </NavLink>
+          </Link>
         </div>
       </div>
     </nav>
