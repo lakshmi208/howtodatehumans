@@ -41,7 +41,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            In 2009, I started tracking what was shifting in how people meet — and I haven't stopped since. Across 15 years of research, reimagining singles events, a{' '}
+            In 2009, I started tracking what was shifting in how people meet, and I haven't stopped since. Across 15 years of research, reimagining singles events, a{' '}
             <span className="font-semibold">Vox Media podcast</span>, unpacking the lives of modern midlife daters, and work inside companies like{' '}
             <span className="font-semibold">Match.com</span> and{' '}
             <span className="font-semibold">WeWork</span>, I've been committed to the same thing: keeping the humanity in dating, even as everything around it was pulling in the other direction.
