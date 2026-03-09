@@ -234,7 +234,7 @@ const About = () => {
           </p>
 
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
-            But yea, we'll take a survey. And a headline like "Chicago is the best city to date in — here's why" would be pretty awesome.
+            But yea, we'll take a survey. And a headline like "Chicago became the best city to date in — here's why and here's how they did it" would be pretty awesome.
           </p>
         </motion.div>
       </section>
