@@ -42,4 +42,15 @@ export const researchAreas: ResearchArea[] = [
     interestCount: 0,
     talkCount: 0,
   },
+  {
+    id: 'ai-dating-research',
+    title: 'AI & Dating',
+    tagline: 'Will we outsource intimacy or deepen it?',
+    description:
+      'AI already knows what we need to hear and feel. The question isn\'t whether we\'ll turn to it — we\'re already reaching for it. The real question is whether AI becomes a substitute for human connection or a mirror that teaches us how to be better at it. We need a pause. And then an honest answer.',
+    whyItMatters:
+      'AI won\'t replace dating — but it could replace the risk that makes dating matter. Before that happens, we need to understand what\'s at stake: connection that costs something, conversations that surprise us, humans who don\'t know exactly what to say.',
+    interestCount: 0,
+    talkCount: 0,
+  },
 ];
