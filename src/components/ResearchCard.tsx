@@ -94,7 +94,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             variant="outline"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            I'm interested in this topic
+            Yes, please explore this!
           </Button>
         </div>
       ) : (
