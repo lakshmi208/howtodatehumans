@@ -11,12 +11,12 @@ export interface ResearchArea {
 export const researchAreas: ResearchArea[] = [
   {
     id: 'divorced-men-research',
-    title: 'Divorced Men & Relationships',
+    title: 'Divorced Dudes & Relationships',
     tagline: 'The debrief nobody offers',
     description:
-      'Women get the book club, the group chat, the therapist referral. Men get "you\'ll be fine" and a dating app download. Divorced men are sitting on some of the most honest, hard-won insights about relationships. Nobody\'s asking.',
+      'Women get the book club, the group chat, the therapist referral. Men get "you\'ll be fine" and a dating app download. Divorced dudes are sitting on some of the most honest, hard-won insights about relationships. We can all learn something from this cohort.',
     whyItMatters:
-      'The men who\'ve been through it know things single men don\'t. That knowledge is going to waste because we don\'t build rooms where they can share it.',
+      'The men who\'ve been through it know things single men don\'t. There\'s real wisdom here we can all benefit from.',
     interestCount: 56,
     talkCount: 8,
   },
