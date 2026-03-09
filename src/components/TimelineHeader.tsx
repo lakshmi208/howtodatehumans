@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import stackedLogo from '@/assets/logo.png';
 import {
   Mic,
   Wrench,
@@ -44,9 +45,7 @@ const TimelineHeader = () => {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[hsl(var(--primary))] mb-4">
           A One-Year Mission to Change Dating Culture in Chicago
         </p>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1]">
-          How to Date <em className="text-[hsl(var(--primary))] italic">Humans</em>
-        </h1>
+        <img src={stackedLogo} alt="How to Date Humans" className="h-24 md:h-36 lg:h-44 mx-auto mb-6" />
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
           Dating culture didn't break overnight — and it won't heal overnight either. 
           This is a year-long effort to understand what happened, reclaim what we lost, and build what comes next.
