@@ -214,28 +214,23 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">How will we know we've succeeded?</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Good question, bad framing. I get it: you want to know "how do you know it works?" How will it scale? But if those are your initial questions, you missed the point. That kind of default thinking is what got us here.
+            Good question, bad framing. "How do you know it works? How will it scale?" If those are your first questions, you missed the point. That default thinking is what got us here.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            The "success" won't be black and white. It might show up more like this:
+            Success won't be black and white. It might look more like this:
           </p>
 
           <ul className="space-y-3 text-base md:text-lg leading-relaxed pl-1">
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People having a bit more patience for each other.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>Friends having a stronger sense of how to talk about their single friends.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A first responder finally knowing how to turn their day into a story worth connecting over at dinner.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>Two single people realizing they procrastinate over the same thing and finishing their project together.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple finally realizing the privilege bestowed upon them and wanting to actually help improve dating culture.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People meeting and taking a pause to understand that the person in front of them is also the product of a life lived and influenced by a screen.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from the experiences of Gen Xers.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing restaurants with different criteria in mind: connection potential over reviews or stars.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple showing up to the Wingman Workshop because they realize they've been terrible at setting up their single friends.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A firefighter turning their shift into a story someone actually wants to hear over dinner.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from Gen Xers who dated before the internet decided who was available.</span></li>
+            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing a restaurant for connection potential over star ratings.</span></li>
             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People developing crushes again.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing when to use tech and when to push it away.</span></li>
           </ul>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Success will be manifold, dynamic, and like anything related to culture, slow and then sudden.
+            Like anything related to culture: slow, and then sudden.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
