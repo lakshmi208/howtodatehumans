@@ -167,7 +167,7 @@ const About = () => {
 
           <p className="text-base md:text-lg leading-relaxed">
             Chicago resisted longer than most. This is a city of 77 neighborhoods where people still know their bartender, have a regular spot, and actually <em>live</em> where they live. Chicago's{' '}
-            <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span> — from Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been erased here the way they have on the coasts.
+            <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span>. From Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been erased here the way they have on the coasts.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
