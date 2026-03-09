@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import stackedLogo from '@/assets/logo.png';
+import stackedLogo from '@/assets/logo-horizontal.png';
 import {
   Mic,
   Wrench,
