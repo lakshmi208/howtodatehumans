@@ -111,6 +111,56 @@ const About = () => {
          </motion.div>
        </section>
 
+       {/* Who Is This For */}
+       <section className="max-w-3xl mx-auto px-6 pb-16">
+         <motion.div {...fadeUp} className="space-y-6">
+           <h2 className="text-2xl md:text-3xl font-bold">Who is this for</h2>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             This is for the person who knows this feeling — or at least believes it matters: a world where you go from <em>looking at</em> someone to actually <em>seeing</em> them. Where your opinion of someone shifts not because you're being generous or lowering your standards, but because you've actually observed something real about who they are. That used to happen at work, at summer camp, in any environment where people could unfold over time. We are losing those containers.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             How else you might know this is for you: you suspect the dating apps didn't just play a role — they've ruined more than they've created. And you're right. But not in the way most people think.
+           </p>
+         </motion.div>
+       </section>
+
+       {/* What The Apps Actually Did */}
+       <section className="max-w-3xl mx-auto px-6 pb-16">
+         <motion.div {...fadeUp} className="space-y-6">
+           <h2 className="text-2xl md:text-3xl font-bold">What the apps actually did</h2>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             The common critique — "paradox of choice," "numbers game" — is v1 thinking. What actually happened is deeper: the apps changed people's internal wiring.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             In the early period — roughly 2012 to 2017 — the apps really were just access points. You swiped, you matched, you went on a date, and from there the normal human dynamics took over. The app was a doorway. What happened on the other side still followed the social scripts people had learned from every other context: you showed up, you read body language, you navigated awkwardness in real time.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             Then the apps stopped being the doorway and <span className="font-semibold">became the room</span>. The behavioral norms that made sense inside the app — quick judgment, disposability, infinite optionality — leaked out and colonized dating culture itself. Researchers describe how "swipe culture" fosters quick, superficial judgments about others, making relationships feel more disposable. If a connection isn't immediately satisfying, there's little barrier to just moving on. That's not a description of app behavior anymore. That's a description of how people behave on a Tuesday night at a bar.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             Ghosting is maybe the clearest proof. It existed before apps, but it was considered rude — a failure of character. Now <span className="font-semibold">84% of Gen Z and Millennial daters have experienced ghosting</span>, and two-thirds admit to having ghosted others themselves. It went from social violation to social norm, and that normalization didn't stay contained to the apps. People now ghost after in-person dates, after months of seeing someone, even in friendships. The app behavior became the default behavior.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             Here's the trap: in the UK alone, 1.4 million people left dating apps between 2023 and 2024. More than <span className="font-semibold">90% of Gen Z report feeling frustrated</span> with dating apps. Interest in in-person speed dating events is up 21%. The generation that grew up with these apps is now rejecting them — but they're doing so inside a dating culture that the apps already reshaped. You can delete Tinder, but you can't delete what Tinder did to the norms around how people treat each other while dating.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             Think of it like credit cards and consumer debt. Credit cards didn't invent the impulse to spend money you don't have — but they made that behavior frictionless and normalized. Eventually it reshaped the entire culture of how Americans relate to money, not just for cardholders. Dating apps did the same thing to interpersonal commitment. They made evaluating and discarding people on thin information frictionless and normalized, and that reshaped the culture for <em>everyone</em> — including people who never downloaded the apps.
+           </p>
+
+           <p className="text-base md:text-lg leading-relaxed">
+             The harm isn't best measured at the individual level. Some people found partners; some didn't. It's best measured at the cultural level — what happened to the shared norms, expectations, and social skills that make dating functional for everyone? On that metric, the evidence is damning. Even the apps know it: <span className="font-semibold">Hinge launched a $1 million fund</span> for social groups to put on free or affordable in-person events. They're tacitly admitting that what they built broke something they can't fix with better algorithms.
+           </p>
+         </motion.div>
+       </section>
+
        {/* The Kickoff */}
        <section className="max-w-3xl mx-auto px-6 pb-16">
         <motion.div {...fadeUp} className="border-l-4 border-[hsl(var(--event-kickoff))] pl-6 space-y-4">
