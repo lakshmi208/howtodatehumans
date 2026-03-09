@@ -117,7 +117,7 @@ const About = () => {
            <h2 className="text-2xl md:text-3xl font-bold">Who is this for</h2>
 
            <p className="text-base md:text-lg leading-relaxed">
-             This is for the person who knows this feeling — or at least believes it matters: a world where you go from <em>looking at</em> someone to actually <em>seeing</em> them. Where your opinion of someone shifts not because you're being generous or lowering your standards, but because you've actually observed something real about who they are. That used to happen at work, at summer camp, in any environment where people could unfold over time. We are losing those containers.
+             This is for the person who knows this feeling, or at least believes it matters: a world where you go from <em>looking at</em> someone to actually <em>seeing</em> them. Where your opinion of someone shifts not because you're being generous or lowering your standards, but because you've actually observed something real about who they are. That used to happen at work, at summer camp, in any environment where people could unfold over time. We are losing those containers.
            </p>
 
            <p className="text-base md:text-lg leading-relaxed">
