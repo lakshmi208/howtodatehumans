@@ -74,16 +74,16 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">The project</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            <span className="font-semibold text-[hsl(var(--primary))]">How to Date Humans</span> is a year-long project (Feb 2026–2027) asking a simple question:{' '}
+            <span className="font-semibold text-[hsl(var(--primary))]">How to Date Humans</span> is a year-long project (Feb 2026–2027) asking a deceptively simple question:{' '}
             <em>what happened to dating, and what would it take to bring it back?</em>
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            The project unfolds in phases, starting with research and recalibration through salons, talks, and workshops that help people understand what shifted. Later phases introduce reimagined singles events, but the idea is that by then, participants have already started resetting how they think about connection.
+            It unfolds in phases. First: research and recalibration through salons, talks, and workshops that help people understand what actually shifted. Later: reimagined singles events. But here's the trick: by the time we get there, participants have already started resetting how they think about connection. Sneaky? Maybe. Effective? Very.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            It's a multi-dimensional approach that tackles the problem from different angles: cultural, personal, structural. This is research, community, and live experimentation, connecting the dots for people on <em>how</em> we got here and building real tools and moments to find our way back.
+            It's a multi-dimensional approach: cultural, personal, structural. Research, community, and live experimentation. We connect the dots on <em>how</em> we got here and build real tools and moments to find our way back.
           </p>
         </motion.div>
       </section>
