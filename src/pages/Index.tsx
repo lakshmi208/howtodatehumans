@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
-import DependencyArrow from '@/components/DependencyArrow';
+import EventFilter from '@/components/EventFilter';
 import PartnerCTA from '@/components/PartnerCTA';
 import AdminToggle from '@/components/AdminToggle';
 import ResearchSection from '@/components/ResearchSection';
-import { events } from '@/data/events';
+import IdeaSubmission from '@/components/IdeaSubmission';
+import PhotoGallery from '@/components/PhotoGallery';
+import { events, EventType } from '@/data/events';
 
 const months = [
   'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -16,19 +18,21 @@ const months = [
 
 const Index = () => {
   const [showInterest, setShowInterest] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<EventType | 'all'>('all');
 
   // Calculate timeline progress based on current date
-  const timelineStart = new Date(2026, 1, 1); // Feb 1, 2026
-  const timelineEnd = new Date(2027, 1, 28);  // Feb 28, 2027
+  const timelineStart = new Date(2026, 1, 1);
+  const timelineEnd = new Date(2027, 1, 28);
   const now = new Date();
   const totalMs = timelineEnd.getTime() - timelineStart.getTime();
   const elapsedMs = Math.max(0, Math.min(now.getTime() - timelineStart.getTime(), totalMs));
   const progressPercent = `${Math.round((elapsedMs / totalMs) * 100)}%`;
 
-  // Sort events by month
-  const sortedEvents = [...events].sort((a, b) => a.month - b.month);
+  // Sort and filter events
+  const sortedEvents = [...events]
+    .sort((a, b) => a.month - b.month)
+    .filter((e) => activeFilter === 'all' || e.type === activeFilter);
 
-  // Group by month for timeline markers
   let lastMonth = -1;
 
   return (
@@ -66,9 +70,11 @@ const Index = () => {
         </motion.div>
       </div>
 
+      {/* Filter */}
+      <EventFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+
       {/* Horizontal Timeline */}
       <div className="relative pb-20">
-        {/* Horizontal timeline line */}
         <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
 
         <div className="overflow-x-auto scrollbar-thin pb-6">
@@ -76,13 +82,9 @@ const Index = () => {
             {sortedEvents.map((event, index) => {
               const showMonth = event.month !== lastMonth;
               lastMonth = event.month;
-              const dependsOnEvent = event.dependsOn
-                ? events.find((e) => e.id === event.dependsOn)
-                : null;
 
               return (
                 <div key={event.id} className="flex-shrink-0 flex flex-col items-center">
-                  {/* Month marker above the timeline line */}
                   {showMonth && (
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -94,13 +96,6 @@ const Index = () => {
                         {months[event.month - 1]} 2026
                       </div>
                     </motion.div>
-                  )}
-
-                  {/* Dependency label */}
-                  {dependsOnEvent && (
-                    <div className="text-[10px] text-muted-foreground mb-1 italic whitespace-nowrap">
-                      ← Follows: {dependsOnEvent.title.slice(0, 25)}…
-                    </div>
                   )}
 
                   <EventCard
@@ -131,7 +126,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Scroll hint */}
         <div className="flex justify-center mt-4">
           <p className="text-xs text-muted-foreground flex items-center gap-1.5">
             <span>←</span> Scroll to explore the full timeline <span>→</span>
@@ -139,7 +133,9 @@ const Index = () => {
         </div>
       </div>
 
+      <PhotoGallery />
       <ResearchSection showInterest={showInterest} />
+      <IdeaSubmission />
       <PartnerCTA />
       <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />
     </div>
