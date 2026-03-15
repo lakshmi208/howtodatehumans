@@ -4,6 +4,7 @@ import { ArrowRight, Users, Mail, X, Share2, ChevronDown } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { supabase } from '@/integrations/supabase/client';
 
 interface EventCardProps {
   event: EventConcept;
