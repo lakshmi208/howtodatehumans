@@ -38,22 +38,20 @@ const WorkWithMe = () => {
   const handleSpeakerSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await supabase.functions.invoke('send-form-email', {
-        body: {
-          formType: 'speaker-inquiry',
-          subject: `Speaker Inquiry: ${speakerForm.organization || 'Unknown Org'}`,
-          fields: {
-            Name: speakerForm.name,
-            Email: speakerForm.email,
-            Organization: speakerForm.organization,
-            'Event Type': speakerForm.eventType,
-            'Tentative Date': speakerForm.date,
-            Details: speakerForm.details,
-          },
+      await supabase.from('form_submissions').insert({
+        form_type: 'speaker-inquiry',
+        subject: `Speaker Inquiry: ${speakerForm.organization || 'Unknown Org'}`,
+        fields: {
+          Name: speakerForm.name,
+          Email: speakerForm.email,
+          Organization: speakerForm.organization,
+          'Event Type': speakerForm.eventType,
+          'Tentative Date': speakerForm.date,
+          Details: speakerForm.details,
         },
       });
     } catch (err) {
-      console.error('Failed to send speaker inquiry:', err);
+      console.error('Failed to save speaker inquiry:', err);
     }
     setSpeakerState('submitted');
     setSpeakerForm({ name: '', email: '', organization: '', eventType: '', date: '', details: '' });
