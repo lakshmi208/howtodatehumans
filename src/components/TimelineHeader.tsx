@@ -7,8 +7,8 @@ import {
   Search,
   Flame,
   Wine,
-  Rocket,
-} from 'lucide-react';
+  Rocket } from
+'lucide-react';
 import { EventType, eventTypeLabels } from '@/data/events';
 
 const typeIcons: Record<EventType, React.ReactNode> = {
@@ -18,7 +18,7 @@ const typeIcons: Record<EventType, React.ReactNode> = {
   'event': <Calendar className="w-5 h-5" />,
   'focus-group': <Search className="w-5 h-5" />,
   'fireside': <Flame className="w-5 h-5" />,
-  'happy-hour': <Wine className="w-5 h-5" />,
+  'happy-hour': <Wine className="w-5 h-5" />
 };
 
 const typeColorClasses: Record<EventType, string> = {
@@ -28,7 +28,7 @@ const typeColorClasses: Record<EventType, string> = {
   'event': 'text-[hsl(var(--event-event))] bg-[hsl(var(--event-event)/0.1)]',
   'focus-group': 'text-[hsl(var(--event-focus-group))] bg-[hsl(var(--event-focus-group)/0.1)]',
   'fireside': 'text-[hsl(var(--event-fireside))] bg-[hsl(var(--event-fireside)/0.1)]',
-  'happy-hour': 'text-[hsl(var(--event-happy-hour))] bg-[hsl(var(--event-happy-hour)/0.1)]',
+  'happy-hour': 'text-[hsl(var(--event-happy-hour))] bg-[hsl(var(--event-happy-hour)/0.1)]'
 };
 
 
@@ -40,9 +40,9 @@ const TimelineHeader = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[hsl(var(--primary))] mb-4">
+        transition={{ duration: 0.6 }} className="shadow-md">
+        
+        <p className="font-semibold uppercase tracking-[0.2em] text-[hsl(var(--primary))] mb-4 text-lg">
           A One-Year Mission to Change Dating Culture in Chicago
         </p>
         <img src={stackedLogo} alt="How to Date Humans" className="h-24 md:h-36 lg:h-44 mx-auto mb-6" />
@@ -61,20 +61,20 @@ const TimelineHeader = () => {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto"
-      >
-        {types.map((type) => (
-          <div
-            key={type}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${typeColorClasses[type]}`}
-          >
+        className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        
+        {types.map((type) =>
+        <div
+          key={type}
+          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium ${typeColorClasses[type]}`}>
+          
             {typeIcons[type]}
             <span>{eventTypeLabels[type]}</span>
           </div>
-        ))}
+        )}
       </motion.div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default TimelineHeader;
