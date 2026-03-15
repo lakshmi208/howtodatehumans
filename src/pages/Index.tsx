@@ -126,10 +126,15 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-4">
-          <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-            <span>←</span> Scroll to explore the full timeline <span>→</span>
-          </p>
+        <div className="flex justify-center mt-4 px-6">
+          <div className="text-center space-y-1">
+            <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+              <span>←</span> Scroll to explore the full timeline <span>→</span>
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Click any event to see the full description
+            </p>
+          </div>
         </div>
       </div>
 

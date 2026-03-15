@@ -100,6 +100,9 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
           <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider mt-2 block">
             {event.date || event.timeframe}
           </span>
+          <span className="text-xs text-muted-foreground mt-2 block">
+            Click to see full event description
+          </span>
         </button>
 
         {/* Expanded content */}
