@@ -4,6 +4,7 @@ import { Lightbulb, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { supabase } from '@/integrations/supabase/client';
 
 const IdeaSubmission = () => {
   const [name, setName] = useState('');
