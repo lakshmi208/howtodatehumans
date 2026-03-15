@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import event1 from '@/assets/event-1.jpeg';
-import event2 from '@/assets/event-2.png';
+import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
 import event3 from '@/assets/event-3.jpeg';
+import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const photos = [
   {
@@ -10,9 +11,9 @@ const photos = [
     caption: 'Building connections in person',
   },
   {
-    src: event2,
-    alt: 'Speakers engaging with the audience',
-    caption: 'Conversations that matter',
+    src: workingFromHoxton,
+    alt: 'Working From signage at The Hoxton during the kickoff event',
+    caption: 'Kickoff hosted by Working From at The Hoxton',
   },
   {
     src: event3,
@@ -28,15 +29,28 @@ const PhotoGallery = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-8"
+        className="mb-8 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">Scenes from the Project</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          Real moments from real gatherings. This is what it looks like when people show up.
+        <h2 className="mb-3 text-3xl font-bold md:text-4xl">Scenes from the Project</h2>
+        <p className="mx-auto max-w-3xl text-muted-foreground">
+          A kickoff hosted by Working From at The Hoxton. A talk and fireside chat with founder Lakshmi Rengarajan. Singles and non-singles alike gathering to focus on how to change local dating culture rather than simply pointing at the wreckage. Food and drink supplied by local Chicagoans, of course.
         </p>
+
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <img
+            src={lakshmiPortrait}
+            alt="Lakshmi Rengarajan speaking on stage"
+            className="h-20 w-20 rounded-full object-cover object-top ring-2 ring-border"
+            loading="lazy"
+          />
+          <div className="text-left">
+            <p className="text-sm font-semibold text-foreground">Lakshmi Rengarajan</p>
+            <p className="text-sm text-muted-foreground">Founder, speaker, and host</p>
+          </div>
+        </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {photos.map((photo, i) => (
           <motion.div
             key={i}
@@ -49,10 +63,10 @@ const PhotoGallery = () => {
             <img
               src={photo.src}
               alt={photo.alt}
-              className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+              className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--foreground)/0.7)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[hsl(var(--foreground)/0.7)] to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <p className="text-sm font-medium text-[hsl(var(--background))]">{photo.caption}</p>
             </div>
           </motion.div>
