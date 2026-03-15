@@ -161,27 +161,27 @@ const About = () => {
         <motion.div {...fadeUp} className="space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold">Why Chicago</h2>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            We rate cities on everything: public transit, jobs, weather, food, art, museums, nightlife. But what about the best city to <em>date</em>? What would that even look like? Because the cities with the best restaurants and the most interesting culture aren't always the best cities to meet someone. Density of people doesn't ensure proximity to connection.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             We rate cities on everything: transit, jobs, weather, food, art, museums, nightlife. But what about the best city to <em>date</em>? What would that even look like? Because the cities with the best restaurants and the most interesting culture aren't always the best cities to meet someone. Density of people ≠ proximity to connection.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            Chicago is a city of 77 neighborhoods where people still know their bartender, have a regular spot, and actually <em>live</em> where they live. Its{' '}
-            <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span>. From Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been erased here the way they have on the coasts. The raw ingredients for a great dating city are already here.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             Chicago is a city of 77 neighborhoods where people still know their bartender, have a regular spot, and actually <em>live</em> where they live. Its{' '}
+             <span className="font-semibold">neighborhood bar culture is one-of-a-kind</span>. From Polish taverns to South Side shot-and-a-beer joints, the third places that make organic connection possible haven't been bulldozed here the way they have on the coasts. The raw ingredients for a great dating city? Already here.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            But the cracks are showing. In 2024, Chicago was{' '}
-            <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. The same app-driven behaviors — disposability, over-optimization, snap judgments on thin information — have colonized how people treat each other here too. The infrastructure for connection exists. The culture around it is what broke.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             But the cracks are showing. In 2024, Chicago was{' '}
+             <span className="font-semibold">voted one of the worst cities in the U.S. for dating</span>. Ouch. The same app-driven behaviors (disposability, over-optimization, snap judgments on thin information) have colonized how people treat each other here too. The infrastructure for connection exists. The culture around it is what broke.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            So what would make Chicago a great city for dating? Maybe a good start is getting a whole bunch of people — single and non-single alike — on the same page about what happened and driving a collective solution for how to move forward. Not a singles event. A city-wide recalibration.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             So what would make Chicago a great city for dating? Maybe start by getting a whole bunch of people, single and non-single alike, on the same page about what happened. Not a singles event. A city-wide recalibration.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed font-semibold text-[hsl(var(--primary))]">
-            One city, done well, as a model for what could travel.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed font-semibold text-[hsl(var(--primary))]">
+             One city, done well, as a model for what could travel.
+           </p>
         </motion.div>
       </section>
 
