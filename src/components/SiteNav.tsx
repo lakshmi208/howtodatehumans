@@ -29,7 +29,7 @@ const SiteNav = () => {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logoHorizontal} alt="How to Date Humans" className="h-8" />
+          <img src={logoHorizontal} alt="How to Date Humans" className="h-12" />
         </Link>
 
         {/* Desktop nav */}
