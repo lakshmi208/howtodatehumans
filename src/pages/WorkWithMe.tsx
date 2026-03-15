@@ -60,21 +60,19 @@ const WorkWithMe = () => {
   const handleCoachingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await supabase.functions.invoke('send-form-email', {
-        body: {
-          formType: 'coaching-application',
-          subject: `Coaching Application: ${coachingForm.name || 'Anonymous'}`,
-          fields: {
-            Name: coachingForm.name,
-            Email: coachingForm.email,
-            Age: coachingForm.age,
-            Situation: coachingForm.situation,
-            'Why Now': coachingForm.whyNow,
-          },
+      await supabase.from('form_submissions').insert({
+        form_type: 'coaching-application',
+        subject: `Coaching Application: ${coachingForm.name || 'Anonymous'}`,
+        fields: {
+          Name: coachingForm.name,
+          Email: coachingForm.email,
+          Age: coachingForm.age,
+          Situation: coachingForm.situation,
+          'Why Now': coachingForm.whyNow,
         },
       });
     } catch (err) {
-      console.error('Failed to send coaching application:', err);
+      console.error('Failed to save coaching application:', err);
     }
     setCoachingState('submitted');
     setCoachingForm({ name: '', email: '', age: '', situation: '', whyNow: '' });

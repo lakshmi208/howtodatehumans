@@ -16,15 +16,13 @@ const IdeaSubmission = () => {
     e.preventDefault();
     if (idea.trim()) {
       try {
-        await supabase.functions.invoke('send-form-email', {
-          body: {
-            formType: 'idea-submission',
-            subject: `New Event Idea from ${name || 'Anonymous'}`,
-            fields: { Name: name || 'Not provided', Email: email, Idea: idea },
-          },
+        await supabase.from('form_submissions').insert({
+          form_type: 'idea-submission',
+          subject: `New Event Idea from ${name || 'Anonymous'}`,
+          fields: { Name: name || 'Not provided', Email: email, Idea: idea },
         });
       } catch (err) {
-        console.error('Failed to send idea:', err);
+        console.error('Failed to save idea:', err);
       }
       setSubmitted(true);
       setTimeout(() => {

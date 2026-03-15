@@ -23,15 +23,13 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
     e.preventDefault();
     if (email.trim()) {
       try {
-        await supabase.functions.invoke('send-form-email', {
-          body: {
-            formType: 'event-interest',
-            subject: `Interest: ${event.title}`,
-            fields: { Email: email, Event: event.title, Tagline: event.tagline },
-          },
+        await supabase.from('form_submissions').insert({
+          form_type: 'event-interest',
+          subject: `Interest: ${event.title}`,
+          fields: { Email: email, Event: event.title, Tagline: event.tagline },
         });
       } catch (err) {
-        console.error('Failed to send interest email:', err);
+        console.error('Failed to save interest:', err);
       }
       setSubmitted(true);
       setEmail('');
