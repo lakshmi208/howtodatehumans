@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Mail, X, Share2, ChevronDown } from 'lucide-react';
+import { ArrowRight, Users, Mail, X, Share2, ChevronRight } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -90,7 +90,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                 </span>
               )}
             </div>
-            <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${expanded ? 'rotate-180' : ''}`} />
+            <ChevronRight className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${expanded ? 'rotate-90' : ''}`} />
           </div>
 
           <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
