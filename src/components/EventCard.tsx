@@ -31,13 +31,12 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   };
 
   const handleShareToFriend = () => {
-    const shareText = `Check out "${event.title}" — ${event.tagline}`;
-    const shareUrl = window.location.href;
+    const shareText = `Check out "${event.title}" — ${event.tagline}\n\n${window.location.href}`;
     
     if (navigator.share) {
-      navigator.share({ title: event.title, text: shareText, url: shareUrl });
+      navigator.share({ title: event.title, text: `Thought you'd be interested in this?`, url: window.location.href });
     } else {
-      const mailtoLink = `mailto:?subject=${encodeURIComponent(`Check this out: ${event.title}`)}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`;
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(`Thought you'd be interested in this?`)}&body=${encodeURIComponent(shareText)}`;
       window.open(mailtoLink);
     }
   };
