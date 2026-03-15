@@ -45,7 +45,7 @@ const TimelineHeader = () => {
         <p className="font-semibold uppercase tracking-[0.2em] text-[hsl(var(--primary))] mb-4 text-lg">
           A One-Year Mission to Change Dating Culture in Chicago
         </p>
-        <img src={stackedLogo} alt="How to Date Humans" className="h-24 md:h-36 lg:h-44 mx-auto mb-6" />
+        <img src={stackedLogo} alt="How to Date Humans" className="h-32 md:h-48 lg:h-56 mx-auto mb-6" />
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
           Dating culture didn't break overnight — and it won't heal overnight either. 
           This is a year-long effort to understand what happened, reclaim what we lost, and build what comes next.

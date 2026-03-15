@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Users, Mail, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Users, Mail, X, Share2, ChevronDown } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +30,18 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
     }
   };
 
+  const handleShareToFriend = () => {
+    const shareText = `Check out "${event.title}" — ${event.tagline}`;
+    const shareUrl = window.location.href;
+    
+    if (navigator.share) {
+      navigator.share({ title: event.title, text: shareText, url: shareUrl });
+    } else {
+      const mailtoLink = `mailto:?subject=${encodeURIComponent(`Check this out: ${event.title}`)}&body=${encodeURIComponent(`${shareText}\n\n${shareUrl}`)}`;
+      window.open(mailtoLink);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -38,145 +50,151 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className={`relative w-80 flex-shrink-0 ${event.completed ? 'opacity-90' : ''}`}
     >
-
-      <div className={`border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow ${
+      <div className={`border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
         event.completed
           ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)]'
           : 'bg-card border-border'
       }`}>
-        {/* Type badge */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <span
-              className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-white ${eventTypeColors[event.type]}`}
-            >
-              {eventTypeLabels[event.type]}
-              {event.recurring && (
-                <span className="ml-1.5 opacity-80">· Recurring</span>
-              )}
-            </span>
-            {event.completed && (
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--event-workshop)/0.15)] text-[hsl(var(--event-workshop))]">
-                ✓ Completed
-              </span>
-            )}
-            {event.singlesOnly && (
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--primary)/0.12)] text-[hsl(var(--primary))]">
-                Singles Only
-              </span>
-            )}
-          </div>
-          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            {event.date || event.timeframe}
-          </span>
-        </div>
-
-        {/* Title */}
-        <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
-        <p className="text-sm font-medium text-[hsl(var(--primary))] italic mb-3">
-          {event.tagline}
-        </p>
-
-        {/* Problem / Solution */}
-        <div className="space-y-3 mb-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
-              The Problem
-            </p>
-            <p className="text-sm leading-relaxed">{event.problem}</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
-              Our Approach
-            </p>
-            <p className="text-sm leading-relaxed">{event.solution}</p>
-          </div>
-        </div>
-
-        {/* Expandable description */}
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            className="mb-4"
-          >
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {event.description}
-            </p>
-          </motion.div>
-        )}
-
+        {/* Collapsed header — always visible */}
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-xs font-semibold text-[hsl(var(--primary))] hover:underline mb-4 flex items-center gap-1"
+          className="w-full text-left p-6 pb-4"
         >
-          {expanded ? 'Show less' : 'Read more'}
-          <ArrowRight className={`w-3 h-3 transition-transform ${expanded ? 'rotate-90' : ''}`} />
-        </button>
-
-        {/* Interest + CTA */}
-        {!event.completed && (
-        <div className="flex items-center justify-between border-t border-border pt-4">
-          <div className="flex items-center gap-3">
-            {showInterest && !event.completed && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex items-center gap-1.5 text-sm text-muted-foreground"
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span
+                className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-[hsl(var(--primary-foreground))] ${eventTypeColors[event.type]}`}
               >
-                <Users className="w-4 h-4" />
-                <span className="font-semibold">{event.interestCount}</span>
-                <span className="hidden sm:inline">interested</span>
-              </motion.div>
-            )}
+                {eventTypeLabels[event.type]}
+                {event.recurring && (
+                  <span className="ml-1.5 opacity-80">· Recurring</span>
+                )}
+              </span>
+              {event.completed && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--event-workshop)/0.15)] text-[hsl(var(--event-workshop))]">
+                  ✓ Completed
+                </span>
+              )}
+              {event.singlesOnly && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--primary)/0.12)] text-[hsl(var(--primary))]">
+                  Singles Only
+                </span>
+              )}
+            </div>
+            <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${expanded ? 'rotate-180' : ''}`} />
           </div>
 
-          {!showEmailForm ? (
-            <Button
-              size="sm"
-              onClick={() => setShowEmailForm(true)}
-              className="gap-1.5"
+          <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
+          <p className="text-sm font-medium text-[hsl(var(--primary))] italic">
+            {event.tagline}
+          </p>
+          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider mt-2 block">
+            {event.date || event.timeframe}
+          </span>
+        </button>
+
+        {/* Expanded content */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
             >
-              <Mail className="w-3.5 h-3.5" />
-              I'm Interested
-            </Button>
-          ) : (
-            <motion.form
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 'auto' }}
-              onSubmit={handleSubmitInterest}
-              className="flex items-center gap-2"
-            >
-              {submitted ? (
-                <span className="text-sm font-medium text-[hsl(var(--event-workshop))]">
-                  You're on the list! ✓
-                </span>
-              ) : (
-                <>
-                  <Input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-8 w-44 text-sm"
-                    required
-                  />
-                  <Button size="sm" type="submit" className="h-8">
-                    Go
-                  </Button>
-                  <button
-                    type="button"
-                    onClick={() => setShowEmailForm(false)}
-                    className="text-muted-foreground hover:text-foreground"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </>
-              )}
-            </motion.form>
+              <div className="px-6 pb-6">
+                {/* Problem / Solution */}
+                <div className="space-y-3 mb-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                      The Problem
+                    </p>
+                    <p className="text-sm leading-relaxed">{event.problem}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                      Our Approach
+                    </p>
+                    <p className="text-sm leading-relaxed">{event.solution}</p>
+                  </div>
+                </div>
+
+                <p className="text-sm leading-relaxed text-muted-foreground mb-4">
+                  {event.description}
+                </p>
+
+                {/* Stacked actions */}
+                {!event.completed && (
+                  <div className="flex flex-col gap-2 border-t border-border pt-4">
+                    {showInterest && (
+                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-1">
+                        <Users className="w-4 h-4" />
+                        <span className="font-semibold">{event.interestCount}</span>
+                        <span>interested</span>
+                      </div>
+                    )}
+
+                    {!showEmailForm ? (
+                      <Button
+                        size="sm"
+                        onClick={() => setShowEmailForm(true)}
+                        className="gap-1.5 w-full"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        I'm Interested
+                      </Button>
+                    ) : (
+                      <motion.form
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        onSubmit={handleSubmitInterest}
+                        className="flex items-center gap-2"
+                      >
+                        {submitted ? (
+                          <span className="text-sm font-medium text-[hsl(var(--event-workshop))]">
+                            You're on the list! ✓
+                          </span>
+                        ) : (
+                          <>
+                            <Input
+                              type="email"
+                              placeholder="your@email.com"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              className="h-8 text-sm"
+                              required
+                            />
+                            <Button size="sm" type="submit" className="h-8">
+                              Go
+                            </Button>
+                            <button
+                              type="button"
+                              onClick={() => setShowEmailForm(false)}
+                              className="text-muted-foreground hover:text-foreground"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </>
+                        )}
+                      </motion.form>
+                    )}
+
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={handleShareToFriend}
+                      className="gap-1.5 w-full"
+                    >
+                      <Share2 className="w-3.5 h-3.5" />
+                      Send to a Friend
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </motion.div>
           )}
-        </div>
-        )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );
