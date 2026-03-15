@@ -1,20 +1,23 @@
 import { motion } from 'framer-motion';
+import event1 from '@/assets/event-1.jpeg';
+import event2 from '@/assets/event-2.png';
+import event3 from '@/assets/event-3.jpeg';
 
 const photos = [
   {
-    src: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop',
-    alt: 'People connecting at an event',
-    caption: 'Humans Happy Hour — March 2026',
+    src: event1,
+    alt: 'Community gathering at a coworking space',
+    caption: 'Building connections in person',
   },
   {
-    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop',
-    alt: 'Intimate gathering with warm lighting',
-    caption: 'The Kickoff — February 2026',
+    src: event2,
+    alt: 'Speakers engaging with the audience',
+    caption: 'Conversations that matter',
   },
   {
-    src: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=300&fit=crop',
-    alt: 'Workshop setting with engaged participants',
-    caption: 'Community building in action',
+    src: event3,
+    alt: 'Engaged audience at How to Date Humans event',
+    caption: 'How to Date Humans — In Action',
   },
 ];
 
