@@ -213,31 +213,31 @@ const About = () => {
         <motion.div {...fadeUp} className="space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold">How will we know we've succeeded?</h2>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            Good question, bad framing. "How do you know it works? How will it scale?" If those are your first questions, you missed the point. That default thinking is what got us here.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             Great question, terrible framing. "How do you know it works? How will it scale?" If those are your first questions, you missed the point. That default thinking is literally what got us here.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            Success won't be black and white. It might look more like this:
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             Success won't be black and white. It might look more like this:
+           </p>
 
-          <ul className="space-y-3 text-base md:text-lg leading-relaxed pl-1">
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple showing up because they don't know how to set up their single friend beyond saying "they're amazing." Now they have an actual framework for when the right opportunity presents itself.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A firefighter turning their shift into a story someone actually wants to hear over dinner.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from Gen Xers who dated before the internet decided who was available.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing a restaurant for connection potential over star ratings.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A midlife dater realizing they can't just copy/paste dating advice that's actually meant for 20-somethings.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People picking up their dating app more like a door into what could be possible rather than an exercise in swiping.</span></li>
-            <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People developing crushes again.</span></li>
-          </ul>
+           <ul className="space-y-3 text-base md:text-lg leading-relaxed pl-1">
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A couple showing up because they don't know how to set up their single friend beyond "they're amazing, you'd love them." Now they have an actual framework for when the right moment presents itself.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A firefighter turning their shift into a story someone actually wants to hear over dinner.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A Gen Zer picking up analog habits from Gen Xers who dated before the internet decided who was available.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People choosing a restaurant for connection potential over Yelp ratings.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>A midlife dater realizing they can't just copy/paste dating advice meant for 25-year-olds.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People opening their dating app like a door into possibility rather than an exercise in thumb cardio.</span></li>
+             <li className="flex gap-3"><span className="text-[hsl(var(--primary))] mt-1.5 shrink-0">·</span><span>People developing crushes again. (Remember those?)</span></li>
+           </ul>
 
-          <p className="text-base md:text-lg leading-relaxed">
-            Like anything related to culture: slow, and then sudden.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed">
+             Like anything related to culture: slow, and then sudden.
+           </p>
 
-          <p className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
-            But yea, we'll take a survey. And a headline like "Chicago became the best city to date in — here's why and here's how they did it" would be pretty awesome.
-          </p>
+           <p className="text-base md:text-lg leading-relaxed text-muted-foreground italic">
+             But yea, we'll take a survey too. And a headline like "Chicago became the best city to date in — here's why and here's how they did it" would be pretty awesome.
+           </p>
         </motion.div>
       </section>
 
