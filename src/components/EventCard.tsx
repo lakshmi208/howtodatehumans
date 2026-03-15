@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Mail, X, Share2, ChevronDown } from 'lucide-react';
+import { ArrowRight, Users, Mail, X, Share2, ChevronRight } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
