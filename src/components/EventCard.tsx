@@ -90,7 +90,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                 </span>
               )}
             </div>
-            <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${expanded ? 'rotate-180' : ''}`} />
+            <ChevronRight className={`w-5 h-5 text-muted-foreground transition-transform duration-200 flex-shrink-0 ${expanded ? 'rotate-90' : ''}`} />
           </div>
 
           <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
