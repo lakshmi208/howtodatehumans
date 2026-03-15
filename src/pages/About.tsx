@@ -131,13 +131,13 @@ const About = () => {
          <motion.div {...fadeUp} className="space-y-6">
            <h2 className="text-2xl md:text-3xl font-bold">What the apps actually did</h2>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             The common critique ("paradox of choice," "numbers game") is v1 thinking. What actually happened is deeper: the apps changed people's internal wiring. Early on, they were just a doorway. You matched, you met, and normal human dynamics took over. Then the apps <span className="font-semibold">stopped being the doorway and became the room</span>. Quick judgment, disposability, infinite optionality: those behaviors leaked out and colonized dating culture itself. That's not app behavior anymore. That's how people act on a Tuesday night at a bar.
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              The common critique ("paradox of choice," "numbers game") is v1 thinking. Cute, but incomplete. What actually happened is deeper: the apps changed people's internal wiring. Early on, they were just a doorway. You matched, you met, normal human dynamics took over. Then the apps <span className="font-semibold">stopped being the doorway and became the room</span>. Quick judgment, disposability, infinite optionality: those behaviors leaked out and colonized dating culture itself. That's not app behavior anymore. That's how people act on a Tuesday night at a bar. Congrats, we all have app brain now.
+            </p>
 
-           <p className="text-base md:text-lg leading-relaxed">
-             Now <span className="font-semibold">90% of Gen Z report frustration</span> with dating apps. People are deleting them in record numbers. But here's the trap: you can delete Tinder, but you can't delete what Tinder did to the norms around how people treat each other. The apps made evaluating and discarding people on thin information frictionless and normalized, and that reshaped the culture for <em>everyone</em>, including people who never downloaded them. Even Hinge knows it: they launched a <span className="font-semibold">$1 million fund</span> for in-person events, tacitly admitting they broke something algorithms can't fix.
-           </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              Now <span className="font-semibold">90% of Gen Z report frustration</span> with dating apps. People are deleting them in record numbers. But here's the trap: you can delete Tinder, but you can't delete what Tinder did to how people treat each other. The apps made evaluating and discarding people on thin information frictionless and normal. That reshaped the culture for <em>everyone</em>, including people who never downloaded them. Even Hinge knows it: they launched a <span className="font-semibold">$1 million fund</span> for in-person events. Which is corporate for "we broke something algorithms can't fix."
+            </p>
          </motion.div>
        </section>
 
