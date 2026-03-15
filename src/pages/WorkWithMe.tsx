@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SiteNav from '@/components/SiteNav';
+import { supabase } from '@/integrations/supabase/client';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
