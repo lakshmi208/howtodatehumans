@@ -38,7 +38,7 @@ const milestones = [
     project: 'Paired by the People',
     question: 'What makes a good setup?',
     description:
-      'Built a matchmaking experience that put the power back in the hands of friends and community. Because the best dating app might be your best friend.',
+      'A podcast exploring the lost art of the setup. Not matchmaking (that industry is a whole other beast). This was about empowering regular people to set each other up, finding the best setup stories, and figuring out what actually made them work. Featured in Vanity Fair. Because the best dating app might just be your best friend.',
   },
   {
     year: '2022',
