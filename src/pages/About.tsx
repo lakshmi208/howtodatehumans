@@ -59,11 +59,11 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">The turning point</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            There's a moment in the How to Date Humans presentation where I focus on 2010: that liminal space when smartphones were in our pockets but dating apps hadn't entered the fray yet. You can feel the room shift when people realize how recently everything changed, and how much has been lost in a short window.
+            There's a moment in the How to Date Humans presentation where I focus on 2010: that liminal space when smartphones were in our pockets but dating apps hadn't crashed the party yet. You can feel the room shift when people realize how recently everything changed. Like, we're talking a blink ago.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            The same patterns that made dating feel transactional (filtering people like products, confining relationships to rigid containers, replacing intuition with optimization) migrated into how we work, befriend, and connect. Most people feel it but can't articulate it: we've lost a set of skills that used to come naturally, and we lost them faster than anyone realizes.
+            The same patterns that made dating feel like online shopping (filtering people like products, replacing intuition with optimization, treating humans like inventory) migrated into how we work, befriend, and connect. Most people feel it but can't quite name it: we've lost a set of skills that used to come naturally. And we lost them way faster than anyone realizes.
           </p>
         </motion.div>
       </section>
