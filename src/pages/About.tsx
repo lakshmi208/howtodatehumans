@@ -37,18 +37,18 @@ const About = () => {
           <h2 className="text-2xl md:text-3xl font-bold">The story</h2>
 
           <p className="text-base md:text-lg leading-relaxed">
-            I've been saying since 2011 that dating is not just something single people do. And when I say that in a room, I watch people's posture change. Because everyone knows that art is disappearing, whether they're single or not.
+            I've been saying since 2011 that dating is not just something single people do. And when I say that in a room, I watch people's posture change. Married, partnered, "it's complicated": everybody feels it. The art of getting to know people is vanishing, and it's not just a singles problem.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            In 2009, I started tracking what was shifting in how people meet, and I haven't stopped since. Across 15 years of research, reimagining singles events, a{' '}
-            <span className="font-semibold">Vox Media podcast</span>, unpacking the lives of modern midlife daters, and work inside companies like{' '}
+            In 2009, I started tracking what was shifting in how people meet, and I haven't stopped since. Fifteen years of research, reimagining singles events, a{' '}
+            <span className="font-semibold">Vox Media podcast</span>, unpacking the lives of modern midlife daters, and stints inside{' '}
             <span className="font-semibold">Match.com</span> and{' '}
-            <span className="font-semibold">WeWork</span>, I've been committed to the same thing: keeping the humanity in dating, even as everything around it was pulling in the other direction.
+            <span className="font-semibold">WeWork</span>. One throughline: keeping the humanity in dating while everything around it tried really hard to remove it.
           </p>
 
           <p className="text-base md:text-lg leading-relaxed">
-            Dating culture is a cultural canary. It's where shifts in trust, risk tolerance, and human patience show up first, before they migrate into workplaces, friendships, and civic life. The loneliness epidemic, the disengagement crisis at work, the collapse of third places, the rise of AI companionship: these aren't separate problems. They share a root system, and dating is where the symptoms surfaced earliest.
+            Dating culture is the canary in the coal mine. It's where shifts in trust, patience, and risk tolerance show up first, before they leak into workplaces, friendships, and civic life. The loneliness epidemic, the crisis at work, the collapse of third places, AI girlfriends: these aren't separate problems. They share a root system. Dating is just where the cracks showed up first.
           </p>
         </motion.div>
       </section>
