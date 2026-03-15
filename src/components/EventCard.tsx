@@ -4,6 +4,7 @@ import { ArrowRight, Users, Mail, X, Share2, ChevronDown } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { supabase } from '@/integrations/supabase/client';
 
 interface EventCardProps {
   event: EventConcept;
@@ -18,9 +19,20 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmitInterest = (e: React.FormEvent) => {
+  const handleSubmitInterest = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
+      try {
+        await supabase.functions.invoke('send-form-email', {
+          body: {
+            formType: 'event-interest',
+            subject: `Interest: ${event.title}`,
+            fields: { Email: email, Event: event.title, Tagline: event.tagline },
+          },
+        });
+      } catch (err) {
+        console.error('Failed to send interest email:', err);
+      }
       setSubmitted(true);
       setEmail('');
       setTimeout(() => {

@@ -4,6 +4,7 @@ import { Lightbulb, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { supabase } from '@/integrations/supabase/client';
 
 const IdeaSubmission = () => {
   const [name, setName] = useState('');
@@ -11,9 +12,20 @@ const IdeaSubmission = () => {
   const [idea, setIdea] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (idea.trim()) {
+      try {
+        await supabase.functions.invoke('send-form-email', {
+          body: {
+            formType: 'idea-submission',
+            subject: `New Event Idea from ${name || 'Anonymous'}`,
+            fields: { Name: name || 'Not provided', Email: email, Idea: idea },
+          },
+        });
+      } catch (err) {
+        console.error('Failed to send idea:', err);
+      }
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);

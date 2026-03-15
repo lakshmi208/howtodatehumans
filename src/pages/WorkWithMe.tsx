@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SiteNav from '@/components/SiteNav';
+import { supabase } from '@/integrations/supabase/client';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -34,14 +35,49 @@ const WorkWithMe = () => {
   const [speakerState, setSpeakerState] = useState<FormState>('idle');
   const [coachingState, setCoachingState] = useState<FormState>('idle');
 
-  const handleSpeakerSubmit = (e: React.FormEvent) => {
+  const handleSpeakerSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      await supabase.functions.invoke('send-form-email', {
+        body: {
+          formType: 'speaker-inquiry',
+          subject: `Speaker Inquiry: ${speakerForm.organization || 'Unknown Org'}`,
+          fields: {
+            Name: speakerForm.name,
+            Email: speakerForm.email,
+            Organization: speakerForm.organization,
+            'Event Type': speakerForm.eventType,
+            'Tentative Date': speakerForm.date,
+            Details: speakerForm.details,
+          },
+        },
+      });
+    } catch (err) {
+      console.error('Failed to send speaker inquiry:', err);
+    }
     setSpeakerState('submitted');
     setSpeakerForm({ name: '', email: '', organization: '', eventType: '', date: '', details: '' });
   };
 
-  const handleCoachingSubmit = (e: React.FormEvent) => {
+  const handleCoachingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      await supabase.functions.invoke('send-form-email', {
+        body: {
+          formType: 'coaching-application',
+          subject: `Coaching Application: ${coachingForm.name || 'Anonymous'}`,
+          fields: {
+            Name: coachingForm.name,
+            Email: coachingForm.email,
+            Age: coachingForm.age,
+            Situation: coachingForm.situation,
+            'Why Now': coachingForm.whyNow,
+          },
+        },
+      });
+    } catch (err) {
+      console.error('Failed to send coaching application:', err);
+    }
     setCoachingState('submitted');
     setCoachingForm({ name: '', email: '', age: '', situation: '', whyNow: '' });
   };
