@@ -45,7 +45,7 @@ const milestones = [
     project: 'Land of the Giants',
     question: 'How did dating culture form?',
     description:
-      'Co-hosted Vox Media\'s Land of the Giants: Dating Games podcast, tracing how the platforms we built to find love ended up reshaping how we treat each other.',
+      'Co-hosted Vox Media\'s Land of the Giants: Dating Games podcast, tracing how the platforms we built to find love ended up reshaping how we treat each other. Along the way, landed a conversation with Kara Swisher and Scott Galloway on Pivot (and yes, got in a shared jab at Scott with Kara). The episode was selected as one of their "Best Friends of Pivot" favorites alongside Esther Perel.',
   },
   {
     year: '2023',
