@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoHorizontal from '@/assets/logo-horizontal.png';
 
-const SQUARESPACE = 'https://fennel-oleander-7fr2.squarespace.com';
+const SQUARESPACE = 'https://www.howtodatehumans.com';
 
 const navItems = [
   { label: 'Events', to: '/', type: 'internal' as const },
