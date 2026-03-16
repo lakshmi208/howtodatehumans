@@ -30,8 +30,8 @@ const SiteNav = () => {
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/">
-          <img src={logoHorizontal} alt="How to Date Humans" className="h-12" />
+        <Link to="/" className="shrink-0">
+          <img src={logoHorizontal} alt="How to Date Humans" className="h-14 md:h-16 w-auto" />
         </Link>
 
         {/* Desktop nav */}
