@@ -11,6 +11,8 @@ const navItems = [
   { label: 'About', to: '/about', type: 'internal' as const },
   { label: 'Press', to: `${SQUARESPACE}/press`, type: 'external' as const },
   { label: 'Newsletter', to: `${SQUARESPACE}/newsletter`, type: 'external' as const },
+  { label: 'LinkedIn', to: 'https://www.linkedin.com/company/howtodatehumans/?viewAsMember=true', type: 'external' as const },
+  { label: 'Instagram', to: 'https://www.instagram.com/p/DU8dEZckaIV/', type: 'external' as const },
 ];
 
 const SiteNav = () => {

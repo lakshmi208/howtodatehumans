@@ -139,14 +139,23 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                     )}
 
                     {!showEmailForm ? (
-                      <Button
-                        size="sm"
-                        onClick={() => setShowEmailForm(true)}
-                        className="gap-1.5 w-full"
-                      >
-                        <Mail className="w-3.5 h-3.5" />
-                        I'm Interested
-                      </Button>
+                      isDatingDetoxEvent ? (
+                        <Button size="sm" asChild className="gap-1.5 w-full">
+                          <a href={datingDetoxTicketUrl} target="_blank" rel="noopener noreferrer">
+                            <Mail className="w-3.5 h-3.5" />
+                            Get Your Ticket
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button
+                          size="sm"
+                          onClick={() => setShowEmailForm(true)}
+                          className="gap-1.5 w-full"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          I'm Interested
+                        </Button>
+                      )
                     ) : (
                       <motion.form
                         initial={{ opacity: 0 }}
