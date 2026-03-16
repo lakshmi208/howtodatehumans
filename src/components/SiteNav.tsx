@@ -9,7 +9,7 @@ const navItems = [
   { label: 'Events', href: '/', activePath: '/' },
   { label: 'About', href: '/about', activePath: '/about' },
   { label: 'Press', href: `${SQUARESPACE}/#press` },
-  { label: 'Newsletter', href: `${SQUARESPACE}/newsletter` },
+  { label: 'Newsletter', href: `${SQUARESPACE}/#newsletter` },
 ];
 
 const ctaItem = { label: 'Get in Touch', href: '/work-with-me', activePath: '/work-with-me' };
