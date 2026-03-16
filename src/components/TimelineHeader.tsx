@@ -47,8 +47,8 @@ const TimelineHeader = () => {
         </p>
         <img src={stackedLogo} alt="How to Date Humans" className="h-32 md:h-48 lg:h-56 mx-auto mb-6" />
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
-          Dating culture didn't break overnight — and it won't heal overnight either. 
-          This is a year-long effort to understand what happened, reclaim what we lost, and build what comes next.
+          Dating culture didn't break overnight — and it won't change overnight either. 
+          This is a year-long effort with a phased approach. To bring more than just single people into the fold, understand what happened, and reimagine what could be next.
         </p>
         <p className="text-sm text-muted-foreground max-w-xl mx-auto mb-10">
           Each concept below is a piece of the puzzle. Show your interest to help us bring it to life 
