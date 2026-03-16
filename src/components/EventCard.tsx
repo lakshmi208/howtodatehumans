@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Mail, X, Share2, ChevronRight } from 'lucide-react';
+import { Users, Mail, X, Share2, ChevronRight } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +14,7 @@ interface EventCardProps {
 }
 
 const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(event.id === 'dating-detox-talk');
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -42,7 +42,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
 
   const handleShareToFriend = () => {
     const shareText = `Check out "${event.title}" — ${event.tagline}\n\n${window.location.href}`;
-    
+
     if (navigator.share) {
       navigator.share({ title: event.title, text: `Thought you'd be interested in this?`, url: window.location.href });
     } else {
@@ -64,7 +64,6 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
           ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)]'
           : 'bg-card border-border'
       }`}>
-        {/* Collapsed header — always visible */}
         <button
           onClick={() => setExpanded(!expanded)}
           className="w-full text-left p-6 pb-4"
@@ -75,9 +74,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                 className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-[hsl(var(--primary-foreground))] ${eventTypeColors[event.type]}`}
               >
                 {eventTypeLabels[event.type]}
-                {event.recurring && (
-                  <span className="ml-1.5 opacity-80">· Recurring</span>
-                )}
+                {event.recurring && <span className="ml-1.5 opacity-80">· Recurring</span>}
               </span>
               {event.completed && (
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--event-workshop)/0.15)] text-[hsl(var(--event-workshop))]">
@@ -94,18 +91,13 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
           </div>
 
           <h3 className="text-xl font-bold mb-1 leading-tight">{event.title}</h3>
-          <p className="text-sm font-medium text-[hsl(var(--primary))] italic">
-            {event.tagline}
-          </p>
+          <p className="text-sm font-medium text-[hsl(var(--primary))] italic">{event.tagline}</p>
           <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider mt-2 block">
             {event.date || event.timeframe}
           </span>
-          <span className="text-xs text-muted-foreground mt-2 block">
-            Click to see full event description
-          </span>
+          <span className="text-xs text-muted-foreground mt-2 block">Click to see full event description</span>
         </button>
 
-        {/* Expanded content */}
         <AnimatePresence>
           {expanded && (
             <motion.div
@@ -116,7 +108,6 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
               className="overflow-hidden"
             >
               <div className="px-6 pb-6">
-                {/* Problem / Solution */}
                 <div className="space-y-3 mb-4">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
@@ -132,11 +123,8 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                   </div>
                 </div>
 
-                <p className="text-sm leading-relaxed text-muted-foreground mb-4">
-                  {event.description}
-                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground mb-4">{event.description}</p>
 
-                {/* Stacked actions */}
                 {!event.completed && (
                   <div className="flex flex-col gap-2 border-t border-border pt-4">
                     {showInterest && (
