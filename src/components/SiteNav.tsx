@@ -7,12 +7,9 @@ const SQUARESPACE = 'https://fennel-oleander-7fr2.squarespace.com';
 
 const navItems = [
   { label: 'Events', to: '/', type: 'internal' as const },
-  { label: 'Resources & Inspiration', to: `${SQUARESPACE}/resources-inspiration`, type: 'external' as const },
   { label: 'About', to: '/about', type: 'internal' as const },
   { label: 'Press', to: `${SQUARESPACE}/press`, type: 'external' as const },
   { label: 'Newsletter', to: `${SQUARESPACE}/newsletter`, type: 'external' as const },
-  { label: 'LinkedIn', to: 'https://www.linkedin.com/company/howtodatehumans/?viewAsMember=true', type: 'external' as const },
-  { label: 'Instagram', to: 'https://www.instagram.com/p/DU8dEZckaIV/', type: 'external' as const },
 ];
 
 const SiteNav = () => {
