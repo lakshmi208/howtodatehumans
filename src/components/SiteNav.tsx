@@ -1,24 +1,26 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoHorizontal from '@/assets/logo-horizontal.png';
 
 const SQUARESPACE = 'https://www.howtodatehumans.com';
 
 const navItems = [
-  { label: 'Events', to: '/', type: 'internal' as const },
-  { label: 'About', to: '/about', type: 'internal' as const },
-  { label: 'Press', to: `${SQUARESPACE}/#press`, type: 'external' as const },
-  { label: 'Newsletter', to: `${SQUARESPACE}/newsletter`, type: 'external' as const },
+  { label: 'Events', href: '/', activePath: '/' },
+  { label: 'About', href: '/about', activePath: '/about' },
+  { label: 'Press', href: `${SQUARESPACE}/#press` },
+  { label: 'Newsletter', href: `${SQUARESPACE}/newsletter` },
 ];
+
+const ctaItem = { label: 'Get in Touch', href: '/work-with-me', activePath: '/work-with-me' };
 
 const SiteNav = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const linkClass = (path: string, type: string) =>
+  const linkClass = (activePath?: string) =>
     `text-sm font-medium tracking-wide uppercase transition-colors ${
-      type === 'internal' && location.pathname === path
+      activePath && location.pathname === activePath
         ? 'text-foreground'
         : 'text-muted-foreground hover:text-foreground'
     }`;
@@ -26,39 +28,24 @@ const SiteNav = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
         <a href={SQUARESPACE} className="shrink-0" aria-label="Go to How to Date Humans homepage">
           <img src={logoHorizontal} alt="How to Date Humans" className="h-14 md:h-16 w-auto" />
         </a>
 
-        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) =>
-            item.type === 'internal' ? (
-              <Link key={item.label} to={item.to} className={linkClass(item.to, item.type)}>
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.label}
-                href={item.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass(item.to, item.type)}
-              >
-                {item.label}
-              </a>
-            )
-          )}
-          <Link
-            to="/work-with-me"
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} className={linkClass(item.activePath)}>
+              {item.label}
+            </a>
+          ))}
+          <a
+            href={ctaItem.href}
             className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition-opacity"
           >
-            Get in Touch
-          </Link>
+            {ctaItem.label}
+          </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           className="lg:hidden p-2 text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -68,38 +55,25 @@ const SiteNav = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-border bg-background px-6 py-4 space-y-3">
-          {navItems.map((item) =>
-            item.type === 'internal' ? (
-              <Link
-                key={item.label}
-                to={item.to}
-                onClick={() => setMobileOpen(false)}
-                className={`block ${linkClass(item.to, item.type)}`}
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.label}
-                href={item.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block ${linkClass(item.to, item.type)}`}
-              >
-                {item.label}
-              </a>
-            )
-          )}
-          <Link
-            to="/work-with-me"
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => setMobileOpen(false)}
+              className={`block ${linkClass(item.activePath)}`}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href={ctaItem.href}
             onClick={() => setMobileOpen(false)}
             className="block text-center bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition-opacity"
           >
-            Get in Touch
-          </Link>
+            {ctaItem.label}
+          </a>
         </div>
       )}
     </nav>
