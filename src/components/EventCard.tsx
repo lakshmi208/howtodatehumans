@@ -19,6 +19,9 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const isDatingDetoxEvent = event.id === 'dating-detox-talk';
+  const datingDetoxTicketUrl = 'https://www.eventbrite.com/e/dating-detox-a-brief-history-of-modern-dating-what-happened-to-us-tickets-1985212228215?aff=oddtdtcreator';
+
   const handleSubmitInterest = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
@@ -136,14 +139,23 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                     )}
 
                     {!showEmailForm ? (
-                      <Button
-                        size="sm"
-                        onClick={() => setShowEmailForm(true)}
-                        className="gap-1.5 w-full"
-                      >
-                        <Mail className="w-3.5 h-3.5" />
-                        I'm Interested
-                      </Button>
+                      isDatingDetoxEvent ? (
+                        <Button size="sm" asChild className="gap-1.5 w-full">
+                          <a href={datingDetoxTicketUrl} target="_blank" rel="noopener noreferrer">
+                            <Mail className="w-3.5 h-3.5" />
+                            Get Your Ticket
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button
+                          size="sm"
+                          onClick={() => setShowEmailForm(true)}
+                          className="gap-1.5 w-full"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          I'm Interested
+                        </Button>
+                      )
                     ) : (
                       <motion.form
                         initial={{ opacity: 0 }}
