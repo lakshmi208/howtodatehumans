@@ -19,6 +19,9 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const isDatingDetoxEvent = event.id === 'dating-detox-talk';
+  const datingDetoxTicketUrl = 'https://www.eventbrite.com/e/dating-detox-a-brief-history-of-modern-dating-what-happened-to-us-tickets-1985212228215?aff=oddtdtcreator';
+
   const handleSubmitInterest = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {

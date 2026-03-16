@@ -71,7 +71,7 @@ export const events: EventConcept[] = [
     title: 'Dating Detox: A Brief History of Modern Dating & What Happened to Us',
     type: 'talk',
     tagline: 'Understanding how we got here',
-    problem: 'Most people don\'t realize how much modern dating culture has been engineered to keep them swiping, not connecting.',
+    problem: 'In order to reset a system you need to understand it first. Instead of complaining, we\'re here to connect the dots.',
     solution: 'A compelling talk tracing the history of modern dating — from personal ads to algorithms — revealing what we\'ve lost and how to reclaim it.',
     description: 'This recurring talk is designed to be a wake-up call. We trace the arc from newspaper personals to Tinder, examining each era\'s impact on how we form connections. Attendees leave with a new lens on their own dating behaviors and actionable steps to "detox."',
     timeframe: 'Recurring quarterly',
