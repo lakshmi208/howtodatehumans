@@ -44,7 +44,8 @@ export const events: EventConcept[] = [
     title: 'The Kickoff: How to Date Humans',
     type: 'kickoff',
     tagline: 'Where it all began',
-    problem: 'Dating culture in Chicago — and everywhere — is broken, but nobody is doing anything about it.',
+    problem: 'Dating culture in Chicago — and everywhere — is damanged. There's lot of talk but few solutions
+  .',
     solution: 'A presentation that laid out the vision, the research, and the year-long plan to change dating culture in Chicago.',
     description: 'On February 19th, 2026, the How to Date Humans project officially launched with a presentation that asked one question: what if we stopped accepting that dating has to feel this bad? This kickoff outlined the full year of labs, workshops, talks, and events ahead.',
     timeframe: 'Feb 19, 2026',
