@@ -8,7 +8,7 @@ const SQUARESPACE = 'https://www.howtodatehumans.com';
 const navItems = [
   { label: 'Events', to: '/', type: 'internal' as const },
   { label: 'About', to: '/about', type: 'internal' as const },
-  { label: 'Press', to: `${SQUARESPACE}/press`, type: 'external' as const },
+  { label: 'Press', to: `${SQUARESPACE}/#press`, type: 'external' as const },
   { label: 'Newsletter', to: `${SQUARESPACE}/newsletter`, type: 'external' as const },
 ];
 
