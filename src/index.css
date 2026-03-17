@@ -15,7 +15,7 @@
     --popover: 36 30% 97%;
     --popover-foreground: 20 25% 15%;
 
-    --primary: 20 70% 50%;
+    --primary: 14 80% 50%;
     --primary-foreground: 36 33% 97%;
 
     --secondary: 36 20% 88%;
@@ -24,7 +24,7 @@
     --muted: 36 15% 90%;
     --muted-foreground: 20 10% 45%;
 
-    --accent: 20 70% 50%;
+    --accent: 14 80% 50%;
     --accent-foreground: 36 33% 97%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,28 +32,28 @@
 
     --border: 30 15% 82%;
     --input: 30 15% 82%;
-    --ring: 20 70% 50%;
+    --ring: 14 80% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 36 30% 94%;
     --sidebar-foreground: 20 25% 15%;
-    --sidebar-primary: 20 70% 50%;
+    --sidebar-primary: 14 80% 50%;
     --sidebar-primary-foreground: 36 33% 97%;
     --sidebar-accent: 36 20% 88%;
     --sidebar-accent-foreground: 20 25% 15%;
     --sidebar-border: 30 15% 82%;
-    --sidebar-ring: 20 70% 50%;
+    --sidebar-ring: 14 80% 50%;
 
     /* Custom tokens */
     --warm-brown: 20 25% 20%;
     --cream: 36 33% 95%;
     --cream-dark: 36 20% 88%;
-    --orange-glow: 25 80% 55%;
+    --orange-glow: 14 80% 50%;
     --timeline-line: 20 15% 75%;
     --event-talk: 210 60% 50%;
     --event-workshop: 150 50% 40%;
-    --event-event: 20 70% 50%;
+    --event-event: 14 80% 50%;
     --event-focus-group: 280 40% 50%;
     --event-fireside: 35 80% 50%;
     --event-coworking: 190 50% 45%;
