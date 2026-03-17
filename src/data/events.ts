@@ -50,7 +50,7 @@ export const events: EventConcept[] = [
     timeframe: 'Feb 19, 2026',
     month: 2,
     date: 'February 19, 2026',
-    completed: false,
+    completed: true,
     interestCount: 0,
   },
   {
