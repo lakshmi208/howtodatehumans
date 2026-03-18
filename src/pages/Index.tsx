@@ -92,11 +92,15 @@ const Index = () => {
           ))}
         </select>
       </div>
-      {/* Horizontal Timeline */}
+      {/* Timeline */}
       <div className="relative pb-20">
+        {/* Horizontal line - desktop only */}
         <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
+        {/* Vertical line - mobile only */}
+        <div className="md:hidden absolute top-0 bottom-0 left-8 w-[2px] bg-[hsl(var(--timeline-line))]" />
 
-        <div className="overflow-x-auto scrollbar-thin pb-6">
+        {/* Desktop: horizontal scroll */}
+        <div className="hidden md:block overflow-x-auto scrollbar-thin pb-6">
           <div className="flex gap-6 px-6 md:px-12 pt-14 min-w-max">
             {sortedEvents.map((event, index) => {
               const showMonth = event.month !== lastMonth;
@@ -145,7 +149,61 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-4 px-6">
+        {/* Mobile: vertical scroll */}
+        <div className="md:hidden flex flex-col gap-6 px-4 pl-16 pt-4">
+          {(() => { lastMonth = -1; return null; })()}
+          {sortedEvents.map((event, index) => {
+            const showMonth = event.month !== lastMonth;
+            lastMonth = event.month;
+
+            return (
+              <div key={event.id} className="relative">
+                {/* Dot on the vertical line */}
+                <div className="absolute -left-[2.35rem] top-4 w-3 h-3 rounded-full bg-[hsl(var(--primary))] border-2 border-background" />
+
+                {showMonth && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-2"
+                  >
+                    <span className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-3 py-0.5 rounded-full text-xs font-bold tracking-wider">
+                      {months[event.month - 1]} 2026
+                    </span>
+                  </motion.div>
+                )}
+
+                <EventCard
+                  event={event}
+                  showInterest={showInterest}
+                  index={index}
+                  side="left"
+                />
+              </div>
+            );
+          })}
+
+          {/* Timeline end card */}
+          <div className="relative">
+            <div className="absolute -left-[2.35rem] top-4 w-3 h-3 rounded-full bg-[hsl(var(--primary))] border-2 border-background" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="bg-card border-2 border-[hsl(var(--primary))] px-6 py-4 rounded-xl text-center">
+                <p className="text-lg font-bold mb-1">This is just the beginning.</p>
+                <p className="text-sm text-muted-foreground">
+                  12 months. 7 formats. 1 goal: better human connection.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll hint - desktop only */}
+        <div className="hidden md:flex justify-center mt-4 px-6">
           <div className="text-center space-y-1">
             <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5">
               <span>←</span> Scroll to explore the full timeline <span>→</span>
