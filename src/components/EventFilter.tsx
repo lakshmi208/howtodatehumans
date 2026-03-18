@@ -22,7 +22,7 @@ const EventFilter = ({ activeFilter, onFilterChange }: EventFilterProps) => {
   const types = Object.keys(typeIcons) as EventType[];
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto px-4 mb-8">
+    <div className="flex flex-nowrap justify-start gap-2 max-w-4xl mx-auto px-4 mb-8 overflow-x-auto scrollbar-thin pb-2">
       <button
         onClick={() => onFilterChange('all')}
         className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
