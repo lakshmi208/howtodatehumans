@@ -69,9 +69,29 @@ const Index = () => {
         </motion.div>
       </div>
 
-      {/* Filter */}
-      <EventFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-
+      {/* Single-row filter */}
+      <div className="flex items-center justify-center gap-2 max-w-4xl mx-auto px-4 mb-8">
+        <button
+          onClick={() => setActiveFilter('all')}
+          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+            activeFilter === 'all'
+              ? 'bg-primary text-primary-foreground'
+              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+          }`}
+        >
+          All Events
+        </button>
+        <select
+          value={activeFilter}
+          onChange={(e) => setActiveFilter(e.target.value as EventType | 'all')}
+          className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-secondary-foreground border-none outline-none cursor-pointer"
+        >
+          <option value="all">Filter by Type</option>
+          {(Object.keys(eventTypeLabels) as EventType[]).map((type) => (
+            <option key={type} value={type}>{eventTypeLabels[type]}</option>
+          ))}
+        </select>
+      </div>
       {/* Horizontal Timeline */}
       <div className="relative pb-20">
         <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
