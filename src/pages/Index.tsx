@@ -3,13 +3,12 @@ import { motion } from 'framer-motion';
 import SiteNav from '@/components/SiteNav';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
-import EventFilter from '@/components/EventFilter';
 import PartnerCTA from '@/components/PartnerCTA';
 import AdminToggle from '@/components/AdminToggle';
 import ResearchSection from '@/components/ResearchSection';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PhotoGallery from '@/components/PhotoGallery';
-import { events, EventType } from '@/data/events';
+import { events, EventType, eventTypeLabels } from '@/data/events';
 
 const months = [
   'Feb', 'Mar', 'Apr', 'May', 'Jun',
