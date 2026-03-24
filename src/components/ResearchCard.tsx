@@ -4,6 +4,7 @@ import { MessageCircle, Sparkles, Mail, X } from 'lucide-react';
 import { ResearchArea } from '@/data/research';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { supabase } from '@/integrations/supabase/client';
 
 interface ResearchCardProps {
   area: ResearchArea;
@@ -18,9 +19,23 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
+      try {
+        await supabase.from('form_submissions').insert({
+          form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
+          subject: `${captureMode === 'talk' ? 'Wants to Talk' : 'Interested In'}: ${area.title}`,
+          fields: {
+            Email: email,
+            'Research Area': area.title,
+            'Research ID': area.id,
+            'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
+          },
+        });
+      } catch (err) {
+        console.error('Failed to save research interest:', err);
+      }
       setSubmitted(true);
       setEmail('');
       setTimeout(() => {
