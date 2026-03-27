@@ -4,6 +4,7 @@ import { MessageCircle, Sparkles, Mail, X } from 'lucide-react';
 import { ResearchArea } from '@/data/research';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
 
 interface ResearchCardProps {
@@ -17,6 +18,7 @@ type CaptureMode = 'talk' | 'interested' | null;
 const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
   const [captureMode, setCaptureMode] = useState<CaptureMode>(null);
   const [email, setEmail] = useState('');
+  const [context, setContext] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,6 +33,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             'Research Area': area.title,
             'Research ID': area.id,
             'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
+            ...(captureMode === 'talk' && context.trim() ? { Context: context } : {}),
           },
         });
       } catch (err) {
@@ -38,6 +41,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
       }
       setSubmitted(true);
       setEmail('');
+      setContext('');
       setTimeout(() => {
         setCaptureMode(null);
         setSubmitted(false);
@@ -128,26 +132,38 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
               You're on the list! ✓
             </motion.span>
           ) : (
-            <form onSubmit={handleSubmit} className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-              <Input
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="h-8 text-sm"
-                required
-              />
-              <Button size="sm" type="submit" className="h-8">
-                Go
-              </Button>
-              <button
-                type="button"
-                onClick={() => setCaptureMode(null)}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <X className="w-4 h-4" />
-              </button>
+            <form onSubmit={handleSubmit} className="space-y-2">
+              {captureMode === 'talk' && (
+                <Textarea
+                  placeholder="Share any context about your experience or perspective (optional)"
+                  value={context}
+                  onChange={(e) => setContext(e.target.value)}
+                  className="text-sm resize-none"
+                  rows={3}
+                  maxLength={1000}
+                />
+              )}
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                <Input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="h-8 text-sm"
+                  required
+                />
+                <Button size="sm" type="submit" className="h-8">
+                  Go
+                </Button>
+                <button
+                  type="button"
+                  onClick={() => { setCaptureMode(null); setContext(''); }}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
             </form>
           )}
         </div>
