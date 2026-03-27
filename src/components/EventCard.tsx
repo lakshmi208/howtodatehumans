@@ -14,13 +14,13 @@ interface EventCardProps {
 }
 
 const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
-  const [expanded, setExpanded] = useState(event.id === 'dating-detox-talk');
+  const [expanded, setExpanded] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const isDatingDetoxEvent = event.id === 'dating-detox-talk';
-  const datingDetoxTicketUrl = 'https://www.eventbrite.com/e/dating-detox-a-brief-history-of-modern-dating-what-happened-to-us-tickets-1985212228215?aff=oddtdtcreator';
+  const isDatingDetoxEvent = false; // No longer active — event completed
+  const datingDetoxTicketUrl = '';
 
   const handleSubmitInterest = async (e: React.FormEvent) => {
     e.preventDefault();
