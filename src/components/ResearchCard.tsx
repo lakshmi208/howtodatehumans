@@ -57,6 +57,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
     setSubmitted(true);
     setEmail('');
     setContext('');
+
     setTimeout(() => {
       setCaptureMode(null);
       setSubmitted(false);
@@ -71,34 +72,22 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="bg-card border border-border rounded-xl p-6 hover:shadow-md transition-shadow"
     >
-      {/* Badge */}
       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-white bg-[hsl(var(--event-focus-group))] mb-3">
         Research Area
       </span>
 
       <h3 className="text-xl font-bold mb-1 leading-tight">{area.title}</h3>
-      <p className="text-sm font-medium text-[hsl(var(--primary))] italic mb-3">
-        {area.tagline}
-      </p>
+      <p className="text-sm font-medium text-[hsl(var(--primary))] italic mb-3">{area.tagline}</p>
 
       <p className="text-sm leading-relaxed mb-3">{area.description}</p>
 
       <div className="mb-5">
-        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
-          Why It Matters
-        </p>
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {area.whyItMatters}
-        </p>
+        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Why It Matters</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{area.whyItMatters}</p>
       </div>
 
-      {/* Interest counts (admin only) */}
       {showInterest && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex gap-4 text-xs text-muted-foreground mb-4"
-        >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-4 text-xs text-muted-foreground mb-4">
           <span>
             <strong>{area.interestCount}</strong> interested
           </span>
@@ -108,24 +97,13 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         </motion.div>
       )}
 
-      {/* CTAs or email form */}
       {captureMode === null ? (
         <div className="flex flex-col sm:flex-row gap-2 border-t border-border pt-4">
-          <Button
-            size="sm"
-            onClick={() => setCaptureMode('talk')}
-            className="gap-1.5"
-            variant="default"
-          >
+          <Button size="sm" onClick={() => setCaptureMode('talk')} className="gap-1.5" variant="default">
             <MessageCircle className="w-3.5 h-3.5" />
             I'd like to chat
           </Button>
-          <Button
-            size="sm"
-            onClick={() => setCaptureMode('interested')}
-            className="gap-1.5"
-            variant="outline"
-          >
+          <Button size="sm" onClick={() => setCaptureMode('interested')} className="gap-1.5" variant="outline">
             <Sparkles className="w-3.5 h-3.5" />
             Keep me posted
           </Button>
@@ -137,12 +115,9 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
               ? "We'd love to hear from you. Please share context below (required), then add your email so we can follow up."
               : "Great — leave your email and we'll keep you in the loop."}
           </p>
+
           {submitted ? (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-sm font-medium text-[hsl(var(--event-workshop))]"
-            >
+            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm font-medium text-[hsl(var(--event-workshop))]">
               You're on the list! ✓
             </motion.span>
           ) : (
@@ -161,6 +136,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                   />
                 </div>
               )}
+
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                 <Input
@@ -176,19 +152,22 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                 </Button>
                 <button
                   type="button"
-                  onClick={() => { setCaptureMode(null); setContext(''); setSubmitError(null); }}
+                  onClick={() => {
+                    setCaptureMode(null);
+                    setContext('');
+                    setSubmitError(null);
+                  }}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              {submitError && (
-                <p className="text-xs text-destructive">{submitError}</p>
-              )}
+
+              {submitError && <p className="text-xs text-destructive">{submitError}</p>}
             </form>
           )}
         </div>
-      )
+      )}
     </motion.div>
   );
 };
