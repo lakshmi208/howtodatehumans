@@ -20,29 +20,37 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
   const [email, setEmail] = useState('');
   const [context, setContext] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitError(false);
-    if (!email.trim()) return;
+    setSubmitError(null);
+
+    const trimmedEmail = email.trim();
+    const trimmedContext = context.trim();
+
+    if (!trimmedEmail) return;
+
+    if (captureMode === 'talk' && !trimmedContext) {
+      setSubmitError('Please share a little context so we know how to follow up with you.');
+      return;
+    }
 
     const { error: insertError } = await supabase.from('form_submissions').insert({
       form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
       subject: `${captureMode === 'talk' ? 'Wants to Talk' : 'Interested In'}: ${area.title}`,
       fields: {
-        Email: email,
+        Email: trimmedEmail,
         'Research Area': area.title,
         'Research ID': area.id,
         'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
-        ...(captureMode === 'talk' && context.trim() ? { Context: context.trim() } : {}),
+        ...(captureMode === 'talk' ? { Context: trimmedContext } : {}),
       },
     });
 
     if (insertError) {
       console.error('Failed to save research interest:', insertError);
-      setSubmitError(true);
+      setSubmitError('Something went wrong saving your response — please try again.');
       return;
     }
 
@@ -110,7 +118,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             variant="default"
           >
             <MessageCircle className="w-3.5 h-3.5" />
-            I'll chat with you
+            I'd like to chat
           </Button>
           <Button
             size="sm"
@@ -119,14 +127,14 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             variant="outline"
           >
             <Sparkles className="w-3.5 h-3.5" />
-            Yes, please explore this!
+            Keep me posted
           </Button>
         </div>
       ) : (
         <div className="border-t border-border pt-4">
           <p className="text-xs font-medium text-muted-foreground mb-2">
             {captureMode === 'talk'
-              ? "We'd love to hear from you. Tell us a bit about yourself and your experience — then drop your email so we can reach out."
+              ? "We'd love to hear from you. Please share context below (required), then add your email so we can follow up."
               : "Great — leave your email and we'll keep you in the loop."}
           </p>
           {submitted ? (
@@ -140,14 +148,18 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-2">
               {captureMode === 'talk' && (
-                <Textarea
-                  placeholder="Tell us about yourself — your relationship history, what you've learned, what you'd want to talk about. The more context, the better."
-                  value={context}
-                  onChange={(e) => setContext(e.target.value)}
-                  className="text-sm resize-none"
-                  rows={4}
-                  maxLength={2000}
-                />
+                <div className="space-y-1">
+                  <p className="text-xs font-semibold text-foreground">Tell us about yourself (required)</p>
+                  <Textarea
+                    placeholder="Share your background, what you've noticed in modern dating, and what you'd like to talk about."
+                    value={context}
+                    onChange={(e) => setContext(e.target.value)}
+                    className="text-sm resize-none"
+                    rows={4}
+                    maxLength={2000}
+                    required
+                  />
+                </div>
               )}
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
@@ -164,19 +176,19 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                 </Button>
                 <button
                   type="button"
-                  onClick={() => { setCaptureMode(null); setContext(''); setSubmitError(false); }}
+                  onClick={() => { setCaptureMode(null); setContext(''); setSubmitError(null); }}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
               {submitError && (
-                <p className="text-xs text-destructive">Something went wrong — please try again.</p>
+                <p className="text-xs text-destructive">{submitError}</p>
               )}
             </form>
           )}
         </div>
-      )}
+      )
     </motion.div>
   );
 };
