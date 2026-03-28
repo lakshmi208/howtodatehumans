@@ -21,32 +21,38 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
   const [context, setContext] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const [submitError, setSubmitError] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      try {
-        await supabase.from('form_submissions').insert({
-          form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
-          subject: `${captureMode === 'talk' ? 'Wants to Talk' : 'Interested In'}: ${area.title}`,
-          fields: {
-            Email: email,
-            'Research Area': area.title,
-            'Research ID': area.id,
-            'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
-            ...(captureMode === 'talk' && context.trim() ? { Context: context } : {}),
-          },
-        });
-      } catch (err) {
-        console.error('Failed to save research interest:', err);
-      }
-      setSubmitted(true);
-      setEmail('');
-      setContext('');
-      setTimeout(() => {
-        setCaptureMode(null);
-        setSubmitted(false);
-      }, 2000);
+    setSubmitError(false);
+    if (!email.trim()) return;
+
+    const { error: insertError } = await supabase.from('form_submissions').insert({
+      form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
+      subject: `${captureMode === 'talk' ? 'Wants to Talk' : 'Interested In'}: ${area.title}`,
+      fields: {
+        Email: email,
+        'Research Area': area.title,
+        'Research ID': area.id,
+        'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
+        ...(captureMode === 'talk' && context.trim() ? { Context: context.trim() } : {}),
+      },
+    });
+
+    if (insertError) {
+      console.error('Failed to save research interest:', insertError);
+      setSubmitError(true);
+      return;
     }
+
+    setSubmitted(true);
+    setEmail('');
+    setContext('');
+    setTimeout(() => {
+      setCaptureMode(null);
+      setSubmitted(false);
+    }, 2500);
   };
 
   return (
