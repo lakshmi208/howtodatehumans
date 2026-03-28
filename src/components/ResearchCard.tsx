@@ -32,8 +32,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
     if (!trimmedEmail) return;
 
     if (captureMode === 'talk' && !trimmedContext) {
-      setSubmitError('Please share a little context so we know how to follow up with you.');
-      return;
+      // Context is optional for chat submissions.
     }
 
     const { error: insertError } = await supabase.from('form_submissions').insert({

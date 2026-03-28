@@ -20,6 +20,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [submitted, setSubmitted] = useState(false);
 
   const isDatingDetoxEvent = false; // No longer active — event completed
+  const isCompletedEvent = event.completed || event.id === 'dating-detox-talk';
   const datingDetoxTicketUrl = '';
 
   const handleSubmitInterest = async (e: React.FormEvent) => {
@@ -61,7 +62,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className={`relative w-80 flex-shrink-0 ${event.completed ? 'opacity-90' : ''}`}
+      className={`relative w-80 flex-shrink-0 ${isCompletedEvent ? 'opacity-90' : ''}`}
     >
       <div className={`border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
         event.completed
@@ -87,7 +88,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                   Up Next
                 </span>
               )}
-              {event.completed && (
+              {isCompletedEvent && (
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--event-workshop)/0.15)] text-[hsl(var(--event-workshop))]">
                   ✓ Completed
                 </span>
@@ -136,7 +137,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
 
                 <p className="text-sm leading-relaxed text-muted-foreground mb-4">{event.description}</p>
 
-                {!event.completed && (
+                {!isCompletedEvent && (
                   <div className="flex flex-col gap-2 border-t border-border pt-4">
                     {showInterest && (
                       <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-1">
