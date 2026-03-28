@@ -108,7 +108,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         <div className="border-t border-border pt-4">
           <p className="text-xs font-medium text-muted-foreground mb-2">
             {captureMode === 'talk'
-              ? "We'd love to hear from you. Share more about yourself (optional), then add your email so we can follow up."
+              ? "Please add anything you'd like to share about yourself including links, observations or high level details."
               : "Great — leave your email and we'll keep you in the loop."}
           </p>
 
