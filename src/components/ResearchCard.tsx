@@ -126,7 +126,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         <div className="border-t border-border pt-4">
           <p className="text-xs font-medium text-muted-foreground mb-2">
             {captureMode === 'talk'
-              ? "We'd love to hear from you. Drop your email and we'll reach out."
+              ? "We'd love to hear from you. Tell us a bit about yourself and your experience — then drop your email so we can reach out."
               : "Great — leave your email and we'll keep you in the loop."}
           </p>
           {submitted ? (
@@ -141,12 +141,12 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             <form onSubmit={handleSubmit} className="space-y-2">
               {captureMode === 'talk' && (
                 <Textarea
-                  placeholder="Share any context about your experience or perspective (optional)"
+                  placeholder="Tell us about yourself — your relationship history, what you've learned, what you'd want to talk about. The more context, the better."
                   value={context}
                   onChange={(e) => setContext(e.target.value)}
                   className="text-sm resize-none"
-                  rows={3}
-                  maxLength={1000}
+                  rows={4}
+                  maxLength={2000}
                 />
               )}
               <div className="flex items-center gap-2">
@@ -164,12 +164,15 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                 </Button>
                 <button
                   type="button"
-                  onClick={() => { setCaptureMode(null); setContext(''); }}
+                  onClick={() => { setCaptureMode(null); setContext(''); setSubmitError(false); }}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
+              {submitError && (
+                <p className="text-xs text-destructive">Something went wrong — please try again.</p>
+              )}
             </form>
           )}
         </div>
