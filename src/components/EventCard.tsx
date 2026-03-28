@@ -65,7 +65,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       className={`relative w-80 flex-shrink-0 ${isCompletedEvent ? 'opacity-90' : ''}`}
     >
       <div className={`border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
-        event.completed
+        isCompletedEvent
           ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)]'
           : isDatingDetoxEvent
             ? 'bg-[hsl(var(--primary)/0.07)] border-[hsl(var(--primary)/0.28)]'

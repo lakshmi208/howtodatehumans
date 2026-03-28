@@ -31,9 +31,6 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
 
     if (!trimmedEmail) return;
 
-    if (captureMode === 'talk' && !trimmedContext) {
-      // Context is optional for chat submissions.
-    }
 
     const { error: insertError } = await supabase.from('form_submissions').insert({
       form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
@@ -111,7 +108,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         <div className="border-t border-border pt-4">
           <p className="text-xs font-medium text-muted-foreground mb-2">
             {captureMode === 'talk'
-              ? "We'd love to hear from you. Please share context below (required), then add your email so we can follow up."
+              ? "We'd love to hear from you. Share more about yourself (optional), then add your email so we can follow up."
               : "Great — leave your email and we'll keep you in the loop."}
           </p>
 
@@ -123,7 +120,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
             <form onSubmit={handleSubmit} className="space-y-2">
               {captureMode === 'talk' && (
                 <div className="space-y-1">
-                  <p className="text-xs font-semibold text-foreground">Tell us about yourself (required)</p>
+                  <p className="text-xs font-semibold text-foreground">Share more about yourself (optional)</p>
                   <Textarea
                     placeholder="Share your background, what you've noticed in modern dating, and what you'd like to talk about."
                     value={context}
@@ -131,7 +128,6 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                     className="text-sm resize-none"
                     rows={4}
                     maxLength={2000}
-                    required
                   />
                 </div>
               )}
