@@ -16,13 +16,14 @@ export interface EventConcept {
   completed?: boolean;
   date?: string;
   singlesOnly?: boolean;
+  comingSoon?: boolean;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
   'talk': 'Talk',
   'workshop': 'Workshop',
   'event': 'Event',
-  'focus-group': 'Focus Group',
+  'focus-group': 'Research',
   'fireside': 'Fireside Chat',
   'happy-hour': 'Happy Hour',
   'kickoff': 'Kickoff',
@@ -186,8 +187,9 @@ export const events: EventConcept[] = [
     problem: 'Midlife daters feel forgotten by dating culture, yet they represent the fastest-growing segment of online dating.',
     solution: 'A research-based talk sharing original insights about what midlife dating actually looks like — the data, the stories, and the hope.',
     description: 'Based on original research, this talk dives into the realities of dating in your 40s, 50s, and beyond. We\'ll cover what the data says, bust myths about "starting over," and share stories that prove the best love stories often begin in the middle chapters.',
-    timeframe: 'Late Fall',
-    month: 11,
+    timeframe: 'Early Summer',
+    month: 6,
+    comingSoon: true,
     interestCount: 98,
   },
 ];
