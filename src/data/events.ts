@@ -17,6 +17,7 @@ export interface EventConcept {
   date?: string;
   singlesOnly?: boolean;
   comingSoon?: boolean;
+  upNext?: boolean;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
