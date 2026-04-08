@@ -106,6 +106,7 @@ export const events: EventConcept[] = [
     timeframe: 'Late Spring',
     month: 5,
     interestCount: 112,
+    singlesOnly: true,
   },
   {
     id: 'first-responder-stories',
