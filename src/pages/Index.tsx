@@ -131,7 +131,7 @@ const Index = () => {
                       className="mb-2"
                     >
                       <div className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-1 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">
-                        {months[event.month - 1]} 2026
+                        {calendarMonths[event.month - 1]} 2026
                       </div>
                     </motion.div>
                   )}
@@ -184,7 +184,7 @@ const Index = () => {
                     className="mb-2"
                   >
                     <span className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-3 py-0.5 rounded-full text-xs font-bold tracking-wider">
-                      {months[event.month - 1]} 2026
+                      {calendarMonths[event.month - 1]} 2026
                     </span>
                   </motion.div>
                 )}

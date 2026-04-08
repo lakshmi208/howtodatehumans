@@ -207,4 +207,16 @@ export const events: EventConcept[] = [
     month: 8,
     interestCount: 0,
   },
+  {
+    id: 'explore-more-placeholder',
+    title: 'More Coming Soon',
+    type: 'event',
+    tagline: 'See what\'s in development below',
+    problem: '',
+    solution: '',
+    description: 'We\'re actively developing new events, research areas, and creative concepts. Scroll down to explore what\'s in the works and let us know what excites you.',
+    timeframe: 'July 2026+',
+    month: 7,
+    interestCount: 0,
+  },
 ];
