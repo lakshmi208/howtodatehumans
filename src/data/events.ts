@@ -17,6 +17,7 @@ export interface EventConcept {
   date?: string;
   singlesOnly?: boolean;
   comingSoon?: boolean;
+  upNext?: boolean;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
@@ -63,7 +64,7 @@ export const events: EventConcept[] = [
     solution: 'A recurring, low-pressure monthly gathering where humans meet other humans — no apps, no pretense.',
     description: 'An ongoing monthly event that serves as the gateway into the How to Date Humans community. Come meet other humans, learn about our mission, and discover upcoming workshops and events. This is where it all begins.',
     timeframe: 'Monthly, ongoing',
-    month: 1,
+    month: 5,
     recurring: true,
     interestCount: 127,
   },
@@ -89,8 +90,9 @@ export const events: EventConcept[] = [
     problem: 'Climate anxiety, political chaos, economic instability — when the future feels uncertain, investing in relationships can feel meaningless. Many people have quietly stopped trying.',
     solution: 'A talk that confronts the nihilism head-on and makes the case that human connection isn\'t just worth pursuing in uncertain times — it\'s the whole point.',
     description: 'Everything feels like it\'s falling apart. So why bother dating? This talk tackles the elephant in every room: the creeping sense that building a life with someone is pointless when the world seems to be ending. We\'ll explore how collapse anxiety reshapes our relationship patterns, why avoidance masquerades as pragmatism, and how the people who find love in hard times aren\'t naive — they\'re brave. This isn\'t toxic positivity. It\'s a real conversation about what it means to choose connection when giving up feels easier.',
-    timeframe: 'Spring',
+    timeframe: 'April 2026',
     month: 4,
+    upNext: true,
     interestCount: 0,
   },
   {
