@@ -8,6 +8,7 @@ import AdminToggle from '@/components/AdminToggle';
 import ResearchSection from '@/components/ResearchSection';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PhotoGallery from '@/components/PhotoGallery';
+import GaugingInterest from '@/components/GaugingInterest';
 import { events, EventType, eventTypeLabels } from '@/data/events';
 
 const months = [
@@ -15,9 +16,15 @@ const months = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb',
 ];
 
+const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk'];
+
 const Index = () => {
   const [showInterest, setShowInterest] = useState(false);
   const [activeFilter, setActiveFilter] = useState<EventType | 'all'>('all');
+
+  // Split events into priority (timeline) and gauging interest
+  const priorityEvents = events.filter((e) => PRIORITY_IDS.includes(e.id));
+  const gaugingEvents = events.filter((e) => !PRIORITY_IDS.includes(e.id));
 
   // Calculate timeline progress based on current date
   const timelineStart = new Date(2026, 1, 1);
@@ -27,8 +34,13 @@ const Index = () => {
   const elapsedMs = Math.max(0, Math.min(now.getTime() - timelineStart.getTime(), totalMs));
   const progressPercent = `${Math.round((elapsedMs / totalMs) * 100)}%`;
 
-  // Sort and filter events
-  const sortedEvents = [...events]
+  // Sort and filter priority events
+  const sortedEvents = [...priorityEvents]
+    .sort((a, b) => a.month - b.month)
+    .filter((e) => activeFilter === 'all' || e.type === activeFilter);
+
+  // Filter gauging events
+  const filteredGaugingEvents = gaugingEvents
     .sort((a, b) => a.month - b.month)
     .filter((e) => activeFilter === 'all' || e.type === activeFilter);
 
@@ -92,7 +104,8 @@ const Index = () => {
           ))}
         </select>
       </div>
-      {/* Timeline */}
+
+      {/* Timeline — priority events only */}
       <div className="relative pb-20">
         {/* Horizontal line - desktop only */}
         <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
@@ -215,8 +228,9 @@ const Index = () => {
         </div>
       </div>
 
-      <PhotoGallery />
+      <GaugingInterest events={filteredGaugingEvents} showInterest={showInterest} />
       <ResearchSection showInterest={showInterest} />
+      <PhotoGallery />
       <IdeaSubmission />
       <PartnerCTA />
       <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />
