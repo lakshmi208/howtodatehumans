@@ -194,4 +194,16 @@ export const events: EventConcept[] = [
     comingSoon: true,
     interestCount: 98,
   },
+  {
+    id: 'chicago-romance-stories',
+    title: 'Love Letters to Chicago',
+    type: 'event',
+    tagline: 'Is Chicago a character in your "how we met" story?',
+    problem: 'People forget that where you live shapes who you meet — cities aren\'t just backdrops, they\'re part of the backstory.',
+    solution: 'A storytelling night where Chicagoans share the stories where the city itself played a starring role in their love story.',
+    description: 'From Irish immigrants who finally crossed paths in Chicago, to chatting up strangers on CTA platforms, to both having The Green Mill on your dating profile — cities play a role in how people meet, get to know each other, and how their stories unfold. This is a night of real stories where Chicago was more than a setting. It was a character.',
+    timeframe: 'TBD',
+    month: 8,
+    interestCount: 0,
+  },
 ];
