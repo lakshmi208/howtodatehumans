@@ -11,7 +11,7 @@ const GaugingInterest = ({ events, showInterest }: GaugingInterestProps) => {
   if (events.length === 0) return null;
 
   return (
-    <section className="max-w-5xl mx-auto px-4 py-16">
+    <section id="gauging-interest" className="max-w-5xl mx-auto px-4 py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

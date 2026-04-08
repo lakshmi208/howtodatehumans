@@ -16,7 +16,9 @@ const months = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb',
 ];
 
-const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk', 'dating-in-collapse'];
+const calendarMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk', 'dating-in-collapse', 'explore-more-placeholder'];
 
 const Index = () => {
   const [showInterest, setShowInterest] = useState(false);
@@ -129,17 +131,37 @@ const Index = () => {
                       className="mb-2"
                     >
                       <div className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-1 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">
-                        {months[event.month - 1]} 2026
+                        {calendarMonths[event.month - 1]} 2026
                       </div>
                     </motion.div>
                   )}
 
-                  <EventCard
-                    event={event}
-                    showInterest={showInterest}
-                    index={index}
-                    side="left"
-                  />
+                  {event.id === 'explore-more-placeholder' ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="w-80 border-2 border-dashed border-[hsl(var(--primary)/0.4)] rounded-xl p-6 text-center bg-card"
+                    >
+                      <p className="text-lg font-bold mb-2">What's next?</p>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Explore research areas and event concepts in development below.
+                      </p>
+                      <button
+                        onClick={() => document.getElementById('gauging-interest')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="text-sm font-semibold text-[hsl(var(--primary))] hover:underline"
+                      >
+                        See what's in the works ↓
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <EventCard
+                      event={event}
+                      showInterest={showInterest}
+                      index={index}
+                      side="left"
+                    />
+                  )}
                 </div>
               );
             })}
@@ -182,17 +204,37 @@ const Index = () => {
                     className="mb-2"
                   >
                     <span className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-3 py-0.5 rounded-full text-xs font-bold tracking-wider">
-                      {months[event.month - 1]} 2026
+                      {calendarMonths[event.month - 1]} 2026
                     </span>
                   </motion.div>
                 )}
 
-                <EventCard
-                  event={event}
-                  showInterest={showInterest}
-                  index={index}
-                  side="left"
-                />
+                {event.id === 'explore-more-placeholder' ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="border-2 border-dashed border-[hsl(var(--primary)/0.4)] rounded-xl p-6 text-center bg-card"
+                  >
+                    <p className="text-lg font-bold mb-2">What's next?</p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Explore research areas and event concepts in development below.
+                    </p>
+                    <button
+                      onClick={() => document.getElementById('gauging-interest')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="text-sm font-semibold text-[hsl(var(--primary))] hover:underline"
+                    >
+                      See what's in the works ↓
+                    </button>
+                  </motion.div>
+                ) : (
+                  <EventCard
+                    event={event}
+                    showInterest={showInterest}
+                    index={index}
+                    side="left"
+                  />
+                )}
               </div>
             );
           })}
