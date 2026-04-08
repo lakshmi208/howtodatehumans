@@ -235,6 +235,7 @@ const Index = () => {
                     side="left"
                   />
                 )}
+              </div>
             );
           })}
 
