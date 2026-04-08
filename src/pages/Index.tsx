@@ -16,7 +16,7 @@ const months = [
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb',
 ];
 
-const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk'];
+const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk', 'dating-in-collapse'];
 
 const Index = () => {
   const [showInterest, setShowInterest] = useState(false);
