@@ -1,3 +1,12 @@
+export interface VettingField {
+  label: string;
+  key: string;
+  type: 'text' | 'textarea' | 'email' | 'select';
+  placeholder?: string;
+  options?: string[];
+  required?: boolean;
+}
+
 export interface ResearchArea {
   id: string;
   title: string;
@@ -6,6 +15,7 @@ export interface ResearchArea {
   whyItMatters: string;
   interestCount: number;
   talkCount: number;
+  vettingFields: VettingField[];
 }
 
 export const researchAreas: ResearchArea[] = [
@@ -19,6 +29,13 @@ export const researchAreas: ResearchArea[] = [
       'There\'s a lot of heat on this cohort — it\'s worth hearing what they have to say.',
     interestCount: 56,
     talkCount: 8,
+    vettingFields: [
+      { label: 'Name', key: 'Name', type: 'text', placeholder: 'Your name', required: true },
+      { label: 'Age', key: 'Age', type: 'text', placeholder: 'Your age', required: true },
+      { label: 'Years Divorced', key: 'Years Divorced', type: 'text', placeholder: 'e.g. 3' },
+      { label: 'Email', key: 'Email', type: 'email', placeholder: 'your@email.com', required: true },
+      { label: 'Share links or anything else here', key: 'Notes', type: 'textarea', placeholder: 'Links, observations, or anything else you want to share.' },
+    ],
   },
   {
     id: 'gen-z-research',
@@ -30,6 +47,13 @@ export const researchAreas: ResearchArea[] = [
       "Gen Z didn't break dating — they inherited a broken system. Understanding their reality helps us build bridges across generations.",
     interestCount: 71,
     talkCount: 15,
+    vettingFields: [
+      { label: 'Name', key: 'Name', type: 'text', placeholder: 'Your name', required: true },
+      { label: 'Age', key: 'Age', type: 'text', placeholder: 'Your age', required: true },
+      { label: 'Email', key: 'Email', type: 'email', placeholder: 'your@email.com', required: true },
+      { label: 'One Word to Describe Dating Today', key: 'One Word', type: 'text', placeholder: 'One word' },
+      { label: 'Share links or anything else here', key: 'Notes', type: 'textarea', placeholder: 'Links, observations, or anything else you want to share.' },
+    ],
   },
   {
     id: 'dating-coaches-research',
@@ -41,6 +65,13 @@ export const researchAreas: ResearchArea[] = [
       'There are people doing real, honest work to help others find connection. They deserve visibility — and daters deserve to know who to trust.',
     interestCount: 0,
     talkCount: 0,
+    vettingFields: [
+      { label: 'Name', key: 'Name', type: 'text', placeholder: 'Your name', required: true },
+      { label: 'Age', key: 'Age', type: 'text', placeholder: 'Your age', required: true },
+      { label: 'Have you used a Coach, Matchmaker or both?', key: 'Coach or Matchmaker', type: 'select', options: ['Coach', 'Matchmaker', 'Both', 'Neither'] },
+      { label: 'Email', key: 'Email', type: 'email', placeholder: 'your@email.com', required: true },
+      { label: 'Share links or anything else here', key: 'Notes', type: 'textarea', placeholder: 'Links, observations, or anything else you want to share.' },
+    ],
   },
   {
     id: 'ai-dating-research',
@@ -52,5 +83,12 @@ export const researchAreas: ResearchArea[] = [
       'AI won\'t replace dating — but it could replace the risk that makes dating matter. Before that happens, we need to understand what\'s at stake: connection that costs something, conversations that surprise us, humans who don\'t know exactly what to say.',
     interestCount: 0,
     talkCount: 0,
+    vettingFields: [
+      { label: 'Name', key: 'Name', type: 'text', placeholder: 'Your name', required: true },
+      { label: 'Age', key: 'Age', type: 'text', placeholder: 'Your age', required: true },
+      { label: 'Email', key: 'Email', type: 'email', placeholder: 'your@email.com', required: true },
+      { label: 'How have you used AI in your dating life?', key: 'AI Usage', type: 'textarea', placeholder: 'Tell us how you\'ve used AI in dating...' },
+      { label: 'Share links or anything else here', key: 'Notes', type: 'textarea', placeholder: 'Links, observations, or anything else you want to share.' },
+    ],
   },
 ];
