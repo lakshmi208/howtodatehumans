@@ -136,12 +136,32 @@ const Index = () => {
                     </motion.div>
                   )}
 
-                  <EventCard
-                    event={event}
-                    showInterest={showInterest}
-                    index={index}
-                    side="left"
-                  />
+                  {event.id === 'explore-more-placeholder' ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="w-80 border-2 border-dashed border-[hsl(var(--primary)/0.4)] rounded-xl p-6 text-center bg-card"
+                    >
+                      <p className="text-lg font-bold mb-2">What's next?</p>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Explore research areas and event concepts in development below.
+                      </p>
+                      <button
+                        onClick={() => document.getElementById('gauging-interest')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="text-sm font-semibold text-[hsl(var(--primary))] hover:underline"
+                      >
+                        See what's in the works ↓
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <EventCard
+                      event={event}
+                      showInterest={showInterest}
+                      index={index}
+                      side="left"
+                    />
+                  )}
                 </div>
               );
             })}
