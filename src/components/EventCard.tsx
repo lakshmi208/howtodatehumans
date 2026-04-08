@@ -29,7 +29,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       const { error: insertError } = await supabase.from('form_submissions').insert({
         form_type: 'event-interest',
         subject: `Interest: ${event.title}`,
-        fields: { Email: email, Event: event.title, Tagline: event.tagline },
+        fields: { Email: email, Event: event.title },
       });
 
       if (insertError) {

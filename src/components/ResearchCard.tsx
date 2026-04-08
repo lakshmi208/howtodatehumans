@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Sparkles, Mail, X } from 'lucide-react';
-import { ResearchArea } from '@/data/research';
+import { MessageCircle, Sparkles, X } from 'lucide-react';
+import { ResearchArea, VettingField } from '@/data/research';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,31 +17,39 @@ type CaptureMode = 'talk' | 'interested' | null;
 
 const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
   const [captureMode, setCaptureMode] = useState<CaptureMode>(null);
-  const [email, setEmail] = useState('');
-  const [context, setContext] = useState('');
+  const [formData, setFormData] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const updateField = (key: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
 
-    const trimmedEmail = email.trim();
-    const trimmedContext = context.trim();
+    const fields: Record<string, string> = {
+      'Research Area': area.title,
+      'Research ID': area.id,
+      'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
+    };
 
-    if (!trimmedEmail) return;
-
+    if (captureMode === 'talk') {
+      area.vettingFields.forEach((f) => {
+        const val = (formData[f.key] || '').trim();
+        if (val) fields[f.key] = val;
+      });
+    } else {
+      const email = (formData['Email'] || '').trim();
+      if (!email) return;
+      fields['Email'] = email;
+    }
 
     const { error: insertError } = await supabase.from('form_submissions').insert({
       form_type: captureMode === 'talk' ? 'research-talk' : 'research-interest',
       subject: `${captureMode === 'talk' ? 'Wants to Talk' : 'Interested In'}: ${area.title}`,
-      fields: {
-        Email: trimmedEmail,
-        'Research Area': area.title,
-        'Research ID': area.id,
-        'Interest Type': captureMode === 'talk' ? 'Will chat' : 'Wants updates',
-        ...(captureMode === 'talk' ? { Context: trimmedContext } : {}),
-      },
+      fields,
     });
 
     if (insertError) {
@@ -51,13 +59,66 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
     }
 
     setSubmitted(true);
-    setEmail('');
-    setContext('');
+    setFormData({});
 
     setTimeout(() => {
       setCaptureMode(null);
       setSubmitted(false);
     }, 2500);
+  };
+
+  const renderField = (field: VettingField) => {
+    const value = formData[field.key] || '';
+
+    if (field.type === 'textarea') {
+      return (
+        <div key={field.key} className="space-y-1">
+          <label className="text-xs font-semibold text-foreground">{field.label}</label>
+          <Textarea
+            placeholder={field.placeholder}
+            value={value}
+            onChange={(e) => updateField(field.key, e.target.value)}
+            className="text-sm resize-none"
+            rows={3}
+            maxLength={2000}
+            required={field.required}
+          />
+        </div>
+      );
+    }
+
+    if (field.type === 'select' && field.options) {
+      return (
+        <div key={field.key} className="space-y-1">
+          <label className="text-xs font-semibold text-foreground">{field.label}</label>
+          <select
+            value={value}
+            onChange={(e) => updateField(field.key, e.target.value)}
+            className="w-full h-8 text-sm rounded-md border border-input bg-background px-3"
+            required={field.required}
+          >
+            <option value="">Select...</option>
+            {field.options.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+        </div>
+      );
+    }
+
+    return (
+      <div key={field.key} className="space-y-1">
+        <label className="text-xs font-semibold text-foreground">{field.label}</label>
+        <Input
+          type={field.type === 'email' ? 'email' : 'text'}
+          placeholder={field.placeholder}
+          value={value}
+          onChange={(e) => updateField(field.key, e.target.value)}
+          className="h-8 text-sm"
+          required={field.required}
+        />
+      </div>
+    );
   };
 
   return (
@@ -97,48 +158,56 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         <div className="flex flex-col sm:flex-row gap-2 border-t border-border pt-4">
           <Button size="sm" onClick={() => setCaptureMode('talk')} className="gap-1.5" variant="default">
             <MessageCircle className="w-3.5 h-3.5" />
-            I'd like to chat
+            I'll talk
           </Button>
           <Button size="sm" onClick={() => setCaptureMode('interested')} className="gap-1.5" variant="outline">
             <Sparkles className="w-3.5 h-3.5" />
-            Keep me posted
+            Please explore this!
           </Button>
         </div>
       ) : (
         <div className="border-t border-border pt-4">
-          <p className="text-xs font-medium text-muted-foreground mb-2">
-            {captureMode === 'talk'
-              ? "Please add anything you'd like to share about yourself including links, observations or high level details."
-              : "Great — leave your email and we'll keep you in the loop."}
-          </p>
-
           {submitted ? (
             <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm font-medium text-[hsl(var(--event-workshop))]">
               You're on the list! ✓
             </motion.span>
+          ) : captureMode === 'talk' ? (
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <p className="text-xs font-medium text-muted-foreground mb-1">
+                Tell us a bit about yourself so we can reach out.
+              </p>
+              {area.vettingFields.map(renderField)}
+
+              <div className="flex items-center gap-2 pt-1">
+                <Button size="sm" type="submit" className="h-8">
+                  Submit
+                </Button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCaptureMode(null);
+                    setFormData({});
+                    setSubmitError(null);
+                  }}
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {submitError && <p className="text-xs text-destructive">{submitError}</p>}
+            </form>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-2">
-              {captureMode === 'talk' && (
-                <div className="space-y-1">
-                  <p className="text-xs font-semibold text-foreground">Share more about yourself (optional)</p>
-                  <Textarea
-                    placeholder="Share your background, what you've noticed in modern dating, and what you'd like to talk about."
-                    value={context}
-                    onChange={(e) => setContext(e.target.value)}
-                    className="text-sm resize-none"
-                    rows={4}
-                    maxLength={2000}
-                  />
-                </div>
-              )}
-
+              <p className="text-xs font-medium text-muted-foreground mb-2">
+                Drop your email and we'll know you're interested.
+              </p>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                 <Input
                   type="email"
                   placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData['Email'] || ''}
+                  onChange={(e) => updateField('Email', e.target.value)}
                   className="h-8 text-sm"
                   required
                 />
@@ -149,7 +218,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
                   type="button"
                   onClick={() => {
                     setCaptureMode(null);
-                    setContext('');
+                    setFormData({});
                     setSubmitError(null);
                   }}
                   className="text-muted-foreground hover:text-foreground"
