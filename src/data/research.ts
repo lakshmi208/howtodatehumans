@@ -33,12 +33,12 @@ export const researchAreas: ResearchArea[] = [
   },
   {
     id: 'dating-coaches-research',
-    title: 'Dating Coaches & Advice Culture',
-    tagline: 'The advice industrial complex',
+    title: 'Dating Coaches & Matchmakers',
+    tagline: 'Spotlighting the ones who actually help',
     description:
-      'Everyone blames the apps. Nobody talks about the avalanche of dating advice that flooded our feeds right alongside them. Some of it helped. A lot of it made things worse. We want to know who\'s worth listening to and what deserves deletion as much as the app itself.',
+      'Everyone has opinions about dating coaches and matchmakers — and a lot of what\'s out there goes unchecked. Instead of calling out the bad ones, we want to spotlight and promote the coaches and services that are actually trying to improve dating, not simply make money off of dating frustration.',
     whyItMatters:
-      'Bad advice at scale is a cultural pollutant. Before we can rebuild how people date, we need to understand what they\'ve been told and how much of it they need to unlearn.',
+      'There are people doing real, honest work to help others find connection. They deserve visibility — and daters deserve to know who to trust.',
     interestCount: 0,
     talkCount: 0,
   },
