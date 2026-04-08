@@ -83,7 +83,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                 {eventTypeLabels[event.type]}
                 {event.recurring && <span className="ml-1.5 opacity-80">· Recurring</span>}
               </span>
-              {isDatingDetoxEvent && (
+              {(event.upNext && !isCompletedEvent) && (
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide bg-[hsl(var(--primary)/0.14)] text-[hsl(var(--primary))]">
                   Up Next
                 </span>
