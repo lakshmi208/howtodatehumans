@@ -20,6 +20,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [showStoryForm, setShowStoryForm] = useState(false);
   const [email, setEmail] = useState('');
   const [story, setStory] = useState('');
+  const [year, setYear] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submittedStory, setSubmittedStory] = useState(false);
 
