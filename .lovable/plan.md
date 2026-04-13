@@ -1,28 +1,28 @@
 
 
-## Plan
+## Confirmation Message Updates
 
-### 1. Remove tagline from event interest submissions
-**`src/components/EventCard.tsx`** line 32 — Remove `Tagline: event.tagline` from the `fields` object so it only stores `{ Email, Event }`.
+### Changes
 
-### 2. Rename research buttons globally
-**`src/components/ResearchCard.tsx`**:
-- "I'd like to chat" → **"I'll talk"** (line 100)
-- "Keep me posted" → **"Please explore this!"** (line 104)
+**`src/components/EventCard.tsx`**
+- Change "You're on the list! ✓" to **"Thanks! ✓"** (email interest form)
+- Add a separate confirmation for story submissions (once that feature is built): **"We'll review your info — thanks! ✓"**
 
-### 3. Add per-area vetting questions
-**`src/data/research.ts`** — Add a `vettingFields` array to each area:
+**`src/components/ResearchCard.tsx`**
+- "I'll talk" form (vetting fields): Change "You're on the list! ✓" to **"We'll review your info — thanks! ✓"**
+- "Please explore this!" form (email only): Change "You're on the list! ✓" to **"Thanks! ✓"**
 
-| Area | Fields |
-|---|---|
-| Divorced Dudes | Name, Age, Years Divorced, Email, Share links/anything else (textarea) |
-| Gen Z | Name, Age, Email, One Word to Describe Dating Today, Share links/anything else (textarea) |
-| Coaches & Matchmakers | Name, Age, Coach/Matchmaker/Both (select), Email, Share links/anything else (textarea) |
-| AI & Dating | Name, Age, Email, How have you used AI in dating? (textarea), Share links/anything else (textarea) |
+**`src/data/events.ts`**
+- Rename `chicago-romance-stories` title from `'Love Letters to Chicago'` to `'We Met in CHI'`
+- Add `hasStoryCapture: true` to its config
 
-### 4. Render dynamic vetting form
-**`src/components/ResearchCard.tsx`** — When "talk" mode is active, render fields from the area's `vettingFields` schema instead of the current generic textarea + email. All answers stored as key-value pairs in `form_submissions.fields` JSON. No database changes needed.
+**`src/components/EventCard.tsx`** (story capture feature)
+- Add "I have a story" button when `event.hasStoryCapture` is true
+- Form collects: story textarea + email
+- Submits to `form_submissions` with `form_type: 'event-story'`
+- Confirmation: **"We'll review your info — thanks! ✓"**
 
-### 5. Desktop timeline month labels scroll with cards
-**`src/pages/Index.tsx`** — Attach month badges to their card groups so they scroll horizontally together instead of staying static.
+### Logic summary
+- **Simple email-only forms** → "Thanks! ✓"
+- **Forms where someone shares personal info** (vetting fields, stories) → "We'll review your info — thanks! ✓"
 
