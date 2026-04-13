@@ -261,6 +261,15 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                               required
                             />
                             <Input
+                              type="text"
+                              placeholder="e.g. 1945, 1989, 2010, 2024"
+                              value={year}
+                              onChange={(e) => setYear(e.target.value)}
+                              className="h-8 text-sm"
+                              maxLength={4}
+                            />
+                            <p className="text-xs text-muted-foreground -mt-1">Year of story</p>
+                            <Input
                               type="email"
                               placeholder="your@email.com"
                               value={email}
@@ -272,7 +281,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                               <Button size="sm" type="submit" className="h-8">Submit</Button>
                               <button
                                 type="button"
-                                onClick={() => { setShowStoryForm(false); setStory(''); setEmail(''); }}
+                                onClick={() => { setShowStoryForm(false); setStory(''); setEmail(''); setYear(''); }}
                                 className="text-muted-foreground hover:text-foreground"
                               >
                                 <X className="w-4 h-4" />
