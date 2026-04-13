@@ -20,6 +20,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [showStoryForm, setShowStoryForm] = useState(false);
   const [email, setEmail] = useState('');
   const [story, setStory] = useState('');
+  const [year, setYear] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submittedStory, setSubmittedStory] = useState(false);
 
@@ -232,12 +233,13 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                           const { error } = await supabase.from('form_submissions').insert({
                             form_type: 'event-story',
                             subject: `Story: ${event.title}`,
-                            fields: { Email: email, Story: story, Event: event.title },
+                            fields: { Email: email, Story: story, Year: year, Event: event.title },
                           });
                           if (error) { console.error('Failed to save story:', error); return; }
                           setSubmittedStory(true);
                           setStory('');
                           setEmail('');
+                          setYear('');
                           setTimeout(() => { setShowStoryForm(false); setSubmittedStory(false); }, 2500);
                         }}
                         className="space-y-2"
@@ -259,6 +261,15 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                               required
                             />
                             <Input
+                              type="text"
+                              placeholder="e.g. 1945, 1989, 2010, 2024"
+                              value={year}
+                              onChange={(e) => setYear(e.target.value)}
+                              className="h-8 text-sm"
+                              maxLength={4}
+                            />
+                            <p className="text-xs text-muted-foreground -mt-1">Year of story</p>
+                            <Input
                               type="email"
                               placeholder="your@email.com"
                               value={email}
@@ -270,7 +281,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                               <Button size="sm" type="submit" className="h-8">Submit</Button>
                               <button
                                 type="button"
-                                onClick={() => { setShowStoryForm(false); setStory(''); setEmail(''); }}
+                                onClick={() => { setShowStoryForm(false); setStory(''); setEmail(''); setYear(''); }}
                                 className="text-muted-foreground hover:text-foreground"
                               >
                                 <X className="w-4 h-4" />
