@@ -239,6 +239,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                           setSubmittedStory(true);
                           setStory('');
                           setEmail('');
+                          setYear('');
                           setTimeout(() => { setShowStoryForm(false); setSubmittedStory(false); }, 2500);
                         }}
                         className="space-y-2"
