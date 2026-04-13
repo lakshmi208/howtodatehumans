@@ -233,7 +233,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                           const { error } = await supabase.from('form_submissions').insert({
                             form_type: 'event-story',
                             subject: `Story: ${event.title}`,
-                            fields: { Email: email, Story: story, Event: event.title },
+                            fields: { Email: email, Story: story, Year: year, Event: event.title },
                           });
                           if (error) { console.error('Failed to save story:', error); return; }
                           setSubmittedStory(true);
