@@ -169,7 +169,7 @@ const ResearchCard = ({ area, index, showInterest }: ResearchCardProps) => {
         <div className="border-t border-border pt-4">
           {submitted ? (
             <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm font-medium text-[hsl(var(--event-workshop))]">
-              You're on the list! ✓
+              {captureMode === 'talk' ? "We'll review your info — thanks! ✓" : "Thanks! ✓"}
             </motion.span>
           ) : captureMode === 'talk' ? (
             <form onSubmit={handleSubmit} className="space-y-3">

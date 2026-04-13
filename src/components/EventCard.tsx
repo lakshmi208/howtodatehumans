@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Mail, X, Share2, ChevronRight } from 'lucide-react';
+import { Users, Mail, X, Share2, ChevronRight, BookHeart } from 'lucide-react';
 import { EventConcept, eventTypeLabels, eventTypeColors } from '@/data/events';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { supabase } from '@/integrations/supabase/client';
 
 interface EventCardProps {
@@ -16,8 +17,11 @@ interface EventCardProps {
 const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [expanded, setExpanded] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
+  const [showStoryForm, setShowStoryForm] = useState(false);
   const [email, setEmail] = useState('');
+  const [story, setStory] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submittedStory, setSubmittedStory] = useState(false);
 
   const isDatingDetoxEvent = false; // No longer active — event completed
   const isCompletedEvent = event.completed || event.id === 'dating-detox-talk';
@@ -179,7 +183,7 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                       >
                         {submitted ? (
                           <span className="text-sm font-medium text-[hsl(var(--event-workshop))]">
-                            You're on the list! ✓
+                            Thanks! ✓
                           </span>
                         ) : (
                           <>
@@ -201,6 +205,77 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                             >
                               <X className="w-4 h-4" />
                             </button>
+                          </>
+                        )}
+                      </motion.form>
+                    )}
+
+                    {event.hasStoryCapture && !showStoryForm && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => setShowStoryForm(true)}
+                        className="gap-1.5 w-full"
+                      >
+                        <BookHeart className="w-3.5 h-3.5" />
+                        I have a story
+                      </Button>
+                    )}
+
+                    {showStoryForm && (
+                      <motion.form
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        onSubmit={async (e) => {
+                          e.preventDefault();
+                          if (!story.trim() || !email.trim()) return;
+                          const { error } = await supabase.from('form_submissions').insert({
+                            form_type: 'event-story',
+                            subject: `Story: ${event.title}`,
+                            fields: { Email: email, Story: story, Event: event.title },
+                          });
+                          if (error) { console.error('Failed to save story:', error); return; }
+                          setSubmittedStory(true);
+                          setStory('');
+                          setEmail('');
+                          setTimeout(() => { setShowStoryForm(false); setSubmittedStory(false); }, 2500);
+                        }}
+                        className="space-y-2"
+                      >
+                        {submittedStory ? (
+                          <span className="text-sm font-medium text-[hsl(var(--event-workshop))]">
+                            We'll review your info — thanks! ✓
+                          </span>
+                        ) : (
+                          <>
+                            <p className="text-xs font-medium text-muted-foreground">Share the high-level details of your story.</p>
+                            <Textarea
+                              placeholder="How did Chicago play a role in your story?"
+                              value={story}
+                              onChange={(e) => setStory(e.target.value)}
+                              className="text-sm resize-none"
+                              rows={3}
+                              maxLength={2000}
+                              required
+                            />
+                            <Input
+                              type="email"
+                              placeholder="your@email.com"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              className="h-8 text-sm"
+                              required
+                            />
+                            <div className="flex items-center gap-2">
+                              <Button size="sm" type="submit" className="h-8">Submit</Button>
+                              <button
+                                type="button"
+                                onClick={() => { setShowStoryForm(false); setStory(''); setEmail(''); }}
+                                className="text-muted-foreground hover:text-foreground"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
                           </>
                         )}
                       </motion.form>

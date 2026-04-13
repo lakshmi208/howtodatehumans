@@ -18,6 +18,7 @@ export interface EventConcept {
   singlesOnly?: boolean;
   comingSoon?: boolean;
   upNext?: boolean;
+  hasStoryCapture?: boolean;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
@@ -197,7 +198,7 @@ export const events: EventConcept[] = [
   },
   {
     id: 'chicago-romance-stories',
-    title: 'Love Letters to Chicago',
+    title: 'We Met in CHI',
     type: 'event',
     tagline: 'Is Chicago a character in your "how we met" story?',
     problem: 'People forget that where you live shapes who you meet — cities aren\'t just backdrops, they\'re part of the backstory.',
@@ -206,6 +207,7 @@ export const events: EventConcept[] = [
     timeframe: 'TBD',
     month: 8,
     interestCount: 0,
+    hasStoryCapture: true,
   },
   {
     id: 'explore-more-placeholder',
