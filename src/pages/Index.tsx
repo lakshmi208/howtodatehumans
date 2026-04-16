@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
@@ -9,6 +10,7 @@ import ResearchSection from '@/components/ResearchSection';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PhotoGallery from '@/components/PhotoGallery';
 import GaugingInterest from '@/components/GaugingInterest';
+import { Button } from '@/components/ui/button';
 import { events, EventType, eventTypeLabels } from '@/data/events';
 
 const months = [
@@ -82,6 +84,42 @@ const Index = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Featured Event Banner */}
+      {(() => {
+        const featured = events.find(e => e.upNext && e.ticketUrl);
+        if (!featured) return null;
+        return (
+          <div className="max-w-4xl mx-auto px-4 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden rounded-2xl border-2 border-[hsl(var(--primary))] bg-gradient-to-br from-[hsl(var(--primary)/0.08)] to-[hsl(var(--primary)/0.02)] p-6 md:p-8 shadow-[0_0_30px_hsl(var(--primary)/0.15)]"
+            >
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[hsl(var(--primary)/0.06)] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] mb-3">
+                    UP NEXT — TICKETS LIVE
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-1">{featured.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground italic mb-1">{featured.tagline}</p>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                    {featured.date || featured.timeframe}
+                  </p>
+                </div>
+                <Button size="lg" asChild className="gap-2 whitespace-nowrap self-start md:self-center">
+                  <a href={featured.ticketUrl} target="_blank" rel="noopener noreferrer">
+                    Get Your Ticket
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        );
+      })()}
 
       {/* Single-row filter */}
       <div className="flex items-center justify-center gap-2 max-w-4xl mx-auto px-4 mb-8">

@@ -19,6 +19,7 @@ export interface EventConcept {
   comingSoon?: boolean;
   upNext?: boolean;
   hasStoryCapture?: boolean;
+  ticketUrl?: string;
 }
 
 export const eventTypeLabels: Record<EventType, string> = {
@@ -95,6 +96,7 @@ export const events: EventConcept[] = [
     month: 4,
     upNext: true,
     interestCount: 0,
+    ticketUrl: 'https://www.eventbrite.com/e/1987143217857?aff=oddtdtcreator',
   },
   {
     id: 'first-responder-workshop',
