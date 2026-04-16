@@ -94,7 +94,7 @@ export const events: EventConcept[] = [
     description: 'Everything feels like it\'s falling apart. So why bother dating? This talk tackles the elephant in every room: the creeping sense that building a life with someone is pointless when the world seems to be ending. We\'ll explore how collapse anxiety reshapes our relationship patterns, why avoidance masquerades as pragmatism, and how the people who find love in hard times aren\'t naive — they\'re brave. This isn\'t toxic positivity. It\'s a real conversation about what it means to choose connection when giving up feels easier.',
     timeframe: 'April 22 · 6:30–8:30pm',
     month: 4,
-    date: 'April 22, 2026 / 6:30–8:30pm · SHFT Health',
+    date: 'April 22, 2026 / 6:30–8:30pm · SHFT Health · 730 N Franklin',
     upNext: true,
     interestCount: 0,
     ticketUrl: 'https://www.eventbrite.com/e/1987143217857?aff=oddtdtcreator',
