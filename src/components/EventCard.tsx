@@ -24,9 +24,8 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [submittedStory, setSubmittedStory] = useState(false);
 
-  const isDatingDetoxEvent = false; // No longer active — event completed
   const isCompletedEvent = event.completed || event.id === 'dating-detox-talk';
-  const datingDetoxTicketUrl = '';
+  const hasTicketUrl = !!event.ticketUrl;
 
   const handleSubmitInterest = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,12 +68,12 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className={`relative w-80 flex-shrink-0 ${isCompletedEvent ? 'opacity-90' : ''}`}
     >
-      <div className={`border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow ${
+      <div className={`border rounded-xl overflow-hidden transition-shadow ${
         isCompletedEvent
-          ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)]'
-          : isDatingDetoxEvent
-            ? 'bg-[hsl(var(--primary)/0.07)] border-[hsl(var(--primary)/0.28)]'
-            : 'bg-card border-border'
+          ? 'bg-[hsl(var(--event-kickoff)/0.08)] border-[hsl(var(--event-kickoff)/0.3)] shadow-sm hover:shadow-md'
+          : event.upNext
+            ? 'bg-[hsl(var(--primary)/0.06)] border-[hsl(var(--primary))] shadow-[0_0_16px_hsl(var(--primary)/0.2)] hover:shadow-[0_0_24px_hsl(var(--primary)/0.3)]'
+            : 'bg-card border-border shadow-sm hover:shadow-md'
       }`}>
         <button
           onClick={() => setExpanded(!expanded)}
@@ -157,24 +156,22 @@ const EventCard = ({ event, showInterest, index, side }: EventCardProps) => {
                       </div>
                     )}
 
-                    {!showEmailForm ? (
-                      isDatingDetoxEvent ? (
-                        <Button size="sm" asChild className="gap-1.5 w-full">
-                          <a href={datingDetoxTicketUrl} target="_blank" rel="noopener noreferrer">
-                            <Mail className="w-3.5 h-3.5" />
-                            Get Your Ticket
-                          </a>
-                        </Button>
-                      ) : (
-                        <Button
-                          size="sm"
-                          onClick={() => setShowEmailForm(true)}
-                          className="gap-1.5 w-full"
-                        >
+                    {hasTicketUrl ? (
+                      <Button size="sm" asChild className="gap-1.5 w-full">
+                        <a href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
                           <Mail className="w-3.5 h-3.5" />
-                          I'm Interested
-                        </Button>
-                      )
+                          Get Your Ticket
+                        </a>
+                      </Button>
+                    ) : !showEmailForm ? (
+                      <Button
+                        size="sm"
+                        onClick={() => setShowEmailForm(true)}
+                        className="gap-1.5 w-full"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        I'm Interested
+                      </Button>
                     ) : (
                       <motion.form
                         initial={{ opacity: 0 }}
