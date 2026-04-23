@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import LandingHero from '@/components/LandingHero';
-import PressCarousel from '@/components/PressCarousel';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
@@ -57,7 +56,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <LandingHero />
-      <PressCarousel />
       <TimelineHeader />
 
       {/* Urgency bar */}

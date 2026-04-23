@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Newspaper, Mic, FileText } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
+import PressCarousel from '@/components/PressCarousel';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 const fadeUp = {
@@ -153,6 +154,8 @@ const Press = () => {
           </p>
         </motion.div>
       </section>
+
+      <PressCarousel />
 
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <Section icon={Newspaper} title="Articles" items={articles} />
