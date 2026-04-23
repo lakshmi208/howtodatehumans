@@ -3,14 +3,6 @@ import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
-const PRESS_OUTLETS = [
-  'The New York Times',
-  'Vanity Fair',
-  'Vox Media',
-  'Institute for the Future',
-  'Pivot',
-];
-
 const LandingHero = () => {
   return (
     <section className="relative max-w-5xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
@@ -63,28 +55,6 @@ const LandingHero = () => {
             <ArrowRight className="w-4 h-4" />
           </Button>
         </Link>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.25 }}
-        className="border-t border-border pt-6"
-      >
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-          As featured in
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          {PRESS_OUTLETS.map((outlet) => (
-            <Link
-              key={outlet}
-              to="/press"
-              className="text-sm md:text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {outlet}
-            </Link>
-          ))}
-        </div>
       </motion.div>
     </section>
   );
