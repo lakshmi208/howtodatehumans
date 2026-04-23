@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
+import LandingHero from '@/components/LandingHero';
+import NewsletterSignup from '@/components/NewsletterSignup';
 import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
 import PartnerCTA from '@/components/PartnerCTA';
@@ -53,6 +55,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
+      <LandingHero />
       <TimelineHeader />
 
       {/* Urgency bar */}
@@ -311,6 +314,7 @@ const Index = () => {
       <GaugingInterest events={filteredGaugingEvents} showInterest={showInterest} />
       <ResearchSection showInterest={showInterest} />
       <PhotoGallery />
+      <NewsletterSignup />
       <IdeaSubmission />
       <PartnerCTA />
       <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />

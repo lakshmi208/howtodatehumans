@@ -3,13 +3,11 @@ import { useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoHorizontal from '@/assets/logo-horizontal.png';
 
-const SQUARESPACE = 'https://www.howtodatehumans.com';
-
 const navItems = [
   { label: 'Events', href: '/', activePath: '/' },
   { label: 'About', href: '/about', activePath: '/about' },
-  { label: 'Press', href: `${SQUARESPACE}/#press` },
-  { label: 'Newsletter', href: `${SQUARESPACE}/#newsletter` },
+  { label: 'Press', href: '/press', activePath: '/press' },
+  { label: 'Newsletter', href: '/#newsletter' },
 ];
 
 const ctaItem = { label: 'Get in Touch', href: '/work-with-me', activePath: '/work-with-me' };
@@ -28,7 +26,7 @@ const SiteNav = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href={SQUARESPACE} className="shrink-0" aria-label="Go to How to Date Humans homepage">
+        <a href="/" className="shrink-0" aria-label="Go to How to Date Humans homepage">
           <img src={logoHorizontal} alt="How to Date Humans" className="h-14 md:h-16 w-auto" />
         </a>
 
