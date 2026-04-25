@@ -95,9 +95,8 @@ export const events: EventConcept[] = [
     timeframe: 'April 22 · 6:30–8:30pm',
     month: 4,
     date: 'April 22, 2026 / 6:30–8:30pm · SHFT Health · 730 N Franklin',
-    upNext: true,
+    completed: true,
     interestCount: 0,
-    ticketUrl: 'https://www.eventbrite.com/e/1987143217857?aff=oddtdtcreator',
   },
   {
     id: 'first-responder-workshop',
