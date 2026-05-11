@@ -1,61 +1,43 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
 
 const LandingHero = () => {
   return (
-    <section className="relative max-w-5xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
-      <motion.p
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-sm md:text-base font-semibold uppercase tracking-[0.25em] text-[hsl(var(--primary))] mb-6"
-      >
-        It's easy to meet, but harder to connect.<sup className="text-xs">™</sup>
-      </motion.p>
+    <section className="max-w-6xl mx-auto px-6 pt-12 md:pt-20 pb-12">
+      {/* Tiny eyebrow / tagline */}
+      <p className="eyebrow text-center mb-8" style={{ color: 'hsl(var(--muted-foreground))' }}>
+        It's easy to meet, but harder to connect.<sup className="ml-0.5">™</sup>
+      </p>
 
-      <motion.h1
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.05 }}
-        className="text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 max-w-3xl mx-auto"
-      >
+      {/* Massive editorial headline */}
+      <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-16 md:mb-20 max-w-5xl">
         Lakshmi Rengarajan wants you to date your friends.{' '}
-        <span className="text-muted-foreground italic font-normal">
-          (And your coworkers. And your neighbors.)
-        </span>
-      </motion.h1>
+        <span className="whitespace-nowrap">(<em>And</em></span> your coworkers.{' '}
+        <em>And</em> your neighbors.)
+      </h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed"
-      >
-        A year-long experiment in Chicago to bring dating culture back to humans — and a newsletter,
-        <em> Dating in Collapse</em>, on what happened to connection.
-      </motion.p>
+      {/* Photo + intro + CTA */}
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto md:ml-12">
+        {/* Circle-cropped photo */}
+        <div className="aspect-square w-full max-w-md mx-auto md:mx-0 rounded-full overflow-hidden">
+          <img
+            src={workingFromHoxton}
+            alt="A How to Date Humans event at The Hoxton, Chicago"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-        className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
-      >
-        <a href="#newsletter">
-          <Button size="lg" className="gap-2 h-12 px-6">
-            <Mail className="w-4 h-4" />
-            Join the newsletter
-          </Button>
-        </a>
-        <Link to="/about">
-          <Button size="lg" variant="outline" className="gap-2 h-12 px-6">
-            Read the manifesto
-            <ArrowRight className="w-4 h-4" />
-          </Button>
-        </Link>
-      </motion.div>
+        {/* Intro + CTA */}
+        <div className="max-w-md">
+          <p className="text-lg leading-relaxed mb-8">
+            A year of experimental labs, salons, &amp; events for anyone who cares about how humans
+            find each other, why it got <em className="italic">so hard</em> &amp; what we can do about it.
+          </p>
+          <Link to="/#timeline" className="btn-pill">
+            See the event timeline
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };

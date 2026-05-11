@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,97 +6,91 @@
 
 @layer base {
   :root {
-    --background: 36 33% 95%;
-    --foreground: 20 25% 15%;
+    /* Exact brand hex from Squarespace → HSL                          */
+    /*   #F7F4F6 cream    #2B0E0B brown    #200603 ink                  */
+    /*   #E4481A coral    #EAACCF blush                                 */
+    --background: 320 16% 96%;          /* #F7F4F6 cream */
+    --foreground: 6 59% 11%;            /* #2B0E0B body brown */
 
-    --card: 36 30% 97%;
-    --card-foreground: 20 25% 15%;
+    --card: 320 16% 96%;
+    --card-foreground: 6 59% 11%;
 
-    --popover: 36 30% 97%;
-    --popover-foreground: 20 25% 15%;
+    --popover: 320 16% 96%;
+    --popover-foreground: 6 59% 11%;
 
-    --primary: 14 80% 50%;
-    --primary-foreground: 36 33% 97%;
+    --primary: 14 80% 50%;              /* #E4481A coral — italic accents + primary */
+    --primary-foreground: 320 16% 96%;
 
-    --secondary: 36 20% 88%;
-    --secondary-foreground: 20 25% 15%;
+    --secondary: 320 14% 90%;
+    --secondary-foreground: 6 59% 11%;
 
-    --muted: 36 15% 90%;
-    --muted-foreground: 20 10% 45%;
+    --muted: 320 12% 90%;
+    --muted-foreground: 6 12% 40%;
 
-    --accent: 14 80% 50%;
-    --accent-foreground: 36 33% 97%;
+    --accent: 326 60% 80%;              /* #EAACCF blush */
+    --accent-foreground: 6 59% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 15% 82%;
-    --input: 30 15% 82%;
+    --border: 320 10% 82%;
+    --input: 320 10% 82%;
     --ring: 14 80% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    --sidebar-background: 36 30% 94%;
-    --sidebar-foreground: 20 25% 15%;
+    --sidebar-background: 320 16% 95%;
+    --sidebar-foreground: 6 59% 11%;
     --sidebar-primary: 14 80% 50%;
-    --sidebar-primary-foreground: 36 33% 97%;
-    --sidebar-accent: 36 20% 88%;
-    --sidebar-accent-foreground: 20 25% 15%;
-    --sidebar-border: 30 15% 82%;
+    --sidebar-primary-foreground: 320 16% 96%;
+    --sidebar-accent: 320 14% 90%;
+    --sidebar-accent-foreground: 6 59% 11%;
+    --sidebar-border: 320 10% 82%;
     --sidebar-ring: 14 80% 50%;
 
-    /* Custom tokens */
-    --warm-brown: 20 25% 20%;
-    --cream: 36 33% 95%;
-    --cream-dark: 36 20% 88%;
-    --orange-glow: 14 80% 50%;
-    --timeline-line: 20 15% 75%;
+    /* Editorial brand tokens */
+    --ink: 6 83% 7%;                    /* #200603 deepest brown — pill buttons */
+    --ink-foreground: 320 16% 96%;
+    --coral: 14 80% 50%;                /* #E4481A italic accent */
+    --blush: 326 60% 80%;               /* #EAACCF soft pink */
+    --timeline-line: 320 10% 82%;
+
+    /* Event category tints (kept for the timeline) */
     --event-talk: 210 60% 50%;
     --event-workshop: 150 50% 40%;
-    --event-event: 14 80% 50%;
+    --event-event: 11 78% 52%;
     --event-focus-group: 280 40% 50%;
     --event-fireside: 35 80% 50%;
     --event-coworking: 190 50% 45%;
     --event-happy-hour: 340 60% 50%;
     --event-kickoff: 45 90% 48%;
+    --orange-glow: 11 78% 52%;
   }
 
   .dark {
     --background: 20 20% 8%;
-    --foreground: 36 20% 90%;
-
+    --foreground: 36 20% 92%;
     --card: 20 20% 12%;
-    --card-foreground: 36 20% 90%;
-
+    --card-foreground: 36 20% 92%;
     --popover: 20 20% 12%;
-    --popover-foreground: 36 20% 90%;
-
-    --primary: 14 80% 50%;
+    --popover-foreground: 36 20% 92%;
+    --primary: 11 78% 56%;
     --primary-foreground: 20 20% 8%;
-
     --secondary: 20 15% 18%;
-    --secondary-foreground: 36 20% 90%;
-
+    --secondary-foreground: 36 20% 92%;
     --muted: 20 15% 18%;
-    --muted-foreground: 30 10% 55%;
-
-    --accent: 20 15% 18%;
-    --accent-foreground: 36 20% 90%;
-
+    --muted-foreground: 30 10% 60%;
+    --accent: 220 55% 50%;
+    --accent-foreground: 20 20% 8%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 20 15% 22%;
     --input: 20 15% 22%;
-    --ring: 14 80% 50%;
-    --sidebar-background: 20 20% 10%;
-    --sidebar-foreground: 36 20% 90%;
-    --sidebar-primary: 14 80% 50%;
-    --sidebar-primary-foreground: 20 20% 8%;
-    --sidebar-accent: 20 15% 18%;
-    --sidebar-accent-foreground: 36 20% 90%;
-    --sidebar-border: 20 15% 22%;
-    --sidebar-ring: 14 80% 50%;
+    --ring: 11 78% 56%;
+    --ink: 36 20% 92%;
+    --ink-foreground: 20 20% 8%;
+    --coral: 14 80% 56%;
+    --blush: 326 60% 80%;
   }
 }
 
@@ -107,11 +101,86 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+  /* Display / editorial serif for all headings */
+  h1, h2, h3, h4, h5, h6,
+  .font-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Italic in display serif uses the brand coral accent */
+  .font-display em,
+  .font-display i,
+  h1 em, h1 i,
+  h2 em, h2 i,
+  h3 em, h3 i {
+    font-style: italic;
+    color: hsl(var(--coral));
+  }
+
+  /* Variant: blush italic accent */
+  .accent-blush em,
+  .accent-blush i {
+    color: hsl(var(--blush));
+  }
+
+  /* Editorial eyebrow label — small-caps tracked-out */
+  .eyebrow {
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  /* Black pill CTA — matches Squarespace "See the event timeline" button */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: hsl(var(--ink));
+    color: hsl(var(--ink-foreground));
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-pill:hover {
+    opacity: 0.88;
+  }
+  .btn-pill-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: hsl(var(--ink));
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid hsl(var(--ink));
+    font-family: 'Roboto', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+  .btn-pill-outline:hover {
+    background: hsl(var(--ink));
+    color: hsl(var(--ink-foreground));
   }
 }
 
