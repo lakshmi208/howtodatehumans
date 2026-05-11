@@ -42,9 +42,6 @@ const TimelineHeader = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}>
         
-        <p className="font-bold uppercase tracking-[0.2em] text-[hsl(var(--primary))] mb-4 text-2xl md:text-4xl">
-          A One-Year Mission to Change Dating Culture in Chicago
-        </p>
         <img src={stackedLogo} alt="How to Date Humans" className="h-40 md:h-56 lg:h-72 mx-auto mb-6" />
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed">
           Dating culture didn't break overnight — and it won't change overnight either. 
