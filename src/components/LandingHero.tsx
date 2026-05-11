@@ -1,40 +1,63 @@
 import { Link } from 'react-router-dom';
-import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
+import heroLoop from '@/assets/video/hero-loop.mp4';
+import heroPoster from '@/assets/video/hero-poster.jpg';
 
 const LandingHero = () => {
   return (
-    <section className="max-w-6xl mx-auto px-6 pt-12 md:pt-20 pb-12">
-      {/* Tiny eyebrow / tagline */}
-      <p className="eyebrow text-center mb-8" style={{ color: 'hsl(var(--muted-foreground))' }}>
-        It's easy to meet, but harder to connect.<sup className="ml-0.5">™</sup>
-      </p>
+    <section className="relative w-full h-[88vh] min-h-[560px] overflow-hidden bg-foreground">
+      {/* Video — autoplay, muted, loop, plays inline on iOS.
+          Poster shows immediately while video loads, and is the
+          fallback for users with prefers-reduced-motion. */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster={heroPoster}
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src={heroLoop} type="video/mp4" />
+      </video>
 
-      {/* Massive editorial headline */}
-      <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-16 md:mb-20 max-w-5xl">
-        Lakshmi Rengarajan wants you to date your friends.{' '}
-        <span className="whitespace-nowrap">(<em>And</em></span> your coworkers.{' '}
-        <em>And</em> your neighbors.)
-      </h1>
+      {/* Static poster for reduced-motion users */}
+      <img
+        src={heroPoster}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover hidden motion-reduce:block"
+      />
 
-      {/* Photo + intro + CTA */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto md:ml-12">
-        {/* Circle-cropped photo */}
-        <div className="aspect-square w-full max-w-md mx-auto md:mx-0 rounded-full overflow-hidden">
-          <img
-            src={workingFromHoxton}
-            alt="A How to Date Humans event at The Hoxton, Chicago"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Dark gradient overlay for headline legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65" />
 
-        {/* Intro + CTA */}
-        <div className="max-w-md">
-          <p className="text-lg leading-relaxed mb-8">
-            A year of experimental labs, salons, &amp; events for anyone who cares about how humans
-            find each other, why it got <em className="italic">so hard</em> &amp; what we can do about it.
-          </p>
+      {/* Headline + CTA */}
+      <div className="relative h-full max-w-6xl mx-auto px-6 flex flex-col justify-end pb-16 md:pb-24">
+        <p
+          className="eyebrow mb-6"
+          style={{ color: 'rgba(247, 244, 246, 0.8)' }}
+        >
+          One year. One city.
+        </p>
+        <h1
+          className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mb-10"
+          style={{ color: 'hsl(var(--background))' }}
+        >
+          <span className="font-display">How to Date Humans</span> is a year-long project
+          to figure out what <em>actually</em> happened to dating — and whether one
+          city can do something about it.
+        </h1>
+        <div className="flex flex-col sm:flex-row items-start gap-4">
           <Link to="/#timeline" className="btn-pill">
             See the event timeline
+          </Link>
+          <Link
+            to="/about"
+            className="btn-pill-outline"
+            style={{ borderColor: 'hsl(var(--background))', color: 'hsl(var(--background))' }}
+          >
+            Read the manifesto
           </Link>
         </div>
       </div>
