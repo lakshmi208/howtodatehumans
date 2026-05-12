@@ -7,7 +7,6 @@ const navItems = [
   { label: 'Events', href: '/', activePath: '/' },
   { label: 'Research', href: '/research', activePath: '/research' },
   { label: 'About', href: '/about', activePath: '/about' },
-  { label: 'Press', href: '/press', activePath: '/press' },
 ];
 
 const ctaItem = { label: 'Get in Touch', href: '/work-with-me', activePath: '/work-with-me' };

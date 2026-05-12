@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Lakshmi from "./pages/Lakshmi";
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/lakshmi" element={<Lakshmi />} />
           <Route path="/work-with-me" element={<WorkWithMe />} />
-          <Route path="/press" element={<Press />} />
+          <Route path="/press" element={<Navigate to="/about#lakshmi" replace />} />
           <Route path="/research" element={<Research />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
