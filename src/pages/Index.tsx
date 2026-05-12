@@ -8,7 +8,6 @@ import TimelineHeader from '@/components/TimelineHeader';
 import EventCard from '@/components/EventCard';
 import PartnerCTA from '@/components/PartnerCTA';
 import AdminToggle from '@/components/AdminToggle';
-import ResearchSection from '@/components/ResearchSection';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PhotoGallery from '@/components/PhotoGallery';
 import GaugingInterest from '@/components/GaugingInterest';
@@ -274,7 +273,6 @@ const Index = () => {
       </div>
 
       <GaugingInterest events={filteredGaugingEvents} showInterest={showInterest} />
-      <ResearchSection showInterest={showInterest} />
       <PhotoGallery />
       <NewsletterSignup />
       <IdeaSubmission />
