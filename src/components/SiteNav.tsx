@@ -9,7 +9,7 @@ const navItems = [
   { label: 'About', href: '/about', activePath: '/about' },
 ];
 
-const ctaItem = { label: 'Get in Touch', href: '/work-with-me', activePath: '/work-with-me' };
+const ctaItem = { label: 'Work with Lakshmi', href: '/work-with-me', activePath: '/work-with-me' };
 
 const SiteNav = () => {
   const location = useLocation();
