@@ -10,9 +10,11 @@ type Props = {
   title: string;
   description: string;
   prompt: string;
+  image?: string;
+  imageAlt?: string;
 };
 
-const ListeningSessionCard = ({ slug, eyebrow, title, description, prompt }: Props) => {
+const ListeningSessionCard = ({ slug, eyebrow, title, description, prompt, image, imageAlt }: Props) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [answer, setAnswer] = useState('');
@@ -39,7 +41,19 @@ const ListeningSessionCard = ({ slug, eyebrow, title, description, prompt }: Pro
 
   return (
     <article className="py-12 border-t border-border">
-      <p className="eyebrow mb-3">{eyebrow}</p>
+      <div className="flex items-center gap-4 mb-4">
+        {image && (
+          <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-muted">
+            <img
+              src={image}
+              alt={imageAlt ?? ''}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <p className="eyebrow">{eyebrow}</p>
+      </div>
       <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">{title}</h3>
       <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-8">
         {description}

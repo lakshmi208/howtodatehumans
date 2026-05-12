@@ -5,6 +5,10 @@ import SiteNav from '@/components/SiteNav';
 import ListeningSessionCard from '@/components/ListeningSessionCard';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import discussionPhoto from '@/assets/photos/discussion.jpg';
+import genzPhoto from '@/assets/photos/genz.jpg';
+import matchmakerPhoto from '@/assets/photos/matchmaker_coaches.jpg';
+import reenteringPhoto from '@/assets/photos/reenterdating.jpg';
 
 const Research = () => {
   // Survey waitlist
@@ -71,7 +75,17 @@ const Research = () => {
 
       {/* Listening sessions */}
       <section className="max-w-4xl mx-auto px-6 pb-16">
-        <p className="eyebrow mb-8">Listening Sessions</p>
+        <div className="flex items-center gap-5 mb-6">
+          <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden bg-muted">
+            <img
+              src={discussionPhoto}
+              alt="People talking around a table"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <p className="eyebrow">Listening Sessions</p>
+        </div>
         <p className="text-base md:text-lg text-foreground/80 max-w-2xl mb-4">
           Three groups we want to hear from this month. Raise your hand below. If your perspective
           fits a session, we'll be in touch personally — sessions are intentionally small.
@@ -83,6 +97,8 @@ const Research = () => {
           title="What you'd never download — and why"
           description="If you're under 25 and find yourself opting out of dating apps — or going on them and feeling worse for it — we want to understand why. Not to convince you back on. To document what your generation noticed first."
           prompt="What's the moment you stopped wanting to be on apps?"
+          image={genzPhoto}
+          imageAlt="A finger over a delete key"
         />
 
         <ListeningSessionCard
@@ -91,6 +107,8 @@ const Research = () => {
           title="What actually happened when you hired one"
           description="The industry is largely unregulated. People spend thousands with no shared way to compare what worked, what didn't, what was a scam, what crossed a line — and what was actually good. We're documenting both. Maybe especially the good, since the loudest stories are the bad ones."
           prompt="What's the part of your experience you've never told anyone outside your closest friends?"
+          image={matchmakerPhoto}
+          imageAlt="A hand signing a contract"
         />
 
         <ListeningSessionCard
@@ -99,6 +117,8 @@ const Research = () => {
           title="You remember when this worked differently."
           description="If you got married before dating apps and you're back in the field now, you have data nobody else does. You're the only people who can compare what dating felt like in 1995, 2005, 2015 — and what it's like to try now. We're listening for what you noticed change."
           prompt="Compare your first date in your earlier dating era to your last one. What's different?"
+          image={reenteringPhoto}
+          imageAlt="Back of a man in flannel looking out"
         />
       </section>
 
