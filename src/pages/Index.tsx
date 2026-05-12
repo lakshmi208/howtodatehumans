@@ -12,13 +12,9 @@ import ResearchSection from '@/components/ResearchSection';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PhotoGallery from '@/components/PhotoGallery';
 import GaugingInterest from '@/components/GaugingInterest';
+import YearProgress from '@/components/YearProgress';
 import { Button } from '@/components/ui/button';
 import { events, EventType, eventTypeLabels } from '@/data/events';
-
-const months = [
-  'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb',
-];
 
 const calendarMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -31,14 +27,6 @@ const Index = () => {
   // Split events into priority (timeline) and gauging interest
   const priorityEvents = events.filter((e) => PRIORITY_IDS.includes(e.id));
   const gaugingEvents = events.filter((e) => !PRIORITY_IDS.includes(e.id));
-
-  // Calculate timeline progress based on current date
-  const timelineStart = new Date(2026, 1, 1);
-  const timelineEnd = new Date(2027, 1, 28);
-  const now = new Date();
-  const totalMs = timelineEnd.getTime() - timelineStart.getTime();
-  const elapsedMs = Math.max(0, Math.min(now.getTime() - timelineStart.getTime(), totalMs));
-  const progressPercent = `${Math.round((elapsedMs / totalMs) * 100)}%`;
 
   // Sort and filter priority events
   const sortedEvents = [...priorityEvents]
@@ -58,34 +46,8 @@ const Index = () => {
       <LandingHero />
       <TimelineHeader />
 
-      {/* Urgency bar */}
-      <div className="max-w-4xl mx-auto px-4 mb-12">
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          className="relative"
-        >
-          <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground mb-2">
-            <span>FEB 2026</span>
-            <span className="text-[hsl(var(--primary))]">One Year. One Project.</span>
-            <span>FEB 2027</span>
-          </div>
-          <div className="h-2 rounded-full bg-secondary overflow-hidden">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: progressPercent }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
-            />
-          </div>
-          <div className="flex justify-between mt-1">
-            {months.map((m) => (
-              <span key={m} className="text-[10px] text-muted-foreground">{m}</span>
-            ))}
-          </div>
-        </motion.div>
+      <div className="mb-12">
+        <YearProgress />
       </div>
 
       {/* Featured Event Banner */}

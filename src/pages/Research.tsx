@@ -3,6 +3,7 @@ import { Loader2, Check } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import SiteNav from '@/components/SiteNav';
 import ListeningSessionCard from '@/components/ListeningSessionCard';
+import YearProgress from '@/components/YearProgress';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import discussionPhoto from '@/assets/photos/discussion.jpg';
@@ -72,6 +73,11 @@ const Research = () => {
           of the ecosystem — and that's worth investigating, whatever your relationship status.
         </p>
       </section>
+
+      {/* Year progress — same as homepage, anchors "May = research month" */}
+      <div className="mb-16">
+        <YearProgress />
+      </div>
 
       {/* Listening sessions */}
       <section className="max-w-4xl mx-auto px-6 pb-16">
