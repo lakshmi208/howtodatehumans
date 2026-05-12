@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Lakshmi from "./pages/Lakshmi";
 import WorkWithMe from "./pages/WorkWithMe";
 import Press from "./pages/Press";
+import Research from "./pages/Research";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/lakshmi" element={<Lakshmi />} />
           <Route path="/work-with-me" element={<WorkWithMe />} />
           <Route path="/press" element={<Press />} />
+          <Route path="/research" element={<Research />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
