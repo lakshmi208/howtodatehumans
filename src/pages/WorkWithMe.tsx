@@ -1,363 +1,298 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mic, Heart, Send, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Loader2, Check } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import { supabase } from '@/integrations/supabase/client';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
+const talkIdeas = [
+  {
+    number: '01',
+    title: 'Built Environment & Objects',
+    body: 'Space and stuff shape connection. The office, the room, the things in it — they either invite contact or quietly block it.',
+  },
+  {
+    number: '02',
+    title: 'Have a Connection Plan',
+    body: "Valuing connection isn't enough. People who connect well work from a plan — who, when, where, how — not just good intentions.",
+  },
+  {
+    number: '03',
+    title: 'Talk About Yourself Well',
+    body: 'Story is the on-ramp. Knowing how to introduce yourself and tell a few sharp stories is the difference between contact and chemistry.',
+  },
+];
 
-type FormState = 'idle' | 'submitted';
+const workshops = [
+  {
+    number: '01',
+    title: 'Designing for Contact',
+    subtitle: 'Activating the Built Environment',
+    bullets: [
+      'Audit your space for friction & flow',
+      'Place objects that invite conversation',
+      "Run a 'micro-redesign' for one room",
+    ],
+  },
+  {
+    number: '02',
+    title: 'Build Your Connection Plan',
+    subtitle: 'From Good Intentions to Practice',
+    bullets: [
+      'Map your relational portfolio',
+      'Identify 5 cross-level contacts to grow',
+      'Leave with a 30-day connection ritual',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Tell Your Story Sharper',
+    subtitle: 'Introductions That Open Doors',
+    bullets: [
+      'Craft your 3 go-to introductions',
+      'Build a story bank for any context',
+      'Practice live; get peer feedback',
+    ],
+  },
+];
+
+const pastVenues = [
+  { name: 'Wine Enthusiast Town Hall', when: 'May 2025' },
+  { name: 'ZS Associates Learning Day', when: 'Oct 2025' },
+  { name: 'Omega Institute', when: 'Sept 2025' },
+  { name: 'Fortune Workplace Summit', when: '2026' },
+  { name: 'Poptech Conference', when: 'Forthcoming · Oct 2026' },
+];
 
 const WorkWithMe = () => {
-  const [speakerForm, setSpeakerForm] = useState({
-    name: '',
-    email: '',
-    organization: '',
-    eventType: '',
-    date: '',
-    details: '',
-  });
-  const [coachingForm, setCoachingForm] = useState({
-    name: '',
-    email: '',
-    age: '',
-    situation: '',
-    whyNow: '',
-  });
-  const [speakerState, setSpeakerState] = useState<FormState>('idle');
-  const [coachingState, setCoachingState] = useState<FormState>('idle');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [details, setDetails] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSpeakerSubmit = async (e: React.FormEvent) => {
+  const submitInquiry = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      await supabase.from('form_submissions').insert({
-        form_type: 'speaker-inquiry',
-        subject: `Speaker Inquiry: ${speakerForm.organization || 'Unknown Org'}`,
-        fields: {
-          Name: speakerForm.name,
-          Email: speakerForm.email,
-          Organization: speakerForm.organization,
-          'Event Type': speakerForm.eventType,
-          'Tentative Date': speakerForm.date,
-          Details: speakerForm.details,
-        },
-      });
-    } catch (err) {
-      console.error('Failed to save speaker inquiry:', err);
-    }
-    setSpeakerState('submitted');
-    setSpeakerForm({ name: '', email: '', organization: '', eventType: '', date: '', details: '' });
-  };
-
-  const handleCoachingSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await supabase.from('form_submissions').insert({
-        form_type: 'coaching-application',
-        subject: `Coaching Application: ${coachingForm.name || 'Anonymous'}`,
-        fields: {
-          Name: coachingForm.name,
-          Email: coachingForm.email,
-          Age: coachingForm.age,
-          Situation: coachingForm.situation,
-          'Why Now': coachingForm.whyNow,
-        },
-      });
-    } catch (err) {
-      console.error('Failed to save coaching application:', err);
-    }
-    setCoachingState('submitted');
-    setCoachingForm({ name: '', email: '', age: '', situation: '', whyNow: '' });
+    if (!email.trim() || !details.trim()) return;
+    setStatus('loading');
+    const { error } = await supabase.from('form_submissions').insert({
+      form_type: 'speaking-inquiry',
+      subject: `Speaking / workshop inquiry from ${name || '(no name)'}`,
+      fields: {
+        Name: name || '(no name)',
+        Email: email,
+        Organization: organization || '(none)',
+        Details: details,
+      },
+    });
+    setStatus(error ? 'error' : 'success');
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 pt-24 pb-16">
-        <motion.div {...fadeUp}>
-          <p className="text-sm font-semibold uppercase tracking-widest text-[hsl(var(--primary))] mb-4">
-            Work with me
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] mb-6">
-            Two ways to go{' '}
-            <span className="text-[hsl(var(--primary))]">deeper</span>
-          </h1>
-          <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-            I've spent 15 years studying how people connect. Whether you want
-            that perspective on your stage or in your dating life, here's how we
-            can work together.
-          </p>
-        </motion.div>
+      {/* Hero with anchor buttons */}
+      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-24 pb-12">
+        <p className="eyebrow mb-6" style={{ color: 'hsl(var(--muted-foreground))' }}>
+          Work with Lakshmi
+        </p>
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-10">
+          For your <em>stage</em>, your team, or your year.
+        </h1>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a href="#speaking" className="btn-pill">As a keynote speaker</a>
+          <a href="#coaching" className="btn-pill-outline">As a coaching guide</a>
+        </div>
       </section>
 
-      {/* Speaker Section */}
-      <section className="max-w-3xl mx-auto px-6 pb-20">
-        <motion.div {...fadeUp}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-[hsl(var(--primary))] flex items-center justify-center">
-              <Mic className="w-5 h-5 text-[hsl(var(--primary-foreground))]" />
+      {/* ===== SPEAKING ===== */}
+      <section id="speaking" className="max-w-5xl mx-auto px-6 pt-20 pb-12 scroll-mt-20">
+        <p className="eyebrow mb-3">Speaking</p>
+        <h2 className="font-display text-4xl md:text-5xl leading-tight mb-5 max-w-3xl">
+          A keynote your team uses the next day.
+        </h2>
+        <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-16">
+          Each talk introduces three usable ideas. Each idea can become a workshop your
+          team uses the next week. Standalone or three-part series, for organizations
+          rethinking how their people actually connect.
+        </p>
+
+        {/* Featured talk */}
+        <div className="mb-20">
+          <p className="eyebrow mb-3">The Talk</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-3 max-w-3xl">
+            What Modern Dating Can Learn From Modern Work
+          </h3>
+          <p className="text-base md:text-lg italic text-foreground/75 mb-10">
+            Three ideas every team can borrow from how dating culture changed.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {talkIdeas.map((idea) => (
+              <div key={idea.number}>
+                <p className="font-display text-2xl mb-1" style={{ color: 'hsl(var(--coral))' }}>
+                  {idea.number}
+                </p>
+                <h4 className="font-display text-xl md:text-2xl leading-snug mb-3">{idea.title}</h4>
+                <p className="text-base leading-relaxed text-foreground/80">{idea.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Workshop pipeline */}
+        <div className="mb-20 border-t border-border pt-16">
+          <p className="eyebrow mb-3">From Inspiration to Tactics</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-5 max-w-3xl">
+            Three workshops that activate the ideas.
+          </h3>
+          <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-10">
+            Each workshop turns one keynote concept into a tactical playbook — tools and
+            rituals your people can use the next day.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10 mb-10">
+            {workshops.map((w) => (
+              <div key={w.number} className="border-t border-foreground/20 pt-5">
+                <p className="font-display text-2xl mb-1" style={{ color: 'hsl(var(--coral))' }}>
+                  {w.number}
+                </p>
+                <h4 className="font-display text-xl md:text-2xl leading-snug mb-1">{w.title}</h4>
+                <p className="text-sm italic text-foreground/65 mb-4">{w.subtitle}</p>
+                <ul className="space-y-2">
+                  {w.bullets.map((b) => (
+                    <li key={b} className="text-base leading-relaxed text-foreground/85 flex gap-2">
+                      <span className="text-[hsl(var(--coral))] shrink-0">·</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground">
+            <strong>Format:</strong> 60–90 min interactive · <strong>Audience:</strong>{' '}
+            20–60 ideal · <strong>Sequence:</strong> Standalone or three-part series.
+          </p>
+        </div>
+
+        {/* Also available */}
+        <div className="mb-20 border-t border-border pt-16">
+          <p className="eyebrow mb-3">Also Available</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-3 max-w-3xl">
+            15 Insights from 15 Years of Dating Culture.
+          </h3>
+          <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
+            A cultural keynote for conferences, podcasts, retreats, and audiences less
+            focused on the office — same expertise, different doorway.
+          </p>
+        </div>
+
+        {/* Past venues */}
+        <div className="mb-20 border-t border-border pt-16">
+          <p className="eyebrow mb-6">Where Lakshmi has spoken</p>
+          <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+            {pastVenues.map((v) => (
+              <li key={v.name} className="flex justify-between gap-4 border-b border-border/50 pb-3">
+                <span className="font-display text-lg md:text-xl">{v.name}</span>
+                <span className="text-sm text-muted-foreground self-end">{v.when}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Inquiry */}
+        <div className="border-t border-border pt-16">
+          <p className="eyebrow mb-3">Book a talk or workshop</p>
+          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-5 max-w-3xl">
+            Tell me about your event.
+          </h3>
+          <p className="text-base text-foreground/80 mb-8 max-w-xl">
+            A short note works. I read everything personally.
+          </p>
+
+          {status === 'success' ? (
+            <div className="flex items-center gap-2 text-foreground font-medium">
+              <Check className="w-5 h-5" />
+              Got it. I'll be in touch within a few days.
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Book me to speak</h2>
-          </div>
-
-          <p className="text-base md:text-lg leading-relaxed mb-2">
-            I talk about what's actually happening to human connection and what
-            we can do about it. I've spoken at companies, conferences, and
-            podcasts ranging from Vox Media to WeWork to Match.com.
-          </p>
-          <p className="text-sm text-muted-foreground mb-8">
-            Keynotes, panels, podcasts, fireside chats. If your audience cares
-            about how people relate to each other, we should talk.
-          </p>
-
-          {speakerState === 'submitted' ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-card border border-border rounded-xl p-8 text-center"
-            >
-              <CheckCircle className="w-8 h-8 text-[hsl(var(--primary))] mx-auto mb-3" />
-              <p className="text-lg font-bold mb-1">Got it. I'll be in touch.</p>
-              <p className="text-sm text-muted-foreground">
-                I review every inquiry personally.
-              </p>
-            </motion.div>
           ) : (
-            <form
-              onSubmit={handleSpeakerSubmit}
-              className="bg-card border border-border rounded-xl p-6 md:p-8 space-y-4"
-            >
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">Name</label>
-                  <Input
-                    required
-                    maxLength={100}
-                    value={speakerForm.name}
-                    onChange={(e) =>
-                      setSpeakerForm({ ...speakerForm, name: e.target.value })
-                    }
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">Email</label>
-                  <Input
-                    required
-                    type="email"
-                    maxLength={255}
-                    value={speakerForm.email}
-                    onChange={(e) =>
-                      setSpeakerForm({ ...speakerForm, email: e.target.value })
-                    }
-                    placeholder="you@company.com"
-                  />
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">
-                    Organization
-                  </label>
-                  <Input
-                    required
-                    maxLength={200}
-                    value={speakerForm.organization}
-                    onChange={(e) =>
-                      setSpeakerForm({
-                        ...speakerForm,
-                        organization: e.target.value,
-                      })
-                    }
-                    placeholder="Company or event name"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">
-                    Event type
-                  </label>
-                  <Input
-                    maxLength={100}
-                    value={speakerForm.eventType}
-                    onChange={(e) =>
-                      setSpeakerForm({
-                        ...speakerForm,
-                        eventType: e.target.value,
-                      })
-                    }
-                    placeholder="Keynote, panel, podcast…"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1.5 block">
-                  Tentative date
-                </label>
+            <form onSubmit={submitInquiry} className="max-w-2xl space-y-4">
+              <div className="grid sm:grid-cols-2 gap-3">
                 <Input
-                  maxLength={100}
-                  value={speakerForm.date}
-                  onChange={(e) =>
-                    setSpeakerForm({ ...speakerForm, date: e.target.value })
-                  }
-                  placeholder="e.g. Fall 2026, TBD"
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="bg-background border-border h-11"
                 />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1.5 block">
-                  Tell me more
-                </label>
-                <Textarea
-                  maxLength={1000}
-                  value={speakerForm.details}
-                  onChange={(e) =>
-                    setSpeakerForm({ ...speakerForm, details: e.target.value })
-                  }
-                  placeholder="What's the event about? What does your audience care about?"
-                  rows={4}
-                />
-              </div>
-              <Button type="submit" className="gap-2">
-                <Send className="w-4 h-4" />
-                Send inquiry
-              </Button>
-            </form>
-          )}
-        </motion.div>
-      </section>
-
-      {/* Coaching Section */}
-      <section className="max-w-3xl mx-auto px-6 pb-24">
-        <motion.div {...fadeUp}>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-[hsl(var(--primary))] flex items-center justify-center">
-              <Heart className="w-5 h-5 text-[hsl(var(--primary-foreground))]" />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Let me be your midlife dating guide</h2>
-          </div>
-
-          <p className="text-base md:text-lg leading-relaxed mb-2">
-            I work with a small number of midlife daters who are ready to stop
-            recycling the same patterns and start dating with actual clarity.
-            This isn't advice from a script. It's 15 years of pattern recognition
-            applied to your life.
-          </p>
-
-          <div className="border-l-4 border-[hsl(var(--primary))] pl-5 my-6">
-            <p className="text-base leading-relaxed font-medium">
-              I only take a handful of clients at a time. If spots are full,
-              I'll let you know when one opens up.
-            </p>
-          </div>
-
-          <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-6">
-            Apply below
-          </p>
-
-          {coachingState === 'submitted' ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-card border border-border rounded-xl p-8 text-center"
-            >
-              <CheckCircle className="w-8 h-8 text-[hsl(var(--primary))] mx-auto mb-3" />
-              <p className="text-lg font-bold mb-1">Application received.</p>
-              <p className="text-sm text-muted-foreground">
-                I'll reach out if it's a good fit. No form letters.
-              </p>
-            </motion.div>
-          ) : (
-            <form
-              onSubmit={handleCoachingSubmit}
-              className="bg-card border border-border rounded-xl p-6 md:p-8 space-y-4"
-            >
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">Name</label>
-                  <Input
-                    required
-                    maxLength={100}
-                    value={coachingForm.name}
-                    onChange={(e) =>
-                      setCoachingForm({ ...coachingForm, name: e.target.value })
-                    }
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1.5 block">Email</label>
-                  <Input
-                    required
-                    type="email"
-                    maxLength={255}
-                    value={coachingForm.email}
-                    onChange={(e) =>
-                      setCoachingForm({ ...coachingForm, email: e.target.value })
-                    }
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1.5 block">Age</label>
                 <Input
-                  maxLength={10}
-                  value={coachingForm.age}
-                  onChange={(e) =>
-                    setCoachingForm({ ...coachingForm, age: e.target.value })
-                  }
-                  placeholder="e.g. 45"
-                  className="w-32"
-                />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1.5 block">
-                  What's your situation?
-                </label>
-                <Textarea
+                  type="email"
+                  placeholder="Email"
                   required
-                  maxLength={1000}
-                  value={coachingForm.situation}
-                  onChange={(e) =>
-                    setCoachingForm({
-                      ...coachingForm,
-                      situation: e.target.value,
-                    })
-                  }
-                  placeholder="Recently divorced, back on the apps, haven't dated in 20 years — whatever's true."
-                  rows={3}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-background border-border h-11"
                 />
               </div>
-              <div>
-                <label className="text-sm font-medium mb-1.5 block">
-                  Why now?
-                </label>
-                <Textarea
-                  maxLength={1000}
-                  value={coachingForm.whyNow}
-                  onChange={(e) =>
-                    setCoachingForm({ ...coachingForm, whyNow: e.target.value })
-                  }
-                  placeholder="What made you look for help today?"
-                  rows={3}
-                />
-              </div>
-              <Button type="submit" className="gap-2">
-                <Send className="w-4 h-4" />
-                Submit application
-              </Button>
+              <Input
+                type="text"
+                placeholder="Organization (optional)"
+                value={organization}
+                onChange={(e) => setOrganization(e.target.value)}
+                className="bg-background border-border h-11"
+              />
+              <Textarea
+                placeholder="Audience, format, ideal timing, anything else useful."
+                rows={4}
+                required
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                className="bg-background border-border"
+              />
+              <button type="submit" className="btn-pill" disabled={status === 'loading'}>
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending
+                  </>
+                ) : (
+                  'Send inquiry'
+                )}
+              </button>
+              <p className="text-xs text-muted-foreground">
+                Fees vary by audience and format — I'll share a range in my reply.
+              </p>
             </form>
           )}
-        </motion.div>
+        </div>
+      </section>
+
+      {/* ===== COACHING ===== */}
+      <section
+        id="coaching"
+        className="bg-foreground/[0.03] border-t border-border scroll-mt-20 mt-12"
+      >
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+          <p className="eyebrow mb-3">Coaching</p>
+          <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8 max-w-3xl">
+            For women who <em>did not marry</em>.
+          </h2>
+          <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+            A specialty cohort for straight women, 45–60, who did not marry. Insights,
+            curriculum, and approach designed specifically for this group. Currently in
+            pilot. By invitation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="mailto:lakshmi@howtodatehumans.com?subject=The%20cohort"
+              className="btn-pill"
+            >
+              Email Lakshmi
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );
