@@ -95,10 +95,10 @@ const WorkWithMe = () => {
       {/* Hero with anchor buttons */}
       <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-24 pb-12">
         <p className="eyebrow mb-6" style={{ color: 'hsl(var(--muted-foreground))' }}>
-          Work with Lakshmi
+          For your stage, your team, or your year
         </p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-10">
-          For your <em>stage</em>, your team, or your year.
+          Work with <em>Lakshmi</em>.
         </h1>
         <div className="flex flex-col sm:flex-row gap-3">
           <a href="#speaking" className="btn-pill">As a keynote speaker</a>
