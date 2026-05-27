@@ -24,6 +24,11 @@ type PressTile = {
 
 const tiles: PressTile[] = [
   {
+    outlet: 'Pivot with Kara Swisher & Scott Galloway',
+    image: pivotPod,
+    url: 'https://podcasts.apple.com/us/podcast/best-friends-of-pivot/id1073226719?i=1000639439067',
+  },
+  {
     outlet: 'The New York Times',
     image: nyt,
     url: 'https://www.nytimes.com/2025/01/03/style/dating-predictions.html',
@@ -42,11 +47,6 @@ const tiles: PressTile[] = [
     outlet: 'The Prof G Pod with Scott Galloway',
     image: profG,
     url: '#',
-  },
-  {
-    outlet: 'Pivot with Kara Swisher & Scott Galloway',
-    image: pivotPod,
-    url: 'https://podcasts.apple.com/us/podcast/best-friends-of-pivot/id1073226719?i=1000639439067',
   },
   {
     outlet: 'On with Kara Swisher',
