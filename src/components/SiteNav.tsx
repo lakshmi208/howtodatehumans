@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import logoHorizontal from '@/assets/logo-horizontal.png';
 
 const navItems = [
-  { label: 'Events', href: '/', activePath: '/' },
+  { label: 'Events', href: '/events', activePath: '/events' },
   { label: 'Research', href: '/research', activePath: '/research' },
   { label: 'About', href: '/about', activePath: '/about' },
 ];

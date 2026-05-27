@@ -1,283 +1,167 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
-import LandingHero from '@/components/LandingHero';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import TimelineHeader from '@/components/TimelineHeader';
-import EventCard from '@/components/EventCard';
-import PartnerCTA from '@/components/PartnerCTA';
-import AdminToggle from '@/components/AdminToggle';
-import IdeaSubmission from '@/components/IdeaSubmission';
-import PhotoGallery from '@/components/PhotoGallery';
-import GaugingInterest from '@/components/GaugingInterest';
-import YearProgress from '@/components/YearProgress';
-import { Button } from '@/components/ui/button';
-import { events, EventType, eventTypeLabels } from '@/data/events';
 
-const calendarMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-const PRIORITY_IDS = ['kickoff-presentation', 'dating-detox-talk', 'humans-happy-hour', 'midlife-dating-talk', 'dating-in-collapse', 'explore-more-placeholder'];
+const sectionWrap = 'max-w-4xl mx-auto px-6';
+const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
 const Index = () => {
-  const [showInterest, setShowInterest] = useState(false);
-  const [activeFilter, setActiveFilter] = useState<EventType | 'all'>('all');
-
-  // Split events into priority (timeline) and gauging interest
-  const priorityEvents = events.filter((e) => PRIORITY_IDS.includes(e.id));
-  const gaugingEvents = events.filter((e) => !PRIORITY_IDS.includes(e.id));
-
-  // Sort and filter priority events
-  const sortedEvents = [...priorityEvents]
-    .sort((a, b) => a.month - b.month)
-    .filter((e) => activeFilter === 'all' || e.type === activeFilter);
-
-  // Filter gauging events
-  const filteredGaugingEvents = gaugingEvents
-    .sort((a, b) => a.month - b.month)
-    .filter((e) => activeFilter === 'all' || e.type === activeFilter);
-
-  let lastMonth = -1;
-
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
-      <LandingHero />
-      <TimelineHeader />
 
-      <div className="mb-12">
-        <YearProgress />
-      </div>
-
-      {/* Featured Event Banner */}
-      {(() => {
-        const featured = events.find(e => e.upNext && e.ticketUrl);
-        if (!featured) return null;
-        return (
-          <div className="max-w-4xl mx-auto px-4 mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative overflow-hidden rounded-2xl border-2 border-[hsl(var(--primary))] bg-gradient-to-br from-[hsl(var(--primary)/0.08)] to-[hsl(var(--primary)/0.02)] p-6 md:p-8 shadow-[0_0_30px_hsl(var(--primary)/0.15)]"
-            >
-              <div className="absolute top-0 right-0 w-40 h-40 bg-[hsl(var(--primary)/0.06)] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] mb-3">
-                    UP NEXT — TICKETS LIVE
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-1">{featured.title}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground italic mb-1">{featured.tagline}</p>
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                    {featured.date || featured.timeframe}
-                  </p>
-                </div>
-                <Button size="lg" asChild className="gap-2 whitespace-nowrap self-start md:self-center">
-                  <a href={featured.ticketUrl} target="_blank" rel="noopener noreferrer">
-                    Get Your Ticket
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        );
-      })()}
-
-      {/* Single-row filter */}
-      <div className="flex items-center justify-center gap-2 max-w-4xl mx-auto px-4 mb-8">
-        <button
-          onClick={() => setActiveFilter('all')}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
-            activeFilter === 'all'
-              ? 'bg-primary text-primary-foreground'
-              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-          }`}
+      {/* WHAT */}
+      <section className={`${sectionWrap} pt-20 md:pt-28 pb-16 md:pb-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          What
+        </p>
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
+          Dating is the bridge to relationships. The bridge is broken.
+        </h1>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+          <em>How to Date Humans</em> is a year-long project to find out why.
+          Feb 2026 to Feb 2027. In Chicago. Salons, workshops, talks, research,
+          listening sessions. One question driving all of it:{' '}
+          <em>what actually broke, and what would it take to repair it?</em>
+        </p>
+        <Link
+          to="/about"
+          className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
         >
-          All Events
-        </button>
-        <select
-          value={activeFilter}
-          onChange={(e) => setActiveFilter(e.target.value as EventType | 'all')}
-          className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-secondary-foreground border-none outline-none cursor-pointer"
-        >
-          <option value="all">Filter by Type</option>
-          {(Object.keys(eventTypeLabels) as EventType[]).map((type) => (
-            <option key={type} value={type}>{eventTypeLabels[type]}</option>
-          ))}
-        </select>
-      </div>
+          About the project <ArrowRight className="w-4 h-4" />
+        </Link>
+      </section>
 
-      {/* Timeline — priority events only */}
-      <div className="relative pb-20">
-        {/* Horizontal line - desktop only */}
-        <div className="hidden md:block absolute top-6 left-0 right-0 h-[2px] bg-[hsl(var(--timeline-line))]" />
-        {/* Vertical line - mobile only */}
-        <div className="md:hidden absolute top-0 bottom-0 left-8 w-[2px] bg-[hsl(var(--timeline-line))]" />
+      {/* WHY */}
+      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          Why
+        </p>
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
+          The bridge cracked under load.
+        </h2>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
+          The skills that used to make dating work — reading a room, holding
+          interest, knowing whether you're actually attracted or just performing
+          — don't transmit anymore. Apps cracked the foundations. Disposability
+          did the rest. And this isn't just about dating. The same broken pieces
+          are now showing up in how we work, befriend, and meet our neighbors.
+          We're spending a year looking at what broke, why, and what it would
+          take to put it back together.
+        </p>
+      </section>
 
-        {/* Desktop: horizontal scroll */}
-        <div className="hidden md:block overflow-x-auto scrollbar-thin pb-6">
-          <div className="flex gap-6 px-6 md:px-12 pt-14 min-w-max">
-            {sortedEvents.map((event, index) => {
-              const showMonth = event.month !== lastMonth;
-              lastMonth = event.month;
+      {/* HOW */}
+      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          How
+        </p>
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
+          Step one is understanding what actually broke.
+        </h2>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-14">
+          Most dating advice rushes to step two —{' '}
+          <em>go to events, delete the apps, just put yourself out there.</em>{' '}
+          None of it works if you don't know what you're working with. So we're
+          spending the year on step one, in public. Listening. Documenting. Then
+          building from what we hear.
+        </p>
 
-              return (
-                <div key={event.id} className="flex-shrink-0 flex flex-col items-center">
-                  {showMonth && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      className="mb-2"
-                    >
-                      <div className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-1 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">
-                        {calendarMonths[event.month - 1]} 2026
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {event.id === 'explore-more-placeholder' ? (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="w-80 border-2 border-dashed border-[hsl(var(--primary)/0.4)] rounded-xl p-6 text-center bg-card"
-                    >
-                      <p className="text-lg font-bold mb-2">What's next?</p>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Explore research areas and event concepts in development below.
-                      </p>
-                      <button
-                        onClick={() => document.getElementById('gauging-interest')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="text-sm font-semibold text-[hsl(var(--primary))] hover:underline"
-                      >
-                        See what's in the works ↓
-                      </button>
-                    </motion.div>
-                  ) : (
-                    <EventCard
-                      event={event}
-                      showInterest={showInterest}
-                      index={index}
-                      side="left"
-                    />
-                  )}
-                </div>
-              );
-            })}
-
-            {/* Timeline end card */}
-            <div className="flex-shrink-0 flex items-start pt-2">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <div className="bg-card border-2 border-[hsl(var(--primary))] px-6 py-4 rounded-xl text-center w-72">
-                  <p className="text-lg font-bold mb-1">This is just the beginning.</p>
-                  <p className="text-sm text-muted-foreground">
-                    12 months. 7 formats. 1 goal: better human connection.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: vertical scroll */}
-        <div className="md:hidden flex flex-col gap-6 px-4 pl-16 pt-4">
-          {(() => { lastMonth = -1; return null; })()}
-          {sortedEvents.map((event, index) => {
-            const showMonth = event.month !== lastMonth;
-            lastMonth = event.month;
-
-            return (
-              <div key={event.id} className="relative">
-                {/* Dot on the vertical line */}
-                <div className="absolute -left-[2.35rem] top-4 w-3 h-3 rounded-full bg-[hsl(var(--primary))] border-2 border-background" />
-
-                {showMonth && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-2"
-                  >
-                    <span className="bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-3 py-0.5 rounded-full text-xs font-bold tracking-wider">
-                      {calendarMonths[event.month - 1]} 2026
-                    </span>
-                  </motion.div>
-                )}
-
-                {event.id === 'explore-more-placeholder' ? (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="border-2 border-dashed border-[hsl(var(--primary)/0.4)] rounded-xl p-6 text-center bg-card"
-                  >
-                    <p className="text-lg font-bold mb-2">What's next?</p>
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Explore research areas and event concepts in development below.
-                    </p>
-                    <button
-                      onClick={() => document.getElementById('gauging-interest')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="text-sm font-semibold text-[hsl(var(--primary))] hover:underline"
-                    >
-                      See what's in the works ↓
-                    </button>
-                  </motion.div>
-                ) : (
-                  <EventCard
-                    event={event}
-                    showInterest={showInterest}
-                    index={index}
-                    side="left"
-                  />
-                )}
-              </div>
-            );
-          })}
-
-          {/* Timeline end card */}
-          <div className="relative">
-            <div className="absolute -left-[2.35rem] top-4 w-3 h-3 rounded-full bg-[hsl(var(--primary))] border-2 border-background" />
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-card border-2 border-[hsl(var(--primary))] px-6 py-4 rounded-xl text-center">
-                <p className="text-lg font-bold mb-1">This is just the beginning.</p>
-                <p className="text-sm text-muted-foreground">
-                  12 months. 7 formats. 1 goal: better human connection.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Scroll hint - desktop only */}
-        <div className="hidden md:flex justify-center mt-4 px-6">
-          <div className="text-center space-y-1">
-            <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5">
-              <span>←</span> Scroll to explore the full timeline <span>→</span>
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+          <Link
+            to="/research"
+            className="group block border-t border-foreground/20 pt-5"
+          >
+            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
+              01
             </p>
-            <p className="text-xs text-muted-foreground">
-              Click any event to see the full description
+            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
+              Research
+            </h3>
+            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
+              We're listening to specific groups this month: never-married
+              women, divorced men, Gen Z.
             </p>
-          </div>
-        </div>
-      </div>
+            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
+              See what we're listening for →
+            </span>
+          </Link>
 
-      <GaugingInterest events={filteredGaugingEvents} showInterest={showInterest} />
-      <PhotoGallery />
-      <NewsletterSignup />
-      <IdeaSubmission />
-      <PartnerCTA />
-      <AdminToggle showInterest={showInterest} onToggle={setShowInterest} />
+          <Link
+            to="/events"
+            className="group block border-t border-foreground/20 pt-5"
+          >
+            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
+              02
+            </p>
+            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
+              Events &amp; Talks
+            </h3>
+            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
+              Three events done. More on deck. The full timeline of what's
+              happened and what's coming.
+            </p>
+            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
+              Past + upcoming →
+            </span>
+          </Link>
+
+          <Link
+            to="/originals"
+            className="group block border-t border-foreground/20 pt-5"
+          >
+            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
+              03
+            </p>
+            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
+              Originals — coming this fall
+            </h3>
+            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
+              A few one-of-a-kind events you won't find on any calendar.
+              Limited. By application.
+            </p>
+            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
+              See past Originals →
+            </span>
+          </Link>
+        </div>
+      </section>
+
+      {/* WHO */}
+      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          Who
+        </p>
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
+          Meet Lakshmi <span style={eyebrowCoral} className="italic">(luck-shmee)</span>.
+        </h2>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+          Hi, I'm Lakshmi. Fifteen years in the weeds of dating culture — at
+          Match.com, at WeWork, in research, on stage. This year I'm spending
+          the time most coaches won't: looking at what actually broke before
+          anyone tries to claim they can fix it.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            to="/about#lakshmi"
+            className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
+          >
+            Full bio <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            to="/lakshmi"
+            className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
+          >
+            Career timeline <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="border-t border-border">
+        <NewsletterSignup />
+      </section>
     </div>
   );
 };
