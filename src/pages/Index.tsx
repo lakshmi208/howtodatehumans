@@ -84,11 +84,11 @@ const Index = () => {
               The commercial success covered the rest.
             </h3>
             <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              Yes, marriages happened. Couples met. Hinge has the receipts.
-              Meanwhile, the rest of us were asked to make snap judgments on
-              strangers we somehow already knew everything about. Brains and
-              hearts short-circuited. The outside showed some success. The
-              inside got a serious downgrade.
+              Hidden inside the success was a quieter rewiring. Call it a
+              consumerism nobody could quite name. Like a rainforest brought
+              down to make affordably stylish furniture — sure, you got the
+              cool living room, but what was destroyed in the process? Younger
+              generations smell the fire. They've stopped fanning it.
             </p>
           </div>
 
