@@ -24,9 +24,9 @@ const SiteNav = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
         <a href="/" className="shrink-0" aria-label="Go to How to Date Humans homepage">
-          <img src={logoHorizontal} alt="How to Date Humans" className="h-14 md:h-16 w-auto" />
+          <img src={logoHorizontal} alt="How to Date Humans" className="h-20 md:h-24 w-auto" />
         </a>
 
         <div className="hidden lg:flex items-center gap-6">
