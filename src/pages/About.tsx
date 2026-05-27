@@ -167,8 +167,11 @@ const About = () => {
                   Email Lakshmi
                 </a>
                 <Link to="/lakshmi" className="btn-pill-outline">
-                  See the full career timeline
+                  Full career timeline
                 </Link>
+                <a href="#press" className="btn-pill-outline">
+                  Press
+                </a>
               </div>
             </div>
 
@@ -186,7 +189,7 @@ const About = () => {
         </div>
 
         {/* Press lives here — about Lakshmi, not the project (yet) */}
-        <div className="border-t border-border mt-8">
+        <div id="press" className="border-t border-border mt-8 scroll-mt-28">
           <PressCarousel />
         </div>
       </section>
