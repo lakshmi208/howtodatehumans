@@ -82,8 +82,8 @@ const Research = () => {
 
       {/* Listening sessions */}
       <section className="max-w-4xl mx-auto px-6 pb-16">
-        <div className="flex items-center gap-5 mb-6">
-          <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden bg-muted">
+        <div className="flex items-center gap-6 mb-7">
+          <div className="shrink-0 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden bg-muted">
             <img
               src={discussionPhoto}
               alt="People talking around a table"

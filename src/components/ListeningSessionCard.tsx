@@ -41,9 +41,9 @@ const ListeningSessionCard = ({ slug, eyebrow, title, description, prompt, image
 
   return (
     <article className="py-12 border-t border-border">
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex items-center gap-5 mb-5">
         {image && (
-          <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-muted">
+          <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden bg-muted">
             <img
               src={image}
               alt={imageAlt ?? ''}
@@ -54,7 +54,7 @@ const ListeningSessionCard = ({ slug, eyebrow, title, description, prompt, image
         )}
         <p className="eyebrow">{eyebrow}</p>
       </div>
-      <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">{title}</h3>
+      <h3 className="font-display text-5xl md:text-6xl leading-tight mb-4">{title}</h3>
       <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-8">
         {description}
       </p>
