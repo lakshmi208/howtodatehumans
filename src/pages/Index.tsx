@@ -38,18 +38,70 @@ const Index = () => {
         <p className="eyebrow mb-6" style={eyebrowCoral}>
           Why
         </p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
+        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-12">
           The bridge cracked under load.
         </h2>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
-          The skills that used to make dating work — reading a room, holding
-          interest, knowing whether you're actually attracted or just performing
-          — don't transmit anymore. Apps cracked the foundations. Disposability
-          did the rest. And this isn't just about dating. The same broken pieces
-          are now showing up in how we work, befriend, and meet our neighbors.
-          We're spending a year looking at what broke, why, and what it would
-          take to put it back together.
-        </p>
+
+        <div className="max-w-2xl space-y-10 md:space-y-12">
+          <div>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
+              The advice wasn't wrong.
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+              We were told to take charge of our love lives — be intentional,
+              show up, choose well. The problem is that nobody first asked
+              whether the system underneath could carry the weight of those
+              choices.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
+              It's what capitalism does.
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+              We handed our most important personal decisions to profit-driven
+              systems. Not a moral failure of the apps — it's what capitalism
+              does when nobody designs an alternative. The platforms scaled
+              what they were paid to scale: engagement, optionality, retention.
+              None of which is connection.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
+              Older generations don't know more.
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+              They had a working bridge they mostly didn't have to think about.
+              We built the new one without first asking whether anyone could
+              cross it.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
+              The commercial success covered the rest.
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+              We now live in a world where you can meet a genuinely interesting
+              person and find yourself unable to connect with them. That should
+              concern everyone, partnered or not.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
+              AI is the next move.
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+              Being slid further into our most personal decisions — who to
+              date, whether to leave, what to say. Before that gets built
+              without us, this is the moment to pause and ask:{' '}
+              <em>what actually broke, and what would it take to repair it?</em>
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* HOW */}
