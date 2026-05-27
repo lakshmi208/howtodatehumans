@@ -57,14 +57,13 @@ const Index = () => {
 
           <div>
             <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              It's what capitalism does.
+              It's not just the apps.
             </h3>
             <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              We handed our most important personal decisions to profit-driven
-              systems. Not a moral failure of the apps — it's what capitalism
-              does when nobody designs an alternative. The platforms scaled
-              what they were paid to scale: engagement, optionality, retention.
-              None of which is connection.
+              The apps scaled — that's what capitalism does. But the real
+              damage was quieter: they rewired our insides, and their growth
+              depended on the slow death of every other way we used to actually
+              connect.
             </p>
           </div>
 
@@ -73,9 +72,10 @@ const Index = () => {
               Older generations don't know more.
             </h3>
             <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              They had a working bridge they mostly didn't have to think about.
-              We built the new one without first asking whether anyone could
-              cross it.
+              They had infrastructure. Dive bars and corner taverns ruled the
+              scene — no 14-ingredient cocktails. Jobs were mini stages where
+              people interacted across roles and years. Not perfect, but a lot
+              of context to work with.
             </p>
           </div>
 
@@ -84,9 +84,11 @@ const Index = () => {
               The commercial success covered the rest.
             </h3>
             <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              We now live in a world where you can meet a genuinely interesting
-              person and find yourself unable to connect with them. That should
-              concern everyone, partnered or not.
+              Yes, marriages happened. Couples met. Hinge has the receipts.
+              Meanwhile, the rest of us were asked to make snap judgments on
+              strangers we somehow already knew everything about. Brains and
+              hearts short-circuited. The outside showed some success. The
+              inside got a serious downgrade.
             </p>
           </div>
 
