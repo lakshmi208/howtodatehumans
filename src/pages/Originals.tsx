@@ -82,12 +82,13 @@ const Originals = () => {
           Originals
         </p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
-          Events that don't exist <em>anywhere else</em>.
+          A decade ago, this is what we were <em>building</em>.
         </h1>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
-          A few times a year we run something off-calendar — limited size, unusual format,
-          never repeated the same way twice. Some you can apply to. Some you can't. Below: a
-          decade of the ones we've built before.
+          Each event was an experiment in storytelling as the gateway to connection. Each
+          room was designed for the moment. What we were testing then is what people are
+          craving more than ever now — which is why the next generation of these is already
+          in the works, for the people who've figured out the apps were never going to do it.
         </p>
       </section>
 
