@@ -179,8 +179,8 @@ const Pilot = () => {
               over three months.
             </li>
             <li>
-              A method built over years and shaped by 50 conversations with women in exactly
-              your position.
+              A method built over years and shaped by conversations with hundreds of women
+              in exactly your position.
             </li>
             <li>Support between sessions, so the work doesn&apos;t go cold.</li>
             <li>
@@ -196,8 +196,8 @@ const Pilot = () => {
         <p className="uppercase tracking-[0.25em] text-xs text-stone-400 mb-6">Why now</p>
         <p className="text-lg text-stone-700 leading-relaxed max-w-xl mx-auto">
           This is the first time I&apos;m opening this work to the world. After years of
-          building the method and fifty long conversations with women like you, I&apos;m
-          taking a founding circle through it — a handful of women, no more. You&apos;d be
+          building the method and hundreds of long conversations with women like you,
+          I&apos;m taking a founding circle through it — a handful of women, no more. You&apos;d be
           among the first, and your experience will shape what this becomes.
         </p>
       </section>
