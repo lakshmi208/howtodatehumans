@@ -102,11 +102,11 @@ const Originals = () => {
                 className="grid md:grid-cols-2 gap-8 md:gap-14 items-center"
               >
                 <div className={imageLeft ? 'md:order-1' : 'md:order-2'}>
-                  <div className="aspect-[4/5] md:aspect-square overflow-hidden bg-muted">
+                  <div className="overflow-hidden bg-muted">
                     <img
                       src={o.image}
                       alt={o.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto block"
                       loading="lazy"
                     />
                   </div>
