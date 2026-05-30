@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import HeroBentoGrid from '@/components/HeroBentoGrid';
 
 const sectionWrap = 'max-w-4xl mx-auto px-6';
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
@@ -12,8 +11,34 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* WHAT — editorial bento hero */}
-      <HeroBentoGrid />
+      {/* WHAT — text hero */}
+      <section className={`${sectionWrap} pt-20 md:pt-32 pb-16 md:pb-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          A 1-year project · Feb 2026 – Feb 2027
+        </p>
+        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] mb-8">
+          How to Date Humans.
+        </h1>
+        <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-foreground/85 mb-10">
+          An ongoing investigation into how we connect now — and how to rebuild
+          the infrastructure that made it possible.
+        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            to="/events"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-medium hover:opacity-90 transition-opacity"
+          >
+            See what's happening
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <a
+            href="#newsletter"
+            className="inline-flex items-center px-6 py-3 border border-foreground/20 font-medium hover:border-foreground/60 transition-colors"
+          >
+            Get updates
+          </a>
+        </div>
+      </section>
 
       {/* WHY */}
       <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
