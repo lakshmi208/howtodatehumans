@@ -73,6 +73,30 @@ const Pilot = () => {
         </div>
       </section>
 
+      {/* Why nothing out there has fit you */}
+      <section className="max-w-2xl mx-auto px-6 py-16 border-t border-stone-200">
+        <h2 className="text-2xl text-stone-900 mb-8 text-center">
+          Why nothing out there has fit you
+        </h2>
+        <div className="space-y-6 text-lg text-stone-700 leading-relaxed">
+          <p>
+            Most midlife dating content assumes one path: married, divorced, kids.
+            That&apos;s the unspoken baseline — what the books are written for, what the
+            coaches calibrate against, what the podcasts assume.
+          </p>
+          <p>
+            If you didn&apos;t marry, you&apos;ve been getting advice built for someone
+            else&apos;s life. Co-parenting frameworks you don&apos;t need.{" "}
+            <em>&ldquo;Getting back out there&rdquo;</em> arcs that don&apos;t apply.
+            Identity rebuilds for an identity you never built around a husband.
+          </p>
+          <p>
+            The whole field has been quietly excluding you by assuming your story
+            didn&apos;t exist.
+          </p>
+        </div>
+      </section>
+
       {/* Recognition */}
       <section className="max-w-2xl mx-auto px-6 py-16 border-t border-stone-200">
         <h2 className="text-2xl text-stone-900 mb-3 text-center">If this is you</h2>
@@ -127,8 +151,9 @@ const Pilot = () => {
             </h3>
             <p className="text-lg text-stone-900 leading-relaxed">
               The work of moving at the real speed of attraction and revelation — and
-              learning to be a true, healing presence to another person without
-              disappearing into caretaking.
+              understanding how to date for <em>this</em> specific window of life. Not
+              your 20s. Not your 30s. Not retirement. The nuances of midlife dating
+              today are real, and almost nobody else is teaching them well.
             </p>
           </div>
         </div>
@@ -166,8 +191,9 @@ const Pilot = () => {
             and <em>rolling alongside him</em> — and you choose the second.
           </p>
           <p>
-            You become a healing presence without slipping into managing or caretaking — the
-            skill women like you most need and are almost never taught.
+            You learn the actual skill of dating in <em>this</em> window — what 45–60
+            looks like now, why it doesn&apos;t resemble dating in any other decade of
+            life, and how to navigate it on its own terms.
           </p>
         </div>
         <p className="text-center text-stone-500 mt-10 italic">
