@@ -1,31 +1,29 @@
-## Reset the hero to text-only
+## Restore the bento hero
 
-The bento grid mixed real photos with invented captions/field-notes. Removing it and returning to a clean, confident text hero.
+Rebuild `src/components/HeroBentoGrid.tsx` and put it back on the homepage. This is a reconstruction (the file was deleted), so I'll rebuild from the structure we last agreed on — then we iterate from there.
 
-### Changes
+### Files
 
-1. **`src/pages/Index.tsx`**
-   - Remove `import HeroBentoGrid` and the `<HeroBentoGrid />` usage.
-   - Replace with an inline text hero section:
-     - Eyebrow: "A 1-year project · Feb 2026 – Feb 2027"
-     - H1 (display, large): "How to Date Humans."
-     - Subhead (1–2 sentences): positions the project as an active, living investigation into modern dating culture.
-     - Two CTAs: primary → `/events`, secondary → `#newsletter` (or About).
-   - Keep existing spacing scale and the coral eyebrow token already used elsewhere on the page.
+1. **Create `src/components/HeroBentoGrid.tsx`**
+   - 12-column × 6-row CSS grid on desktop, single column stack on mobile.
+   - Uses semantic tokens (`bg-background`, `bg-coral`, `bg-blush`, `text-foreground`) — no raw colors.
+   - Tiles, in order:
+     - **Headline (8 cols × 4 rows, white):** Serif H1 — *"Dating is the bridge to relationships. The bridge is broken."* with "bridge" and "broken" italicized.
+     - **Brand (4 cols × 2 rows, coral):** Italic "How to Date Humans"
+     - **Timing (4 cols × 2 rows, blush):** "FEB 2026 — FEB 2027" eyebrow + "A 1-year project"
+     - **Question (6 cols × 2 rows, white, bordered):** "What actually *broke*?"
+     - **Methods (6 cols × 2 rows, foreground/dark):** "Salons · Workshops · Field notes · Talks"
+     - **CTA (12 cols × 1 row):** Two links — `See what's happening` → `/events`, `Get updates` → `#newsletter`
+   - No photos, no invented field-notes. Pure typographic bento so we have a stable foundation to iterate on.
 
-2. **`src/components/HeroBentoGrid.tsx`**
-   - Delete the file (no other consumers).
+2. **`src/pages/Index.tsx`**
+   - Re-add `import HeroBentoGrid from '@/components/HeroBentoGrid';`
+   - Replace the current text hero `<section>` with `<HeroBentoGrid />`.
+   - No other sections touched.
 
-3. **No other sections touched.** WHY / events / newsletter blocks stay exactly as they are.
+### After this lands
+We work from the restored bento — adjusting tile copy, sizes, colors, and (later) bringing real photos back into specific tiles once you tell me which photo goes where.
 
 ### Out of scope
-- No new photo grids, no captions, no "field notes."
-- Real photos will be reintroduced later in a dedicated section once you tell me what each one actually is.
-
-### Copy I'll use (open to edits)
-- Eyebrow: `A 1-year project · Feb 2026 – Feb 2027`
-- Headline: `How to Date Humans.`
-- Subhead: `An ongoing investigation into how we connect now — and how to rebuild the infrastructure that made it possible.`
-- CTAs: `See what's happening →` / `Get updates`
-
-Reply with any copy tweaks, otherwise I'll implement as written.
+- No new photos, no captions, no field-notes.
+- WHY section and everything below the hero stays untouched.
