@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import HeroBentoGrid from '@/components/HeroBentoGrid';
 
 const sectionWrap = 'max-w-4xl mx-auto px-6';
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
@@ -12,8 +11,27 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* WHAT — bento hero */}
-      <HeroBentoGrid />
+      {/* WHAT */}
+      <section className={`${sectionWrap} pt-20 md:pt-28 pb-16 md:pb-24`}>
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          What
+        </p>
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
+          Dating is the bridge to relationships. The bridge is broken.
+        </h1>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+          <em>How to Date Humans</em> is a year-long project to find out why.
+          Feb 2026 to Feb 2027. In Chicago. Salons, workshops, talks, research,
+          listening sessions. One question driving all of it:{' '}
+          <em>what actually broke, and what would it take to repair it?</em>
+        </p>
+        <Link
+          to="/about"
+          className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
+        >
+          About the project <ArrowRight className="w-4 h-4" />
+        </Link>
+      </section>
 
       {/* WHY */}
       <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
