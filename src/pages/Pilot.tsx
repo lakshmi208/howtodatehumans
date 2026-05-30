@@ -63,6 +63,12 @@ const Pilot = () => {
               are actually looking for were quietly hanging up the towel. I mean, I get it.
               But that math disturbed me.
             </p>
+            <p>
+              So I made a choice. I&apos;ve coached women across the midlife dating
+              landscape for years — divorced, separated, complicated. This next year, I&apos;m
+              focusing on the women who didn&apos;t marry. These are my people. This work
+              was built for you.
+            </p>
           </div>
         </div>
       </section>
@@ -204,9 +210,12 @@ const Pilot = () => {
 
       {/* Investment */}
       <section className="max-w-2xl mx-auto px-6 py-16 text-center">
-        <h2 className="text-2xl text-stone-900 mb-6">Investment</h2>
+        <h2 className="text-2xl text-stone-900 mb-6">Pilot Investment</h2>
         <p className="text-4xl text-stone-900 mb-3">$3,000</p>
-        <p className="text-stone-600 mb-10">in full, or three monthly payments of $1,000</p>
+        <p className="text-stone-600 mb-2">in full, or three monthly payments of $1,000</p>
+        <p className="text-sm text-stone-500 italic mb-10">
+          Founding rate — held for the inaugural cohort only. Future rounds will be priced higher.
+        </p>
         <p className="text-stone-600 leading-relaxed max-w-xl mx-auto mb-10">
           I take only a small number of women into this founding round, so that each one
           gets the depth it asks for. If any part of this felt like it was describing you,
