@@ -47,7 +47,7 @@ const workshops = [
   },
   {
     number: '03',
-    title: 'Tell Your Story Sharper',
+    title: 'Magnetic Storytelling',
     subtitle: 'Introductions That Open Doors',
     bullets: [
       'Craft your 3 go-to introductions',
