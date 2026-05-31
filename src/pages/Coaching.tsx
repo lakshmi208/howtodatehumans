@@ -1,0 +1,104 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight, Mail } from 'lucide-react';
+import SiteNav from '@/components/SiteNav';
+
+const eyebrowCoral = { color: 'hsl(var(--coral))' };
+
+type Offering = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta: { label: string; href: string; external?: boolean };
+};
+
+const offerings: Offering[] = [
+  {
+    eyebrow: 'Single session',
+    title: 'Storytelling for Gen X daters.',
+    body:
+      'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
+    cta: {
+      label: 'Book a session',
+      href: 'mailto:lakshmi@howtodatehumans.com?subject=Storytelling%20session',
+    },
+  },
+  {
+    eyebrow: 'Short series · Gen X men',
+    title: 'Jumpstart sessions.',
+    body:
+      "A short series of sessions, mixed with light coaching, to get you oriented and ready to navigate today's world of dating. Designed to make sure you don't repeat the past — and instead build the future you actually want now.",
+    cta: {
+      label: 'Tell me more',
+      href: 'mailto:lakshmi@howtodatehumans.com?subject=Jumpstart%20inquiry%20%E2%80%94%20Gen%20X%20men',
+    },
+  },
+  {
+    eyebrow: 'Founding cohort · custom curriculum',
+    title: 'Gen X women who did not marry (so far).',
+    body:
+      'This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it\'s worth holding up.',
+    cta: { label: 'See the Pilot', href: '/pilot' },
+  },
+  {
+    eyebrow: 'Not quite one of the three',
+    title: 'General coaching inquiries.',
+    body:
+      "If none of the above quite fits, write me directly. Sometimes the most useful work is the kind that doesn't have a name yet.",
+    cta: {
+      label: 'Email Lakshmi',
+      href: 'mailto:lakshmi@howtodatehumans.com?subject=Coaching%20inquiry',
+    },
+  },
+];
+
+const Coaching = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <SiteNav />
+
+      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-12">
+        <p className="eyebrow mb-6" style={eyebrowCoral}>
+          Coaching
+        </p>
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
+          Four entries into the same work.
+        </h1>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
+          Storytelling is the spine of modern dating — the skill that turns a passing
+          question into the start of something. These are the four ways we apply that work,
+          calibrated to where you actually are.
+        </p>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-6 pb-24">
+        {offerings.map((o) => {
+          const isInternal = !o.cta.href.startsWith('mailto:') && !o.cta.href.startsWith('http');
+          const isMail = o.cta.href.startsWith('mailto:');
+          return (
+            <article key={o.title} className="py-12 border-t border-border">
+              <p className="eyebrow mb-3">{o.eyebrow}</p>
+              <h2 className="font-display text-3xl md:text-4xl leading-tight mb-5">
+                {o.title}
+              </h2>
+              <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-7">
+                {o.body}
+              </p>
+              {isInternal ? (
+                <Link to={o.cta.href} className="btn-pill">
+                  {o.cta.label} <ArrowRight className="w-4 h-4" />
+                </Link>
+              ) : (
+                <a href={o.cta.href} className="btn-pill">
+                  {isMail && <Mail className="w-4 h-4" />}
+                  {o.cta.label}
+                </a>
+              )}
+            </article>
+          );
+        })}
+      </section>
+    </div>
+  );
+};
+
+export default Coaching;

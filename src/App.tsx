@@ -12,6 +12,7 @@ import Research from "./pages/Research";
 import Events from "./pages/Events";
 import Originals from "./pages/Originals";
 import Pilot from "./pages/Pilot";
+import Coaching from "./pages/Coaching";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/originals" element={<Originals />} />
           <Route path="/pilot" element={<Pilot />} />
+          <Route path="/coaching" element={<Coaching />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
