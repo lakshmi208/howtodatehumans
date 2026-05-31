@@ -33,11 +33,14 @@ const offerings: Offering[] = [
     },
   },
   {
-    eyebrow: 'Founding cohort · custom curriculum',
+    eyebrow: 'Custom curriculum',
     title: 'Gen X women who did not marry (so far).',
     body:
       'This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it\'s worth holding up.',
-    cta: { label: 'See the Pilot', href: '/pilot' },
+    cta: {
+      label: 'Tell me more',
+      href: 'mailto:lakshmi@howtodatehumans.com?subject=Coaching%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
+    },
   },
   {
     eyebrow: 'Not quite one of the three',
