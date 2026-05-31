@@ -19,7 +19,7 @@ const offerings: Offering[] = [
       'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
     cta: {
       label: 'Book a session',
-      href: 'mailto:lakshmi@howtodatehumans.com?subject=Storytelling%20session',
+      href: 'mailto:info@howtodatehumans.com?subject=Storytelling%20session',
     },
   },
   {
@@ -29,7 +29,7 @@ const offerings: Offering[] = [
       "A short series of sessions, mixed with light coaching, to get you oriented and ready to navigate today's world of dating. Designed to make sure you don't repeat the past — and instead build the future you actually want now.",
     cta: {
       label: 'Tell me more',
-      href: 'mailto:lakshmi@howtodatehumans.com?subject=Jumpstart%20inquiry%20%E2%80%94%20Gen%20X%20men',
+      href: 'mailto:info@howtodatehumans.com?subject=Jumpstart%20inquiry%20%E2%80%94%20Gen%20X%20men',
     },
   },
   {
@@ -39,7 +39,7 @@ const offerings: Offering[] = [
       'This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it\'s worth holding up.',
     cta: {
       label: 'Tell me more',
-      href: 'mailto:lakshmi@howtodatehumans.com?subject=Coaching%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
+      href: 'mailto:info@howtodatehumans.com?subject=Coaching%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
     },
   },
   {
