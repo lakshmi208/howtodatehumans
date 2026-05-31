@@ -83,7 +83,7 @@ const Coaching = () => {
           Coaching
         </p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
-          Four entries into the same work.
+          Coaching, calibrated for <em>Gen X</em>.
         </h1>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
           Storytelling is the spine of modern dating — the skill that turns a passing
