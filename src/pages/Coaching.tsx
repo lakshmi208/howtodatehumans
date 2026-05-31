@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Mail } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
+import magnet from '@/assets/coaching/magnet.jpg';
+import jumpstart from '@/assets/coaching/jumpstart.jpg';
+import fireworks from '@/assets/coaching/fireworks.jpg';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
@@ -25,7 +28,7 @@ const offerings: Offering[] = [
     title: 'Storytelling for Gen X daters.',
     body:
       'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
-    // image: magnet,
+    image: magnet,
     imageAlt: 'A magnet — drawing the right person in',
     cta: {
       label: 'Book a session',
@@ -37,7 +40,7 @@ const offerings: Offering[] = [
     title: 'Jumpstart sessions.',
     body:
       "A short series of sessions, mixed with light coaching, to get you oriented and ready to navigate today's world of dating. Designed to make sure you don't repeat the past — and instead build the future you actually want now.",
-    // image: cables,
+    image: jumpstart,
     imageAlt: 'Jumper cables — getting reoriented quickly',
     cta: {
       label: 'Tell me more',
@@ -49,7 +52,7 @@ const offerings: Offering[] = [
     title: 'Gen X women who did not marry (so far).',
     body:
       'This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it\'s worth holding up.',
-    // image: fireworks,
+    image: fireworks,
     imageAlt: 'Fireworks — what becomes possible',
     cta: {
       label: 'Tell me more',
