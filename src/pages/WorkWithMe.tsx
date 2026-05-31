@@ -57,7 +57,11 @@ const workshops = [
   },
 ];
 
-const pastVenues = [
+type Venue = { name: string; when: string; image?: string };
+
+// To add a photo for any venue: drop the file into src/assets/speaking/,
+// import it at the top, and add `image: <varname>` to the entry below.
+const pastVenues: Venue[] = [
   { name: 'Wine Enthusiast Town Hall', when: 'May 2025' },
   { name: 'ZS Associates Learning Day', when: 'Oct 2025' },
   { name: 'Omega Institute', when: 'Sept 2025' },
@@ -185,26 +189,26 @@ const WorkWithMe = () => {
           </p>
         </div>
 
-        {/* Also available */}
+        {/* Recent speaking engagements */}
         <div className="mb-20 border-t border-border pt-16">
-          <p className="eyebrow mb-3">Also Available</p>
-          <h3 className="font-display text-3xl md:text-4xl leading-tight mb-3 max-w-3xl">
-            15 Insights from 15 Years of Dating Culture.
-          </h3>
-          <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
-            A cultural keynote for conferences, podcasts, retreats, and audiences less
-            focused on the office — same expertise, different doorway.
-          </p>
-        </div>
-
-        {/* Past venues */}
-        <div className="mb-20 border-t border-border pt-16">
-          <p className="eyebrow mb-6">Where Lakshmi has spoken</p>
-          <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+          <p className="eyebrow mb-6">Recent speaking engagements</p>
+          <ul className="grid sm:grid-cols-2 gap-6 md:gap-8">
             {pastVenues.map((v) => (
-              <li key={v.name} className="flex justify-between gap-4 border-b border-border/50 pb-3">
-                <span className="font-display text-lg md:text-xl">{v.name}</span>
-                <span className="text-sm text-muted-foreground self-end">{v.when}</span>
+              <li key={v.name} className="flex items-center gap-4 border-b border-border/50 pb-4">
+                {v.image && (
+                  <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 overflow-hidden bg-muted">
+                    <img
+                      src={v.image}
+                      alt={v.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <p className="font-display text-lg md:text-xl leading-snug">{v.name}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{v.when}</p>
+                </div>
               </li>
             ))}
           </ul>
