@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Mail } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
+import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
@@ -8,15 +9,24 @@ type Offering = {
   eyebrow: string;
   title: string;
   body: string;
+  image?: string;
+  imageAlt?: string;
   cta: { label: string; href: string; external?: boolean };
 };
 
+// Photos go in src/assets/coaching/. Filenames:
+//   magnet.jpg · cables.jpg · fireworks.jpg
+// Lakshmi's portrait reuses the existing /assets/lakshmi-portrait.jpg.
+// If a file isn't found at build time the build fails — drop them in first,
+// then we'll wire the imports below.
 const offerings: Offering[] = [
   {
     eyebrow: 'Single session',
     title: 'Storytelling for Gen X daters.',
     body:
       'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
+    // image: magnet,
+    imageAlt: 'A magnet — drawing the right person in',
     cta: {
       label: 'Book a session',
       href: 'mailto:info@howtodatehumans.com?subject=Storytelling%20session',
@@ -27,6 +37,8 @@ const offerings: Offering[] = [
     title: 'Jumpstart sessions.',
     body:
       "A short series of sessions, mixed with light coaching, to get you oriented and ready to navigate today's world of dating. Designed to make sure you don't repeat the past — and instead build the future you actually want now.",
+    // image: cables,
+    imageAlt: 'Jumper cables — getting reoriented quickly',
     cta: {
       label: 'Tell me more',
       href: 'mailto:info@howtodatehumans.com?subject=Jumpstart%20inquiry%20%E2%80%94%20Gen%20X%20men',
@@ -37,6 +49,8 @@ const offerings: Offering[] = [
     title: 'Gen X women who did not marry (so far).',
     body:
       'This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it\'s worth holding up.',
+    // image: fireworks,
+    imageAlt: 'Fireworks — what becomes possible',
     cta: {
       label: 'Tell me more',
       href: 'mailto:info@howtodatehumans.com?subject=Coaching%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
@@ -47,6 +61,8 @@ const offerings: Offering[] = [
     title: 'General coaching inquiries.',
     body:
       "If none of the above quite fits, write me directly. Sometimes the most useful work is the kind that doesn't have a name yet.",
+    image: lakshmiPortrait,
+    imageAlt: 'Lakshmi Rengarajan',
     cta: {
       label: 'Email Lakshmi',
       href: 'mailto:lakshmi@howtodatehumans.com?subject=Coaching%20inquiry',
@@ -79,7 +95,19 @@ const Coaching = () => {
           const isMail = o.cta.href.startsWith('mailto:');
           return (
             <article key={o.title} className="py-12 border-t border-border">
-              <p className="eyebrow mb-3">{o.eyebrow}</p>
+              <div className="flex items-center gap-5 mb-5">
+                {o.image && (
+                  <div className="shrink-0 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden bg-muted">
+                    <img
+                      src={o.image}
+                      alt={o.imageAlt ?? ''}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <p className="eyebrow">{o.eyebrow}</p>
+              </div>
               <h2 className="font-display text-3xl md:text-4xl leading-tight mb-5">
                 {o.title}
               </h2>
