@@ -25,7 +25,7 @@ type Offering = {
 const offerings: Offering[] = [
   {
     eyebrow: 'Single session',
-    title: 'Storytelling for Gen X daters.',
+    title: 'Magnetic storytelling for Gen X daters.',
     body:
       'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
     image: magnet,
