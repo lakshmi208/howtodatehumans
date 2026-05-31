@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 // The Pilot — direct-link only landing page for the inaugural midlife coaching cohort.
 // Route: /pilot. Intentionally NOT in main nav or homepage — share via direct link.
@@ -13,8 +14,24 @@ const ctaClass =
 const Pilot = () => {
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800 font-serif">
+      {/* Quiet logo link back to the main site */}
+      <div className="max-w-3xl mx-auto px-6 pt-8 flex justify-center">
+        <a
+          href="/"
+          aria-label="How to Date Humans — back to homepage"
+          className="inline-block opacity-50 hover:opacity-90 transition-opacity"
+        >
+          <img
+            src={logoHorizontal}
+            alt="How to Date Humans"
+            className="h-12 w-auto"
+            style={{ filter: "grayscale(100%)" }}
+          />
+        </a>
+      </div>
+
       {/* Hero */}
-      <header className="max-w-3xl mx-auto px-6 pt-24 pb-16 text-center">
+      <header className="max-w-3xl mx-auto px-6 pt-12 pb-16 text-center">
         <p className="uppercase tracking-[0.3em] text-xs text-stone-400 mb-8">
           The Inaugural Pilot · A founding 1:1 round within How to Date Humans
         </p>

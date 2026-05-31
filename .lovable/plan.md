@@ -1,29 +1,18 @@
-## Restore the bento hero
+**Scope:** Add a muted/stone logo to the top of the `/pilot` page that links back to the homepage.
 
-Rebuild `src/components/HeroBentoGrid.tsx` and put it back on the homepage. This is a reconstruction (the file was deleted), so I'll rebuild from the structure we last agreed on — then we iterate from there.
+**Current state:** The pilot page (`src/pages/Pilot.tsx`) has no navigation or branding at the top. It opens directly into the hero section.
 
-### Files
+**Change:**
 
-1. **Create `src/components/HeroBentoGrid.tsx`**
-   - 12-column × 6-row CSS grid on desktop, single column stack on mobile.
-   - Uses semantic tokens (`bg-background`, `bg-coral`, `bg-blush`, `text-foreground`) — no raw colors.
-   - Tiles, in order:
-     - **Headline (8 cols × 4 rows, white):** Serif H1 — *"Dating is the bridge to relationships. The bridge is broken."* with "bridge" and "broken" italicized.
-     - **Brand (4 cols × 2 rows, coral):** Italic "How to Date Humans"
-     - **Timing (4 cols × 2 rows, blush):** "FEB 2026 — FEB 2027" eyebrow + "A 1-year project"
-     - **Question (6 cols × 2 rows, white, bordered):** "What actually *broke*?"
-     - **Methods (6 cols × 2 rows, foreground/dark):** "Salons · Workshops · Field notes · Talks"
-     - **CTA (12 cols × 1 row):** Two links — `See what's happening` → `/events`, `Get updates` → `#newsletter`
-   - No photos, no invented field-notes. Pure typographic bento so we have a stable foundation to iterate on.
+1. Import the existing horizontal logo asset (`logo-horizontal.png`) into `Pilot.tsx`.
+2. Add a logo link above the hero `<header>`, wrapped in an `<a href="/">`.
+3. Apply CSS filters to desaturate and mute the logo so it matches the pilot page's stone palette:
+   - `grayscale(100%)` or high desaturation
+   - `opacity` reduced slightly (e.g. `opacity-60` or `opacity-70`)
+   - Optional: `hover:opacity-100` for a subtle interaction
+4. Keep the styling minimal — no nav links, no full SiteNav. Just the logo alone, small and unobtrusive, aligned left or centered above the hero.
+5. Add an `aria-label` for accessibility.
 
-2. **`src/pages/Index.tsx`**
-   - Re-add `import HeroBentoGrid from '@/components/HeroBentoGrid';`
-   - Replace the current text hero `<section>` with `<HeroBentoGrid />`.
-   - No other sections touched.
+**Visual intent:** The logo should feel like a quiet breadcrumb back to the main site, not a bold brand statement. It must not break the contemplative, soulful tone of the pilot page.
 
-### After this lands
-We work from the restored bento — adjusting tile copy, sizes, colors, and (later) bringing real photos back into specific tiles once you tell me which photo goes where.
-
-### Out of scope
-- No new photos, no captions, no field-notes.
-- WHY section and everything below the hero stays untouched.
+**File changed:** `src/pages/Pilot.tsx` only.
