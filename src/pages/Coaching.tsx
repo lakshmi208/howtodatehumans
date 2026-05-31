@@ -24,10 +24,10 @@ type Offering = {
 // then we'll wire the imports below.
 const offerings: Offering[] = [
   {
-    eyebrow: 'Single session',
+    eyebrow: '90 minutes · Single session',
     title: 'Magnetic storytelling for Gen X daters.',
     body:
-      'Your ability to tell stories is one of the most important aspects of modern dating. In one session, we develop your core stories — so when someone asks "so what do you do for fun?" you knock it out of the park instead of letting a well-meaning bad question kill the moment. Built for the unique stakes of early dates.',
+      'A 90-minute session where we start building your bank of stories — and you start to see how you might be sitting on your best material. What people call "baggage" is often exactly what leads to connection. You leave with three stories ready to reshape the conversations you have, around what\'s actually made you, well, you. Built for the unique stakes of early dates — and a taste of the deeper work we can do together.',
     image: magnet,
     imageAlt: 'A magnet — drawing the right person in',
     cta: {
