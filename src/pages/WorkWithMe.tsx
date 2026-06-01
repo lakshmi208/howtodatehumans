@@ -166,6 +166,56 @@ const WorkWithMe = () => {
           </div>
         </div>
 
+        {/* Architecture diagram: workshops built on the foundation of the keynote */}
+        <div className="mb-20 border-t border-border pt-16">
+          <p className="eyebrow mb-3">How it stacks</p>
+          <h3 className="font-display text-2xl md:text-3xl leading-tight mb-10 max-w-3xl">
+            The keynote is the foundation. The workshops build on top.
+          </h3>
+
+          <div className="max-w-3xl mx-auto" aria-label="Diagram: three workshops stacked on top of one keynote foundation">
+            {/* Top row: three workshop "bricks" */}
+            <div className="grid grid-cols-3 gap-1.5 mb-1.5">
+              {[
+                { num: '01', title: 'Designing for Contact' },
+                { num: '02', title: 'Build Your Connection Plan' },
+                { num: '03', title: 'Magnetic Storytelling' },
+              ].map((w) => (
+                <div
+                  key={w.num}
+                  className="bg-background border border-foreground/30 p-4 md:p-5 flex flex-col justify-between min-h-[100px] md:min-h-[120px]"
+                >
+                  <p className="text-xs uppercase tracking-widest text-foreground/50">
+                    Workshop {w.num}
+                  </p>
+                  <p className="font-display text-sm md:text-lg leading-tight">{w.title}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Foundation row: the keynote */}
+            <div
+              className="p-5 md:p-7 flex flex-col justify-between min-h-[120px] md:min-h-[140px]"
+              style={{
+                backgroundColor: 'hsl(var(--ink))',
+                color: 'hsl(var(--ink-foreground))',
+              }}
+            >
+              <p className="text-xs uppercase tracking-widest opacity-70">
+                The Keynote · Foundation
+              </p>
+              <p className="font-display text-xl md:text-3xl leading-tight">
+                What Modern Dating Can Learn From Modern Work
+              </p>
+            </div>
+          </div>
+
+          <p className="text-sm text-muted-foreground italic mt-6 max-w-2xl">
+            Book the keynote on its own — or commission any workshop as a standalone
+            once your team has the talk.
+          </p>
+        </div>
+
         {/* Workshop pipeline */}
         <div id="workshops" className="mb-20 border-t border-border pt-16 scroll-mt-20">
           <p className="eyebrow mb-3">From Inspiration to Tactics</p>
