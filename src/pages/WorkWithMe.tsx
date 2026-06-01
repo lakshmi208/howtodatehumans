@@ -5,6 +5,17 @@ import SiteNav from '@/components/SiteNav';
 import { supabase } from '@/integrations/supabase/client';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import speaking1 from '@/assets/speaking/lakshmi-speaking-1.jpg';
+import speaking2 from '@/assets/speaking/lakshmi-speaking-2.jpg';
+import speaking3 from '@/assets/speaking/lakshmi-speaking-3.jpg';
+import speaking4 from '@/assets/speaking/lakshmi-speaking-4.jpg';
+
+const speakingPhotos = [
+  { src: speaking1, alt: 'Lakshmi speaking at an event' },
+  { src: speaking2, alt: 'Lakshmi giving a talk' },
+  { src: speaking3, alt: 'Lakshmi on stage at a corporate event' },
+  { src: speaking4, alt: 'Lakshmi at ZS Associates Learning Day' },
+];
 
 const talkIdeas = [
   {
@@ -192,6 +203,21 @@ const WorkWithMe = () => {
         {/* Recent speaking engagements */}
         <div className="mb-20 border-t border-border pt-16">
           <p className="eyebrow mb-6">Recent speaking engagements</p>
+
+          {/* Photo gallery — random assortment of speaking moments */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
+            {speakingPhotos.map((photo, i) => (
+              <div key={i} className="aspect-square overflow-hidden bg-muted">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
           <ul className="grid sm:grid-cols-2 gap-6 md:gap-8">
             {pastVenues.map((v) => (
               <li key={v.name} className="flex items-center gap-4 border-b border-border/50 pb-4">
