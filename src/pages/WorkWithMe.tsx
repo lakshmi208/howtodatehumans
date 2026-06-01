@@ -116,10 +116,15 @@ const WorkWithMe = () => {
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
           Work with <em>Lakshmi</em>.
         </h1>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-10">
+        <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-6">
           Connection is universal — but it has to be adjusted to the moment, the audience,
           and the situation. Storytelling is the tool. These are the four ways we work
           together.
+        </p>
+        <p className="text-sm md:text-base italic leading-relaxed text-foreground/65 max-w-2xl mb-10">
+          How to Date Humans is the research. This is where it gets applied — in rooms,
+          offsites, keynotes, and one-on-one coaching. The project keeps the practice
+          honest. The practice keeps the project going.
         </p>
         <div className="flex flex-wrap gap-3">
           <a href="#speaking" className="btn-pill-outline">Keynote</a>
