@@ -336,27 +336,6 @@ const WorkWithMe = () => {
         </a>
       </section>
 
-      {/* ===== DATING COACH TEASER ===== */}
-      <section
-        id="coaching"
-        className="bg-foreground/[0.03] border-t border-border scroll-mt-20"
-      >
-        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-3">Coaching</p>
-          <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8 max-w-3xl">
-            Custom coaching for Gen X daters.
-          </h2>
-          <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
-            Four flavors of one-on-one work — a single storytelling session, a jumpstart
-            series for Gen X men, a founding cohort for women who did not marry, plus
-            general inquiries. Built from years of research and hundreds of long
-            conversations.
-          </p>
-          <Link to="/coaching" className="btn-pill">
-            See coaching options →
-          </Link>
-        </div>
-      </section>
     </div>
   );
 };
