@@ -110,9 +110,6 @@ const WorkWithMe = () => {
 
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-24 pb-12">
-        <p className="eyebrow mb-6" style={{ color: 'hsl(var(--muted-foreground))' }}>
-          For your stage, your team, or your year
-        </p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
           Work with <em>Lakshmi</em>.
         </h1>
