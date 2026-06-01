@@ -172,11 +172,12 @@ const Index = () => {
       <section className="border-t border-border max-w-5xl mx-auto px-6 py-20 md:py-28">
         <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div className="md:col-span-4">
-            <div className="aspect-square overflow-hidden bg-muted max-w-[320px] mx-auto md:mx-0">
+            <div className="aspect-square overflow-hidden rounded-full bg-muted max-w-[320px] mx-auto md:mx-0">
               <img
                 src={lakshmiPortrait}
                 alt="Lakshmi Rengarajan"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: '50% 25%' }}
                 loading="lazy"
               />
             </div>
