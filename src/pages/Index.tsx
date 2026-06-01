@@ -1,214 +1,208 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
+import event3 from '@/assets/event-3.jpeg';
+import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
-const sectionWrap = 'max-w-4xl mx-auto px-6';
-const eyebrowCoral = { color: 'hsl(var(--coral))' };
+const quotes = [
+  {
+    quote: 'I didn’t know most of this stuff about dating history.',
+    by: 'Audience comment',
+  },
+  {
+    quote:
+      'I think if people had this knowledge, we might see each other in a different light.',
+    by: 'Audience email',
+  },
+  {
+    quote: 'Seriously good vibes. I loved the no-phones recommendation.',
+    by: 'Attendee feedback',
+  },
+  {
+    quote:
+      'The best part is that these are NOT singles events. I got to bring my married best friend and we chat about it. I felt like she understood me a bit better.',
+    by: 'Married attendee',
+  },
+  {
+    quote:
+      'I am married but I think about what the future holds for my children, and this was illuminating.',
+    by: 'Audience email',
+  },
+];
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* WHAT */}
-      <section className={`${sectionWrap} pt-20 md:pt-28 pb-16 md:pb-24`}>
-        <p className="eyebrow mb-6" style={eyebrowCoral}>
-          What
-        </p>
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
-          Dating is the bridge to relationships. The bridge is broken.
+      {/* Hero */}
+      <section className="max-w-5xl mx-auto px-6 pt-20 md:pt-28 pb-12 md:pb-16">
+        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02]">
+          Dating is the bridge to relationships. The bridge is <em>broken</em>.
         </h1>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
-          <em>How to Date Humans</em> is a year-long project to find out why.
-          Feb 2026 to Feb 2027. In Chicago. Salons, workshops, talks, research,
-          listening sessions. One question driving all of it:{' '}
-          <em>what actually broke, and what would it take to repair it?</em>
-        </p>
-        <Link
-          to="/about"
-          className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
-        >
-          About the project <ArrowRight className="w-4 h-4" />
-        </Link>
       </section>
 
-      {/* WHY */}
-      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
-        <p className="eyebrow mb-6" style={eyebrowCoral}>
-          Why
-        </p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-12">
-          The bridge cracked under load.
-        </h2>
-
-        <div className="max-w-2xl space-y-10 md:space-y-12">
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              The advice wasn't wrong.
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              We were told to take charge of our love lives — be intentional,
-              show up, choose well. The problem is that nobody first asked
-              whether the system underneath could carry the weight of those
-              choices.
+      {/* Bento — 5 tiles */}
+      <section className="max-w-6xl mx-auto px-6 pb-16 md:pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-4">
+          {/* About the project — 8 cols */}
+          <Link
+            to="/about"
+            className="group bg-background border border-border p-8 md:p-10 md:col-span-8 hover:border-foreground/40 transition-colors flex flex-col justify-between min-h-[260px] md:min-h-[320px]"
+          >
+            <div>
+              <p className="eyebrow mb-4">About the project</p>
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4">
+                A year-long investigation into what actually broke about dating.
+              </h3>
+              <p className="text-base md:text-lg text-foreground/75 leading-relaxed max-w-xl">
+                Chicago. Feb 2026 — Feb 2027. Salons, research, listening sessions,
+                talks. One question.
+              </p>
+            </div>
+            <p className="mt-6 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              Read the manifesto →
             </p>
-          </div>
+          </Link>
 
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              It's not just the apps.
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              The apps scaled — that's what capitalism does. But the real
-              damage was quieter: they rewired our insides, and their growth
-              depended on the slow death of every other way we used to actually
-              connect.
+          {/* Why? — 4 cols (coral) */}
+          <Link
+            to="/about"
+            className="group md:col-span-4 p-8 md:p-10 flex flex-col justify-between min-h-[260px] md:min-h-[320px]"
+            style={{
+              backgroundColor: 'hsl(var(--coral))',
+              color: 'hsl(var(--ink-foreground))',
+            }}
+          >
+            <p className="eyebrow opacity-70">Why?</p>
+            <p className="font-display italic text-2xl md:text-3xl lg:text-4xl leading-tight">
+              Dating culture isn’t really about dating.
             </p>
-          </div>
-
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              Older generations don't know more.
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              They had infrastructure. Dive bars and corner taverns ruled the
-              scene — no 14-ingredient cocktails. Jobs were mini stages where
-              people interacted across roles and years. Not perfect, but a lot
-              of context to work with.
+            <p className="text-sm font-medium group-hover:translate-x-1 transition-transform">
+              Read the diagnosis →
             </p>
-          </div>
+          </Link>
 
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              The commercial success covered the rest.
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              Hidden inside the success was a quieter rewiring. Call it a
-              consumerism nobody could quite name. Like a rainforest brought
-              down to make affordably stylish furniture — sure, you got the
-              cool living room, but what was destroyed in the process? Younger
-              generations smell the fire. They've stopped fanning it.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display text-2xl md:text-3xl leading-snug mb-3">
-              AI is the next move.
-            </h3>
-            <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-              Being slid further into our most personal decisions — who to
-              date, whether to leave, what to say. Before that gets built
-              without us, this is the moment to pause and ask:{' '}
-              <em>what actually broke, and what would it take to repair it?</em>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW */}
-      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
-        <p className="eyebrow mb-6" style={eyebrowCoral}>
-          How
-        </p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
-          Step one is understanding what actually broke.
-        </h2>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-14">
-          Most dating advice rushes to step two —{' '}
-          <em>go to events, delete the apps, just put yourself out there.</em>{' '}
-          None of it works if you don't know what you're working with. So we're
-          spending the year on step one, in public. Listening. Documenting. Then
-          building from what we hear.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+          {/* How — 3 cols */}
           <Link
             to="/research"
-            className="group block border-t border-foreground/20 pt-5"
+            className="group md:col-span-3 bg-background border border-border p-6 md:p-7 flex flex-col justify-between min-h-[220px] md:min-h-[280px] hover:border-foreground/40 transition-colors"
           >
-            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
-              01
+            <div>
+              <p className="eyebrow mb-3">How</p>
+              <p className="font-display text-xl md:text-2xl leading-tight mb-3">
+                Step one is understanding what actually broke.
+              </p>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                Listening sessions, salons, field notes, talks.
+              </p>
+            </div>
+            <p className="mt-4 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              See what we’re listening for →
             </p>
-            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
-              Research
-            </h3>
-            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
-              We're listening to specific groups this month: never-married
-              women, divorced men, Gen Z.
-            </p>
-            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
-              See what we're listening for →
-            </span>
           </Link>
 
+          {/* Gallery — 3 cols (photo) */}
+          <Link
+            to="/gallery"
+            className="group md:col-span-3 relative overflow-hidden min-h-[220px] md:min-h-[280px]"
+          >
+            <img
+              src={event3}
+              alt="Scenes from a How to Date Humans event"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+              <p className="eyebrow mb-2 text-white/70">Gallery</p>
+              <p className="text-white font-display text-xl md:text-2xl leading-tight">
+                Scenes from the work →
+              </p>
+            </div>
+          </Link>
+
+          {/* The Project (so far) — 6 cols (large photo) */}
           <Link
             to="/events"
-            className="group block border-t border-foreground/20 pt-5"
+            className="group md:col-span-6 relative overflow-hidden min-h-[220px] md:min-h-[280px]"
           >
-            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
-              02
-            </p>
-            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
-              Events &amp; Talks
-            </h3>
-            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
-              Three events done. More on deck. The full timeline of what's
-              happened and what's coming.
-            </p>
-            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
-              Past + upcoming →
-            </span>
-          </Link>
-
-          <Link
-            to="/originals"
-            className="group block border-t border-foreground/20 pt-5"
-          >
-            <p className="font-display text-2xl mb-2" style={eyebrowCoral}>
-              03
-            </p>
-            <h3 className="font-display text-xl md:text-2xl leading-snug mb-3">
-              Originals — coming this fall
-            </h3>
-            <p className="text-base text-foreground/80 mb-4 leading-relaxed">
-              A few one-of-a-kind events you won't find on any calendar.
-              Limited. By application.
-            </p>
-            <span className="text-sm font-medium underline underline-offset-4 group-hover:opacity-70 transition-opacity">
-              See past Originals →
-            </span>
+            <img
+              src={workingFromHoxton}
+              alt="A How to Date Humans event in progress at The Hoxton"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <p className="eyebrow mb-2 text-white/70">The project so far</p>
+              <p className="text-white font-display text-2xl md:text-3xl lg:text-4xl leading-tight max-w-xl">
+                Three events done. Nine more coming.
+              </p>
+              <p className="text-white/80 text-sm mt-3 font-medium group-hover:translate-x-1 transition-transform inline-block">
+                See the full timeline →
+              </p>
+            </div>
           </Link>
         </div>
       </section>
 
-      {/* WHO */}
-      <section className={`border-t border-border ${sectionWrap} py-16 md:py-24`}>
-        <p className="eyebrow mb-6" style={eyebrowCoral}>
-          Who
-        </p>
-        <h2 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
-          Meet Lakshmi <span style={eyebrowCoral} className="italic">(luck-shmee)</span>.
-        </h2>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
-          Hi, I'm Lakshmi. Fifteen years in the weeds of dating culture — at
-          Match.com, at WeWork, in research, on stage. This year I'm spending
-          the time most coaches won't: looking at what actually broke before
-          anyone tries to claim they can fix it.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link
-            to="/about#lakshmi"
-            className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
-          >
-            Full bio <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            to="/lakshmi"
-            className="inline-flex items-center gap-2 text-base font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
-          >
-            Career timeline <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* What we're hearing — full-width quote section */}
+      <section className="border-t border-border bg-background">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <p className="eyebrow mb-12">What we’re hearing</p>
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
+            {quotes.map((q, i) => (
+              <figure key={i} className="space-y-4">
+                <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
+                  &ldquo;{q.quote}&rdquo;
+                </blockquote>
+                <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                  — {q.by}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bio */}
+      <section className="border-t border-border max-w-5xl mx-auto px-6 py-20 md:py-28">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+          <div className="md:col-span-4">
+            <div className="aspect-square overflow-hidden bg-muted max-w-[320px] mx-auto md:mx-0">
+              <img
+                src={lakshmiPortrait}
+                alt="Lakshmi Rengarajan"
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-8">
+            <p className="eyebrow mb-3">Meet Lakshmi (luck-shmee)</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight mb-6">
+              The human <em>behind</em> How to Date Humans.
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85 mb-8 max-w-xl">
+              Hi, I’m Lakshmi. Fifteen years in the weeds of dating culture —
+              at Match.com, at WeWork, in research, on stage. This year I’m
+              spending the time most coaches won’t: looking at what actually broke
+              before anyone tries to claim they can fix it.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/about#lakshmi" className="btn-pill-outline">
+                Read more
+              </Link>
+              <a
+                href="mailto:lakshmi@howtodatehumans.com"
+                className="btn-pill-outline"
+              >
+                Email Lakshmi
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
