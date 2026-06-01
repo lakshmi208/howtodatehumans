@@ -7,13 +7,11 @@ import NewsletterSignup from '@/components/NewsletterSignup';
 import event1 from '@/assets/event-1.jpeg';
 import event3 from '@/assets/event-3.jpeg';
 import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
-import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const photos = [
   { src: workingFromHoxton, alt: 'The Hoxton kickoff' },
   { src: event3, alt: 'Engaged audience at a How to Date Humans event' },
   { src: event1, alt: 'Community gathering at a coworking space' },
-  { src: lakshmiPortrait, alt: 'Lakshmi speaking' },
 ];
 
 const Gallery = () => {

@@ -21,8 +21,8 @@ const quotes = [
   },
   {
     quote:
-      'The best part is that these are NOT singles events. I got to bring my married best friend and we chat about it. I felt like she understood me a bit better.',
-    by: 'Married attendee',
+      'I like how these are not “singles events” per se. They’re interesting discussions about the experience of being single today. I brought my married best friend with me.',
+    by: 'Attendee, Dating Detox',
   },
   {
     quote:
@@ -54,15 +54,16 @@ const Index = () => {
             <div>
               <p className="eyebrow mb-4">About the project</p>
               <h3 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-4">
-                A year-long investigation into what actually broke about dating.
+                Chicago.
               </h3>
-              <p className="text-base md:text-lg text-foreground/75 leading-relaxed max-w-xl">
-                Chicago. Feb 2026 — Feb 2027. Salons, research, listening sessions,
-                talks. One question.
+              <p className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-xl">
+                A year-long project to look into what happened to modern connection
+                through the lens of dating — and see if we can turn things around.
+                Salons. Listening sessions. Talks. One question.
               </p>
             </div>
             <p className="mt-6 text-sm font-medium group-hover:translate-x-1 transition-transform">
-              Read the manifesto →
+              Read more →
             </p>
           </Link>
 
@@ -77,10 +78,10 @@ const Index = () => {
           >
             <p className="eyebrow opacity-70">Why?</p>
             <p className="font-display italic text-2xl md:text-3xl lg:text-4xl leading-tight">
-              Dating culture isn’t really about dating.
+              Dating culture is about way more than dating…
             </p>
             <p className="text-sm font-medium group-hover:translate-x-1 transition-transform">
-              Read the diagnosis →
+              Read more →
             </p>
           </Link>
 
@@ -138,7 +139,7 @@ const Index = () => {
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <p className="eyebrow mb-2 text-white/70">The project so far</p>
               <p className="text-white font-display text-2xl md:text-3xl lg:text-4xl leading-tight max-w-xl">
-                Three events done. Nine more coming.
+                Three events — more on the way…
               </p>
               <p className="text-white/80 text-sm mt-3 font-medium group-hover:translate-x-1 transition-transform inline-block">
                 See the full timeline →

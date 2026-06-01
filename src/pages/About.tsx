@@ -82,12 +82,18 @@ const About = () => {
       <section id="project" className="max-w-4xl mx-auto px-6 pt-16 pb-12 scroll-mt-20">
         <p className="eyebrow mb-3">About the Project</p>
         <h1 className="font-display text-4xl md:text-6xl leading-[1.04] mb-8">
-          What we're actually trying to figure out.
+          Connection is human fuel. Dating is where things started to break.
         </h1>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-6">
+          The state of dating is really about what we think our hearts will experience —
+          who we might cross paths with, and who will actually get to know us. These
+          questions quietly pulse in everyone.
+        </p>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-12">
-          How to Date Humans is a year-long project (Feb 2026 → Feb 2027) running real
-          events, listening sessions, and research in Chicago — to figure out what
-          actually happened to dating, and whether one city can do something about it.
+          How to Date Humans is a year-long project (Feb 2026 → Feb 2027) — Chicago
+          salons, listening sessions, talks, and research. To look into what happened
+          to modern connection through the lens of dating, and see if we can turn things
+          around.
         </p>
 
         {/* Insights */}
