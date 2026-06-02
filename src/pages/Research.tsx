@@ -4,7 +4,6 @@ import { supabase } from '@/integrations/supabase/client';
 import SiteNav from '@/components/SiteNav';
 import ListeningSessionCard from '@/components/ListeningSessionCard';
 import YearProgress from '@/components/YearProgress';
-import ResearchSection from '@/components/ResearchSection';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import discussionPhoto from '@/assets/photos/discussion.jpg';
@@ -194,11 +193,6 @@ const Research = () => {
             </button>
           </form>
         )}
-      </section>
-
-      {/* Broader research areas */}
-      <section className="border-t border-border pt-8">
-        <ResearchSection showInterest={false} />
       </section>
 
       {/* Open story submission */}
