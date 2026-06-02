@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
-import event3 from '@/assets/event-3.jpeg';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const quotes = [
@@ -104,24 +103,27 @@ const Index = () => {
             </p>
           </Link>
 
-          {/* Gallery — 3 cols (photo) */}
+          {/* Up Next — 3 cols (blush text tile) */}
           <Link
-            to="/gallery"
-            className="group md:col-span-3 relative overflow-hidden min-h-[220px] md:min-h-[280px]"
+            to="/events#up-next"
+            className="group md:col-span-3 p-6 md:p-7 flex flex-col justify-between min-h-[220px] md:min-h-[280px]"
+            style={{
+              backgroundColor: 'hsl(var(--blush))',
+              color: 'hsl(var(--foreground))',
+            }}
           >
-            <img
-              src={event3}
-              alt="Scenes from a How to Date Humans event"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-              <p className="eyebrow mb-2 text-white/70">Gallery</p>
-              <p className="text-white font-display text-xl md:text-2xl leading-tight">
-                Scenes from the work →
+            <div>
+              <p className="eyebrow mb-3 opacity-70">Up Next</p>
+              <p className="font-display text-xl md:text-2xl leading-tight mb-3">
+                June, July, August. Three more on deck.
+              </p>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                BIAN Social Club · SHFT Behavioral Health · Working From at The Hoxton.
               </p>
             </div>
+            <p className="mt-4 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              What&rsquo;s coming →
+            </p>
           </Link>
 
           {/* The Project (so far) — 6 cols (large photo) */}
