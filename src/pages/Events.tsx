@@ -50,8 +50,8 @@ const pastEvents: PastEvent[] = [
     date: 'Feb 19, 2026',
     title: 'The Kickoff: How to Date Humans',
     venue: 'Working From at The Hoxton',
-    cover: kickoffSlide,
-    photos: [kickoffSlide, kickoffStage, kickoffAction1, kickoffAction2],
+    cover: kickoffAction1,
+    photos: [kickoffAction1, kickoffSlide, kickoffStage, kickoffAction2],
     purposeTopics: ['Why now', 'Who is Lakshmi', 'The Dating Culture Timeline'],
     quotes: [
       "The vibes were unmatched. I can't wait to see how this all unfolds over just one year.",
