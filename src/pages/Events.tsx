@@ -13,6 +13,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import SiteNav from '@/components/SiteNav';
+import YearProgress from '@/components/YearProgress';
 import GaugingInterest from '@/components/GaugingInterest';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PartnerCTA from '@/components/PartnerCTA';
@@ -224,10 +225,13 @@ const Events = () => {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* Hero */}
+      {/* Hero with timeline */}
       <section className="max-w-5xl mx-auto px-6 pt-20 md:pt-28 pb-12 md:pb-16">
-        <p className="eyebrow mb-6">Events</p>
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04]">
+        <p className="eyebrow mb-8">Events</p>
+        <div className="mb-10 md:mb-12">
+          <YearProgress />
+        </div>
+        <h1 className="font-display text-2xl md:text-4xl lg:text-5xl leading-tight text-foreground/85">
           What we&rsquo;ve done. What&rsquo;s <em>coming</em>.
         </h1>
       </section>
