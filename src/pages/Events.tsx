@@ -27,9 +27,10 @@ import detoxSlide from '@/assets/events-past/detox-slide.jpg';
 import detox1 from '@/assets/events-past/detox-1.jpg';
 import detoxMegan1 from '@/assets/events-past/detox-megan-1.jpg';
 import detoxMegan2 from '@/assets/events-past/detox-megan-2.jpg';
-import collapsePromo from '@/assets/events-past/collapse-promo.jpg';
-import collapseTalk from '@/assets/events-past/collapse-talk.jpg';
-import collapseSign from '@/assets/events-past/collapse-sign.jpg';
+import collapse1 from '@/assets/events-past/collapse-1.jpg';
+import collapse2 from '@/assets/events-past/collapse-2.jpg';
+import collapse3 from '@/assets/events-past/collapse-3.jpg';
+import collapse4 from '@/assets/events-past/collapse-4.jpg';
 
 type PastEvent = {
   slug: string;
@@ -75,8 +76,8 @@ const pastEvents: PastEvent[] = [
     date: 'April 22, 2026',
     title: 'Dating in Collapse',
     venue: 'SHFT Behavioral Health',
-    cover: collapsePromo,
-    photos: [collapsePromo, collapseTalk, collapseSign],
+    cover: collapse1,
+    photos: [collapse1, collapse2, collapse3, collapse4],
     purpose:
       "What's the point of dating when it feels like the world is falling apart? For many, the decision to date or not is not technical, it's existential.",
     quotes: [
