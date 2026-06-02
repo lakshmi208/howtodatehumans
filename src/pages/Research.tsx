@@ -16,12 +16,6 @@ const Research = () => {
   const [surveyEmail, setSurveyEmail] = useState('');
   const [surveyStatus, setSurveyStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  // Open story submission
-  const [storyName, setStoryName] = useState('');
-  const [storyEmail, setStoryEmail] = useState('');
-  const [storyText, setStoryText] = useState('');
-  const [storyStatus, setStoryStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
   const submitSurveyWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!surveyEmail.trim()) return;
@@ -33,27 +27,6 @@ const Research = () => {
     });
     setSurveyStatus(error ? 'error' : 'success');
     if (!error) setSurveyEmail('');
-  };
-
-  const submitStory = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!storyEmail.trim() || !storyText.trim()) return;
-    setStoryStatus('loading');
-    const { error } = await supabase.from('form_submissions').insert({
-      form_type: 'research-story',
-      subject: 'Research story submission',
-      fields: {
-        Name: storyName || '(no name)',
-        Email: storyEmail,
-        Story: storyText,
-      },
-    });
-    setStoryStatus(error ? 'error' : 'success');
-    if (!error) {
-      setStoryName('');
-      setStoryEmail('');
-      setStoryText('');
-    }
   };
 
   return (
@@ -195,63 +168,6 @@ const Research = () => {
         )}
       </section>
 
-      {/* Open story submission */}
-      <section className="max-w-4xl mx-auto px-6 pb-24 border-t border-border pt-16">
-        <p className="eyebrow mb-3">Submit a story</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-5">
-          Tell us what <em>you've</em> noticed change.
-        </h2>
-        <p className="text-base md:text-lg text-foreground/85 max-w-2xl mb-8">
-          Don't need to fit a listening session. If you've watched something shift — in dating,
-          in friendship, in how people meet, in how people leave — we want it on the record.
-        </p>
-
-        {storyStatus === 'success' ? (
-          <div className="flex items-center gap-2 text-foreground font-medium">
-            <Check className="w-5 h-5" />
-            On the record. Thank you.
-          </div>
-        ) : (
-          <form onSubmit={submitStory} className="max-w-2xl space-y-4">
-            <Textarea
-              value={storyText}
-              onChange={(e) => setStoryText(e.target.value)}
-              placeholder="What did you notice change? Be as specific as you want."
-              rows={5}
-              maxLength={3000}
-              required
-              className="bg-background border-border"
-            />
-            <div className="grid sm:grid-cols-2 gap-3">
-              <Input
-                type="text"
-                placeholder="First name (optional)"
-                value={storyName}
-                onChange={(e) => setStoryName(e.target.value)}
-                className="bg-background border-border"
-              />
-              <Input
-                type="email"
-                placeholder="Email"
-                required
-                value={storyEmail}
-                onChange={(e) => setStoryEmail(e.target.value)}
-                className="bg-background border-border"
-              />
-            </div>
-            <button type="submit" className="btn-pill" disabled={storyStatus === 'loading'}>
-              {storyStatus === 'loading' ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Sending
-                </>
-              ) : (
-                'Submit'
-              )}
-            </button>
-          </form>
-        )}
-      </section>
     </div>
   );
 };
