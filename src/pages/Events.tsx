@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Loader2, Check } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -12,14 +14,17 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Input } from '@/components/ui/input';
 import SiteNav from '@/components/SiteNav';
 import YearProgress from '@/components/YearProgress';
+import ListeningSessionCard from '@/components/ListeningSessionCard';
 import GaugingInterest from '@/components/GaugingInterest';
 import IdeaSubmission from '@/components/IdeaSubmission';
 import PartnerCTA from '@/components/PartnerCTA';
+import { supabase } from '@/integrations/supabase/client';
 import { events } from '@/data/events';
 
-// Past event photos
+// Past event photos (this-year project)
 import kickoffSlide from '@/assets/events-past/kickoff-slide.jpg';
 import kickoffStage from '@/assets/events-past/kickoff-stage.jpg';
 import kickoffAction1 from '@/assets/events-past/kickoff-action-1.jpg';
@@ -32,6 +37,19 @@ import collapse1 from '@/assets/events-past/collapse-1.jpg';
 import collapse2 from '@/assets/events-past/collapse-2.jpg';
 import collapse3 from '@/assets/events-past/collapse-3.jpg';
 import collapse4 from '@/assets/events-past/collapse-4.jpg';
+
+// Originals photos (past one-of-a-kind events from a decade ago)
+import meetMyFriend from '@/assets/originals/meet-my-amazing-friend.jpg';
+import redBrownLine from '@/assets/originals/red-brown-line.jpg';
+import slowDating from '@/assets/originals/slow-dating.jpg';
+import quarterlife from '@/assets/originals/quarterlife.jpg';
+import marketFresh from '@/assets/originals/market-fresh-40-plus.jpg';
+
+// Listening session photos (research)
+import discussionPhoto from '@/assets/photos/discussion.jpg';
+import genzPhoto from '@/assets/photos/genz.jpg';
+import matchmakerPhoto from '@/assets/photos/matchmaker_coaches.jpg';
+import reenteringPhoto from '@/assets/photos/reenterdating.jpg';
 
 type PastEvent = {
   slug: string;
@@ -84,6 +102,51 @@ const pastEvents: PastEvent[] = [
     quotes: [
       'I deeply resonated with the talk and wanted to say thank you — the dots you connected make me want to keep my heart open.',
     ],
+  },
+];
+
+type Original = {
+  image: string;
+  year: string;
+  title: string;
+  description: string;
+};
+
+const originals: Original[] = [
+  {
+    image: meetMyFriend,
+    year: '2014',
+    title: 'Meet My Amazing Friend Night',
+    description:
+      'The original "Pitch My Friend" format. The insight: we toast our friends at weddings and funerals — exactly when they\'re no longer on the market. Let\'s flip that. Hundreds of pitches later, the format spread. The next version is in development.',
+  },
+  {
+    image: redBrownLine,
+    year: '2012',
+    title: 'Red Line / Brown Line',
+    description:
+      "A logistics experiment dressed as a singles event. We gathered busy singles who lived on Chicago's two transit lines with the most transfer points — the city's highest-density crossroads for actual encounter — and made it ridiculous not to meet someone.",
+  },
+  {
+    image: slowDating,
+    year: '2014',
+    title: 'Slow Dating',
+    description:
+      'Built on original research about how connection actually accelerates. The result: a first date that felt like a fourth — without the optimization theater that makes most first dates unbearable.',
+  },
+  {
+    image: quarterlife,
+    year: '2012',
+    title: 'Tales from the Quarterlife',
+    description:
+      "An evening for 20-somethings who'd figured out they hadn't figured anything out — and were ready to say it out loud. Half talk, half group exhale, zero pressure to have a plan.",
+  },
+  {
+    image: marketFresh,
+    year: '2013',
+    title: 'Market Fresh and 40+',
+    description:
+      "A deliberate refusal of the idea that midlife dating is an exercise in sorting baggage. Built for people with interior weather, taste, and conviction — and tired of being talked about like they don't.",
   },
 ];
 
@@ -148,18 +211,13 @@ const PastEventCard = ({ event }: { event: PastEvent }) => (
         {event.date} · {event.venue}
       </DialogDescription>
 
-      {/* Photo carousel */}
       <div className="mt-2">
         <Carousel opts={{ align: 'start', loop: false }} className="w-full">
           <CarouselContent>
             {event.photos.map((p, i) => (
               <CarouselItem key={i}>
                 <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={p}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={p} alt="" className="w-full h-full object-cover" />
                 </div>
               </CarouselItem>
             ))}
@@ -179,7 +237,6 @@ const PastEventCard = ({ event }: { event: PastEvent }) => (
         </Carousel>
       </div>
 
-      {/* Purpose */}
       <div className="mt-6">
         <p className="eyebrow mb-3">Purpose</p>
         {event.purposeTopics ? (
@@ -198,7 +255,6 @@ const PastEventCard = ({ event }: { event: PastEvent }) => (
         )}
       </div>
 
-      {/* Quotes */}
       <div className="mt-6 pt-6 border-t border-border">
         <p className="eyebrow mb-4">What we heard</p>
         <div className="space-y-5">
@@ -221,6 +277,23 @@ const Events = () => {
     .filter((e) => !PRIORITY_IDS.includes(e.id))
     .sort((a, b) => a.month - b.month);
 
+  // Originals "Coming this fall" waitlist
+  const [fallEmail, setFallEmail] = useState('');
+  const [fallStatus, setFallStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const submitFall = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fallEmail.trim()) return;
+    setFallStatus('loading');
+    const { error } = await supabase.from('form_submissions').insert({
+      form_type: 'originals-waitlist',
+      subject: 'Originals waitlist signup',
+      fields: { Email: fallEmail },
+    });
+    setFallStatus(error ? 'error' : 'success');
+    if (!error) setFallEmail('');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -236,11 +309,8 @@ const Events = () => {
         </h1>
       </section>
 
-      {/* Past Events */}
-      <section
-        id="past"
-        className="max-w-6xl mx-auto px-6 pb-16 md:pb-24 scroll-mt-20"
-      >
+      {/* Past Events — this year's project */}
+      <section id="past" className="max-w-6xl mx-auto px-6 pb-16 md:pb-24 scroll-mt-20">
         <p className="eyebrow mb-3">Past Events</p>
         <h2 className="font-display text-3xl md:text-5xl leading-tight mb-10 max-w-3xl">
           Three events in.
@@ -253,7 +323,140 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Up Next */}
+      {/* Past Originals — folded from /originals */}
+      <section
+        id="originals"
+        className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20"
+      >
+        <p className="eyebrow mb-3">Past Originals</p>
+        <h2 className="font-display text-3xl md:text-5xl leading-[1.04] mb-6 max-w-3xl">
+          A decade ago, this is what we were <em>building</em>.
+        </h2>
+        <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-12 md:mb-16">
+          Each event was an experiment in storytelling as the gateway to connection. Each
+          room was designed for the moment. What we were testing then is what people are
+          craving more than ever now — which is why the next generation of these is already
+          in the works, for the people who&rsquo;ve figured out the apps were never going to
+          do it.
+        </p>
+
+        <div className="space-y-16 md:space-y-24">
+          {originals.map((o, i) => {
+            const imageLeft = i % 2 === 0;
+            return (
+              <article
+                key={o.title}
+                className="grid md:grid-cols-2 gap-8 md:gap-14 items-center"
+              >
+                <div className={imageLeft ? 'md:order-1' : 'md:order-2'}>
+                  <div className="overflow-hidden bg-muted">
+                    <img
+                      src={o.image}
+                      alt={o.title}
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div className={imageLeft ? 'md:order-2' : 'md:order-1'}>
+                  <p className="eyebrow mb-3 text-muted-foreground">{o.year}</p>
+                  <h3 className="font-display text-3xl md:text-4xl leading-[1.06] mb-5">
+                    {o.title}
+                  </h3>
+                  <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+                    {o.description}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* What we're listening for — folded from /research */}
+      <section
+        id="listening"
+        className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-24 scroll-mt-20"
+      >
+        <div className="flex items-center gap-6 mb-7">
+          <div className="shrink-0 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden bg-muted">
+            <img
+              src={discussionPhoto}
+              alt="People talking around a table"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <p className="eyebrow">What we&rsquo;re listening for</p>
+        </div>
+        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-6 max-w-3xl">
+          The commercial success of dating apps is masking what&rsquo;s actually
+          happening to the rest of the <em>ecosystem</em>.
+        </h2>
+        <p className="text-base md:text-lg text-foreground/80 max-w-2xl mb-10">
+          Three groups we want to hear from. Raise your hand below. If your perspective
+          fits a session, we&rsquo;ll be in touch personally — sessions are intentionally
+          small.
+        </p>
+
+        <ListeningSessionCard
+          slug="gen-z"
+          eyebrow="Gen Z"
+          title="What you'd never download — and why"
+          description="If you're under 25 and find yourself opting out of dating apps — or going on them and feeling worse for it — we want to understand why. Not to convince you back on. To document what your generation noticed first."
+          prompt="What's the moment you stopped wanting to be on apps?"
+          image={genzPhoto}
+          imageAlt="A finger over a delete key"
+        />
+
+        <ListeningSessionCard
+          slug="coaches-and-matchmakers"
+          eyebrow="Hiring a coach or matchmaker"
+          title="What actually happened when you hired one"
+          description="The industry is largely unregulated. People spend thousands with no shared way to compare what worked, what didn't, what was a scam, what crossed a line — and what was actually good. We're documenting both. Maybe especially the good, since the loudest stories are the bad ones."
+          prompt="What's the part of your experience you've never told anyone outside your closest friends?"
+          image={matchmakerPhoto}
+          imageAlt="A hand signing a contract"
+        />
+
+        <ListeningSessionCard
+          slug="reentering-daters"
+          eyebrow="Reentering daters"
+          title="You remember when this worked differently."
+          description="If you got married before dating apps and you're back in the field now, you have data nobody else does. You're the only people who can compare what dating felt like in 1995, 2005, 2015 — and what it's like to try now. We're listening for what you noticed change."
+          prompt="Compare your first date in your earlier dating era to your last one. What's different?"
+          image={reenteringPhoto}
+          imageAlt="Back of a man in flannel looking out"
+        />
+      </section>
+
+      {/* Featured pull-quote (Gen Z) — folded from /research */}
+      <section className="relative w-full bg-foreground py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p
+            className="eyebrow mb-6"
+            style={{ color: 'rgba(247, 244, 246, 0.7)' }}
+          >
+            What we&rsquo;ve already heard
+          </p>
+          <blockquote
+            className="font-display text-2xl md:text-4xl lg:text-5xl leading-[1.18] mb-6"
+            style={{ color: 'hsl(var(--background))' }}
+          >
+            &ldquo;It&rsquo;s not just that I don&rsquo;t want to be on a dating app.{' '}
+            <em>I&rsquo;m actually concerned that being on a dating app will harm my
+              heart&rsquo;s ability to connect.</em>&rdquo;
+          </blockquote>
+          <p
+            className="text-sm tracking-wider uppercase"
+            style={{ color: 'rgba(247, 244, 246, 0.7)' }}
+          >
+            — A Gen Z respondent
+          </p>
+        </div>
+      </section>
+
+      {/* Up Next — next 3 months */}
       <section
         id="up-next"
         className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20"
@@ -289,6 +492,60 @@ const Events = () => {
         </div>
       </section>
 
+      {/* Coming this Fall — Originals waitlist (folded from /originals) */}
+      <section className="border-t border-border bg-foreground text-background">
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+          <p
+            className="eyebrow mb-6"
+            style={{ color: 'rgba(247, 244, 246, 0.7)' }}
+          >
+            Coming this fall
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl leading-[1.06] mb-6">
+            Three new Originals, currently in development.
+          </h2>
+          <p
+            className="text-base md:text-lg leading-relaxed mb-10 max-w-2xl"
+            style={{ color: 'rgba(247, 244, 246, 0.85)' }}
+          >
+            Limited size. By application. The first wave drops in September. We&rsquo;ll
+            let you know when applications open.
+          </p>
+
+          {fallStatus === 'success' ? (
+            <div className="flex items-center gap-2 font-medium">
+              <Check className="w-5 h-5" />
+              You&rsquo;re on the list.
+            </div>
+          ) : (
+            <form onSubmit={submitFall} className="flex flex-col sm:flex-row gap-3 max-w-md">
+              <Input
+                type="email"
+                placeholder="Email"
+                required
+                value={fallEmail}
+                onChange={(e) => setFallEmail(e.target.value)}
+                className="bg-background/10 border-background/30 text-background placeholder:text-background/60 h-12"
+              />
+              <button
+                type="submit"
+                disabled={fallStatus === 'loading'}
+                className="inline-flex items-center justify-center gap-2 bg-background text-foreground px-8 py-3 rounded-full font-medium whitespace-nowrap hover:opacity-90 transition-opacity"
+              >
+                {fallStatus === 'loading' ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending
+                  </>
+                ) : (
+                  'Notify me'
+                )}
+              </button>
+            </form>
+          )}
+        </div>
+      </section>
+
       {/* Vote on what's next */}
       <section
         id="vote"
@@ -305,10 +562,7 @@ const Events = () => {
         <GaugingInterest events={gaugingEvents} showInterest={true} />
       </section>
 
-      {/* Submit your own idea */}
       <IdeaSubmission />
-
-      {/* Partner with us */}
       <PartnerCTA />
     </div>
   );
