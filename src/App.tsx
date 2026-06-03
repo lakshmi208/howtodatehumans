@@ -13,6 +13,7 @@ import Events from "./pages/Events";
 import Originals from "./pages/Originals";
 import Pilot from "./pages/Pilot";
 import Coaching from "./pages/Coaching";
+import Speaking from "./pages/Speaking";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
@@ -31,7 +32,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/lakshmi" element={<Lakshmi />} />
-          <Route path="/work-with-me" element={<WorkWithMe />} />
+          <Route path="/work-with-me" element={<Navigate to="/coaching" replace />} />
+          <Route path="/speaking" element={<Speaking />} />
           <Route path="/press" element={<Navigate to="/about#lakshmi" replace />} />
           <Route path="/research" element={<Research />} />
           <Route path="/events" element={<Events />} />
