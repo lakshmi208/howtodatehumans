@@ -29,11 +29,8 @@ const SiteNav = () => {
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-24 md:h-28 flex items-center justify-between">
-        <Link to="/" className="shrink-0 flex flex-col" aria-label="Lakshmi Rengarajan — Gen X Dating Coach">
-          <img src={logoHorizontal} alt="How to Date Humans" className="h-16 md:h-20 w-auto" />
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground mt-1">
-            Gen X Dating Coach · Chicago
-          </span>
+        <Link to="/" className="shrink-0" aria-label="How to Date Humans — home">
+          <img src={logoHorizontal} alt="How to Date Humans" className="h-20 md:h-24 w-auto" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">

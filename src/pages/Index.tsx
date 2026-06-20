@@ -11,27 +11,24 @@ const eyebrowCoral = { color: 'hsl(var(--coral))' };
 // Real audience quotes from past How to Date Humans events.
 const quotes = [
   {
-    quote: 'I didn’t know most of this stuff about dating history.',
-    by: 'Audience comment',
-  },
-  {
     quote:
-      'I think if people had this knowledge, we might see each other in a different light.',
-    by: 'Audience email',
-  },
-  {
-    quote: 'Seriously good vibes. I loved the no-phones recommendation.',
-    by: 'Attendee feedback',
-  },
-  {
-    quote:
-      'I like how these are not “singles events” per se. They’re interesting discussions about the experience of being single today. I brought my married best friend with me.',
+      'A friend dragged me…but I’m glad he did. As a guy you feel like you’re supposed to know everything and yet we can’t — this stuff is so recent. Understanding how the system was built was a game changer.',
     by: 'Attendee, Dating Detox',
   },
   {
     quote:
-      'I am married but I think about what the future holds for my children, and this was illuminating.',
-    by: 'Audience email',
+      'I have never been to an event like this. It wasn’t a singles event but it was about dating. That alone made the room interesting and full of energy because everyone could relate — single or not.',
+    by: 'Attendee, Kickoff',
+  },
+  {
+    quote:
+      'I love the fact that it’s based in Chicago and runs for just one year. I want to see what Lakshmi learns.',
+    by: 'Attendee, Kickoff',
+  },
+  {
+    quote:
+      'The dating advice we’ve been fed is outdated. This is the stuff we actually need to hear.',
+    by: 'Attendee, Dating in Collapse',
   },
 ];
 
@@ -92,11 +89,12 @@ const Index = () => {
             to="/coaching"
             className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
           >
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
+            <div className="aspect-square overflow-hidden bg-muted">
               <img
                 src={lakshmiPortrait}
                 alt="Lakshmi Rengarajan"
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: 'center 25%' }}
                 loading="lazy"
               />
             </div>
@@ -154,7 +152,7 @@ const Index = () => {
       {/* Proof — audience quotes */}
       <section className="border-t border-border bg-background">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-12">What we&rsquo;re hearing</p>
+          <p className="eyebrow mb-12">What we&rsquo;ve heard so far</p>
 
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16 mb-16">
             {quotes.map((q, i) => (
