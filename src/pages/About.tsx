@@ -247,6 +247,11 @@ const About = () => {
           </div>
         </div>
 
+        {/* Press lives here — about Lakshmi, not the project (yet) */}
+        <div id="press" className="border-t border-border scroll-mt-28">
+          <PressCarousel />
+        </div>
+
         {/* Career timeline — folded from /lakshmi */}
         <div id="career" className="border-t border-border scroll-mt-28">
           <div className="max-w-3xl mx-auto px-6 pt-20 pb-16">
@@ -303,11 +308,6 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Press lives here — about Lakshmi, not the project (yet) */}
-        <div id="press" className="border-t border-border scroll-mt-28">
-          <PressCarousel />
         </div>
       </section>
     </div>
