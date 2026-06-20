@@ -25,12 +25,12 @@ const YearProgress = () => {
         viewport={{ once: true }}
         className="relative"
       >
-        <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground mb-2">
+        <div className="flex items-center justify-between text-sm md:text-base font-semibold text-muted-foreground mb-4">
           <span>FEB 2026</span>
           <span className="text-[hsl(var(--primary))]">One Year. One Project.</span>
           <span>FEB 2027</span>
         </div>
-        <div className="h-2 rounded-full bg-secondary overflow-hidden">
+        <div className="h-4 md:h-5 rounded-full bg-secondary overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: progressPercent }}
@@ -39,9 +39,9 @@ const YearProgress = () => {
             className="h-full rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--orange-glow))]"
           />
         </div>
-        <div className="flex justify-between mt-1">
+        <div className="flex justify-between mt-3">
           {months.map((m) => (
-            <span key={m} className="text-[10px] text-muted-foreground">
+            <span key={m} className="text-xs md:text-sm text-muted-foreground">
               {m}
             </span>
           ))}
