@@ -35,23 +35,21 @@ type Offering = {
   body: string;
   image?: string;
   imageAlt?: string;
-  featured?: boolean;
   cta: { label: string; href: string };
   quote?: Quote;
 };
 
 const offerings: Offering[] = [
   {
-    eyebrow: 'Start here · 90 minutes · Single session',
-    title: 'Magnetic.',
-    featured: true,
+    eyebrow: '90 minutes · Single session',
+    title: 'Magnetic storytelling for Gen X daters.',
     body:
-      'A 90-minute session to find the stories that make people lean in. We start building your bank — and you begin to see you’ve been sitting on your best material all along. You’ll leave with three stories, ready to reshape your early conversations around what’s actually made you, well, you. Built for the real stakes of a Gen X first date. Way more than tips and tricks — a taste of what expert date coaching actually feels like.',
+      'A 90-minute session where we start building your bank of stories — and you start to see how you might be sitting on your best material. What people call "baggage" is often exactly what leads to connection. You leave with three stories ready to reshape the conversations you have, around what\'s actually made you, well, you. Built for the unique stakes of early dates — and a taste of what expert date coaching actually feels like. Way more than tips and tricks.',
     image: magnet,
     imageAlt: 'A magnet — drawing the right person in',
     cta: {
-      label: 'Book Magnetic',
-      href: 'mailto:info@howtodatehumans.com?subject=Magnetic%20%E2%80%94%20storytelling%20session',
+      label: 'Book a session',
+      href: 'mailto:info@howtodatehumans.com?subject=Storytelling%20session',
     },
     quote: {
       text: (
@@ -65,26 +63,26 @@ const offerings: Offering[] = [
   },
   {
     eyebrow: 'Short series · Gen X men',
-    title: 'Jumper Cables.',
+    title: 'Jumpstart sessions.',
     body:
-      "A short series of sessions, with light coaching, to get you reoriented and ready for today’s world of dating. Designed so you don’t repeat the past — and instead build the future you actually want now.",
+      "A short series of sessions, mixed with light coaching, to get you oriented and ready to navigate today's world of dating. Designed to make sure you don't repeat the past — and instead build the future you actually want now.",
     image: jumpstart,
     imageAlt: 'Jumper cables — getting reoriented quickly',
     cta: {
       label: 'Tell me more',
-      href: 'mailto:info@howtodatehumans.com?subject=Jumper%20Cables%20inquiry%20%E2%80%94%20Gen%20X%20men',
+      href: 'mailto:info@howtodatehumans.com?subject=Jumpstart%20inquiry%20%E2%80%94%20Gen%20X%20men',
     },
   },
   {
-    eyebrow: 'Custom curriculum · Gen X women who didn’t marry (so far)',
-    title: 'Fireworks.',
+    eyebrow: 'Custom curriculum',
+    title: 'Gen X women who did not marry (so far).',
     body:
-      'A widely misunderstood cohort — and one poised to make the most of this new era of dating. A custom curriculum that helps you shape authentic skills and stories to leverage, rather than apologize for, why you held out — and why it’s worth holding up.',
+      "This widely misunderstood cohort is poised to make the most of the new era of dating. A custom curriculum designed for heterosexual women who did not marry, helping you shape an authentic set of skills and stories to leverage — rather than apologize for — why you held out, and why it's worth holding up.",
     image: fireworks,
     imageAlt: 'Fireworks — what becomes possible',
     cta: {
       label: 'Tell me more',
-      href: 'mailto:info@howtodatehumans.com?subject=Fireworks%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
+      href: 'mailto:info@howtodatehumans.com?subject=Coaching%20inquiry%20%E2%80%94%20women%20who%20did%20not%20marry',
     },
     quote: {
       text: (
@@ -97,10 +95,10 @@ const offerings: Offering[] = [
     },
   },
   {
-    eyebrow: 'Not quite one of these',
-    title: 'General inquiries.',
+    eyebrow: 'Not quite one of the three',
+    title: 'General coaching inquiries.',
     body:
-      'If none of these quite fits, write me directly. Sometimes the most useful work is the kind that doesn’t have a name yet. And if the timing or fit isn’t right, I’ll point you toward a place to start on your own.',
+      "If none of the above quite fits, write me directly. Sometimes the most useful work is the kind that doesn't have a name yet.",
     image: lakshmiPortrait,
     imageAlt: 'Lakshmi Rengarajan',
     cta: {
@@ -306,28 +304,18 @@ const Coaching = () => {
         </div>
       </section>
 
-      {/* ⑨ Work with me — bridge + offers */}
+      {/* ⑨ The offerings */}
       <section
         id="offerings"
         className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20 scroll-mt-20"
       >
-        <p className="eyebrow mb-3">Work with me</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-6 max-w-3xl">
-          It all runs on the same <em>current</em>.
+        <p className="eyebrow mb-3">The work, four ways</p>
+        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-12 max-w-3xl">
+          Pick the format that fits.
         </h2>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
-          The spark that passes when someone finally tells the true story. Here’s where we
-          generate yours.
-        </p>
 
         {offerings.map((o) => (
-          <article
-            key={o.title}
-            className={`py-12 border-t border-border ${
-              o.featured ? 'mt-4 border-t-2' : ''
-            }`}
-            style={o.featured ? coralBorder : undefined}
-          >
+          <article key={o.title} className="py-12 border-t border-border">
             <div className="flex items-center gap-5 mb-5">
               {o.image && (
                 <div className="shrink-0 w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden bg-muted">
@@ -339,9 +327,7 @@ const Coaching = () => {
                   />
                 </div>
               )}
-              <p className="eyebrow" style={o.featured ? eyebrowCoral : undefined}>
-                {o.eyebrow}
-              </p>
+              <p className="eyebrow">{o.eyebrow}</p>
             </div>
             <h3 className="font-display text-2xl md:text-3xl leading-tight mb-5">{o.title}</h3>
             <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-7">
