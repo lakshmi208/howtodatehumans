@@ -3,6 +3,12 @@ import InsightCard from '@/components/InsightCard';
 import EventSummaryCard from '@/components/EventSummaryCard';
 import PressCarousel from '@/components/PressCarousel';
 
+import meetMyFriend from '@/assets/originals/meet-my-amazing-friend.jpg';
+import redBrownLine from '@/assets/originals/red-brown-line.jpg';
+import slowDating from '@/assets/originals/slow-dating.jpg';
+import quarterlife from '@/assets/originals/quarterlife.jpg';
+import marketFresh from '@/assets/originals/market-fresh-40-plus.jpg';
+
 import canary from '@/assets/insights/canary.jpg';
 import phone from '@/assets/insights/phone.jpg';
 import genz from '@/assets/insights/genz.jpg';
