@@ -38,13 +38,6 @@ import collapse2 from '@/assets/events-past/collapse-2.jpg';
 import collapse3 from '@/assets/events-past/collapse-3.jpg';
 import collapse4 from '@/assets/events-past/collapse-4.jpg';
 
-// Originals photos (past one-of-a-kind events from a decade ago)
-import meetMyFriend from '@/assets/originals/meet-my-amazing-friend.jpg';
-import redBrownLine from '@/assets/originals/red-brown-line.jpg';
-import slowDating from '@/assets/originals/slow-dating.jpg';
-import quarterlife from '@/assets/originals/quarterlife.jpg';
-import marketFresh from '@/assets/originals/market-fresh-40-plus.jpg';
-
 // Listening session photos (research)
 import discussionPhoto from '@/assets/photos/discussion.jpg';
 import genzPhoto from '@/assets/photos/genz.jpg';
@@ -102,51 +95,6 @@ const pastEvents: PastEvent[] = [
     quotes: [
       'I deeply resonated with the talk and wanted to say thank you — the dots you connected make me want to keep my heart open.',
     ],
-  },
-];
-
-type Original = {
-  image: string;
-  year: string;
-  title: string;
-  description: string;
-};
-
-const originals: Original[] = [
-  {
-    image: meetMyFriend,
-    year: '2014',
-    title: 'Meet My Amazing Friend Night',
-    description:
-      'The original "Pitch My Friend" format. The insight: we toast our friends at weddings and funerals — exactly when they\'re no longer on the market. Let\'s flip that. Hundreds of pitches later, the format spread. The next version is in development.',
-  },
-  {
-    image: redBrownLine,
-    year: '2012',
-    title: 'Red Line / Brown Line',
-    description:
-      "A logistics experiment dressed as a singles event. We gathered busy singles who lived on Chicago's two transit lines with the most transfer points — the city's highest-density crossroads for actual encounter — and made it ridiculous not to meet someone.",
-  },
-  {
-    image: slowDating,
-    year: '2014',
-    title: 'Slow Dating',
-    description:
-      'Built on original research about how connection actually accelerates. The result: a first date that felt like a fourth — without the optimization theater that makes most first dates unbearable.',
-  },
-  {
-    image: quarterlife,
-    year: '2012',
-    title: 'Tales from the Quarterlife',
-    description:
-      "An evening for 20-somethings who'd figured out they hadn't figured anything out — and were ready to say it out loud. Half talk, half group exhale, zero pressure to have a plan.",
-  },
-  {
-    image: marketFresh,
-    year: '2013',
-    title: 'Market Fresh and 40+',
-    description:
-      "A deliberate refusal of the idea that midlife dating is an exercise in sorting baggage. Built for people with interior weather, taste, and conviction — and tired of being talked about like they don't.",
   },
 ];
 
@@ -298,15 +246,20 @@ const Events = () => {
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* Hero with timeline */}
+      {/* Hero with timeline + section anchors */}
       <section className="max-w-5xl mx-auto px-6 pt-20 md:pt-28 pb-12 md:pb-16">
         <p className="eyebrow mb-8">Events</p>
         <div className="mb-10 md:mb-12">
           <YearProgress />
         </div>
-        <h1 className="font-display text-2xl md:text-4xl lg:text-5xl leading-tight text-foreground/85">
+        <h1 className="font-display text-2xl md:text-4xl lg:text-5xl leading-tight text-foreground/85 mb-10">
           What we&rsquo;ve done. What&rsquo;s <em>coming</em>.
         </h1>
+        <div className="flex flex-wrap gap-3">
+          <a href="#past" className="btn-pill-outline">What we&rsquo;ve done</a>
+          <a href="#up-next" className="btn-pill-outline">What&rsquo;s coming</a>
+          <a href="#listening" className="btn-pill-outline">What we&rsquo;re listening for</a>
+        </div>
       </section>
 
       {/* Past Events — this year's project */}
@@ -320,56 +273,6 @@ const Events = () => {
           {pastEvents.map((ev) => (
             <PastEventCard key={ev.slug} event={ev} />
           ))}
-        </div>
-      </section>
-
-      {/* Past Originals — folded from /originals */}
-      <section
-        id="originals"
-        className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20"
-      >
-        <p className="eyebrow mb-3">Past Originals</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-[1.04] mb-6 max-w-3xl">
-          A decade ago, this is what we were <em>building</em>.
-        </h2>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-12 md:mb-16">
-          Each event was an experiment in storytelling as the gateway to connection. Each
-          room was designed for the moment. What we were testing then is what people are
-          craving more than ever now — which is why the next generation of these is already
-          in the works, for the people who&rsquo;ve figured out the apps were never going to
-          do it.
-        </p>
-
-        <div className="space-y-16 md:space-y-24">
-          {originals.map((o, i) => {
-            const imageLeft = i % 2 === 0;
-            return (
-              <article
-                key={o.title}
-                className="grid md:grid-cols-2 gap-8 md:gap-14 items-center"
-              >
-                <div className={imageLeft ? 'md:order-1' : 'md:order-2'}>
-                  <div className="overflow-hidden bg-muted">
-                    <img
-                      src={o.image}
-                      alt={o.title}
-                      className="w-full h-auto block"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className={imageLeft ? 'md:order-2' : 'md:order-1'}>
-                  <p className="eyebrow mb-3 text-muted-foreground">{o.year}</p>
-                  <h3 className="font-display text-3xl md:text-4xl leading-[1.06] mb-5">
-                    {o.title}
-                  </h3>
-                  <p className="text-base md:text-lg leading-relaxed text-foreground/85">
-                    {o.description}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
         </div>
       </section>
 

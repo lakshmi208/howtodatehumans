@@ -309,6 +309,55 @@ const About = () => {
             </div>
           </div>
         </div>
+
+        {/* Past Originals — depth for visitors going deeper on "Me So Far" */}
+        <div id="originals" className="border-t border-border scroll-mt-28">
+          <div className="max-w-6xl mx-auto px-6 pt-20 pb-20 md:pb-28">
+            <p className="eyebrow mb-3" style={{ color: 'hsl(var(--coral))' }}>
+              Past Originals
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl leading-[1.04] mb-6 max-w-3xl">
+              A decade ago, this is what I was <em>building</em>.
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-foreground/85 max-w-2xl mb-12 md:mb-16">
+              Each event was an experiment in storytelling as the gateway to connection.
+              Each room was designed for the moment. What I was testing then is what
+              people are craving more than ever now.
+            </p>
+
+            <div className="space-y-16 md:space-y-24">
+              {pastOriginals.map((o, i) => {
+                const imageLeft = i % 2 === 0;
+                return (
+                  <article
+                    key={o.title}
+                    className="grid md:grid-cols-2 gap-8 md:gap-14 items-center"
+                  >
+                    <div className={imageLeft ? 'md:order-1' : 'md:order-2'}>
+                      <div className="overflow-hidden bg-muted">
+                        <img
+                          src={o.image}
+                          alt={o.title}
+                          className="w-full h-auto block"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className={imageLeft ? 'md:order-2' : 'md:order-1'}>
+                      <p className="eyebrow mb-3 text-muted-foreground">{o.year}</p>
+                      <h3 className="font-display text-3xl md:text-4xl leading-[1.06] mb-5">
+                        {o.title}
+                      </h3>
+                      <p className="text-base md:text-lg leading-relaxed text-foreground/85">
+                        {o.description}
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
