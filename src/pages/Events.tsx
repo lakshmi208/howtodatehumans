@@ -248,14 +248,11 @@ const Events = () => {
 
       {/* Hero with timeline + section anchors */}
       <section className="max-w-5xl mx-auto px-6 pt-20 md:pt-28 pb-12 md:pb-16">
-        <p className="eyebrow mb-8">Events</p>
-        <div className="mb-10 md:mb-12">
+        <p className="eyebrow mb-8 text-center">Events</p>
+        <div className="mb-10 md:mb-14">
           <YearProgress />
         </div>
-        <h1 className="font-display text-2xl md:text-4xl lg:text-5xl leading-tight text-foreground/85 mb-10">
-          What we&rsquo;ve done. What&rsquo;s <em>coming</em>.
-        </h1>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           <a href="#past" className="btn-pill-outline">What we&rsquo;ve done</a>
           <a href="#up-next" className="btn-pill-outline">What&rsquo;s coming</a>
           <a href="#listening" className="btn-pill-outline">What we&rsquo;re listening for</a>
