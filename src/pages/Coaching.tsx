@@ -83,7 +83,7 @@ const offerings: Offering[] = [
           <Hl>Lakshmi turned the details of my life into magnetic stories I’m excited to tell.</Hl>”
         </>
       ),
-      name: 'S.P., 45 · Never married',
+      name: 'S.P., 45 · Did not marry (so far)',
     },
   },
   {
@@ -116,7 +116,7 @@ const offerings: Offering[] = [
           <Hl>Lakshmi changed it from something I had to explain into something I now see as an asset.</Hl>”
         </>
       ),
-      name: 'E.K., 47 · Never married',
+      name: 'E.K., 47 · Did not marry (so far)',
     },
   },
   {
