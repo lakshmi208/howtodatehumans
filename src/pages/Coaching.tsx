@@ -14,8 +14,9 @@ import vanityFair from '@/assets/press/vanity-fair.png';
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 const coralBorder = { borderColor: 'hsl(var(--coral))' };
 
-// Lakshmi's discovery-call link (same one used on /pilot)
-const CALENDLY = 'https://calendly.com/lakshmi-howtodatehumans/30min';
+// Lakshmi's midlife date-coaching discovery call
+const CALENDLY =
+  'https://calendly.com/lakshmi-howtodatehumans/midlife-date-coaching-discovery-call';
 
 // Self-contained press row — images + source URLs mirror src/components/PressCarousel.tsx
 const press = [
