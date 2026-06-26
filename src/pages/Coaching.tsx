@@ -6,12 +6,36 @@ import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 import magnet from '@/assets/coaching/magnet.jpg';
 import jumpstart from '@/assets/coaching/jumpstart.jpg';
 import fireworks from '@/assets/coaching/fireworks.jpg';
+import nyt from '@/assets/press/nyt.png';
+import pivotPod from '@/assets/press/pivot-pod.jpg';
+import profG from '@/assets/press/prof-g.jpg';
+import vanityFair from '@/assets/press/vanity-fair.png';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 const coralBorder = { borderColor: 'hsl(var(--coral))' };
 
 // Lakshmi's discovery-call link (same one used on /pilot)
 const CALENDLY = 'https://calendly.com/lakshmi-howtodatehumans/30min';
+
+// Self-contained press row — images + source URLs mirror src/components/PressCarousel.tsx
+const press = [
+  {
+    label: 'The New York Times',
+    img: nyt,
+    url: 'https://www.nytimes.com/2025/01/03/style/dating-predictions.html',
+  },
+  {
+    label: 'Pivot with Kara Swisher & Scott Galloway',
+    img: pivotPod,
+    url: 'https://podcasts.apple.com/us/podcast/best-friends-of-pivot/id1073226719?i=1000639439067',
+  },
+  { label: 'The Prof G Pod', img: profG, url: '/about#press' },
+  {
+    label: 'Vanity Fair',
+    img: vanityFair,
+    url: 'https://www.vanityfair.com/style/2021/08/08/meet-the-former-matchcom-director-turned-old-school-setup-evangelist',
+  },
+];
 
 /* Coral highlight for the "payoff" line inside a testimonial. */
 const Hl = ({ children }: { children: ReactNode }) => (
@@ -126,137 +150,55 @@ const Coaching = () => {
           feel like guesswork? There’s a skill set no one names — because we’re all told this
           should just come naturally. It doesn’t. Not anymore. That’s where I come in.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-pill">
             Book a call
           </a>
+          <a href="#offerings" className="btn-pill-outline">
+            See the offerings
+          </a>
           <a href="#one-pager" className="btn-pill-outline">
-            Start with the free one-pager
+            Free one-pager
           </a>
         </div>
       </section>
 
-      {/* ② Social proof bar */}
+      {/* ② Social proof — self-contained press logo row */}
       <section className="border-t border-border">
-        <div className="max-w-4xl mx-auto px-6 py-6 flex flex-col sm:flex-row sm:items-center gap-x-6 gap-y-2">
-          <span className="eyebrow text-muted-foreground shrink-0">As featured in</span>
-          <a
-            href="/about#press"
-            className="font-display text-lg md:text-xl leading-snug text-foreground/80 hover:text-foreground transition-colors"
-          >
-            The New York Times · Pivot · The Prof G Pod · Vanity Fair
-          </a>
+        <div className="max-w-4xl mx-auto px-6 py-7">
+          <p className="eyebrow text-muted-foreground mb-4">As featured in</p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            {press.map((p) => {
+              const external = p.url.startsWith('http');
+              return (
+                <a
+                  key={p.label}
+                  href={p.url}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  aria-label={p.label}
+                  className="block"
+                >
+                  <img
+                    src={p.img}
+                    alt={p.label}
+                    className="h-8 md:h-9 w-auto object-contain opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0"
+                    loading="lazy"
+                  />
+                </a>
+              );
+            })}
+            <a
+              href="/about#press"
+              className="eyebrow text-muted-foreground hover:text-foreground transition-colors"
+            >
+              See all press →
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ③ The lie you've been told */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <p className="eyebrow mb-3">The advice everyone gives you</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-6 max-w-3xl">
-          “You’re older now. You know what you want. Just get back out there.”
-        </h2>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
-          If someone tells you that — be a little suspicious. Yes, get back out there. But{' '}
-          <em>how</em> you do it is everything. Few things are more corrosive to the Gen X heart
-          than dating advice copy-pasted from a 20- or 30-something’s playbook. You deserve
-          strategies built for <em>this</em> moment in the timeline of dating.
-        </p>
-      </section>
-
-      {/* ④ The success paradox + R.E. */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <p className="eyebrow mb-3">Why this is harder than you expected</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-6 max-w-3xl">
-          You’re successful — and that’s part of what’s hiding the problem.
-        </h2>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-12">
-          Here’s the trap no one warns you about: you’re excellent in your field, so you assume
-          you’ll be fine here too. But being good at your job has almost nothing to do with this.
-          Most people just dive in — and learn the hard way.
-        </p>
-        <Testimonial
-          quote={{
-            text: (
-              <>
-                “I heard Lakshmi on Pivot and thought,{' '}
-                <Hl>I’m a senior leader, I can figure this out. I could not.</Hl> She saved me so
-                much time — I’ve been dating an incredible woman for over a year. I later brought
-                her into my company to help with all our relationships.”
-              </>
-            ),
-            name: 'R.E., 59 · Divorced',
-          }}
-        />
-      </section>
-
-      {/* ⑤ Why this window */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <p className="eyebrow mb-3">Why this window matters</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl">
-          More wisdom than ever. It just doesn’t always <em>translate</em> to dating.
-        </h2>
-        <div className="space-y-6 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
-          <p>
-            Gen X is unlike any generation before it — and a pivotal one in shaping where romance
-            goes next. You’ve lived, you’ve learned. And still, the actual moves of connecting
-            today can feel foreign.
-          </p>
-          <p>
-            You’d tell your friends you’re “just seeing what’s out there.” Sure. We don’t have to
-            say the rest out loud. But you and I both know the difference between settling again —
-            you remember that decision — and the thing you actually want this time.
-          </p>
-          <p>
-            What you do in this window matters. Not in an alarmist way. This is the rekindling of
-            your heart. Don’t leave that to a generic coach, a matchmaker, or your well-meaning
-            group chat.
-          </p>
-        </div>
-      </section>
-
-      {/* ⑥ Why me + J.M. */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <p className="eyebrow mb-3">Why me</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl">
-          I spent three years studying how Gen X actually dates — then built the playbook.
-        </h2>
-        <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-12">
-          <p>
-            “Midlife” never fit. This generation needed its own approach — so I made one. I was
-            doing this work before the apps existed, and I have a point of view, not a script.
-          </p>
-          <ul className="space-y-4">
-            <li>
-              <strong className="font-medium text-foreground">Not a matchmaker.</strong> You don’t
-              want a relationship handed to you. You want to author your own story — you just want
-              to be good at it.
-            </li>
-            <li>
-              <strong className="font-medium text-foreground">Not a cheerleader.</strong> I’m not
-              here to hype you up or scan profiles for red flags. (I’ve productively disagreed with
-              Prof G — I’ll bring you that same honesty.)
-            </li>
-            <li>
-              <strong className="font-medium text-foreground">Not your group chat.</strong> Your
-              friends are more entertained by your dating life than equipped to guide it.
-            </li>
-          </ul>
-        </div>
-        <Testimonial
-          quote={{
-            text: (
-              <>
-                “She didn’t tell me what to do — she helped me discover how I wanted to show up.
-                Widowed, I hadn’t dated in a very long time.{' '}
-                <Hl>I’ve now been seeing a wonderful man for five months.</Hl>”
-              </>
-            ),
-            name: 'J.M., 47 · Widowed',
-          }}
-        />
-      </section>
-
-      {/* ⑦ The storytelling reveal — the peak — + I.S. */}
+      {/* ③ The storytelling reveal — the differentiator, surfaced early — + I.S. */}
       <section className="border-t border-border bg-foreground/[0.03]">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
@@ -292,19 +234,99 @@ const Coaching = () => {
         </div>
       </section>
 
-      {/* ⑧ Free one-pager (lead magnet) */}
-      <section className="border-t border-border">
-        <div id="one-pager" className="scroll-mt-20">
-          <NewsletterSignup
-            eyebrow="Free one-pager"
-            title="What Gen X daters actually find useful."
-            description="The insights listeners return to most — from The Later Dater Today, featured in The New York Times and on Prof G — plus the prompts to put them to work this week."
-            buttonLabel="Send it to me"
-          />
+      {/* ④ Why the usual advice fails you (bad-advice reframe + success paradox) + R.E. */}
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
+        <p className="eyebrow mb-3">Why the usual advice fails you</p>
+        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-6 max-w-3xl">
+          “You’re older now. You know what you want. Just get back out there.”
+        </h2>
+        <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-12">
+          <p>
+            If someone tells you that — be a little suspicious. Yes, get back out there. But{' '}
+            <em>how</em> you do it is everything. Few things are more corrosive to the Gen X heart
+            than dating advice copy-pasted from a 20- or 30-something’s playbook.
+          </p>
+          <p>
+            And there’s a trap no one warns you about: you’re successful — and that’s part of what’s
+            hiding the problem. You’re excellent in your field, so you assume you’ll be fine here
+            too. But being good at your job has almost nothing to do with this. Most people just
+            dive in — and learn the hard way.
+          </p>
+          <p>You deserve strategies built for <em>this</em> moment in the timeline of dating.</p>
         </div>
+        <Testimonial
+          quote={{
+            text: (
+              <>
+                “I heard Lakshmi on Pivot and thought,{' '}
+                <Hl>I’m a senior leader, I can figure this out. I could not.</Hl> She saved me so
+                much time — I’ve been dating an incredible woman for over a year. I later brought
+                her into my company to help with all our relationships.”
+              </>
+            ),
+            name: 'R.E., 59 · Divorced',
+          }}
+        />
       </section>
 
-      {/* ⑨ The offerings */}
+      {/* ⑤ Why this window — and why me (Gen X window + the "not a…" block) + J.M. */}
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
+        <p className="eyebrow mb-3">Why this window — and why me</p>
+        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl">
+          More wisdom than ever. It just doesn’t always <em>translate</em> to dating.
+        </h2>
+        <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-10">
+          <p>
+            Gen X is a pivotal generation in shaping where romance goes next. You’ve lived, you’ve
+            learned — and still, the actual moves of connecting today can feel foreign.
+          </p>
+          <p>
+            You’d tell your friends you’re “just seeing what’s out there.” Sure. We don’t have to
+            say the rest out loud. But you and I both know the difference between good enough and
+            the thing you actually want.
+          </p>
+          <p>
+            What you do in this window matters — not in an alarmist way. This is the rekindling of
+            your heart. Don’t leave that to a generic coach, a matchmaker, or your well-meaning
+            group chat.
+          </p>
+          <p>
+            I spent three years studying how Gen X actually dates, then built the playbook.
+            “Midlife” never fit; this generation needed its own approach. I was doing this work
+            before the apps existed, and I have a point of view, not a script.
+          </p>
+          <ul className="space-y-4">
+            <li>
+              <strong className="font-medium text-foreground">Not a matchmaker.</strong> You don’t
+              want a relationship handed to you. You want to author your own story — you just want
+              to be good at it.
+            </li>
+            <li>
+              <strong className="font-medium text-foreground">Not a cheerleader.</strong> I’m not
+              here to hype you up or scan profiles for red flags. (I’ve productively disagreed with
+              Prof G — I’ll bring you that same honesty.)
+            </li>
+            <li>
+              <strong className="font-medium text-foreground">Not your group chat.</strong> Your
+              friends are more entertained by your dating life than equipped to guide it.
+            </li>
+          </ul>
+        </div>
+        <Testimonial
+          quote={{
+            text: (
+              <>
+                “She didn’t tell me what to do — she helped me discover how I wanted to show up.
+                Widowed, I hadn’t dated in a very long time.{' '}
+                <Hl>I’ve now been seeing a wonderful man for five months.</Hl>”
+              </>
+            ),
+            name: 'J.M., 47 · Widowed',
+          }}
+        />
+      </section>
+
+      {/* ⑥ The offerings */}
       <section
         id="offerings"
         className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20 scroll-mt-20"
@@ -347,7 +369,19 @@ const Coaching = () => {
         ))}
       </section>
 
-      {/* ⑩ Final CTA */}
+      {/* ⑦ Free one-pager (lead magnet) */}
+      <section className="border-t border-border">
+        <div id="one-pager" className="scroll-mt-20">
+          <NewsletterSignup
+            eyebrow="Free one-pager"
+            title="What Gen X daters actually find useful."
+            description="The insights listeners return to most — from The Later Dater Today, featured in The New York Times and on Prof G — plus the prompts to put them to work this week."
+            buttonLabel="Send it to me"
+          />
+        </div>
+      </section>
+
+      {/* ⑧ Final CTA */}
       <section className="border-t border-border bg-foreground/[0.03]">
         <div className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
@@ -366,7 +400,7 @@ const Coaching = () => {
         </div>
       </section>
 
-      {/* ⑪ Footer strip — nurture + quiet downsell */}
+      {/* ⑨ Footer strip — nurture + quiet downsell */}
       <footer className="border-t border-border">
         <div className="max-w-4xl mx-auto px-6 py-10 flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
           {/* TODO Lakshmi: add the real podcast + e-book URLs */}

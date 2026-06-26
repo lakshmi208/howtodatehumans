@@ -19,6 +19,10 @@ import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
 import event1 from '@/assets/event-1.jpeg';
 import event3 from '@/assets/event-3.jpeg';
 
+// Past Originals — populate with {title, year, image, description} entries to show
+// the section below. Empty for now, so the section stays hidden (see guard in JSX).
+const pastOriginals: { title: string; year: string; image: string; description: string }[] = [];
+
 const insights = [
   {
     image: canary,
@@ -317,6 +321,8 @@ const About = () => {
         </div>
 
         {/* Past Originals — depth for visitors going deeper on "Me So Far" */}
+        {/* Hidden until pastOriginals is populated (see the array at top of file). */}
+        {pastOriginals.length > 0 && (
         <div id="originals" className="border-t border-border scroll-mt-28">
           <div className="max-w-6xl mx-auto px-6 pt-20 pb-20 md:pb-28">
             <p className="eyebrow mb-3" style={{ color: 'hsl(var(--coral))' }}>
@@ -364,6 +370,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        )}
       </section>
     </div>
   );
