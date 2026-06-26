@@ -4,14 +4,14 @@ import { Mail, Loader2, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-const FORM_ID = import.meta.env.VITE_CONVERTKIT_FORM_ID as string | undefined;
-
 type Props = {
   eyebrow?: string;
   title?: string;
   description?: string;
   buttonLabel?: string;
   className?: string;
+  /** Kit form ID to submit to. Defaults to VITE_CONVERTKIT_FORM_ID (the general newsletter). */
+  formId?: string;
 };
 
 const NewsletterSignup = ({
@@ -20,6 +20,7 @@ const NewsletterSignup = ({
   description = 'Essays, dispatches from the year-long Chicago experiment, and occasional event invites. No spam.',
   buttonLabel = 'Join the movement',
   className = '',
+  formId = import.meta.env.VITE_CONVERTKIT_FORM_ID as string | undefined,
 }: Props) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -27,7 +28,7 @@ const NewsletterSignup = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!FORM_ID) {
+    if (!formId) {
       setStatus('error');
       setErrorMsg('Newsletter is not configured yet — check back soon.');
       return;
@@ -39,7 +40,7 @@ const NewsletterSignup = ({
       const formData = new FormData();
       formData.append('email_address', email);
 
-      const res = await fetch(`https://app.kit.com/forms/${FORM_ID}/subscriptions`, {
+      const res = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
         method: 'POST',
         body: formData,
       });
