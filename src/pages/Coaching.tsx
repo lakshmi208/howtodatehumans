@@ -83,7 +83,7 @@ const offerings: Offering[] = [
           <Hl>Lakshmi turned the details of my life into magnetic stories I’m excited to tell.</Hl>”
         </>
       ),
-      name: 'S.P., 45 · Did not marry (so far)',
+      name: 'S.P., 45 · didn’t marry so far',
     },
   },
   {
