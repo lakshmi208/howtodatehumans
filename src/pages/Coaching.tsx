@@ -116,7 +116,7 @@ const offerings: Offering[] = [
           <Hl>Lakshmi changed it from something I had to explain into something I now see as an asset.</Hl>”
         </>
       ),
-      name: 'E.K., 47 · Did not marry (so far)',
+      name: 'E.K., 47 · didn’t marry so far',
     },
   },
   {
