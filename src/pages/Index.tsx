@@ -44,6 +44,12 @@ const Index = () => {
           been working to keep dating as human as possible for 15 years.
         </h1>
 
+        <div className="mb-10">
+          <Link to="/coaching" className="btn-pill">
+            Work with me
+          </Link>
+        </div>
+
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
           I care about how people meet and if they actually connect.
         </p>
@@ -56,14 +62,9 @@ const Index = () => {
           My latest project is called <em>How to Date Humans</em>…
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Link to="/coaching" className="btn-pill">
-            Work with me
-          </Link>
-          <Link to="/events" className="btn-pill-outline">
-            See the project
-          </Link>
-        </div>
+        <Link to="/events" className="btn-pill-outline">
+          See the project
+        </Link>
       </section>
 
       {/* Why this matters — cinematic pull-quote */}
