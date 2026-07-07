@@ -47,9 +47,13 @@ const Index = () => {
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
           I care about how people meet and if they actually connect.
         </p>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-8">
           I care about the future of dating culture and how it will shape our
           hearts.
+        </p>
+
+        <p className="font-display italic text-xl md:text-2xl text-foreground/75 mb-10 max-w-2xl">
+          My latest project is called <em>How to Date Humans</em>…
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
