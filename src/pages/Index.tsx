@@ -9,6 +9,21 @@ import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
+// Coaching client quotes — featured at top of the proof section.
+// Mirror the copy on /coaching (Coaching.tsx). Both sets update together.
+const coachingQuotes = [
+  {
+    quote:
+      'I’m accomplished, but I didn’t know if I was interesting. Lakshmi turned the details of my life into magnetic stories I’m excited to tell.',
+    by: 'S.P., 45 · didn’t marry so far',
+  },
+  {
+    quote:
+      'I didn’t realize my “never married” status was holding me back. Lakshmi changed it from something I had to explain into something I now see as an asset.',
+    by: 'E.K., 47 · didn’t marry so far',
+  },
+];
+
 // Real audience quotes from past How to Date Humans events.
 const quotes = [
   {
@@ -176,17 +191,42 @@ const Index = () => {
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <p className="eyebrow mb-12">What we&rsquo;ve heard so far</p>
 
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16 mb-16">
-            {quotes.map((q, i) => (
-              <figure key={i} className="space-y-4">
-                <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
-                  &ldquo;{q.quote}&rdquo;
-                </blockquote>
-                <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
-                  — {q.by}
-                </figcaption>
-              </figure>
-            ))}
+          {/* Coaching clients — featured on top */}
+          <div className="mb-16 md:mb-20">
+            <p className="text-xs uppercase tracking-widest mb-8" style={eyebrowCoral}>
+              From coaching clients
+            </p>
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
+              {coachingQuotes.map((q, i) => (
+                <figure key={i} className="space-y-4">
+                  <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
+                    &ldquo;{q.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                    — {q.by}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+
+          {/* Event attendees — 2x2 grid below */}
+          <div className="border-t border-border pt-12 mb-16">
+            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8">
+              From event attendees
+            </p>
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
+              {quotes.map((q, i) => (
+                <figure key={i} className="space-y-4">
+                  <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
+                    &ldquo;{q.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                    — {q.by}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
 
           {/* Small photo strip — not your typical singles event */}
