@@ -10,7 +10,9 @@ import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
 // Coaching client quotes — featured at top of the proof section.
-// Mirror the copy on /coaching (Coaching.tsx). Both sets update together.
+// Diversified across gender + situation (F/never-married, M/divorced) so the
+// homepage doesn't skew to one archetype. Coaching page carries the
+// segment-specific quotes.
 const coachingQuotes = [
   {
     quote:
@@ -19,8 +21,8 @@ const coachingQuotes = [
   },
   {
     quote:
-      'I didn’t realize my “never married” status was holding me back. Lakshmi changed it from something I had to explain into something I now see as an asset.',
-    by: 'E.K., 47 · didn’t marry so far',
+      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I could not. She saved me so much time — I’ve been dating an incredible woman for over a year. I later brought her into my company to help with all our relationships.',
+    by: 'R.E., 59 · Divorced',
   },
 ];
 
