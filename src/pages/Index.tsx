@@ -21,7 +21,7 @@ const coachingQuotes = [
   },
   {
     quote:
-      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I could not. She saved me so much time — I’ve been dating an incredible woman for over a year. I later brought her into my company to help with all our relationships.',
+      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I’d seen my friends “fall” into dating and get pulled into things. I wanted to walk into it differently. She saved me so much time — I’ve been dating an incredible woman for over a year. I later brought her into my company to help with all our relationships.',
     by: 'R.E., 59 · Divorced',
   },
 ];
