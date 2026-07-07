@@ -39,10 +39,6 @@ const Index = () => {
 
       {/* Hero — locked opening copy */}
       <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-20">
-        <p className="eyebrow mb-8" style={eyebrowCoral}>
-          Gen X Dating Coach · Chicago
-        </p>
-
         <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8">
           Hey, I&rsquo;m Lakshmi — a dating coach for <em>Gen X</em>. I&rsquo;ve
           been working to keep dating as human as possible for 15 years.
