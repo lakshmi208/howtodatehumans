@@ -101,9 +101,11 @@ const Index = () => {
       {/* Two offerings, side by side */}
       <section className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Coaching tile */}
-          <Link
-            to="/coaching"
+          {/* Coaching tile — links direct to Calendly (tile earns the ask) */}
+          <a
+            href="https://calendly.com/lakshmi-howtodatehumans/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
           >
             <div className="aspect-square overflow-hidden bg-muted">
@@ -123,15 +125,17 @@ const Index = () => {
                 Custom coaching for Gen X daters.
               </h2>
               <p className="text-base text-foreground/80 leading-relaxed mb-6">
-                Four flavors of one-on-one work — from a single storytelling
-                session to ongoing engagements. Pick the format that fits, or
-                book a call to figure out which one does.
+                &ldquo;Get back out there.&rdquo; &ldquo;You know what you want
+                now.&rdquo; The advice hasn&rsquo;t kept up. Dating as a Gen X-er
+                is a bridge experience unlike any other. I&rsquo;ve spent years
+                studying and interviewing this group — and built a one-of-a-kind
+                map for how to navigate it.
               </p>
               <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
-                Book a call →
+                See if this fits →
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Events tile */}
           <Link
