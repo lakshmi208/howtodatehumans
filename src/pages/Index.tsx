@@ -139,8 +139,8 @@ const Index = () => {
           >
             <div className="aspect-[4/3] overflow-hidden bg-muted">
               <img
-                src={workingFromHoxton}
-                alt="A How to Date Humans event at The Hoxton"
+                src={event3}
+                alt="Engaged audience at a How to Date Humans event"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
