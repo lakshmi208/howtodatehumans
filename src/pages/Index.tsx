@@ -44,18 +44,16 @@ const Index = () => {
         </p>
 
         <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8">
-          Hey, I&rsquo;m Lakshmi — a dating coach for Gen X, but also someone
-          who&rsquo;s been <em>obsessed</em> with keeping dating as human as
-          possible for 15 years.
+          Hey, I&rsquo;m Lakshmi — a dating coach for <em>Gen X</em>. I&rsquo;ve
+          been working to keep dating as human as possible for 15 years.
         </h1>
 
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-6">
-          I care about how we meet, whether or not we actually connect, and what
-          that means for how we imagine the future and the shape of our hearts.
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
+          I care about how people meet and if they actually connect.
         </p>
-
-        <p className="font-display italic text-xl md:text-2xl text-foreground/75 mb-10 max-w-2xl">
-          How to Date Humans is my latest project…
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
+          I care about the future of dating culture and how it will shape our
+          hearts.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
@@ -65,6 +63,21 @@ const Index = () => {
           <Link to="/events" className="btn-pill-outline">
             See the project
           </Link>
+        </div>
+      </section>
+
+      {/* Why this matters — cinematic pull-quote */}
+      <section className="relative w-full bg-foreground py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <blockquote
+            className="font-display italic text-2xl md:text-4xl lg:text-5xl leading-[1.18]"
+            style={{ color: 'hsl(var(--background))' }}
+          >
+            Dating is about way more than romance. It&rsquo;s about what we
+            think our hearts could experience in our lifetimes. Over these past
+            15 years we&rsquo;ve handed that part of ourselves to corporations
+            and screens — <em>without fully realizing it</em>.
+          </blockquote>
         </div>
       </section>
 
@@ -137,12 +150,13 @@ const Index = () => {
                 A year-long Chicago project.
               </h2>
               <p className="text-base text-foreground/80 leading-relaxed mb-6">
-                Events, salons, listening sessions, talks. A real attempt to
-                figure out what happened to modern dating — and see if we can
-                turn things around.
+                A year-long project to figure out what happened to dating — and
+                how we bring some of it back. Chicago. Research, talks, salons,
+                new event formats. To make sure tech is an option, not a default
+                setting, for how we meet and get to know others.
               </p>
               <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
-                See upcoming events →
+                See the project →
               </span>
             </div>
           </Link>
