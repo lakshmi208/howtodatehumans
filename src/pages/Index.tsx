@@ -59,7 +59,9 @@ const Index = () => {
         </p>
 
         <p className="font-display italic text-xl md:text-2xl text-foreground/75 mb-10 max-w-2xl">
-          My latest project is called <em>How to Date Humans</em>…
+          My latest project <em>How to Date Humans</em> is fueled by the idea
+          that tech should be an option in dating, not the default setting it
+          has become…
         </p>
 
         <Link to="/events" className="btn-pill-outline">
