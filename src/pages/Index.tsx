@@ -4,6 +4,7 @@ import NewsletterSignup from '@/components/NewsletterSignup';
 import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
 import event1 from '@/assets/event-1.jpeg';
 import event3 from '@/assets/event-3.jpeg';
+import detoxSlide from '@/assets/events-past/detox-slide.jpg';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
@@ -196,8 +197,8 @@ const Index = () => {
             </div>
             <div className="aspect-[4/3] overflow-hidden bg-muted">
               <img
-                src={event3}
-                alt="Engaged audience at a How to Date Humans event"
+                src={detoxSlide}
+                alt="Slide from Dating Detox — how relationships used to form"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
