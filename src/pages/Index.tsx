@@ -212,8 +212,9 @@ const Index = () => {
               />
             </div>
           </div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mt-4 italic">
-            Not your typical singles event. <Link to="/events" className="underline underline-offset-4 hover:text-foreground transition-colors">See the full project →</Link>
+          <p className="text-sm italic text-muted-foreground mt-4 max-w-2xl">
+            Not singles events — yet. Talks and events to understand what
+            happened to modern dating…
           </p>
         </div>
       </section>
