@@ -78,8 +78,8 @@ const offerings: Offering[] = [
     quote: {
       text: (
         <>
-          “I’m accomplished, but I didn’t know if I was interesting.{' '}
-          <Hl>Lakshmi turned the details of my life into magnetic stories I’m excited to tell.</Hl>”
+          “I know I’m accomplished. But knowing how to make that interesting to someone else (on a date, no less) is not something I had really considered.{' '}
+          <Hl>Lakshmi completely changed the way I talk about myself and connect with new people.</Hl>”
         </>
       ),
       name: 'S.P., 45 · didn’t marry so far',

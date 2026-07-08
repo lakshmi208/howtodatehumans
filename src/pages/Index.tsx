@@ -16,12 +16,12 @@ const eyebrowCoral = { color: 'hsl(var(--coral))' };
 const coachingQuotes = [
   {
     quote:
-      'I’m accomplished, but I didn’t know if I was interesting. Lakshmi turned the details of my life into magnetic stories I’m excited to tell.',
+      'I know I’m accomplished. But knowing how to make that interesting to someone else (on a date, no less) is not something I had really considered. Lakshmi completely changed the way I talk about myself and connect with new people.',
     by: 'S.P., 45 · didn’t marry so far',
   },
   {
     quote:
-      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I’d seen my friends “fall” into dating and get pulled into things. I wanted to walk into it differently. She saved me so much time — I’ve been dating an incredible woman for over a year. I later brought her into my company to help with all our relationships.',
+      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I’d seen my friends “fall” into dating and get pulled into things. I wanted to walk into it differently. She saved me so much time — I’ve been dating an incredible woman for over a year.',
     by: 'R.E., 59 · Divorced',
   },
 ];
@@ -30,23 +30,23 @@ const coachingQuotes = [
 const quotes = [
   {
     quote:
-      'A friend dragged me…but I’m glad he did. As a guy you feel like you’re supposed to know everything and yet we can’t — this stuff is so recent. Understanding how the system was built was a game changer.',
+      'It was a nice change to understand and have someone unpack modern dating rather than complain about it.',
     by: 'Attendee, Dating Detox',
   },
   {
     quote:
-      'I have never been to an event like this. It wasn’t a singles event but it was about dating. That alone made the room interesting and full of energy because everyone could relate — single or not.',
-    by: 'Attendee, Kickoff',
-  },
-  {
-    quote:
-      'I love the fact that it’s based in Chicago and runs for just one year. I want to see what Lakshmi learns.',
-    by: 'Attendee, Kickoff',
-  },
-  {
-    quote:
-      'The dating advice we’ve been fed is outdated. This is the stuff we actually need to hear.',
+      'Ditch the Instagram relationship advice and come here instead.',
     by: 'Attendee, Dating in Collapse',
+  },
+  {
+    quote:
+      'Is it possible I’m looking forward to dating in Chicago?',
+    by: 'Attendee, Kickoff',
+  },
+  {
+    quote:
+      'I truly love how these events are open to single, not-single, and anyone curious about tech, culture and how we find our partners.',
+    by: 'Attendee, Kickoff',
   },
 ];
 
@@ -191,7 +191,7 @@ const Index = () => {
       {/* Proof — audience quotes */}
       <section className="border-t border-border bg-background">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-12">What we&rsquo;ve heard so far</p>
+          <p className="eyebrow mb-12">What humans are saying</p>
 
           {/* Coaching clients — featured on top */}
           <div className="mb-16 md:mb-20">
