@@ -103,8 +103,9 @@ const testimonials: Quote[] = [
   {
     text: (
       <>
-        “I’m accomplished, but I didn’t know if I was interesting.{' '}
-        <Hl>Lakshmi turned the details of my life into magnetic stories I’m excited to tell.</Hl>”
+        “I know I’m accomplished. But knowing how to make that interesting to someone else (on a
+        date, no less) is not something I had really considered.{' '}
+        <Hl>Lakshmi completely changed the way I talk about myself and connect with new people.</Hl>”
       </>
     ),
     name: 'S.P., 45 · didn’t marry so far',
@@ -196,12 +197,12 @@ const Coaching = () => {
           Coaching for Gen X
         </p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.04] mb-8">
-          There’s no clock to race anymore. There’s a <em>compass</em>.
+          There&rsquo;s no clock to race. But there is a <em>window</em> to understand.
         </h1>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-10">
-          Your 40s, 50s, and early 60s may be the best window you’ll ever have to date — no
-          timeline to beat, just the freedom to go after what you actually want. The only thing
-          that’s changed: now direction matters more than speed.
+          Your 40s, 50s, and 60s can be the best window to date — if you know it&rsquo;s not as
+          simple as &ldquo;getting out there.&rdquo; No ticking clock, but there is a window.
+          Understanding what to experience now is the game.
         </p>
         <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-pill">
