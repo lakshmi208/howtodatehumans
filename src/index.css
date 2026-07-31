@@ -10,7 +10,7 @@
     /*   #F7F6F4 warm off-white    #2B0E0B brown    #200603 ink          */
     /*   #E4481A coral    #EAACCF blush                                 */
     --background: 40 16% 96.3%;          /* #F7F6F4 warm off-white */
-    --foreground: 6 59% 11%;            /* #2B0E0B body brown */
+    --foreground: 6 83% 7%;             /* #200603 deepest brown — body text */
 
     --card: 40 16% 96.3%;
     --card-foreground: 6 59% 11%;
@@ -53,6 +53,7 @@
     --ink-foreground: 40 16% 96.3%;
     --coral: 14 80% 50%;                /* #E4481A italic accent */
     --blush: 326 60% 80%;               /* #EAACCF soft pink */
+    --section-brown: 5 68% 11%;         /* #2f0c09 red-brown — section background */
     --timeline-line: 320 10% 82%;
 
     /* Event category tints (kept for the timeline) */

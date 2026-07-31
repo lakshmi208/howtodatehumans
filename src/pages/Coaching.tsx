@@ -252,17 +252,17 @@ const Coaching = () => {
         </div>
       </section>
 
-      {/* ③ The storytelling reveal — the differentiator, surfaced early */}
-      <section className="border-t border-border bg-foreground/[0.03]">
+      {/* ③ The storytelling reveal — deep brown band (#200603) */}
+      <section className="border-t border-border bg-[hsl(var(--ink))]">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
             The skill no one teaches
           </p>
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8 max-w-3xl">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8 max-w-3xl text-[hsl(var(--background))]">
             The most important thing you do on a date isn’t asking the right questions. It’s{' '}
             <em>storytelling</em>.
           </h2>
-          <div className="space-y-6 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
+          <div className="space-y-6 text-base md:text-lg leading-relaxed text-[hsl(var(--background)/0.8)] max-w-2xl">
             <p>
               Not performing. Not your résumé. The right, true stories — told so that someone
               actually understands who you are and what’s inside you. What you’ve been calling
@@ -309,14 +309,14 @@ const Coaching = () => {
         </Accordion>
       </section>
 
-      {/* ⑤ Why this window — and why me — teaser + accordion (tinted band) */}
-      <section className="border-t border-border bg-foreground/[0.03]">
+      {/* ⑤ Why this window — and why me — red-brown band (#2f0c09) */}
+      <section className="border-t border-border bg-[hsl(var(--section-brown))]">
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
-        <p className="eyebrow mb-3">Why this window — and why me</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl">
+        <p className="eyebrow mb-3 text-[hsl(var(--background))]">Why this window — and why me</p>
+        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl text-[hsl(var(--background))]">
           More wisdom than ever. It just doesn’t always <em>translate</em> to dating.
         </h2>
-        <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl">
+        <div className="space-y-5 text-base md:text-lg leading-relaxed text-[hsl(var(--background)/0.8)] max-w-2xl">
           <p>
             Gen X is a pivotal generation in shaping where romance goes next. You’ve lived, you’ve
             learned — and still, the actual moves of connecting today can feel foreign.
@@ -328,12 +328,12 @@ const Coaching = () => {
           </p>
         </div>
         <Accordion type="single" collapsible className="max-w-2xl mt-6">
-          <AccordionItem value="why-me">
-            <AccordionTrigger className="font-display text-xl md:text-2xl">
+          <AccordionItem value="why-me" className="border-white/15">
+            <AccordionTrigger className="font-display text-xl md:text-2xl text-[hsl(var(--background))] hover:text-[hsl(var(--background)/0.85)]">
               Why me — and why this moment
             </AccordionTrigger>
             <AccordionContent>
-              <div className="space-y-5 text-base md:text-lg leading-relaxed text-foreground/80">
+              <div className="space-y-5 text-base md:text-lg leading-relaxed text-[hsl(var(--background)/0.85)]">
                 <p>
                   What you do in this window matters — not in an alarmist way. This is the
                   rekindling of your heart. Don’t leave that to a generic coach, a matchmaker, or
@@ -346,17 +346,17 @@ const Coaching = () => {
                 </p>
                 <ul className="space-y-4">
                   <li>
-                    <strong className="font-medium text-foreground">Not a matchmaker.</strong> You
+                    <strong className="font-medium text-[hsl(var(--background))]">Not a matchmaker.</strong> You
                     don’t want a relationship handed to you. You want to author your own story —
                     you just want to be good at it.
                   </li>
                   <li>
-                    <strong className="font-medium text-foreground">Not a cheerleader.</strong>{' '}
+                    <strong className="font-medium text-[hsl(var(--background))]">Not a cheerleader.</strong>{' '}
                     I’m not here to hype you up or scan profiles for red flags. (I’ve productively
                     disagreed with Prof G — I’ll bring you that same honesty.)
                   </li>
                   <li>
-                    <strong className="font-medium text-foreground">Not your group chat.</strong>{' '}
+                    <strong className="font-medium text-[hsl(var(--background))]">Not your group chat.</strong>{' '}
                     Your friends are more entertained by your dating life than equipped to guide it.
                   </li>
                 </ul>
@@ -399,7 +399,7 @@ const Coaching = () => {
       {/* ⑦ The offerings — tabs */}
       <section
         id="offerings"
-        className="border-t border-border bg-foreground/[0.03] scroll-mt-20"
+        className="border-t border-border scroll-mt-20"
       >
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
         <p className="eyebrow mb-3">The work, four ways</p>
@@ -462,20 +462,26 @@ const Coaching = () => {
         </div>
       </section>
 
-      {/* ⑨ Final CTA */}
-      <section className="border-t border-border bg-foreground/[0.03]">
+      {/* ⑨ Final CTA — coral band (#E4481A) */}
+      <section className="border-t border-border bg-[hsl(var(--coral))]">
         <div className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
-          <p className="eyebrow mb-3" style={eyebrowCoral}>
+          <p className="eyebrow mb-3 text-[hsl(var(--background))]">
             Start a conversation
           </p>
-          <h2 className="font-display text-3xl md:text-5xl leading-[1.06] mb-6">
+          <h2 className="font-display text-3xl md:text-5xl leading-[1.06] mb-6 text-[hsl(var(--background))]">
             One 30-minute call. No pitch — just a real fit conversation.
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-foreground/85 mb-10 max-w-xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-[hsl(var(--background)/0.9)] mb-10 max-w-xl mx-auto">
             If any of this sounded like you, the next step is a discovery call. We figure out
             together whether — and how — we should work.
           </p>
-          <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-pill">
+          <a
+            href={CALENDLY}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-pill"
+            style={{ background: 'hsl(var(--background))', color: 'hsl(var(--ink))' }}
+          >
             Book a call
           </a>
         </div>
