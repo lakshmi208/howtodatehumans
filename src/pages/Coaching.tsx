@@ -82,8 +82,7 @@ const testimonials: Quote[] = [
       <>
         “I heard Lakshmi on Pivot and thought,{' '}
         <Hl>I’m a senior leader, I can figure this out. I could not.</Hl> She saved me so much
-        time — I’ve been dating an incredible woman for over a year. I later brought her into my
-        company to help with all our relationships.”
+        time — I’ve been dating an incredible woman for over a year.”
       </>
     ),
     name: 'R.E., 59 · Divorced',
