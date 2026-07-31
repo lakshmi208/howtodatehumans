@@ -484,8 +484,13 @@ const Coaching = () => {
       {/* ⑩ Footer strip — nurture + quiet downsell */}
       <footer className="border-t border-border">
         <div className="max-w-4xl mx-auto px-6 py-10 flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
-          {/* TODO Lakshmi: add the real podcast + e-book URLs */}
-          <a href="#" className="hover:text-foreground transition-colors">
+          {/* TODO Lakshmi: add the real e-book URL */}
+          <a
+            href="https://podcasts.apple.com/us/podcast/the-later-dater-today/id1531591660"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground transition-colors"
+          >
             Listen: The Later Dater Today →
           </a>
           <a href="#" className="hover:text-foreground transition-colors">
