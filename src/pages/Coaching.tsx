@@ -309,8 +309,9 @@ const Coaching = () => {
         </Accordion>
       </section>
 
-      {/* ⑤ Why this window — and why me — teaser + accordion */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20">
+      {/* ⑤ Why this window — and why me — teaser + accordion (tinted band) */}
+      <section className="border-t border-border bg-foreground/[0.03]">
+        <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
         <p className="eyebrow mb-3">Why this window — and why me</p>
         <h2 className="font-display text-3xl md:text-5xl leading-tight mb-8 max-w-3xl">
           More wisdom than ever. It just doesn’t always <em>translate</em> to dating.
@@ -363,10 +364,11 @@ const Coaching = () => {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        </div>
       </section>
 
-      {/* ⑥ Testimonials carousel */}
-      <section className="border-t border-border bg-foreground/[0.03]">
+      {/* ⑥ Testimonials carousel (base) */}
+      <section className="border-t border-border">
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
           <p className="eyebrow mb-3">From clients</p>
           <h2 className="font-display text-3xl md:text-5xl leading-tight mb-10 max-w-3xl">
@@ -397,8 +399,9 @@ const Coaching = () => {
       {/* ⑦ The offerings — tabs */}
       <section
         id="offerings"
-        className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-20 scroll-mt-20"
+        className="border-t border-border bg-foreground/[0.03] scroll-mt-20"
       >
+        <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
         <p className="eyebrow mb-3">The work, four ways</p>
         <h2 className="font-display text-3xl md:text-5xl leading-tight mb-10 max-w-3xl">
           Pick the format that fits.
@@ -443,6 +446,7 @@ const Coaching = () => {
             </TabsContent>
           ))}
         </Tabs>
+        </div>
       </section>
 
       {/* ⑧ Free one-pager (lead magnet) */}

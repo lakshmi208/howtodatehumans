@@ -7,19 +7,19 @@
 @layer base {
   :root {
     /* Exact brand hex from Squarespace → HSL                          */
-    /*   #F7F4F6 cream    #2B0E0B brown    #200603 ink                  */
+    /*   #F7F6F4 warm off-white    #2B0E0B brown    #200603 ink          */
     /*   #E4481A coral    #EAACCF blush                                 */
-    --background: 320 16% 96%;          /* #F7F4F6 cream */
+    --background: 40 16% 96.3%;          /* #F7F6F4 warm off-white */
     --foreground: 6 59% 11%;            /* #2B0E0B body brown */
 
-    --card: 320 16% 96%;
+    --card: 40 16% 96.3%;
     --card-foreground: 6 59% 11%;
 
-    --popover: 320 16% 96%;
+    --popover: 40 16% 96.3%;
     --popover-foreground: 6 59% 11%;
 
     --primary: 14 80% 50%;              /* #E4481A coral — italic accents + primary */
-    --primary-foreground: 320 16% 96%;
+    --primary-foreground: 40 16% 96.3%;
 
     --secondary: 320 14% 90%;
     --secondary-foreground: 6 59% 11%;
@@ -39,10 +39,10 @@
 
     --radius: 0.25rem;
 
-    --sidebar-background: 320 16% 95%;
+    --sidebar-background: 40 16% 95%;
     --sidebar-foreground: 6 59% 11%;
     --sidebar-primary: 14 80% 50%;
-    --sidebar-primary-foreground: 320 16% 96%;
+    --sidebar-primary-foreground: 40 16% 96.3%;
     --sidebar-accent: 320 14% 90%;
     --sidebar-accent-foreground: 6 59% 11%;
     --sidebar-border: 320 10% 82%;
@@ -50,7 +50,7 @@
 
     /* Editorial brand tokens */
     --ink: 6 83% 7%;                    /* #200603 deepest brown — pill buttons */
-    --ink-foreground: 320 16% 96%;
+    --ink-foreground: 40 16% 96.3%;
     --coral: 14 80% 50%;                /* #E4481A italic accent */
     --blush: 326 60% 80%;               /* #EAACCF soft pink */
     --timeline-line: 320 10% 82%;
