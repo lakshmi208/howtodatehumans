@@ -72,9 +72,7 @@ const testimonials: Quote[] = [
   {
     text: (
       <>
-        “Her story-shaping session transformed how I talk about myself. I didn’t realize I was
-        so interesting —{' '}
-        <Hl>and now I know how to share that in the short window that is dinner or drinks.</Hl>”
+        “She completely transformed <Hl>how I talk about myself on dates.</Hl>”
       </>
     ),
     name: 'I.S., 51 · Widowed',
