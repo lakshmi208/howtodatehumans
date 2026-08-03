@@ -107,7 +107,7 @@ const Index = () => {
         <NewsletterSignup
           eyebrow="The Newsletter"
           title="We're All Dating All The Time"
-          description="A newsletter about why dating culture matters."
+          description="A newsletter about what it takes to connect today. Because it's easy to meet, harder to connect™."
           buttonLabel="Send it my way"
         />
       </section>
