@@ -22,6 +22,8 @@ const NewsletterSignup = ({
   className = '',
   formId = (import.meta.env.VITE_CONVERTKIT_FORM_ID as string | undefined) || '41f402da5e',
 }: Props) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
@@ -39,6 +41,8 @@ const NewsletterSignup = ({
     try {
       const formData = new FormData();
       formData.append('email_address', email);
+      if (firstName) formData.append('first_name', firstName);
+      if (lastName) formData.append('fields[last_name]', lastName);
 
       const res = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
         method: 'POST',
@@ -48,6 +52,8 @@ const NewsletterSignup = ({
       if (!res.ok) throw new Error(`Request failed (${res.status})`);
 
       setStatus('success');
+      setFirstName('');
+      setLastName('');
       setEmail('');
     } catch (err) {
       setStatus('error');
@@ -82,33 +88,60 @@ const NewsletterSignup = ({
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            className="flex flex-col gap-3 max-w-md mx-auto"
           >
-            <Input
-              type="email"
-              required
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={status === 'loading'}
-              className="flex-1 h-12 text-base"
-              aria-label="Email address"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              disabled={status === 'loading'}
-              className="h-12 whitespace-nowrap"
-            >
-              {status === 'loading' ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                  Joining…
-                </>
-              ) : (
-                buttonLabel
-              )}
-            </Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <Input
+                type="text"
+                required
+                placeholder="First name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                disabled={status === 'loading'}
+                className="h-12 text-base"
+                aria-label="First name"
+                autoComplete="given-name"
+              />
+              <Input
+                type="text"
+                required
+                placeholder="Last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                disabled={status === 'loading'}
+                className="h-12 text-base"
+                aria-label="Last name"
+                autoComplete="family-name"
+              />
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Input
+                type="email"
+                required
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={status === 'loading'}
+                className="flex-1 h-12 text-base"
+                aria-label="Email address"
+                autoComplete="email"
+              />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={status === 'loading'}
+                className="h-12 whitespace-nowrap"
+              >
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                    Joining…
+                  </>
+                ) : (
+                  buttonLabel
+                )}
+              </Button>
+            </div>
           </form>
         )}
 
