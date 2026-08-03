@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 type Props = {
   eyebrow?: string;
   title?: string;
-  description?: string;
+  description?: React.ReactNode;
   buttonLabel?: string;
   className?: string;
   /** Kit form ID to submit to. Defaults to VITE_CONVERTKIT_FORM_ID (the general newsletter). */
