@@ -58,8 +58,8 @@ const Index = () => {
       {/* Hero — locked opening copy */}
       <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-20">
         <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8">
-          Hey, I&rsquo;m Lakshmi — a dating coach for <em>Gen X</em>. I&rsquo;ve
-          been working to keep dating as human as possible for 15 years.
+          Hey, I&rsquo;m Lakshmi. I&rsquo;ve been working to keep dating as
+          human as possible for 15 years.
         </h1>
 
         <div className="mb-10">
@@ -100,6 +100,16 @@ const Index = () => {
             and screens — <em>without fully realizing it</em>.
           </blockquote>
         </div>
+      </section>
+
+      {/* Newsletter — primary top-of-funnel CTA, rides the pull-quote's emotional beat */}
+      <section className="border-t border-border">
+        <NewsletterSignup
+          eyebrow="The Newsletter"
+          title="We're All Dating All The Time"
+          description="A newsletter about why dating culture matters."
+          buttonLabel="Send it my way"
+        />
       </section>
 
       {/* One-line credibility cue */}
@@ -265,10 +275,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="border-t border-border">
-        <NewsletterSignup />
-      </section>
     </div>
   );
 };

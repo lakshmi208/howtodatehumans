@@ -5,7 +5,7 @@ import logoHorizontal from '@/assets/logo-horizontal.png';
 
 const navItems = [
   { label: 'Home', href: '/', activePath: '/' },
-  { label: 'Coaching', href: '/coaching', activePath: '/coaching' },
+  { label: 'Newsletter', href: '/#newsletter', activePath: '/#newsletter' },
   { label: 'Events', href: '/events', activePath: '/events' },
   { label: 'About', href: '/about', activePath: '/about' },
 ];
