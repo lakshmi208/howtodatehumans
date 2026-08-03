@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { Loader2, Check } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -14,15 +12,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Input } from '@/components/ui/input';
 import SiteNav from '@/components/SiteNav';
 import YearProgress from '@/components/YearProgress';
 import ListeningSessionCard from '@/components/ListeningSessionCard';
-import GaugingInterest from '@/components/GaugingInterest';
-import IdeaSubmission from '@/components/IdeaSubmission';
-import PartnerCTA from '@/components/PartnerCTA';
-import { supabase } from '@/integrations/supabase/client';
-import { events } from '@/data/events';
 
 // Past event photos (this-year project)
 import kickoffSlide from '@/assets/events-past/kickoff-slide.jpg';
@@ -119,15 +111,6 @@ const upcomingEvents = [
   },
 ];
 
-const PRIORITY_IDS = [
-  'kickoff-presentation',
-  'dating-detox-talk',
-  'humans-happy-hour',
-  'midlife-dating-talk',
-  'dating-in-collapse',
-  'explore-more-placeholder',
-];
-
 const PastEventCard = ({ event }: { event: PastEvent }) => (
   <Dialog>
     <DialogTrigger asChild>
@@ -221,27 +204,6 @@ const PastEventCard = ({ event }: { event: PastEvent }) => (
 );
 
 const Events = () => {
-  const gaugingEvents = events
-    .filter((e) => !PRIORITY_IDS.includes(e.id))
-    .sort((a, b) => a.month - b.month);
-
-  // Originals "Coming this fall" waitlist
-  const [fallEmail, setFallEmail] = useState('');
-  const [fallStatus, setFallStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-
-  const submitFall = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!fallEmail.trim()) return;
-    setFallStatus('loading');
-    const { error } = await supabase.from('form_submissions').insert({
-      form_type: 'originals-waitlist',
-      subject: 'Originals waitlist signup',
-      fields: { Email: fallEmail },
-    });
-    setFallStatus(error ? 'error' : 'success');
-    if (!error) setFallEmail('');
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -392,78 +354,6 @@ const Events = () => {
         </div>
       </section>
 
-      {/* Coming this Fall — Originals waitlist (folded from /originals) */}
-      <section className="border-t border-border bg-foreground text-background">
-        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
-          <p
-            className="eyebrow mb-6"
-            style={{ color: 'rgba(247, 244, 246, 0.7)' }}
-          >
-            Coming this fall
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl leading-[1.06] mb-6">
-            Three new Originals, currently in development.
-          </h2>
-          <p
-            className="text-base md:text-lg leading-relaxed mb-10 max-w-2xl"
-            style={{ color: 'rgba(247, 244, 246, 0.85)' }}
-          >
-            Limited size. By application. The first wave drops in September. We&rsquo;ll
-            let you know when applications open.
-          </p>
-
-          {fallStatus === 'success' ? (
-            <div className="flex items-center gap-2 font-medium">
-              <Check className="w-5 h-5" />
-              You&rsquo;re on the list.
-            </div>
-          ) : (
-            <form onSubmit={submitFall} className="flex flex-col sm:flex-row gap-3 max-w-md">
-              <Input
-                type="email"
-                placeholder="Email"
-                required
-                value={fallEmail}
-                onChange={(e) => setFallEmail(e.target.value)}
-                className="bg-background/10 border-background/30 text-background placeholder:text-background/60 h-12"
-              />
-              <button
-                type="submit"
-                disabled={fallStatus === 'loading'}
-                className="inline-flex items-center justify-center gap-2 bg-background text-foreground px-8 py-3 rounded-full font-medium whitespace-nowrap hover:opacity-90 transition-opacity"
-              >
-                {fallStatus === 'loading' ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending
-                  </>
-                ) : (
-                  'Notify me'
-                )}
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
-
-      {/* Vote on what's next */}
-      <section
-        id="vote"
-        className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24 scroll-mt-20"
-      >
-        <p className="eyebrow mb-3">Vote on what&rsquo;s next</p>
-        <h2 className="font-display text-3xl md:text-5xl leading-tight mb-5 max-w-3xl">
-          Help shape the second half of the year.
-        </h2>
-        <p className="text-base md:text-lg leading-relaxed text-foreground/80 max-w-2xl mb-12">
-          A few event ideas we&rsquo;re exploring. Click the ones that interest
-          you — and the ones that get traction we&rsquo;ll build out.
-        </p>
-        <GaugingInterest events={gaugingEvents} showInterest={true} />
-      </section>
-
-      <IdeaSubmission />
-      <PartnerCTA />
     </div>
   );
 };
