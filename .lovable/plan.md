@@ -12,7 +12,7 @@ Replaces the current "Hey, I'm Lakshmi…" headline as the first thing under the
 - Below it, in your words:
   - The generation that took many different relationship paths, now navigating modern dating culture.
   - Your hybrid upbringing — equally digital and analog — is an advantage, if you understand what happened to the human heart and what it takes to connect today.
-- Two buttons: "Let me know!" (jumps to the webinar form) and "Work with me" (coaching).
+- Two buttons: "Essentials Webinar" (jumps to the webinar form) and "Work with me" (coaching).
 
 ### 2. The webinar block, right below
 - Eyebrow: "Coming Soon"
