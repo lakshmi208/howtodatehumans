@@ -1,18 +1,12 @@
 import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import workingFromHoxton from '@/assets/working-from-hoxton.jpeg';
-import event1 from '@/assets/event-1.jpeg';
-import event3 from '@/assets/event-3.jpeg';
-import relationshipsForming from '@/assets/events-past/relationships-forming.jpg';
+import WebinarSignup from '@/components/WebinarSignup';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
-// Coaching client quotes — featured at top of the proof section.
-// Diversified across gender + situation (F/never-married, M/divorced) so the
-// homepage doesn't skew to one archetype. Coaching page carries the
-// segment-specific quotes.
+// Coaching client quotes — featured on the homepage.
 const coachingQuotes = [
   {
     quote:
@@ -26,65 +20,61 @@ const coachingQuotes = [
   },
 ];
 
-// Real audience quotes from past How to Date Humans events.
-const quotes = [
-  {
-    quote:
-      'It was a nice change to understand and have someone unpack modern dating rather than complain about it.',
-    by: 'Attendee, Dating Detox',
-  },
-  {
-    quote:
-      'Ditch the Instagram relationship advice and come here instead.',
-    by: 'Attendee, Dating in Collapse',
-  },
-  {
-    quote:
-      'Is it possible I’m looking forward to dating in Chicago?',
-    by: 'Attendee, Kickoff',
-  },
-  {
-    quote:
-      'I truly love how these events are open to single, not-single, and anyone curious about tech, culture and how we find our partners.',
-    by: 'Attendee, Kickoff',
-  },
-];
-
 const Index = () => {
+  const scrollToWebinar = () => {
+    document.getElementById('webinar')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* Hero — locked opening copy */}
+      {/* Hero — Dating Coach for Gen X */}
       <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-20">
+        <p className="eyebrow mb-4" style={eyebrowCoral}>
+          Dating Coach for Gen X
+        </p>
+
         <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8">
-          Hey, I&rsquo;m Lakshmi. I&rsquo;ve been working to keep dating as
-          human as possible for 15 years.
+          I&rsquo;m Lakshmi. I coach Gen X singles through modern dating.
         </h1>
 
-        <div className="mb-10">
-          <Link to="/coaching" className="btn-pill">
+        <div className="flex flex-wrap gap-3 mb-10">
+          <button onClick={scrollToWebinar} className="btn-pill">
+            Essentials Webinar
+          </button>
+          <a
+            href="https://calendly.com/lakshmi-howtodatehumans/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-pill-outline"
+          >
             Work with me
-          </Link>
+          </a>
         </div>
 
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
-          I care about how people meet and if they actually connect.
+          The generation that took many different relationship paths, now navigating modern dating culture.
         </p>
-        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-8">
-          I care about the future of dating culture and how it will shape our
-          hearts.
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
+          Your hybrid upbringing — equally digital and analog — is a huge advantage, if you understand what happened to the human heart and what it takes to connect today.
         </p>
+      </section>
 
-        <p className="font-display italic text-xl md:text-2xl text-foreground/75 mb-10 max-w-2xl">
-          My latest project <em>How to Date Humans</em> is fueled by the idea
-          that tech should be an option in dating, not the default setting it
-          has become…
-        </p>
-
-        <Link to="/events" className="btn-pill-outline">
-          See the project
-        </Link>
+      {/* Webinar — primary ask */}
+      <section id="webinar" className="border-t border-border">
+        <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+          <p className="eyebrow mb-3" style={eyebrowCoral}>
+            Coming Soon
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl leading-tight mb-4">
+            Dating Essentials for Gen X
+          </h2>
+          <p className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-8 max-w-2xl">
+            A live session on what actually works for Gen X daters right now — and how to use the one thing tech can&rsquo;t replicate.
+          </p>
+          <WebinarSignup />
+        </div>
       </section>
 
       {/* Why this matters — cinematic pull-quote */}
@@ -102,7 +92,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Newsletter — primary top-of-funnel CTA, rides the pull-quote's emotional beat */}
+      {/* Newsletter */}
       <section className="border-t border-border">
         <NewsletterSignup
           eyebrow="The Newsletter"
@@ -118,169 +108,93 @@ const Index = () => {
         />
       </section>
 
-      {/* One-line credibility cue */}
-      {/* TODO: Lakshmi to sign off on specific wording. Example from brief: */}
-      {/* "I spent years inside companies studying how humans connect — and don't. */}
-      {/* Now I bring that to your dating life." Below is a placeholder using her */}
-      {/* existing credentials, no invented framing. */}
+      {/* Credibility */}
       <section className="border-t border-border max-w-4xl mx-auto px-6 py-12 md:py-16">
         <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl">
-          Fifteen years inside the dating industry — Match.com, Vox&rsquo;s{' '}
-          <em>Land of the Giants</em>, the New York Times, the Institute for the
-          Future. Now coaching one-on-one and running a year-long project in Chicago.
+          I&rsquo;ve spent 15+ years working to make dating culture more human amid its takeover by tech. Several years ago I focused on researching, and then coaching, Gen X singles — because this group may hold some of the keys to preserving organic love and connection. Match.com, Vox&rsquo;s <em>Land of the Giants</em>, the New York Times, the Institute for the Future.
         </p>
       </section>
 
-      {/* Two offerings, side by side */}
-      <section className="border-t border-border max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Coaching tile — links direct to Calendly (tile earns the ask) */}
-          <a
-            href="https://calendly.com/lakshmi-howtodatehumans/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
-          >
-            <div className="aspect-square overflow-hidden bg-muted">
-              <img
-                src={lakshmiPortrait}
-                alt="Lakshmi Rengarajan"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ objectPosition: 'center 25%' }}
-                loading="lazy"
-              />
-            </div>
-            <div className="p-7 md:p-8">
-              <p className="eyebrow mb-3" style={eyebrowCoral}>
-                1:1 Coaching
-              </p>
-              <h2 className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                Custom coaching for Gen X daters.
-              </h2>
-              <p className="text-base text-foreground/80 leading-relaxed mb-6">
-                &ldquo;Get back out there.&rdquo; &ldquo;You know what you want
-                now.&rdquo; The advice hasn&rsquo;t kept up. Dating as a Gen X-er
-                is a bridge experience unlike any other. I&rsquo;ve spent years
-                studying and interviewing this group — and built a one-of-a-kind
-                map for how to navigate it.
-              </p>
-              <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
-                See if this fits →
-              </span>
-            </div>
-          </a>
-
-          {/* Events tile */}
-          <Link
-            to="/events"
-            className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
-          >
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
-              <img
-                src={event3}
-                alt="Engaged audience at a How to Date Humans event"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-7 md:p-8">
-              <p className="eyebrow mb-3" style={eyebrowCoral}>
-                How to Date Humans
-              </p>
-              <h2 className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                A year-long Chicago project.
-              </h2>
-              <p className="text-base text-foreground/80 leading-relaxed mb-6">
-                A year-long project to figure out what happened to dating — and
-                how we bring some of it back. Chicago. Research, talks, salons,
-                new event formats. To make sure tech is an option, not a default
-                setting, for how we meet and get to know others.
-              </p>
-              <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
-                See the project →
-              </span>
-            </div>
-          </Link>
-        </div>
+      {/* Coaching tile */}
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-24">
+        <a
+          href="https://calendly.com/lakshmi-howtodatehumans/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
+        >
+          <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-muted">
+            <img
+              src={lakshmiPortrait}
+              alt="Lakshmi Rengarajan"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              style={{ objectPosition: 'center 25%' }}
+              loading="lazy"
+            />
+          </div>
+          <div className="p-7 md:p-8">
+            <p className="eyebrow mb-3" style={eyebrowCoral}>
+              1:1 Coaching
+            </p>
+            <h2 className="font-display text-2xl md:text-3xl leading-tight mb-4">
+              Custom coaching for Gen X daters.
+            </h2>
+            <p className="text-base text-foreground/80 leading-relaxed mb-6">
+              &ldquo;Get back out there.&rdquo; &ldquo;You know what you want
+              now.&rdquo; The advice hasn&rsquo;t kept up. Dating as a Gen X-er
+              is a bridge experience unlike any other. I&rsquo;ve spent years
+              studying and interviewing this group — and built a one-of-a-kind
+              map for how to navigate it.
+            </p>
+            <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
+              See if this fits →
+            </span>
+          </div>
+        </a>
       </section>
 
-      {/* Proof — audience quotes */}
+      {/* Proof — coaching client quotes */}
       <section className="border-t border-border bg-background">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-12">What humans are saying</p>
-
-          {/* Coaching clients — featured on top */}
-          <div className="mb-16 md:mb-20">
-            <p className="text-xs uppercase tracking-widest mb-8" style={eyebrowCoral}>
-              From coaching clients
-            </p>
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
-              {coachingQuotes.map((q, i) => (
-                <figure key={i} className="space-y-4">
-                  <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
-                    &ldquo;{q.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
-                    — {q.by}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-
-          {/* Event attendees — 2x2 grid below */}
-          <div className="border-t border-border pt-12 mb-16">
-            <p className="text-xs uppercase tracking-widest text-muted-foreground mb-8">
-              From event attendees
-            </p>
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
-              {quotes.map((q, i) => (
-                <figure key={i} className="space-y-4">
-                  <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
-                    &ldquo;{q.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
-                    — {q.by}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-
-          {/* Small photo strip — not your typical singles event */}
-          <div className="grid grid-cols-3 gap-3 md:gap-4 border-t border-border pt-12">
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
-              <img
-                src={workingFromHoxton}
-                alt="The Hoxton kickoff"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
-              <img
-                src={relationshipsForming}
-                alt="Slide from Dating Detox — how relationships used to form"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="aspect-[4/3] overflow-hidden bg-muted">
-              <img
-                src={event1}
-                alt="Community gathering at a coworking space"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <p className="text-sm italic text-muted-foreground mt-4 max-w-2xl">
-            Not singles events — yet. Talks and events to understand what
-            happened to modern dating…
+          <p className="eyebrow mb-12" style={eyebrowCoral}>
+            From coaching clients
           </p>
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
+            {coachingQuotes.map((q, i) => (
+              <figure key={i} className="space-y-4">
+                <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
+                  &ldquo;{q.quote}&rdquo;
+                </blockquote>
+                <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                  — {q.by}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
+      {/* Second chance to sign up */}
+      <section className="border-t border-border max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <h2 className="font-display text-2xl md:text-3xl leading-tight mb-2">
+          Dating Essentials for Gen X
+        </h2>
+        <p className="text-foreground/70 mb-6">
+          Be the first to know when the webinar is ready.
+        </p>
+        <WebinarSignup compact />
+      </section>
+
+      {/* Project footnote */}
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <p className="text-sm text-muted-foreground">
+          Also:{' '}
+          <Link to="/events" className="underline hover:text-foreground transition-colors">
+            How to Date Humans
+          </Link>{' '}
+          — a series of events and talks to shape the future of dating culture by looking at what happened and how we might shift things.
+        </p>
+      </section>
     </div>
   );
 };
