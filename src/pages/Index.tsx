@@ -13,17 +13,27 @@ import {
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
-// Coaching client quotes — featured on the homepage.
+// Coaching client quotes — featured on the homepage carousel.
 const coachingQuotes = [
   {
     quote:
-      'I know I’m accomplished. But knowing how to make that interesting to someone else (on a date, no less) is not something I had really considered. Lakshmi completely changed the way I talk about myself and connect with new people.',
+      'Lakshmi completely changed the way I talk about myself on dates. This alone changed everything.',
     by: 'S.P., 45 · didn’t marry so far',
   },
   {
     quote:
-      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I’d seen my friends “fall” into dating and get pulled into things. I wanted to walk into it differently. She saved me so much time — I’ve been dating an incredible woman for over a year.',
+      'I heard Lakshmi on Pivot. I’d never heard someone talk about dating that way. I’d seen my peers “fall” back into dating. I didn’t want to do that. I’ve been dating an incredible woman for over a year.',
     by: 'R.E., 59 · Divorced',
+  },
+  {
+    quote:
+      'She didn’t tell me what to do — she helped me discover how I wanted to show up. Widowed, I hadn’t dated in a very long time. I’ve now been seeing a wonderful man for five months.',
+    by: 'J.M., 47 · Widowed',
+  },
+  {
+    quote:
+      'I’m good at sales. Turns out that was actually hurting me in my dating life. Lakshmi helped me step out of sales and into connection mode when it mattered most.',
+    by: 'E.K., 46',
   },
 ];
 
