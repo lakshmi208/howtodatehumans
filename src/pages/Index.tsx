@@ -3,6 +3,7 @@ import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import PressCarousel from '@/components/PressCarousel';
 import WebinarSignup from '@/components/WebinarSignup';
+import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 import {
   Carousel,
   CarouselContent,
@@ -111,9 +112,16 @@ const Index = () => {
 
       {/* Credibility + press as one unit */}
       <section className="border-t border-border max-w-4xl mx-auto px-6 py-10 md:py-14">
-        <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl mb-10">
-          I&rsquo;ve spent 15+ years working to make dating culture more human amid its takeover by tech. Several years ago I focused on researching, and then coaching, Gen X singles — because this group may hold some of the keys to preserving organic love and connection. Match.com, Vox&rsquo;s <em>Land of the Giants</em>, the New York Times, the Institute for the Future.
-        </p>
+        <div className="flex flex-col sm:flex-row items-start gap-5 md:gap-6 mb-10">
+          <img
+            src={lakshmiPortrait}
+            alt="Lakshmi Rengarajan"
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-border shrink-0 object-[center_12%]"
+          />
+          <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl">
+            I&rsquo;ve spent 15+ years working to make dating culture more human amid its takeover by tech. Several years ago I focused on researching, and then coaching, Gen X singles — because this group may hold some of the keys to preserving organic love and connection. Match.com, Vox&rsquo;s <em>Land of the Giants</em>, the New York Times, the Institute for the Future.
+          </p>
+        </div>
         <PressCarousel />
       </section>
 
