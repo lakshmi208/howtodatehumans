@@ -1,8 +1,8 @@
 # Homepage: Dating Coach for Gen X + webinar interest
 
-Two moves. The homepage becomes about you — a dating coach for Gen X — with one ask: the webinar. Everything about How to Date Humans moves off the homepage onto its own page called The Project.
+Fast turnaround. The homepage becomes about you — a dating coach for Gen X — with one ask: the webinar. How to Date Humans stays in the background as a footnote.
 
-## Part 1 — The homepage
+## What changes
 
 ### 1. New opening statement
 Replaces the current "Hey, I'm Lakshmi…" headline as the first thing under the nav.
@@ -21,22 +21,19 @@ Replaces the current "Hey, I'm Lakshmi…" headline as the first thing under the
 - Nothing about date, time, price, or when details get released. Those go in only when you send them.
 
 ### 3. Your credibility, tightened
-The 15-years line gets rewritten to your framing: 15+ years working to make dating culture more human amid its takeover by tech; several years researching and then coaching Gen X singles, because this group may hold the keys to preserving organic love and connection. Match.com, Vox's *Land of the Giants*, the New York Times, the Institute for the Future stay as proof.
+The 15-years line gets rewritten to your framing: 15+ years working to make dating culture more human amid its takeover by tech; several years researching and then coaching Gen X singles, because this group may hold the keys to preserving organic love and connection. Match.com, Vox's *Land of the Giants*`, the New York Times, the Institute for the Future stay as proof.
 
 ### 4. What stays on the homepage
-The pull quote, the newsletter signup, the coaching tile, the coaching client quotes. Plus a single quiet link out to The Project.
+The pull quote, the newsletter signup, the coaching tile, the coaching client quotes.
 
 ### 5. What leaves the homepage
-The *How to Date Humans* italic paragraph, the events tile, the event attendee quotes, and the event photo strip. All of it moves to The Project page — nothing is deleted.
+The *How to Date Humans* italic paragraph, the events tile, the event attendee quotes, and the event photo strip. They are not moved to a new page — the project becomes a one-line footnote near the bottom of the homepage, linking to `/events` for anyone who wants more.
 
 ### 6. Second chance to sign up
 A slim repeat of the webinar form near the bottom of the homepage.
 
-## Part 2 — The Project page
-
-- Nav item "Events" becomes **"The Project"**, pointing at `/project`. Old `/events` links keep working.
-- The page opens with: a series of events and talks to shape the future of dating culture by looking at what happened and how we might shift things.
-- Everything currently on the events page stays, joined by the pieces moving off the homepage: the project paragraph, the attendee quotes, and the photo strip.
+### 7. Nav stays as-is for now
+"Events" remains in the nav. No new route or redirect needed.
 
 ## Where signups land
 
@@ -49,10 +46,9 @@ Success shows only after the save actually succeeds. Invisible spam trap include
 ## Technical notes
 
 - New `src/components/WebinarSignup.tsx` — first name, age, email, honeypot; zod validation (name ≤80, age 18–99, email ≤255); inserts into `form_submissions` (`form_type: 'webinar:dating-essentials-gen-x'`, `subject: 'Webinar interest — Dating Essentials for Gen X'`, `fields: { Name, Age, Email }`) then posts to Kit with `fields[age]`. Kit failure does not block success; a DB failure does. `compact` prop for the second placement.
-- `src/pages/Index.tsx` — rebuilt order: opening statement, webinar block, credibility, coaching tile, client quotes, pull quote, newsletter, compact webinar form, link to The Project.
-- `src/pages/Events.tsx` — renamed intent to The Project; adds the intro line and the sections moving off the homepage.
-- `src/App.tsx` — `/project` route added; `/events` redirects to `/project`.
-- `src/components/SiteNav.tsx` — "Events" → "The Project" (`/project`).
+- `src/pages/Index.tsx` — rebuilt order: opening statement, webinar block, credibility, coaching tile, client quotes, pull quote, newsletter, compact webinar form, project footnote.
+- `src/components/SiteNav.tsx` — unchanged.
+- `src/App.tsx` — unchanged.
 - Existing tokens only (`--coral`, `btn-pill`, `btn-pill-outline`, `eyebrow`, `font-display`). No new colors or fonts.
 - Head title and meta description updated: Gen X dating coach + the webinar.
 - No schema change — `form_submissions` already accepts this shape.
