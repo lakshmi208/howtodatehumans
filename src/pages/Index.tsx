@@ -3,6 +3,7 @@ import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import PressCarousel from '@/components/PressCarousel';
 import WebinarSignup from '@/components/WebinarSignup';
+import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 import {
   Carousel,
   CarouselContent,
