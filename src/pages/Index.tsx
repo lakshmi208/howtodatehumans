@@ -88,7 +88,7 @@ const Index = () => {
             Dating Essentials for Gen X
           </h2>
           <p className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-8 max-w-2xl">
-            A live session on what actually works for Gen X daters right now — and how to use the one thing tech can&rsquo;t replicate.
+            The foundational insights about connection and dating today that many skip.
           </p>
           <WebinarSignup />
         </div>
@@ -174,12 +174,12 @@ const Index = () => {
       <section className="border-t border-border bg-background">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
           <p className="eyebrow mb-6" style={eyebrowCoral}>
-            From coaching clients
+            Client Testimonials:
           </p>
           <h2 className="font-display text-2xl md:text-4xl leading-tight mb-12 max-w-3xl">
-            From the coasts to the Midwest… Gen X daters are highly
-            accomplished, often great at relationship. But dating — and dating
-            today — requires something different.
+            From coast to coast, Midwest and South… many relationship and
+            professional paths… all with a desire to make the most of this
+            (still) youthful window of dating…
           </h2>
 
           <Carousel opts={{ align: 'start', loop: true }} className="w-full">
