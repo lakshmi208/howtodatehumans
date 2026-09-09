@@ -95,15 +95,15 @@ const WebinarSignup = ({ compact = false, className = '' }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`space-y-3 ${className}`}>
-      <div className={`grid gap-3 ${compact ? 'grid-cols-1 sm:grid-cols-3' : 'grid-cols-1 sm:grid-cols-3'}`}>
+    <form onSubmit={handleSubmit} className={`space-y-2 ${className}`}>
+      <div className="grid gap-2 grid-cols-1 sm:grid-cols-3">
         <Input
           type="text"
           placeholder="First name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           disabled={status === 'loading'}
-          className="h-12 text-base"
+          className="h-11 text-base"
           aria-label="First name"
           autoComplete="given-name"
           aria-invalid={!!fieldErrors.firstName}
@@ -114,7 +114,7 @@ const WebinarSignup = ({ compact = false, className = '' }: Props) => {
           value={age}
           onChange={(e) => setAge(e.target.value)}
           disabled={status === 'loading'}
-          className="h-12 text-base"
+          className="h-11 text-base"
           aria-label="Age"
           min={18}
           max={99}
@@ -126,7 +126,7 @@ const WebinarSignup = ({ compact = false, className = '' }: Props) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={status === 'loading'}
-          className="h-12 text-base"
+          className="h-11 text-base"
           aria-label="Email address"
           autoComplete="email"
           aria-invalid={!!fieldErrors.email}
@@ -150,7 +150,7 @@ const WebinarSignup = ({ compact = false, className = '' }: Props) => {
         type="submit"
         size="lg"
         disabled={status === 'loading'}
-        className="w-full sm:w-auto h-12 whitespace-nowrap"
+        className="w-full sm:w-auto h-11 whitespace-nowrap"
       >
         {status === 'loading' ? (
           <>

@@ -47,7 +47,7 @@ const Index = () => {
       <SiteNav />
 
       {/* Hero — Dating Coach for Gen X */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-16 md:pb-20">
+      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-10 md:pb-14">
         <p className="eyebrow mb-4" style={eyebrowCoral}>
           Dating Coach for Gen X
         </p>
@@ -80,7 +80,7 @@ const Index = () => {
 
       {/* Webinar — primary ask */}
       <section id="webinar" className="border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
             Coming Soon
           </p>
@@ -95,7 +95,7 @@ const Index = () => {
       </section>
 
       {/* Why this matters — cinematic pull-quote */}
-      <section className="relative w-full bg-foreground py-20 md:py-28">
+      <section className="relative w-full bg-foreground py-14 md:py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <blockquote
             className="font-display italic text-2xl md:text-4xl lg:text-5xl leading-[1.18]"
@@ -109,33 +109,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="border-t border-border">
-        <NewsletterSignup
-          eyebrow="The Newsletter"
-          title="We're All Dating All The Time"
-          description={
-            <>
-              A newsletter about what it takes to connect today.
-              <br />
-              Because it&rsquo;s easy to meet, harder to connect&trade;.
-            </>
-          }
-          buttonLabel="Send it my way"
-        />
-      </section>
-
-      {/* Credibility */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-12 md:py-16">
-        <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl">
+      {/* Credibility + press as one unit */}
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-10 md:py-14">
+        <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl mb-10">
           I&rsquo;ve spent 15+ years working to make dating culture more human amid its takeover by tech. Several years ago I focused on researching, and then coaching, Gen X singles — because this group may hold some of the keys to preserving organic love and connection. Match.com, Vox&rsquo;s <em>Land of the Giants</em>, the New York Times, the Institute for the Future.
         </p>
+        <PressCarousel />
       </section>
 
-      <PressCarousel />
-
       {/* Coaching tile */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-24">
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-12 md:py-16">
         <a
           href="https://calendly.com/lakshmi-howtodatehumans/30min"
           target="_blank"
@@ -163,7 +146,7 @@ const Index = () => {
 
       {/* Proof — coaching client quotes */}
       <section className="border-t border-border bg-background">
-        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-6 py-12 md:py-16">
           <p className="eyebrow mb-6" style={eyebrowCoral}>
             Client Testimonials:
           </p>
@@ -203,7 +186,7 @@ const Index = () => {
       </section>
 
       {/* Second chance to sign up */}
-      <section className="border-t border-border max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <section className="border-t border-border max-w-3xl mx-auto px-6 py-10 md:py-14">
         <h2 className="font-display text-2xl md:text-3xl leading-tight mb-2">
           Dating Essentials for Gen X
         </h2>
@@ -213,8 +196,24 @@ const Index = () => {
         <WebinarSignup compact />
       </section>
 
+      {/* Newsletter — moved to bottom */}
+      <section className="border-t border-border">
+        <NewsletterSignup
+          eyebrow="The Newsletter"
+          title="We're All Dating All The Time"
+          description={
+            <>
+              A newsletter about what it takes to connect today.
+              <br />
+              Because it&rsquo;s easy to meet, harder to connect&trade;.
+            </>
+          }
+          buttonLabel="Send it my way"
+        />
+      </section>
+
       {/* Project footnote */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-12 md:py-16">
+      <section className="border-t border-border max-w-4xl mx-auto px-6 py-8 md:py-10">
         <p className="text-sm text-muted-foreground">
           Also:{' '}
           <Link to="/events" className="underline hover:text-foreground transition-colors">
