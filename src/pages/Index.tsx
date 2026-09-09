@@ -172,22 +172,42 @@ const Index = () => {
 
       {/* Proof — coaching client quotes */}
       <section className="border-t border-border bg-background">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-12" style={eyebrowCoral}>
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+          <p className="eyebrow mb-6" style={eyebrowCoral}>
             From coaching clients
           </p>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
-            {coachingQuotes.map((q, i) => (
-              <figure key={i} className="space-y-4">
-                <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
-                  &ldquo;{q.quote}&rdquo;
-                </blockquote>
-                <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
-                  — {q.by}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <h2 className="font-display text-2xl md:text-4xl leading-tight mb-12 max-w-3xl">
+            From the coasts to the Midwest… Gen X daters are highly
+            accomplished, often great at relationship. But dating — and dating
+            today — requires something different.
+          </h2>
+
+          <Carousel opts={{ align: 'start', loop: true }} className="w-full">
+            <CarouselContent className="-ml-6">
+              {coachingQuotes.map((q, i) => (
+                <CarouselItem key={i} className="pl-6 basis-full md:basis-full">
+                  <figure className="space-y-5 max-w-3xl">
+                    <blockquote className="font-display italic text-2xl md:text-4xl leading-tight text-foreground">
+                      &ldquo;{q.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                      — {q.by}
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-end gap-2 mt-8">
+              <CarouselPrevious
+                className="static translate-y-0 h-10 w-10 bg-transparent border-foreground/30 text-foreground hover:bg-transparent hover:border-foreground"
+                variant="outline"
+              />
+              <CarouselNext
+                className="static translate-y-0 h-10 w-10 bg-transparent border-foreground/30 text-foreground hover:bg-transparent hover:border-foreground"
+                variant="outline"
+              />
+            </div>
+          </Carousel>
         </div>
       </section>
 
