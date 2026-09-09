@@ -1,29 +1,21 @@
-# Add Small Portrait Thumbnail Next to Credibility Text
+# Add Small Face Thumbnail Next to "I've spent 15+ years" Text
 
 ## Goal
-Place a small, circular headshot of Lakshmi beside the "I've spent 15+ years..." credibility paragraph on the homepage.
+Put a small round photo of Lakshmi's face beside the "I've spent 15+ years..." paragraph on the homepage, using the real green-dress photo cropped around her face. No AI-generated or AI-altered image.
 
-## Asset
-Use the cropped green-dress speaking photo saved at `src/assets/lakshmi-headshot-cropped.jpg`, which is already centered on Lakshmi's face.
+## Approach
+Use the untouched original photo (`src/assets/lakshmi-portrait.jpg` — the green dress speaking shot) and crop it purely with CSS framing so the real photo is preserved pixel-for-pixel. The thumbnail is a small circle showing only the face area.
 
-## Changes
+Also remove the earlier AI-edited file `src/assets/lakshmi-headshot-cropped.jpg`, which is not an accurate likeness and should not be used anywhere.
 
-### 1. Import the cropped headshot
-In `src/pages/Index.tsx`, import `lakshmiHeadshot` from `src/assets/lakshmi-headshot-cropped.jpg`.
+## Changes in `src/pages/Index.tsx`
 
-### 2. Restructure the credibility paragraph
-Wrap the credibility text and a new thumbnail image in a flex row so the image sits to the left of the paragraph on desktop and above it on mobile.
-
-### 3. Style the thumbnail
-- Use a small square/circular image (`w-16 h-16 md:w-20 md:h-20`).
-- Apply `rounded-full object-cover` so it renders as a circle.
-- Add `shrink-0` to prevent the image from squishing.
-- Use `border border-border` for subtle definition.
-- Add alt text: "Lakshmi Rengarajan".
-
-### 4. Keep the press carousel below unchanged
-The "I've been urging people to date like humans for awhile" heading and `<PressCarousel />` remain below the credibility paragraph inside the same consolidated section.
+1. Import `lakshmiPortrait` from `@/assets/lakshmi-portrait.jpg`.
+2. Turn the credibility block into a two-part row: photo on the left, paragraph on the right; stacked on small screens.
+3. Render the photo as a circle roughly 64px on mobile and 80px on desktop, with the image set to fill the circle and the framing shifted upward so her face — not her dress — is what shows inside the circle.
+4. Alt text: "Lakshmi Rengarajan".
+5. Leave the paragraph copy, the "I've been urging people to date like humans for awhile" heading, and the press carousel exactly as they are.
 
 ## Verification
-- `bun run build` passes.
-- Playwright screenshot shows a small circular portrait next to the credibility paragraph on desktop and a stacked layout on mobile.
+- Build passes.
+- A screenshot of that section confirms the circle shows her face centered, and that the photo is the original unedited one.
