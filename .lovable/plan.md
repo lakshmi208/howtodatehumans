@@ -1,40 +1,50 @@
 # Update Homepage Testimonials
 
 ## Goal
-Refresh the coaching-client testimonial section on the homepage with the exact copy provided and restore the widowed-person quote.
+Refresh the coaching-client testimonial section on the homepage with the exact copy provided, add the new E.K. quote, and present all four testimonials in a compact carousel.
 
 ## Current State
 `src/pages/Index.tsx` currently displays two quotes in the "From coaching clients" section:
 1. S.P. — about knowing she’s accomplished but not how to make it interesting on a date.
 2. R.E. — about hearing Lakshmi on Pivot and being a senior leader.
 
-The widowed-person quote (J.M.) exists in `src/pages/Coaching.tsx` but is not shown on the homepage.
+The widowed-person quote (J.M.) exists in `src/pages/Coaching.tsx` but is not shown on the homepage. The project already has a working `Carousel` component family (`src/components/ui/carousel`).
 
 ## Changes
 
 ### `src/pages/Index.tsx`
-Replace the `coachingQuotes` array with three testimonials:
+Replace the static two-column "From coaching clients" section with a carousel section.
 
-1. **First quote (new)**
+**New header:**
+"From the coasts to the Midwest… Gen X daters are highly accomplished, often great at relationship. But dating — and dating today — requires something different."
+
+**Carousel quotes:**
+
+1. **S.P.**
    - Quote: "Lakshmi completely changed the way I talk about myself on dates. This alone changed everything."
    - Attribution: S.P., 45 · didn’t marry so far
 
-2. **Second quote (revised)**
+2. **R.E.**
    - Quote: "I heard Lakshmi on Pivot. I’d never heard someone talk about dating that way. I’d seen my peers “fall” back into dating. I didn’t want to do that. I’ve been dating an incredible woman for over a year."
    - Attribution: R.E., 59 · Divorced
 
-3. **Third quote (restored from Coaching page)**
+3. **J.M. (restored from Coaching page)**
    - Quote: "She didn’t tell me what to do — she helped me discover how I wanted to show up. Widowed, I hadn’t dated in a very long time. I’ve now been seeing a wonderful man for five months."
    - Attribution: J.M., 47 · Widowed
 
-## Layout Adjustment
-The existing two-column grid works for two quotes but will look unbalanced with three. Update the grid so the three testimonials read cleanly:
-- Option A: keep two columns, with the third quote spanning full width beneath the first two.
-- Option B: switch to a single column for all three quotes.
+4. **E.K. (new)**
+   - Quote: "I’m good at sales. Turns out that was actually hurting me in my dating life. Lakshmi helped me step out of sales and into connection mode when it mattered most."
+   - Attribution: E.K., 46
 
-Use the option that best preserves the editorial feel of the page.
+**Implementation notes:**
+- Use the existing `Carousel`, `CarouselContent`, `CarouselItem`, `CarouselPrevious`, `CarouselNext` components.
+- Each slide shows one quote and attribution.
+- Keep the editorial feel: large italic display type for the quote, small uppercase attribution.
+- Enable looping so visitors can cycle through.
+- Ensure the section does not dominate the page vertically.
 
 ## Verification
 - Build passes.
-- Homepage renders the three testimonials with correct copy and attributions.
+- Homepage renders the carousel with all four testimonials and the new header.
+- Carousel navigation works (previous/next) and loops.
 - No changes to `src/pages/Coaching.tsx`.
