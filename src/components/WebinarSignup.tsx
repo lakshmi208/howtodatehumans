@@ -150,7 +150,7 @@ const WebinarSignup = ({ compact = false, className = '' }: Props) => {
         type="submit"
         size="lg"
         disabled={status === 'loading'}
-        className="w-full sm:w-auto h-12 whitespace-nowrap"
+        className="w-full sm:w-auto h-11 whitespace-nowrap"
       >
         {status === 'loading' ? (
           <>
