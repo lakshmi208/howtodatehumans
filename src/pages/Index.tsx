@@ -3,20 +3,37 @@ import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import WebinarSignup from '@/components/WebinarSignup';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel';
 
 const eyebrowCoral = { color: 'hsl(var(--coral))' };
 
-// Coaching client quotes — featured on the homepage.
+// Coaching client quotes — featured on the homepage carousel.
 const coachingQuotes = [
   {
     quote:
-      'I know I’m accomplished. But knowing how to make that interesting to someone else (on a date, no less) is not something I had really considered. Lakshmi completely changed the way I talk about myself and connect with new people.',
+      'Lakshmi completely changed the way I talk about myself on dates. This alone changed everything.',
     by: 'S.P., 45 · didn’t marry so far',
   },
   {
     quote:
-      'I heard Lakshmi on Pivot and thought, I’m a senior leader, I can figure this out. I’d seen my friends “fall” into dating and get pulled into things. I wanted to walk into it differently. She saved me so much time — I’ve been dating an incredible woman for over a year.',
+      'I heard Lakshmi on Pivot. I’d never heard someone talk about dating that way. I’d seen my peers “fall” back into dating. I didn’t want to do that. I’ve been dating an incredible woman for over a year.',
     by: 'R.E., 59 · Divorced',
+  },
+  {
+    quote:
+      'She didn’t tell me what to do — she helped me discover how I wanted to show up. Widowed, I hadn’t dated in a very long time. I’ve now been seeing a wonderful man for five months.',
+    by: 'J.M., 47 · Widowed',
+  },
+  {
+    quote:
+      'I’m good at sales. Turns out that was actually hurting me in my dating life. Lakshmi helped me step out of sales and into connection mode when it mattered most.',
+    by: 'E.K., 46',
   },
 ];
 
@@ -155,22 +172,42 @@ const Index = () => {
 
       {/* Proof — coaching client quotes */}
       <section className="border-t border-border bg-background">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <p className="eyebrow mb-12" style={eyebrowCoral}>
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+          <p className="eyebrow mb-6" style={eyebrowCoral}>
             From coaching clients
           </p>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 md:gap-y-16">
-            {coachingQuotes.map((q, i) => (
-              <figure key={i} className="space-y-4">
-                <blockquote className="font-display italic text-2xl md:text-3xl leading-tight text-foreground">
-                  &ldquo;{q.quote}&rdquo;
-                </blockquote>
-                <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
-                  — {q.by}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <h2 className="font-display text-2xl md:text-4xl leading-tight mb-12 max-w-3xl">
+            From the coasts to the Midwest… Gen X daters are highly
+            accomplished, often great at relationship. But dating — and dating
+            today — requires something different.
+          </h2>
+
+          <Carousel opts={{ align: 'start', loop: true }} className="w-full">
+            <CarouselContent className="-ml-6">
+              {coachingQuotes.map((q, i) => (
+                <CarouselItem key={i} className="pl-6 basis-full md:basis-full">
+                  <figure className="space-y-5 max-w-3xl">
+                    <blockquote className="font-display italic text-2xl md:text-4xl leading-tight text-foreground">
+                      &ldquo;{q.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="text-xs uppercase tracking-widest text-muted-foreground">
+                      — {q.by}
+                    </figcaption>
+                  </figure>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-end gap-2 mt-8">
+              <CarouselPrevious
+                className="static translate-y-0 h-10 w-10 bg-transparent border-foreground/30 text-foreground hover:bg-transparent hover:border-foreground"
+                variant="outline"
+              />
+              <CarouselNext
+                className="static translate-y-0 h-10 w-10 bg-transparent border-foreground/30 text-foreground hover:bg-transparent hover:border-foreground"
+                variant="outline"
+              />
+            </div>
+          </Carousel>
         </div>
       </section>
 
