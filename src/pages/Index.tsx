@@ -176,11 +176,11 @@ const Index = () => {
           <p className="eyebrow mb-6" style={eyebrowCoral}>
             Client Testimonials:
           </p>
-          <h2 className="font-display text-2xl md:text-4xl leading-tight mb-12 max-w-3xl">
+          <p className="text-base md:text-lg font-normal text-foreground/80 leading-relaxed max-w-3xl mb-10">
             From coast to coast, Midwest and South… many relationship and
             professional paths… all with a desire to make the most of this
             (still) youthful window of dating…
-          </h2>
+          </p>
 
           <Carousel opts={{ align: 'start', loop: true }} className="w-full">
             <CarouselContent className="-ml-6">
