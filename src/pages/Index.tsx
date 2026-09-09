@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import PressCarousel from '@/components/PressCarousel';
 import WebinarSignup from '@/components/WebinarSignup';
-import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 import {
   Carousel,
   CarouselContent,
@@ -132,41 +132,32 @@ const Index = () => {
         </p>
       </section>
 
+      <PressCarousel />
+
       {/* Coaching tile */}
       <section className="border-t border-border max-w-4xl mx-auto px-6 py-16 md:py-24">
         <a
           href="https://calendly.com/lakshmi-howtodatehumans/30min"
           target="_blank"
           rel="noopener noreferrer"
-          className="group block border border-border bg-background hover:border-foreground/40 transition-colors"
+          className="group block border border-border bg-background hover:border-foreground/40 transition-colors p-7 md:p-8"
         >
-          <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-muted">
-            <img
-              src={lakshmiPortrait}
-              alt="Lakshmi Rengarajan"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              style={{ objectPosition: 'center 25%' }}
-              loading="lazy"
-            />
-          </div>
-          <div className="p-7 md:p-8">
-            <p className="eyebrow mb-3" style={eyebrowCoral}>
-              1:1 Coaching
-            </p>
-            <h2 className="font-display text-2xl md:text-3xl leading-tight mb-4">
-              Custom coaching for Gen X daters.
-            </h2>
-            <p className="text-base text-foreground/80 leading-relaxed mb-6">
-              &ldquo;Get back out there.&rdquo; &ldquo;You know what you want
-              now.&rdquo; The advice hasn&rsquo;t kept up. Dating as a Gen X-er
-              is a bridge experience unlike any other. I&rsquo;ve spent years
-              studying and interviewing this group — and built a one-of-a-kind
-              map for how to navigate it.
-            </p>
-            <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
-              See if this fits →
-            </span>
-          </div>
+          <p className="eyebrow mb-3" style={eyebrowCoral}>
+            1:1 Coaching
+          </p>
+          <h2 className="font-display text-2xl md:text-3xl leading-tight mb-4">
+            Custom coaching for Gen X daters.
+          </h2>
+          <p className="text-base text-foreground/80 leading-relaxed mb-6">
+            &ldquo;Get back out there.&rdquo; &ldquo;You know what you want
+            now.&rdquo; The advice hasn&rsquo;t kept up. Dating as a Gen X-er
+            is a bridge experience unlike any other. I&rsquo;ve spent years
+            studying and interviewing this group — and built a one-of-a-kind
+            map for how to navigate it.
+          </p>
+          <span className="text-sm font-medium group-hover:translate-x-1 transition-transform inline-block">
+            See if this fits →
+          </span>
         </a>
       </section>
 
