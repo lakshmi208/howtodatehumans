@@ -115,8 +115,8 @@ const Index = () => {
         <div className="flex flex-col sm:flex-row items-start gap-5 md:gap-6 mb-10">
           <img
             src={lakshmiPortrait}
-            alt="Lakshmi Rengarajan"
-            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-border shrink-0 object-[center_12%]"
+            alt="Lakshmi"
+            className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border border-border shrink-0 object-[center_20%]"
           />
           <p className="text-base md:text-lg italic text-foreground/70 max-w-3xl">
             I&rsquo;ve spent 15+ years working to make dating culture more human amid its takeover by tech. Several years ago I focused on researching, and then coaching, Gen X singles — because this group may hold some of the keys to preserving organic love and connection. Match.com, Vox&rsquo;s <em>Land of the Giants</em>, the New York Times, the Institute for the Future.
