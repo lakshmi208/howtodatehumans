@@ -64,14 +64,14 @@ const NewsletterSignup = ({
   return (
     <section
       id="newsletter"
-      className={`max-w-3xl mx-auto px-6 py-16 ${className}`}
+      className={`max-w-3xl mx-auto px-6 py-12 md:py-16 ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="bg-card border border-border rounded-2xl p-8 md:p-12 text-center"
+        className="bg-card border border-border rounded-2xl p-6 md:p-10 text-center"
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[hsl(var(--primary)/0.1)] text-[hsl(var(--primary))] text-xs font-bold uppercase tracking-widest mb-4">
           <Mail className="w-3.5 h-3.5" />
