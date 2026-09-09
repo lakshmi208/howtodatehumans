@@ -3,10 +3,13 @@
 ## Goal
 Place a small, circular headshot of Lakshmi beside the "I've spent 15+ years..." credibility paragraph on the homepage.
 
+## Asset
+Use the cropped green-dress speaking photo saved at `src/assets/lakshmi-headshot-cropped.jpg`, which is already centered on Lakshmi's face.
+
 ## Changes
 
-### 1. Import the portrait asset
-In `src/pages/Index.tsx`, import `lakshmiPortrait` from `src/assets/lakshmi-portrait.jpg`.
+### 1. Import the cropped headshot
+In `src/pages/Index.tsx`, import `lakshmiHeadshot` from `src/assets/lakshmi-headshot-cropped.jpg`.
 
 ### 2. Restructure the credibility paragraph
 Wrap the credibility text and a new thumbnail image in a flex row so the image sits to the left of the paragraph on desktop and above it on mobile.
