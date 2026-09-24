@@ -8,6 +8,8 @@ const navItems = [
   { label: 'Newsletter', href: '/#newsletter', activePath: '/#newsletter' },
   { label: 'The Project', href: '/events', activePath: '/events' },
   { label: 'About', href: '/about', activePath: '/about' },
+  // Lives outside this app (static page in public/essentials), so it needs a full page load.
+  { label: 'Webinar', href: '/essentials/', activePath: '/essentials/', external: true },
 ];
 
 const ctaItem = {
@@ -34,11 +36,17 @@ const SiteNav = () => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link key={item.label} to={item.href} className={linkClass(item.activePath)}>
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a key={item.label} href={item.href} className={linkClass(item.activePath)}>
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.label} to={item.href} className={linkClass(item.activePath)}>
+                {item.label}
+              </Link>
+            )
+          )}
           <Link
             to={ctaItem.href}
             className="bg-[hsl(var(--coral))] text-[hsl(var(--ink-foreground))] px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition-opacity"
@@ -58,16 +66,27 @@ const SiteNav = () => {
 
       {mobileOpen && (
         <div className="lg:hidden border-t border-border bg-background px-6 py-4 space-y-3">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              to={item.href}
-              onClick={() => setMobileOpen(false)}
-              className={`block ${linkClass(item.activePath)}`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block ${linkClass(item.activePath)}`}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.href}
+                onClick={() => setMobileOpen(false)}
+                className={`block ${linkClass(item.activePath)}`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <Link
             to={ctaItem.href}
             onClick={() => setMobileOpen(false)}

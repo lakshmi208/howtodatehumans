@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import PressCarousel from '@/components/PressCarousel';
-import WebinarSignup from '@/components/WebinarSignup';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
 import {
   Carousel,
@@ -39,10 +38,6 @@ const coachingQuotes = [
 ];
 
 const Index = () => {
-  const scrollToWebinar = () => {
-    document.getElementById('webinar')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
@@ -58,9 +53,9 @@ const Index = () => {
         </h1>
 
         <div className="flex flex-wrap gap-3 mb-10">
-          <button onClick={scrollToWebinar} className="btn-pill">
+          <a href="/essentials/" className="btn-pill">
             Essentials Webinar
-          </button>
+          </a>
           <a
             href="https://calendly.com/lakshmi-howtodatehumans/30min"
             target="_blank"
@@ -83,7 +78,7 @@ const Index = () => {
       <section id="webinar" className="border-t border-border">
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
-            Coming Soon
+            Tuesday, September 29 · 7–9pm CT · Live on Zoom
           </p>
           <h2 className="font-display text-3xl md:text-5xl leading-tight mb-4">
             Dating Essentials for Gen X
@@ -91,7 +86,9 @@ const Index = () => {
           <p className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-8 max-w-2xl">
             The foundational insights about connection and dating today that many skip.
           </p>
-          <WebinarSignup />
+          <a href="/essentials/" className="btn-pill">
+            Grab your seat
+          </a>
         </div>
       </section>
 
@@ -193,15 +190,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Second chance to sign up */}
+      {/* Second link to the webinar page */}
       <section className="border-t border-border max-w-3xl mx-auto px-6 py-10 md:py-14">
         <h2 className="font-display text-2xl md:text-3xl leading-tight mb-2">
           Dating Essentials for Gen X
         </h2>
         <p className="text-foreground/70 mb-6">
-          Be the first to know when the webinar is ready.
+          Tuesday, September 29 · 7–9pm CT · Live on Zoom
         </p>
-        <WebinarSignup compact />
+        <a href="/essentials/" className="btn-pill">
+          Grab your seat
+        </a>
       </section>
 
       {/* Newsletter — moved to bottom */}
