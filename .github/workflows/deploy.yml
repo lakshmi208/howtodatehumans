@@ -38,6 +38,19 @@ jobs:
       - name: SPA fallback (copy index.html to 404.html)
         run: cp dist/index.html dist/404.html
 
+      # /essentials is a separate prerendered page (essentials/ folder) — build
+      # it and drop it into the site at dist/essentials.
+      - name: Build essentials page
+        working-directory: essentials
+        run: |
+          bun install --frozen-lockfile
+          bun run build:static
+
+      - name: Add essentials page to site
+        run: |
+          mkdir -p dist/essentials
+          cp -R essentials/essentials-site/. dist/essentials/
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
