@@ -170,7 +170,7 @@ function WebinarPage() {
             <span className="hidden font-display text-[15px] font-semibold text-primary sm:inline">Gen X Dating Essentials</span>
           </span>
           <div className="flex items-center gap-4">
-            <span className="hidden text-[12px] uppercase tracking-[0.1em] text-muted-foreground sm:inline">
+            <span className="hidden text-[12px] font-bold uppercase tracking-[0.1em] text-foreground sm:inline">
               {EVENT_DATE_SHORT} · 7–9pm CT
             </span>
             <SeatButton small />
@@ -193,7 +193,7 @@ function WebinarPage() {
             </p>
 
             <div className="mt-9 glass-card rounded-xl p-6 sm:p-7">
-              <p className="text-[15px]"><strong className="font-semibold">{EVENT_DATE} · 7–9pm CT</strong> · live on Zoom · a virtual session</p>
+              <p className="text-[15px]"><strong className="block font-display text-[22px] font-semibold leading-snug text-foreground sm:inline sm:text-[24px]"><span className="whitespace-nowrap">{EVENT_DATE}</span> · <span className="whitespace-nowrap">7–9pm CT</span></strong><span className="mt-1 block sm:mt-0 sm:inline"><span className="hidden sm:inline"> · </span>live on Zoom · a virtual session</span></p>
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
                 <span className="font-display text-[34px] font-bold leading-none text-primary">$85</span>
                 <span className="text-[14px] text-muted-foreground">capped at 25 seats</span>
