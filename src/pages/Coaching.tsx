@@ -17,6 +17,7 @@ import {
   CarouselNext,
 } from '@/components/ui/carousel';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
+import genXPaths from '@/assets/home/gen-x-paths.jpg';
 import magnet from '@/assets/coaching/magnet.jpg';
 import jumpstart from '@/assets/coaching/jumpstart.jpg';
 import fireworks from '@/assets/coaching/fireworks.jpg';
@@ -189,7 +190,8 @@ const Coaching = () => {
       <SiteNav />
 
       {/* ① Hero */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-12">
+      <section className="max-w-6xl mx-auto px-6 pt-20 md:pt-28 pb-12 grid gap-10 md:grid-cols-[1.4fr_1fr] md:items-center">
+        <div>
         <p className="eyebrow mb-6" style={eyebrowCoral}>
           Coaching for Gen X
         </p>
@@ -211,6 +213,15 @@ const Coaching = () => {
           <a href="#one-pager" className="btn-pill-outline">
             Free one-pager
           </a>
+        </div>
+        </div>
+        {/* Gen X paths converging — same off-white as the image so it sits flush */}
+        <div className="mx-auto w-full max-w-[260px] md:max-w-[400px] aspect-[4/5] overflow-hidden" style={{ backgroundColor: '#f4f8f2' }}>
+          <img
+            src={genXPaths}
+            alt="A red X where Divorced, Didn’t Marry, Widowed and Something Else converge: You (all) are here"
+            className="h-full w-full object-contain"
+          />
         </div>
       </section>
 

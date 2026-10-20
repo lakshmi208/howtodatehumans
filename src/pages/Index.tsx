@@ -3,6 +3,8 @@ import SiteNav from '@/components/SiteNav';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import PressCarousel from '@/components/PressCarousel';
 import lakshmiPortrait from '@/assets/lakshmi-portrait.jpg';
+import genXFlag from '@/assets/home/gen-x-flag.png';
+import chicagoHeartsFlag from '@/assets/home/chicago-hearts-flag.png';
 import {
   Carousel,
   CarouselContent,
@@ -37,58 +39,80 @@ const coachingQuotes = [
   },
 ];
 
+// Two ways in — by generation and by geography. Two matching flags; their white
+// backgrounds blend into the card color (mix-blend-multiply).
+const paths = [
+  {
+    eyebrow: 'By generation',
+    title: 'Dating Coach for Gen X',
+    body: 'Coaching and the Essentials webinar for Gen X singles.',
+    image: genXFlag,
+    alt: 'A Gen X flag: four red Xs between a pink and a brown stripe, labeled Divorced, Didn’t Marry, Widowed and Something Else',
+    imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
+    next: { label: 'Up next: Oct 28', detail: 'Dating Essentials for Gen X · live on Zoom', href: '/essentials/', external: true },
+    more: { label: 'Coaching', href: '/coaching' },
+  },
+  {
+    eyebrow: 'By geography',
+    title: 'How to Date Humans',
+    body: 'Events and talks in Chicago to shape the future of dating culture.',
+    image: chicagoHeartsFlag,
+    alt: 'The Chicago flag with its stars redrawn as hearts, filling in from outline to solid',
+    imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
+    next: { label: 'Up next: Nov 5', detail: 'Dating in Collapse · Three Cities Social, River North', href: '/events' },
+    more: { label: 'Events', href: '/events' },
+  },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SiteNav />
 
-      {/* Hero — Dating Coach for Gen X */}
-      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-10 md:pb-14">
-        <p className="eyebrow mb-4" style={eyebrowCoral}>
-          Dating Coach for Gen X
-        </p>
-
+      {/* Hero — the shared purpose; the two ways in follow directly below */}
+      <section className="max-w-4xl mx-auto px-6 pt-20 md:pt-28 pb-6 md:pb-8">
         <h1 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.08] mb-8">
-          I&rsquo;m Lakshmi. I coach Gen X singles through modern dating.
+          Hey, I&rsquo;m Lakshmi. I&rsquo;ve been working to keep dating as
+          human as possible for 15 years.
         </h1>
 
-        <div className="flex flex-wrap gap-3 mb-10">
-          <a href="/essentials/" className="btn-pill">
-            Essentials Webinar
-          </a>
-          <a
-            href="https://calendly.com/lakshmi-howtodatehumans/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-pill-outline"
-          >
-            Work with me
-          </a>
-        </div>
-
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
-          The generation that took many different relationship paths, now navigating modern dating culture.
+          I care about how people meet and if they actually connect, and about
+          what technology and shifts in culture have done to our hearts.
         </p>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
-          Your hybrid upbringing — equally digital and analog — is a huge advantage, if you understand what happened to the human heart and what it takes to connect today.
+          I&rsquo;m going about it two ways: one by coaching one generation, the
+          other by shifting dating culture in one city. Read below to learn why
+          each matters.
         </p>
       </section>
 
-      {/* Webinar — primary ask */}
-      <section id="webinar" className="border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
-          <p className="eyebrow mb-3" style={eyebrowCoral}>
-            Wednesday, October 28 · 7–9pm CT · Live on Zoom
-          </p>
-          <h2 className="font-display text-3xl md:text-5xl leading-tight mb-4">
-            Dating Essentials for Gen X
-          </h2>
-          <p className="text-lg md:text-xl text-foreground/85 leading-relaxed mb-8 max-w-2xl">
-            The foundational insights about connection and dating today that many skip.
-          </p>
-          <a href="/essentials/" className="btn-pill">
-            Grab your seat
-          </a>
+      {/* Two ways in — generation + geography, equal footing */}
+      <section className="max-w-5xl mx-auto px-6 pt-6 pb-12 md:pt-8 md:pb-16">
+        <div className="grid gap-6 md:grid-cols-2">
+          {paths.map((path) => (
+            <div key={path.title} className="flex flex-col">
+              <div className="aspect-[16/10] flex items-center justify-center overflow-hidden border border-border" style={{ backgroundColor: '#f4f8f2' }}>
+                <img src={path.image} alt={path.alt} className={path.imageClass} />
+              </div>
+              <p className="eyebrow mt-6 mb-2" style={eyebrowCoral}>
+                {path.eyebrow}
+              </p>
+              <h2 className="font-display text-2xl md:text-3xl leading-tight mb-3">{path.title}</h2>
+              <p className="text-base text-foreground/80 leading-relaxed mb-5">{path.body}</p>
+              <div className="mt-auto">
+                <p className="text-sm text-foreground/70 mb-3">{path.next.detail}</p>
+                {path.next.external ? (
+                  <a href={path.next.href} className="btn-pill">{path.next.label}</a>
+                ) : (
+                  <Link to={path.next.href} className="btn-pill">{path.next.label}</Link>
+                )}
+              </div>
+              <Link to={path.more.href} className="mt-5 text-sm font-medium hover:underline">
+                {path.more.label} →
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -190,19 +214,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Second link to the webinar page */}
-      <section className="border-t border-border max-w-3xl mx-auto px-6 py-10 md:py-14">
-        <h2 className="font-display text-2xl md:text-3xl leading-tight mb-2">
-          Dating Essentials for Gen X
-        </h2>
-        <p className="text-foreground/70 mb-6">
-          Wednesday, October 28 · 7–9pm CT · Live on Zoom
-        </p>
-        <a href="/essentials/" className="btn-pill">
-          Grab your seat
-        </a>
-      </section>
-
       {/* Newsletter — moved to bottom */}
       <section className="border-t border-border">
         <NewsletterSignup
@@ -219,16 +230,6 @@ const Index = () => {
         />
       </section>
 
-      {/* Project footnote */}
-      <section className="border-t border-border max-w-4xl mx-auto px-6 py-8 md:py-10">
-        <p className="text-sm text-muted-foreground">
-          Also:{' '}
-          <Link to="/events" className="underline hover:text-foreground transition-colors">
-            How to Date Humans
-          </Link>{' '}
-          — a series of events and talks to shape the future of dating culture by looking at what happened and how we might shift things.
-        </p>
-      </section>
     </div>
   );
 };
