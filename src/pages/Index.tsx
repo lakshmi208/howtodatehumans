@@ -78,7 +78,7 @@ const Index = () => {
       <section id="webinar" className="border-t border-border">
         <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
           <p className="eyebrow mb-3" style={eyebrowCoral}>
-            Tuesday, September 29 · 7–9pm CT · Live on Zoom
+            Wednesday, October 28 · 7–9pm CT · Live on Zoom
           </p>
           <h2 className="font-display text-3xl md:text-5xl leading-tight mb-4">
             Dating Essentials for Gen X
@@ -196,7 +196,7 @@ const Index = () => {
           Dating Essentials for Gen X
         </h2>
         <p className="text-foreground/70 mb-6">
-          Tuesday, September 29 · 7–9pm CT · Live on Zoom
+          Wednesday, October 28 · 7–9pm CT · Live on Zoom
         </p>
         <a href="/essentials/" className="btn-pill">
           Grab your seat

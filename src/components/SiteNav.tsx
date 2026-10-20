@@ -8,7 +8,7 @@ const navItems = [
   { label: 'Newsletter', href: '/#newsletter', activePath: '/#newsletter' },
   { label: 'The Project', href: '/events', activePath: '/events' },
   { label: 'About', href: '/about', activePath: '/about' },
-  // Lives outside this app (static page in public/essentials), so it needs a full page load.
+  // Lives outside this app (separate page built from essentials/), so it needs a full page load.
   { label: 'Webinar', href: '/essentials/', activePath: '/essentials/', external: true },
 ];
 

@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import htdhLogo from "@/assets/htdh-stacked-logo.webp";
 import lakshmiPhoto from "@/assets/lakshmi-green-dress.jpg";
+import kickoffPhoto from "@/assets/lakshmi-kickoff-event.jpg";
 import genXVideo from "@/assets/X_logo_intro.mp4";
 import genXVideoPoster from "@/assets/X_logo_intro_poster.jpg";
 import matchLogo from "@/assets/logos/match.svg";
@@ -16,7 +17,7 @@ import iftfLogo from "@/assets/logos/iftf-official.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dating essentials for Gen X — Tuesday, September 29, 7–9pm CT" },
+      { title: `Dating essentials for Gen X — ${EVENT_DATE}, 7–9pm CT` },
       { name: "description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
       { property: "og:title", content: "Dating essentials for Gen X" },
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
@@ -29,7 +30,11 @@ export const Route = createFileRoute("/")({
   component: WebinarPage,
 });
 
-const EVENT_LINE = "Tuesday, September 29 · 7–9pm CT · live on Zoom · a virtual session";
+// Change the date here — it's used everywhere on the page.
+const EVENT_DATE = "Wednesday, October 28";
+const EVENT_DATE_SHORT = "Oct 28";
+const EVENT_LINE = `${EVENT_DATE} · 7–9pm CT · live on Zoom · a virtual session`;
+const SEAT_LINK = "https://calendly.com/lakshmi-howtodatehumans/dating-essentials-for-gen-x-clone";
 
 const stages = [
   { title: "standard", sub: "20s / 30s", mid: false },
@@ -77,9 +82,15 @@ const credentials: Credential[] = [
 ];
 
 const format = [
-  { time: "90 min", label: "content" },
-  { time: "30 min", label: "Q&A" },
+  { time: "75 min", label: "content" },
+  { time: "45 min", label: "Q&A" },
   { time: "30 min", label: "optional — learn about Lakshmi's offerings" },
+];
+
+const offerings = [
+  { title: "Jumpstart for Men", label: "a six-session reset for recently divorced men" },
+  { title: "Didn't Marry Gen X Women", label: "a customized coaching program for women who didn't marry" },
+  { title: "1:1 Coaching", label: "for Gen Xers of all relationship histories" },
 ];
 
 const faq = [
@@ -93,7 +104,7 @@ const faq = [
 function SeatButton({ className = "", small = false }: { className?: string; small?: boolean }) {
   return (
     <Button asChild size={small ? "sm" : "lg"} className={`h-auto rounded-full ${small ? "px-5 py-2 text-[11px]" : "px-8 py-3.5 text-[13px]"} font-semibold uppercase tracking-[0.09em] soft-shadow transition-transform hover:-translate-y-0.5 ${className}`}>
-      <a href="https://calendly.com/lakshmi-howtodatehumans/essentials" target="_blank" rel="noreferrer">
+      <a href={SEAT_LINK} target="_blank" rel="noreferrer">
         GRAB YOUR SEAT
       </a>
     </Button>
@@ -161,7 +172,7 @@ function WebinarPage() {
           </span>
           <div className="flex items-center gap-4">
             <span className="hidden text-[12px] uppercase tracking-[0.1em] text-muted-foreground sm:inline">
-              Sept 29 · 7–9pm CT
+              {EVENT_DATE_SHORT} · 7–9pm CT
             </span>
             <SeatButton small />
           </div>
@@ -215,9 +226,19 @@ function WebinarPage() {
             </p>
           </section>
 
-          <hr className="border-t border-border" />
+          <figure className="m-0 border-y border-border py-14 text-center">
+            <blockquote className="mx-auto max-w-[40ch] font-display text-[22px] italic leading-snug text-primary sm:text-[26px]">
+              “There's magic to love… These circuits are deeply embedded in the human brain. They're going to survive as long as our species survive on what Shakespeare called, this ‘mortal coil.’”
+            </blockquote>
+            <figcaption className="mt-5 text-[13px] uppercase tracking-[0.1em] text-muted-foreground">
+              — Dr. Helen Fisher, biological anthropologist
+            </figcaption>
+          </figure>
 
           <section className="py-16">
+            <p className="mb-12 max-w-[56ch] text-[19px] leading-relaxed">
+              Most of the people I talk to have already heard the advice. A lot of it they even agree with. What's off is how dating actually feels for them right now, and they've gotten pretty good at spotting advice that wasn't written with their life in mind.
+            </p>
             <div className="grid items-start gap-10 sm:grid-cols-[1fr_1fr]">
               <div>
                 <h2 className="font-display text-[28px] font-semibold leading-tight text-primary">
@@ -284,7 +305,9 @@ function WebinarPage() {
             <Eyebrow>More on Lakshmi</Eyebrow>
             <div className="mt-2 grid gap-10 sm:grid-cols-2">
               <div>
-                <img src={lakshmiPhoto} alt="Lakshmi speaking onstage in a green dress" className="h-64 w-full rounded-lg object-cover object-[center_28%] sm:h-52" />
+                <div className="h-64 w-full overflow-hidden rounded-lg sm:h-52">
+                  <img src={kickoffPhoto} alt="Lakshmi on the mic at a How to Date Humans event, the audience laughing" className="h-full w-full origin-[62%_52%] scale-[1.7] object-cover object-[62%_52%]" />
+                </div>
                 <p className="mt-4 font-display text-[22px] font-semibold">Lakshmi</p>
                 <p className="text-[13px] text-cream-text/80">Dating culture researcher and coach for Gen X</p>
               </div>
@@ -344,6 +367,18 @@ function WebinarPage() {
                 </li>
               ))}
             </ul>
+
+            <p className="mt-12 text-[17px]">
+              Stay on for the last 30 minutes and learn more about two niche offerings, plus general coaching:
+            </p>
+            <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+              {offerings.map((item) => (
+                <li key={item.title} className="glass-card rounded-xl p-5 text-center">
+                  <span className="block font-display text-[20px] font-semibold leading-tight text-primary">{item.title}</span>
+                  <span className="mt-2 block text-[13px] text-muted-foreground">{item.label}</span>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <hr className="border-t border-border" />
@@ -366,6 +401,15 @@ function WebinarPage() {
             </dl>
           </section>
 
+          <figure className="m-0 pb-16 text-center">
+            <blockquote className="mx-auto max-w-[44ch] font-display text-[22px] italic leading-snug sm:text-[24px]">
+              “Interesting, insightful and validating. I am actually equipped to date in these times as a Gen Xer.”
+            </blockquote>
+            <figcaption className="mt-4 text-[13px] uppercase tracking-[0.1em] text-muted-foreground">
+              — Leah, 56 · September session
+            </figcaption>
+          </figure>
+
           <section
             id="seat"
             className="scroll-mt-24 rounded-2xl border border-border-strong bg-card/80 px-6 py-14 text-center soft-shadow"
@@ -374,7 +418,7 @@ function WebinarPage() {
             <h2 className="font-display text-[34px] font-bold leading-tight text-primary sm:text-[40px]">
               Dating essentials for Gen X
             </h2>
-            <p className="mt-4 text-[16px]">Tuesday, September 29 · 7–9pm CT · $85 · capped at 25</p>
+            <p className="mt-4 text-[16px]">{EVENT_DATE} · 7–9pm CT · $85 · capped at 25</p>
             <div className="mt-7">
               <SeatButton />
             </div>
