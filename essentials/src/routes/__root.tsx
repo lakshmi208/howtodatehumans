@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dating essentials for Gen X" },
+      { title: "Gen X Dating Essentials" },
       { name: "description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today." },
       { name: "author", content: "Lakshmi" },
-      { property: "og:title", content: "Dating essentials for Gen X" },
+      { property: "og:title", content: "Gen X Dating Essentials" },
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

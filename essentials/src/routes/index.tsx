@@ -17,9 +17,9 @@ import iftfLogo from "@/assets/logos/iftf-official.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `Dating essentials for Gen X — ${EVENT_DATE}, 7–9pm CT` },
+      { title: `Gen X Dating Essentials — ${EVENT_DATE}, 7–9pm CT` },
       { name: "description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
-      { property: "og:title", content: "Dating essentials for Gen X" },
+      { property: "og:title", content: "Gen X Dating Essentials" },
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://howtodatehumans.com/essentials" },
@@ -167,7 +167,7 @@ function WebinarPage() {
               <img src={htdhLogo} alt="How to Date Humans" className="h-9 w-auto" />
             </a>
             <span aria-hidden="true" className="hidden text-[17px] font-light text-muted-foreground/70 sm:inline">/</span>
-            <span className="hidden font-display text-[15px] font-semibold text-primary sm:inline">Dating Essentials for Gen X</span>
+            <span className="hidden font-display text-[15px] font-semibold text-primary sm:inline">Gen X Dating Essentials</span>
           </span>
           <div className="flex items-center gap-4">
             <span className="hidden text-[12px] uppercase tracking-[0.1em] text-muted-foreground sm:inline">
@@ -186,7 +186,7 @@ function WebinarPage() {
               Live webinar
             </span>
             <h1 className="mt-6 font-display text-[46px] font-bold leading-[1.05] tracking-[-0.01em] text-primary sm:text-[60px]">
-              Dating essentials for Gen X
+              Gen X Dating Essentials
             </h1>
             <p className="mt-5 max-w-[34ch] font-sans text-[20px] leading-snug text-foreground/85 sm:text-[24px]">
               The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today...
@@ -415,7 +415,7 @@ function WebinarPage() {
           >
             <GenXConvergenceVideo />
             <h2 className="font-display text-[34px] font-bold leading-tight text-primary sm:text-[40px]">
-              Dating essentials for Gen X
+              Gen X Dating Essentials
             </h2>
             <p className="mt-4 text-[16px]">{EVENT_DATE} · 7–9pm CT · $85 · capped at 25</p>
             <div className="mt-7">

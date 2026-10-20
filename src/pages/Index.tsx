@@ -49,7 +49,7 @@ const paths = [
     image: genXFlag,
     alt: 'A Gen X flag: four red Xs between a pink and a brown stripe, labeled Divorced, Didn’t Marry, Widowed and Something Else',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
-    next: { label: 'Up next: Oct 28', detail: 'Dating Essentials for Gen X · live on Zoom', href: '/essentials/', external: true },
+    next: { label: 'Up next: Oct 28', detail: 'Gen X Dating Essentials · live on Zoom', href: '/essentials/', external: true },
     more: { label: 'Coaching', href: '/coaching' },
   },
   {
