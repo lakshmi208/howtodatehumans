@@ -59,7 +59,7 @@ const paths = [
     image: chicagoHeartsFlag,
     alt: 'The Chicago flag with its stars redrawn as hearts, filling in from outline to solid',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
-    next: { label: 'Up next: Nov 5', detail: 'Dating in Collapse · Three Cities Social, River North', href: '/events' },
+    next: { label: 'Up next: Nov 5', detail: 'Dating in Collapse · Three Cities Social, River North', href: '/events#up-next' },
     more: { label: 'Events', href: '/events' },
   },
 ];

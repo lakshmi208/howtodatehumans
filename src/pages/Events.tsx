@@ -92,22 +92,10 @@ const pastEvents: PastEvent[] = [
 
 const upcomingEvents = [
   {
-    month: 'June',
-    title: 'The New Era of Dating',
-    venue: 'BIAN Social Club',
-    status: 'Members only',
-  },
-  {
-    month: 'July',
-    title: 'Invitation only event',
-    venue: 'SHFT Behavioral Health',
-    status: 'Stay tuned',
-  },
-  {
-    month: 'August',
-    title: 'Six-Month Project Check-in',
-    venue: 'Working From at The Hoxton',
-    status: '',
+    month: 'November 5',
+    title: 'Dating in Collapse',
+    venue: 'Three Cities Social, River North',
+    status: 'Tickets coming soon',
   },
 ];
 
@@ -325,7 +313,7 @@ const Events = () => {
       >
         <p className="eyebrow mb-3">Up Next</p>
         <h2 className="font-display text-3xl md:text-5xl leading-tight mb-10 max-w-3xl">
-          Three more coming this summer.
+          Coming this fall.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
