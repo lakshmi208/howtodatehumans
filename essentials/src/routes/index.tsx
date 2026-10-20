@@ -33,7 +33,6 @@ export const Route = createFileRoute("/")({
 // Change the date here — it's used everywhere on the page.
 const EVENT_DATE = "Wednesday, October 28";
 const EVENT_DATE_SHORT = "Oct 28";
-const EVENT_LINE = `${EVENT_DATE} · 7–9pm CT · live on Zoom · a virtual session`;
 const SEAT_LINK = "https://calendly.com/lakshmi-howtodatehumans/dating-essentials-for-gen-x-clone";
 
 const stages = [
@@ -43,11 +42,11 @@ const stages = [
 ];
 
 const rightForYou = [
-  "you're between 45-62 single and dating or thinking about it.",
-  "mass market/generic dating advice doesn't resonate with you.",
+  "you're between 45-62 single and dating or thinking about it",
+  "mass market/generic dating advice doesn't resonate with you",
   "you would like to prioritize love and connection",
-  "you're not trying to get into a committed relationship in three months or less.",
-  "you are willing to understand dating vs. simply getting tips and tricks.",
+  "you're not trying to get into a committed relationship in three months or less",
+  "you are willing to understand dating vs. simply getting tips and tricks",
 ];
 
 const isList = [
@@ -194,7 +193,7 @@ function WebinarPage() {
             </p>
 
             <div className="mt-9 glass-card rounded-xl p-6 sm:p-7">
-              <p className="text-[15px]">{EVENT_LINE}</p>
+              <p className="text-[15px]"><strong className="font-semibold">{EVENT_DATE} · 7–9pm CT</strong> · live on Zoom · a virtual session</p>
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
                 <span className="font-display text-[34px] font-bold leading-none text-primary">$85</span>
                 <span className="text-[14px] text-muted-foreground">capped at 25 seats</span>
