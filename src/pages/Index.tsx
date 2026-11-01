@@ -49,7 +49,7 @@ const paths = [
     image: genXFlag,
     alt: 'A Gen X flag: four red Xs between a pink and a brown stripe, labeled Divorced, Didn’t Marry, Widowed and Something Else',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
-    next: { label: 'Up next: Oct 28', detail: 'Gen X Dating Essentials · live on Zoom', href: '/essentials/', external: true },
+    next: { label: 'November dates soon', detail: 'Gen X Dating Essentials · live on Zoom', href: '/essentials/', external: true },
     more: { label: 'Coaching', href: '/coaching' },
   },
   {
@@ -59,7 +59,7 @@ const paths = [
     image: chicagoHeartsFlag,
     alt: 'The Chicago flag with its stars redrawn as hearts, filling in from outline to solid',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
-    next: { label: 'Up next: Nov 5', detail: 'Dating in Collapse · Three Cities Social, River North', href: '/events#up-next' },
+    next: { label: 'Up next: Nov 5', detail: 'Dating in Collapse · Three Cities Social, River North', href: 'https://luma.com/dd9vd1qm', external: true },
     more: { label: 'Events', href: '/events' },
   },
 ];
@@ -103,7 +103,13 @@ const Index = () => {
               <div className="mt-auto">
                 <p className="text-sm text-foreground/70 mb-3">{path.next.detail}</p>
                 {path.next.external ? (
-                  <a href={path.next.href} className="btn-pill">{path.next.label}</a>
+                  <a
+                    href={path.next.href}
+                    {...(path.next.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="btn-pill"
+                  >
+                    {path.next.label}
+                  </a>
                 ) : (
                   <Link to={path.next.href} className="btn-pill">{path.next.label}</Link>
                 )}

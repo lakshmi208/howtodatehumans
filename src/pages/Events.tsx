@@ -95,7 +95,8 @@ const upcomingEvents = [
     month: 'November 5',
     title: 'Dating in Collapse',
     venue: 'Three Cities Social, River North',
-    status: 'Tickets coming soon',
+    status: '',
+    tickets: 'https://luma.com/dd9vd1qm',
   },
 ];
 
@@ -336,6 +337,11 @@ const Events = () => {
                 <p className="text-xs uppercase tracking-widest text-muted-foreground italic">
                   {ev.status}
                 </p>
+              )}
+              {ev.tickets && (
+                <a href={ev.tickets} target="_blank" rel="noopener noreferrer" className="btn-pill mt-2">
+                  Get tickets
+                </a>
               )}
             </div>
           ))}
