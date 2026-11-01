@@ -77,13 +77,14 @@ const Index = () => {
         </h1>
 
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
-          I care about how people meet and if they actually connect, and about
-          what technology and shifts in culture have done to our hearts.
+          I care about how people meet and if they actually connect.
+        </p>
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl mb-4">
+          I care about what technology and shifts in culture have done to our hearts.
         </p>
         <p className="text-lg md:text-xl leading-relaxed text-foreground/85 max-w-2xl">
-          I&rsquo;m going about it two ways: one by coaching one generation, the
-          other by shifting dating culture in one city. Read below to learn why
-          each matters.
+          What we need now: a two-path approach. One focused on a generation, the
+          other on a geography.
         </p>
       </section>
 
