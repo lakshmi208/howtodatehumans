@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 // Change the date here — it's used everywhere on the page.
 const EVENT_DATE = "Wednesday, October 28";
 const EVENT_DATE_SHORT = "Oct 28";
-const SEAT_LINK = "https://calendly.com/lakshmi-howtodatehumans/dating-essentials-for-gen-x-clone";
+const SEAT_LINK = "https://how-to-date-humans.kit.com/a56234b8a6";
 
 const stages = [
   { title: "standard", sub: "20s / 30s", mid: false },
