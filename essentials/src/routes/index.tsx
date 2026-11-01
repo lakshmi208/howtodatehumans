@@ -17,7 +17,7 @@ import iftfLogo from "@/assets/logos/iftf-official.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `Gen X Dating Essentials — ${EVENT_DATE}, 7–9pm CT` },
+      { title: "Gen X Dating Essentials — monthly live webinar" },
       { name: "description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
       { property: "og:title", content: "Gen X Dating Essentials" },
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
@@ -30,9 +30,11 @@ export const Route = createFileRoute("/")({
   component: WebinarPage,
 });
 
-// Change the date here — it's used everywhere on the page.
-const EVENT_DATE = "Wednesday, October 28";
-const EVENT_DATE_SHORT = "Oct 28";
+// Change the session timing here — it's used everywhere on the page.
+// When a date is set, e.g. "Wednesday, November 18 · 7–9pm CT" / "Nov 18 · 7–9pm CT".
+const EVENT_WHEN = "Monthly · November dates coming soon";
+const EVENT_WHEN_SHORT = "November dates soon";
+const SEAT_LABEL = "GET THE NEXT DATE";
 const SEAT_LINK = "https://how-to-date-humans.kit.com/a56234b8a6";
 
 const stages = [
@@ -104,7 +106,7 @@ function SeatButton({ className = "", small = false }: { className?: string; sma
   return (
     <Button asChild size={small ? "sm" : "lg"} className={`h-auto rounded-full ${small ? "px-5 py-2 text-[11px]" : "px-8 py-3.5 text-[13px]"} font-semibold uppercase tracking-[0.09em] soft-shadow transition-transform hover:-translate-y-0.5 ${className}`}>
       <a href={SEAT_LINK} target="_blank" rel="noreferrer">
-        GRAB YOUR SEAT
+        {SEAT_LABEL}
       </a>
     </Button>
   );
@@ -171,7 +173,7 @@ function WebinarPage() {
           </span>
           <div className="flex items-center gap-4">
             <span className="hidden text-[12px] font-bold uppercase tracking-[0.1em] text-foreground sm:inline">
-              {EVENT_DATE_SHORT} · 7–9pm CT
+              {EVENT_WHEN_SHORT}
             </span>
             <SeatButton small />
           </div>
@@ -193,7 +195,7 @@ function WebinarPage() {
             </p>
 
             <div className="mt-9 glass-card rounded-xl p-6 sm:p-7">
-              <p className="text-[15px]"><strong className="block font-display text-[22px] font-semibold leading-snug text-foreground sm:inline sm:text-[24px]"><span className="whitespace-nowrap">{EVENT_DATE}</span> · <span className="whitespace-nowrap">7–9pm CT</span></strong><span className="mt-1 block sm:mt-0 sm:inline"><span className="hidden sm:inline"> · </span>live on Zoom · a virtual session</span></p>
+              <p className="text-[15px]"><strong className="block font-display text-[22px] font-semibold leading-snug text-foreground sm:inline sm:text-[24px]">{EVENT_WHEN}</strong><span className="mt-1 block sm:mt-0 sm:inline"><span className="hidden sm:inline"> · </span>live on Zoom · a virtual session</span></p>
               <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
                 <span className="font-display text-[34px] font-bold leading-none text-primary">$85</span>
                 <span className="text-[14px] text-muted-foreground">capped at 25 seats</span>
@@ -417,7 +419,7 @@ function WebinarPage() {
             <h2 className="font-display text-[34px] font-bold leading-tight text-primary sm:text-[40px]">
               Gen X Dating Essentials
             </h2>
-            <p className="mt-4 text-[16px]">{EVENT_DATE} · 7–9pm CT · $85 · capped at 25</p>
+            <p className="mt-4 text-[16px]">{EVENT_WHEN} · $85 · capped at 25</p>
             <div className="mt-7">
               <SeatButton />
             </div>

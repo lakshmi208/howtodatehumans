@@ -51,7 +51,7 @@ try {
   const url = `http://127.0.0.1:${port}${basepath}/`;
   await waitForServer(url);
   const html = await (await fetch(url)).text();
-  if (!html.includes("GRAB YOUR SEAT")) {
+  if (!html.includes("Gen X Dating Essentials")) {
     throw new Error("rendered page is missing expected content — not saving it");
   }
 
