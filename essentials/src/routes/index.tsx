@@ -17,7 +17,7 @@ import iftfLogo from "@/assets/logos/iftf-official.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gen X Dating Essentials — monthly live webinar" },
+      { title: "Gen X Dating Essentials — Saturday, November 14, 10am–12pm CT" },
       { name: "description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
       { property: "og:title", content: "Gen X Dating Essentials" },
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
@@ -31,11 +31,13 @@ export const Route = createFileRoute("/")({
 });
 
 // Change the session timing here — it's used everywhere on the page.
-// When a date is set, e.g. "Wednesday, November 18 · 7–9pm CT" / "Nov 18 · 7–9pm CT".
-const EVENT_WHEN = "Monthly · November dates coming soon";
-const EVENT_WHEN_SHORT = "November dates soon";
-const SEAT_LABEL = "GET THE NEXT DATE";
-const SEAT_LINK = "https://how-to-date-humans.kit.com/a56234b8a6";
+// Between sessions: "Monthly · November dates coming soon" / "November dates soon",
+// label "GET THE NEXT DATE", link https://how-to-date-humans.kit.com/a56234b8a6 (Kit signup).
+// \u00a0 / \u2060 keep "10am–12pm CT" from splitting across lines on phones.
+const EVENT_WHEN = "Saturday, November 14 · 10am\u2060–\u206012pm\u00a0CT";
+const EVENT_WHEN_SHORT = "Nov 14 · 10am–12pm CT";
+const SEAT_LABEL = "GRAB YOUR SEAT";
+const SEAT_LINK = "https://calendly.com/lakshmi-howtodatehumans/dating-essentials-for-gen-x-clone";
 
 const stages = [
   { title: "standard", sub: "20s / 30s", mid: false },
