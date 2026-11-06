@@ -92,11 +92,11 @@ const pastEvents: PastEvent[] = [
 
 const upcomingEvents = [
   {
-    month: 'November 5',
-    title: 'Dating in Collapse',
-    venue: 'Three Cities Social, River North',
+    month: 'November 11',
+    title: 'LOVE Trivia: Chicago Edition',
+    venue: 'Working From, Fulton Market · 6:30–8:30pm',
     status: '',
-    tickets: 'https://luma.com/dd9vd1qm',
+    tickets: 'https://luma.com/13rvh2i8',
   },
 ];
 
