@@ -232,7 +232,7 @@ const Events = () => {
       <section id="past" className="max-w-6xl mx-auto px-6 pb-16 md:pb-24 scroll-mt-20">
         <p className="eyebrow mb-3">Past Events</p>
         <h2 className="font-display text-3xl md:text-5xl leading-tight mb-10 max-w-3xl">
-          7 events in, #8 coming soon, more case studies on the way...
+          9 months&hellip; hundreds of attendees and ideas for how to change dating in Chicago.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
