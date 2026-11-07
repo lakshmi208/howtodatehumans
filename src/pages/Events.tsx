@@ -29,6 +29,10 @@ import collapse1 from '@/assets/events-past/collapse-1.jpg';
 import collapse2 from '@/assets/events-past/collapse-2.jpg';
 import collapse3 from '@/assets/events-past/collapse-3.jpg';
 import collapse4 from '@/assets/events-past/collapse-4.jpg';
+import collapseNovAudience from '@/assets/events-past/collapse-nov-audience.webp';
+import collapseNovTitle from '@/assets/events-past/collapse-nov-title.jpg';
+import collapseNovQuestion from '@/assets/events-past/collapse-nov-question.jpg';
+import collapseNovChart from '@/assets/events-past/collapse-nov-chart.jpg';
 
 // Listening session photos (research)
 import discussionPhoto from '@/assets/photos/discussion.jpg';
@@ -86,6 +90,20 @@ const pastEvents: PastEvent[] = [
       "What's the point of dating when it feels like the world is falling apart? For many, the decision to date or not is not technical, it's existential.",
     quotes: [
       'I deeply resonated with the talk and wanted to say thank you — the dots you connected make me want to keep my heart open.',
+    ],
+  },
+  {
+    slug: 'dating-in-collapse-november',
+    date: 'Nov 5, 2026',
+    title: 'Dating in Collapse',
+    venue: 'Three Cities Social, River North',
+    cover: collapseNovAudience,
+    photos: [collapseNovAudience, collapseNovTitle, collapseNovQuestion, collapseNovChart],
+    purpose:
+      "Whether you're in a relationship or not, getting to know others seems more challenging than ever. How did the dating industry and the cultural forces around it conspire to make connection today seem easy but feel incredibly hard? This primer sets the stage for reimagining dating in Chicago.",
+    quotes: [
+      "Why don't more people know this? This would change how people date…",
+      "It's way more useful to connect dots than complain. Thank you for an excellent, eye-opening event.",
     ],
   },
 ];
