@@ -50,7 +50,10 @@ const paths = [
     alt: 'A Gen X flag: four red Xs between a pink and a brown stripe, labeled Divorced, Didn’t Marry, Widowed and Something Else',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
     next: { label: 'Up next: Nov 14', detail: 'Gen X Dating Essentials · live on Zoom', href: '/essentials/', external: true },
-    more: { label: 'Coaching', href: '/coaching' },
+    more: [
+      { label: 'Coaching', href: '/coaching' },
+      { label: 'Gen X newsletter', href: 'https://how-to-date-humans.kit.com/309ebcb8ed' },
+    ],
   },
   {
     eyebrow: 'By geography',
@@ -60,7 +63,7 @@ const paths = [
     alt: 'The Chicago flag with its stars redrawn as hearts, filling in from outline to solid',
     imageClass: 'w-full h-auto scale-[1.12] mix-blend-multiply',
     next: { label: 'Up next: Nov 11', detail: 'LOVE Trivia · Working From, Fulton Market', href: 'https://luma.com/13rvh2i8', external: true },
-    more: { label: 'Events', href: '/events' },
+    more: [{ label: 'Events', href: '/events' }],
   },
 ];
 
@@ -115,9 +118,19 @@ const Index = () => {
                   <Link to={path.next.href} className="btn-pill">{path.next.label}</Link>
                 )}
               </div>
-              <Link to={path.more.href} className="mt-5 text-sm font-medium hover:underline">
-                {path.more.label} →
-              </Link>
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                {path.more.map((link) =>
+                  link.href.startsWith('http') ? (
+                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm font-medium hover:underline">
+                      {link.label} →
+                    </a>
+                  ) : (
+                    <Link key={link.label} to={link.href} className="text-sm font-medium hover:underline">
+                      {link.label} →
+                    </Link>
+                  ),
+                )}
+              </div>
             </div>
           ))}
         </div>

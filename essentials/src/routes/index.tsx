@@ -36,7 +36,9 @@ export const Route = createFileRoute("/")({
 // \u00a0 / \u2060 keep "10am–12pm CT" from splitting across lines on phones.
 const EVENT_WHEN = "Saturday, November 14 · 10am\u2060–\u206012pm\u00a0CT";
 const EVENT_WHEN_SHORT = "Nov 14 · 10am–12pm CT";
-const SEAT_LABEL = "GRAB YOUR SEAT";
+const SEAT_LABEL = "RESERVE YOUR SPOT";
+// Gen X Dating Insights newsletter (Kit) — for people not ready to book a session.
+const NEWSLETTER_LINK = "https://how-to-date-humans.kit.com/309ebcb8ed";
 const SEAT_LINK = "https://calendly.com/lakshmi-howtodatehumans/dating-essentials-for-gen-x-clone";
 
 const stages = [
@@ -103,6 +105,17 @@ const faq = [
   ["Recording terms", "Your seat includes a personal recording of the session. It stays personal — please don't share, post, or redistribute it, or any session materials."],
   ["Is this for men or for women?", "Both, deliberately."],
 ];
+
+function NewsletterLink({ className = "" }: { className?: string }) {
+  return (
+    <p className={`text-[14px] text-muted-foreground ${className}`}>
+      Not ready for a session?{" "}
+      <a href={NEWSLETTER_LINK} target="_blank" rel="noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
+        Get Gen X Dating Insights, the newsletter →
+      </a>
+    </p>
+  );
+}
 
 function SeatButton({ className = "", small = false }: { className?: string; small?: boolean }) {
   return (
@@ -203,6 +216,7 @@ function WebinarPage() {
                 <span className="text-[14px] text-muted-foreground">capped at 25 seats</span>
                 <SeatButton className="ml-auto" />
               </div>
+              <NewsletterLink className="mt-5 border-t border-border pt-4" />
             </div>
 
             <ul className="mt-12 grid grid-cols-3 gap-3">
@@ -428,6 +442,7 @@ function WebinarPage() {
             <p className="mt-5 text-[13px] text-muted-foreground">
               Your seat includes a personal recording — for you, not for sharing.
             </p>
+            <NewsletterLink className="mt-8" />
           </section>
         </main>
       </div>
