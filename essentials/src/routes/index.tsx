@@ -23,7 +23,13 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "The mechanics changed the advice stayed the same: Dating insights for who you are now and what it takes to connect today. $85, capped at 25 seats." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://howtodatehumans.com/essentials" },
+      // The thumbnail shown when this page is shared (LinkedIn, texts, etc.).
+      { property: "og:image", content: "https://howtodatehumans.com/essentials/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "A large red X with four paths, divorced, didn't marry, widowed and something else, meeting at a dot labeled You (all) are here." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://howtodatehumans.com/essentials/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://howtodatehumans.com/essentials" }],
   }),
